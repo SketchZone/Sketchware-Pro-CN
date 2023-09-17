@@ -44,16 +44,16 @@ public class BuildSettingsDialog {
         TextView save = inflate.findViewById(R.id.text_save);
 
         icon.setImageResource(R.drawable.side_menu_setting_icon_over);
-        title.setText("Build Settings");
+        title.setText(R.string.build_settings);
 
         View[] viewArr = {
                 addInputPref(BuildSettings.SETTING_ANDROID_JAR_PATH, "", "Custom android.jar", EditorInfo.TYPE_CLASS_TEXT, contentView),
                 addInputPref(BuildSettings.SETTING_CLASSPATH, "", "Classpath (separated by :)", EditorInfo.TYPE_CLASS_TEXT, contentView),
                 addSingleChoicePref(BuildSettings.SETTING_DEXER, new String[]{"Dx", "D8"}, "Dx", "Dexer", contentView),
                 addSingleChoicePref(BuildSettings.SETTING_JAVA_VERSION, BuildSettingsDialogBridge.getAvailableJavaVersions(), "1.7", "Java version", contentView),
-                addTogglePref(BuildSettings.SETTING_NO_WARNINGS, true, "Hide warnings in error log", contentView),
+                addTogglePref(BuildSettings.SETTING_NO_WARNINGS, true, activity.getString(R.string.build_setting_lable2), contentView),
                 addTogglePref(BuildSettings.SETTING_NO_HTTP_LEGACY, false, "Don't include http-legacy-28.dex", contentView),
-                addTogglePref(BuildSettings.SETTING_ENABLE_LOGCAT, true, "Enable debug logcat logs viewable in Logcat Reader. Not enabled in exported AABs/APKs.", contentView)
+                addTogglePref(BuildSettings.SETTING_ENABLE_LOGCAT, true, activity.getString(R.string.build_setting_lable), contentView)
         };
 
         builder.setView(inflate);
@@ -155,7 +155,7 @@ public class BuildSettingsDialog {
         if (key.equals(BuildSettings.SETTING_NO_HTTP_LEGACY)) {
             checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
                 if (isChecked) {
-                    SketchwareUtil.toast("Note that this option may cause issues if RequestNetwork component is used");
+                    SketchwareUtil.toast(activity.getString(R.string.build_setting_toast));
                 }
             });
         }

@@ -210,7 +210,7 @@ public class ProjectsFragment extends DA implements View.OnClickListener {
 
     private void showProjectSortingDialog() {
         SketchDialog dialog = new SketchDialog(requireActivity());
-        dialog.setTitle("Sort options");
+        dialog.setTitle(getString(R.string.main_sort_options));
         View root = wB.a(requireActivity(), R.layout.sort_project_dialog);
         RadioButton sortByName = root.findViewById(R.id.sortByName);
         RadioButton sortByID = root.findViewById(R.id.sortByID);
@@ -231,7 +231,7 @@ public class ProjectsFragment extends DA implements View.OnClickListener {
             sortOrderDesc.setChecked(true);
         }
         dialog.setView(root);
-        dialog.setPositiveButton("Save", v -> {
+        dialog.setPositiveButton(getString(R.string.common_word_save), v -> {
             int sortValue = 0;
             if (sortByName.isChecked()) {
                 sortValue |= ProjectComparator.SORT_BY_NAME;
@@ -249,7 +249,7 @@ public class ProjectsFragment extends DA implements View.OnClickListener {
             dialog.dismiss();
             refreshProjectsList();
         });
-        dialog.setNegativeButton("Cancel", Helper.getDialogDismissListener(dialog));
+        dialog.setNegativeButton(getString(R.string.common_word_cancel), Helper.getDialogDismissListener(dialog));
         dialog.show();
     }
 }

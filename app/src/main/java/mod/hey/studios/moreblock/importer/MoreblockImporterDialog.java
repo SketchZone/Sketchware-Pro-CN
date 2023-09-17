@@ -44,12 +44,12 @@ public class MoreblockImporterDialog {
 
     public void show() {
         final aB dialog = new aB(act);
-        dialog.b("Select a More Block");
+        dialog.b(act.getString(R.string.more_block_select));
         dialog.a(R.drawable.more_block_96dp);
 
         SearchView searchView = new SearchView(act);
 
-        searchView.setQueryHint("Search...");
+        searchView.setQueryHint(act.getString(R.string.more_block_search));
         searchView.setIconifiedByDefault(false);
         searchView.setFocusable(false);
         searchView.setFocusableInTouchMode(true);
@@ -128,7 +128,7 @@ public class MoreblockImporterDialog {
             MoreBlockCollectionBean selectedBean = la.getSelectedItem();
 
             if (selectedBean == null) {
-                SketchwareUtil.toastError("Select a More Block");
+                SketchwareUtil.toastError(act.getString(R.string.more_block_select));
             } else {
                 callback.onSelected(selectedBean);
 

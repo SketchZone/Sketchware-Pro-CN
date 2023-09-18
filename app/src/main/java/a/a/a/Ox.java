@@ -1,5 +1,6 @@
 package a.a.a;
 
+import android.annotation.SuppressLint;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ import dev.aldi.sayuti.editor.injection.AppCompatInjection;
 import mod.agus.jcoderz.beans.ViewBeans;
 import mod.jbk.util.LogUtil;
 
+@SuppressLint("RtlHardcoded")
 public class Ox {
 
     private final jq buildConfig;
@@ -55,37 +57,14 @@ public class Ox {
         while (buffer.hasRemaining()) {
             char got = buffer.get();
             switch (got) {
-                case '?':
-                    result.append("\\?");
-                    break;
-
-                case '@':
-                    result.append("\\@");
-                    break;
-
-                case '\"':
-                    result.append("&quot;");
-                    break;
-
-                case '&':
-                    result.append("&amp;");
-                    break;
-
-                case '<':
-                    result.append("&lt;");
-                    break;
-
-                case '>':
-                    result.append("&gt;");
-                    break;
-
-                case '\n':
-                    result.append("\\n");
-                    break;
-
-                default:
-                    result.append(got);
-                    break;
+                case '?' -> result.append("\\?");
+                case '@' -> result.append("\\@");
+                case '\"' -> result.append("&quot;");
+                case '&' -> result.append("&amp;");
+                case '<' -> result.append("&lt;");
+                case '>' -> result.append("&gt;");
+                case '\n' -> result.append("\\n");
+                default -> result.append(got);
             }
         }
         return result.toString();
@@ -98,7 +77,7 @@ public class Ox {
         nx.addAttribute("android", "orientation", "vertical");
         for (ViewBean viewBean : views) {
             String parent = viewBean.parent;
-            if (parent == null || parent.length() <= 0 || parent.equals("root")) {
+            if (parent == null || parent.isEmpty() || parent.equals("root")) {
                 writeWidget(nx, viewBean);
             }
         }
@@ -178,6 +157,10 @@ public class Ox {
                     if (nx.c().equals("BottomAppBar")) {
                         if (!toNotAdd.contains("app:backgroundTint")) {
                             nx.addAttribute("app", "backgroundTint", String.format("#%06X", color));
+                        }
+                    } else if (nx.c().equals("CardView")) {
+                        if (!toNotAdd.contains("app:cardBackgroundColor")) {
+                            nx.addAttribute("app", "cardBackgroundColor", String.format("#%06X", color));
                         }
                     } else if (nx.c().equals("CollapsingToolbarLayout")) {
                         if (!toNotAdd.contains("app:contentScrim")) {
@@ -290,7 +273,11 @@ public class Ox {
             }
 
             writeLayoutMargin(widgetTag, viewBean);
-            writeViewPadding(widgetTag, viewBean);
+            if (widgetTag.c().equals("CardView")) {
+                writeCardViewPadding(widgetTag, viewBean);
+            } else {
+                writeViewPadding(widgetTag, viewBean);
+            }
             writeBackgroundResource(widgetTag, viewBean);
             if (viewBean.getClassInfo().a("ViewGroup")) {
                 writeViewGravity(widgetTag, viewBean);
@@ -571,6 +558,42 @@ public class Ox {
      * @see View#getPaddingRight()
      * @see View#getPaddingBottom()
      */
+    private void writeCardViewPadding(XmlBuilder nx, ViewBean viewBean) {
+        Set<String> toNotAdd = readAttributesToReplace(viewBean);
+        LayoutBean layoutBean = viewBean.layout;
+        int paddingLeft = layoutBean.paddingLeft;
+        int paddingTop = layoutBean.paddingTop;
+        int paddingRight = layoutBean.paddingRight;
+        int paddingBottom = layoutBean.paddingBottom;
+
+        if (paddingLeft == paddingRight && paddingTop == paddingBottom
+                && paddingLeft == paddingTop && paddingLeft > 0) {
+            if (!toNotAdd.contains("app:contentPadding")) {
+                nx.addAttribute("app", "contentPadding", paddingLeft + "dp");
+            }
+            return;
+        }
+
+        if (paddingLeft > 0 && !toNotAdd.contains("app:contentPaddingLeft")) {
+            nx.addAttribute("app", "contentPaddingLeft", paddingLeft + "dp");
+        }
+        if (paddingTop > 0 && !toNotAdd.contains("app:contentPaddingTop")) {
+            nx.addAttribute("app", "contentPaddingTop", paddingTop + "dp");
+        }
+        if (paddingRight > 0 && !toNotAdd.contains("app:contentPaddingRight")) {
+            nx.addAttribute("app", "contentPaddingRight", paddingRight + "dp");
+        }
+        if (paddingBottom > 0 && !toNotAdd.contains("app:contentPaddingBottom")) {
+            nx.addAttribute("app", "contentPaddingBottom", paddingBottom + "dp");
+        }
+    }
+
+    /**
+     * @see View#getPaddingLeft()
+     * @see View#getPaddingTop()
+     * @see View#getPaddingRight()
+     * @see View#getPaddingBottom()
+     */
     private void writeViewPadding(XmlBuilder nx, ViewBean viewBean) {
         Set<String> toNotAdd = readAttributesToReplace(viewBean);
         LayoutBean layoutBean = viewBean.layout;
@@ -772,18 +795,14 @@ public class Ox {
                 }
 
                 if (!toNotAdd.contains("android:choiceMode")) {
-                    switch (viewBean.choiceMode) {
-                        case ViewBean.CHOICE_MODE_NONE:
-                            nx.addAttribute("android", "choiceMode", "none");
-                            break;
-
-                        case ViewBean.CHOICE_MODE_SINGLE:
-                            nx.addAttribute("android", "choiceMode", "singleChoice");
-                            break;
-
-                        case ViewBean.CHOICE_MODE_MULTI:
-                            nx.addAttribute("android", "choiceMode", "multipleChoice");
-                            break;
+                    var value = switch (viewBean.choiceMode) {
+                        case ViewBean.CHOICE_MODE_NONE -> "none";
+                        case ViewBean.CHOICE_MODE_SINGLE -> "singleChoice";
+                        case ViewBean.CHOICE_MODE_MULTI -> "multipleChoice";
+                        default -> "";
+                    };
+                    if (!value.isEmpty()) {
+                        nx.addAttribute("android", "choiceMode", value);
                     }
                 }
                 break;
@@ -791,7 +810,7 @@ public class Ox {
             case ViewBean.VIEW_TYPE_WIDGET_ADVIEW:
                 String adSize = viewBean.adSize;
                 if (!toNotAdd.contains("app:adSize")) {
-                    if (adSize == null || adSize.length() <= 0) {
+                    if (adSize == null || adSize.length() == 0) {
                         nx.addAttribute("app", "adSize", "SMART_BANNER");
                     } else {
                         nx.addAttribute("app", "adSize", adSize);

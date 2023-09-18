@@ -1054,27 +1054,27 @@ public class DesignActivity extends BaseAppCompatActivity implements OnClickList
 
                         aB dialog = new aB(activity);
                         if (isMissingDirectory) {
-                            dialog.b("Missing directory detected");
-                            dialog.a("A directory important for building is missing. " +
-                                    "Sketchware Pro can try creating " + e.getMissingFile().getAbsolutePath() +
-                                    " if you'd like to.");
+                            dialog.b(activity.getString(R.string.design_missing));
+                            dialog.a(activity.getString(R.string.design_directory) +
+                                    activity.getString(R.string.design_creating) + e.getMissingFile().getAbsolutePath() +
+                                    activity.getString(R.string.design_if_you_d_like_to));
                             dialog.configureDefaultButton(Helper.getResString(R.string.common_word_create), v -> {
                                 dialog.dismiss();
                                 if (!e.getMissingFile().mkdirs()) {
-                                    SketchwareUtil.toastError("Failed to create directory / directories!");
+                                    SketchwareUtil.toastError(activity.getString(R.string.design_failed));
                                 }
                             });
                         } else {
-                            dialog.b("Missing file detected");
-                            dialog.a("A file needed for building is missing. " +
-                                    "Put the correct file back to " + e.getMissingFile().getAbsolutePath() +
-                                    " and try building again.");
+                            dialog.b(activity.getString(R.string.design_detected));
+                            dialog.a(activity.getString(R.string.design_file) +
+                                    activity.getString(R.string.design_put) + e.getMissingFile().getAbsolutePath() +
+                                    activity.getString(R.string.design_try_building_again));
                         }
                         dialog.b(Helper.getResString(R.string.common_word_dismiss), Helper.getDialogDismissListener(dialog));
                         dialog.show();
                     });
                 } catch (Throwable tr) {
-                    LogUtil.e("DesignActivity$BuildAsyncTask", "Failed to build project", tr);
+                    LogUtil.e("DesignActivity$BuildAsyncTask", activity.getString(R.string.design_failed_to_build_project), tr);
                     activity.indicateCompileErrorOccurred(tr instanceof zy ? tr.getMessage() : Log.getStackTraceString(tr));
                 }
             }

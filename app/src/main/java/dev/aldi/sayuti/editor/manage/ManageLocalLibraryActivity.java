@@ -47,7 +47,7 @@ public class ManageLocalLibraryActivity extends Activity implements View.OnClick
     private ArrayList<HashMap<String, Object>> project_used_libs = new ArrayList<>();
 
     private void initToolbar() {
-        ((TextView) findViewById(R.id.tx_toolbar_title)).setText("Local library Manager");
+        ((TextView) findViewById(R.id.tx_toolbar_title)).setText(R.string.local_library_manager);
         ImageView back_icon = findViewById(R.id.ig_toolbar_back);
         Helper.applyRippleToToolbarView(back_icon);
         back_icon.setOnClickListener(Helper.getBackPressedClickListener(this));
@@ -74,13 +74,13 @@ public class ManageLocalLibraryActivity extends Activity implements View.OnClick
             linear.setVisibility(View.GONE);
             String url = editText.getText().toString();
             if (url.isEmpty()) {
-                SketchwareUtil.toastError("Please enter a dependency");
+                SketchwareUtil.toastError(getString(R.string.local_library_toast));
                 return;
             }
 
             var parts = url.split(":");
             if (parts.length != 3) {
-                SketchwareUtil.toastError("Invalid dependency format");
+                SketchwareUtil.toastError(getString(R.string.local_library_toast1));
                 return;
             }
             var group = parts[0];
@@ -91,12 +91,12 @@ public class ManageLocalLibraryActivity extends Activity implements View.OnClick
             Executors.newSingleThreadExecutor().execute(() -> resolver.resolveDependency(new DependencyResolver.DependencyResolverCallback() {
                 @Override
                 public void invalidPackaging(@NonNull String dep) {
-                    handler.post(() -> text.setText("Invalid packaging for dependency " + dep));
+                    handler.post(() -> text.setText(getString(R.string.local_library_text) + dep));
                 }
 
                 @Override
                 public void dexing(@NonNull String dep) {
-                    handler.post(() -> text.setText("Dexing dependency " + dep));
+                    handler.post(() -> text.setText(getString(R.string.local_library_dexing_dependency) + dep));
                 }
 
                 @Override
@@ -106,12 +106,12 @@ public class ManageLocalLibraryActivity extends Activity implements View.OnClick
 
                 @Override
                 public void downloading(@NonNull String dep) {
-                    handler.post(() -> text.setText("Downloading dependency " + dep));
+                    handler.post(() -> text.setText(getString(R.string.local_library_downloading_dependency) + dep));
                 }
 
                 @Override
                 public void startResolving(@NonNull String dep) {
-                    handler.post(() -> text.setText("Resolving dependency " + dep));
+                    handler.post(() -> text.setText(getString(R.string.local_library_resolving_dependency) + dep));
                 }
 
                 @Override
@@ -121,7 +121,7 @@ public class ManageLocalLibraryActivity extends Activity implements View.OnClick
 
                         dialog.dismiss();
                         if (!notAssociatedWithProject) {
-                            log("Enabling downloaded dependencies");
+                            log(getString(R.string.local_library_log));
                             var fileContent = FileUtil.readFile(local_lib_file);
                             var enabledLibs = new Gson().fromJson(fileContent, Helper.TYPE_MAP_LIST);
                             enabledLibs.addAll(dependencies.stream().map(ManageLocalLibraryActivity::createLibraryMap).collect(Collectors.toList()));
@@ -304,10 +304,10 @@ public class ManageLocalLibraryActivity extends Activity implements View.OnClick
 
             convertView.findViewById(R.id.img_delete).setOnClickListener(v -> {
                 PopupMenu popupMenu = new PopupMenu(ManageLocalLibraryActivity.this, v);
-                popupMenu.getMenu().add(Menu.NONE, Menu.NONE, Menu.NONE, "Delete");
+                popupMenu.getMenu().add(Menu.NONE, Menu.NONE, Menu.NONE, R.string.common_word_delete);
                 popupMenu.setOnMenuItemClickListener(menuItem -> {
                     FileUtil.deleteFile(local_libs_path.concat(enabled.getText().toString()));
-                    SketchwareUtil.toast("Deleted successfully");
+                    SketchwareUtil.toast(getString(R.string.common_word_deleted_successfully));
                     loadFiles();
                     return true;
                 });

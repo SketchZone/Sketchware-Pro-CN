@@ -47,12 +47,12 @@ public class BuildSettingsDialog {
         title.setText(R.string.build_settings);
 
         View[] viewArr = {
-                addInputPref(BuildSettings.SETTING_ANDROID_JAR_PATH, "", "Custom android.jar", EditorInfo.TYPE_CLASS_TEXT, contentView),
-                addInputPref(BuildSettings.SETTING_CLASSPATH, "", "Classpath (separated by :)", EditorInfo.TYPE_CLASS_TEXT, contentView),
+                addInputPref(BuildSettings.SETTING_ANDROID_JAR_PATH, "", activity.getString(R.string.build_setting_view1), EditorInfo.TYPE_CLASS_TEXT, contentView),
+                addInputPref(BuildSettings.SETTING_CLASSPATH, "", activity.getString(R.string.build_setting_view2), EditorInfo.TYPE_CLASS_TEXT, contentView),
                 addSingleChoicePref(BuildSettings.SETTING_DEXER, new String[]{"Dx", "D8"}, "Dx", "Dexer", contentView),
-                addSingleChoicePref(BuildSettings.SETTING_JAVA_VERSION, BuildSettingsDialogBridge.getAvailableJavaVersions(), "1.7", "Java version", contentView),
+                addSingleChoicePref(BuildSettings.SETTING_JAVA_VERSION, BuildSettingsDialogBridge.getAvailableJavaVersions(), "1.7", activity.getString(R.string.java_version), contentView),
                 addTogglePref(BuildSettings.SETTING_NO_WARNINGS, true, activity.getString(R.string.build_setting_lable2), contentView),
-                addTogglePref(BuildSettings.SETTING_NO_HTTP_LEGACY, false, "Don't include http-legacy-28.dex", contentView),
+                addTogglePref(BuildSettings.SETTING_NO_HTTP_LEGACY, false, activity.getString(R.string.build_setting_view3), contentView),
                 addTogglePref(BuildSettings.SETTING_ENABLE_LOGCAT, true, activity.getString(R.string.build_setting_lable), contentView)
         };
 

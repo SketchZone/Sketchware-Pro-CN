@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rename file"
+            android:text="@string/rename_file"
             android:textColor="#ff008dcd"
             android:textSize="18sp"
             android:textStyle="bold" />

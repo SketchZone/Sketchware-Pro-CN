@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import android.widget.TextView;
 
 import androidx.appcompat.widget.SwitchCompat;
@@ -59,7 +58,7 @@ public class ManageProguardActivity extends Activity implements View.OnClickList
         }
 
         AlertDialog.Builder bld = new AlertDialog.Builder(this);
-        bld.setTitle("Select Local libraries");
+        bld.setTitle(R.string.select_local_libraries);
         bld.setMultiChoiceItems(libraries, enabledLibraries, (dialog, which, isChecked) -> enabledLibraries[which] = isChecked);
         bld.setPositiveButton(R.string.common_word_save, (dialog, which) -> {
 
@@ -126,7 +125,7 @@ public class ManageProguardActivity extends Activity implements View.OnClickList
     }
 
     private void _initToolbar() {
-        ((TextView) findViewById(R.id.tx_toolbar_title)).setText("Code Shrinking Manager");
+        ((TextView) findViewById(R.id.tx_toolbar_title)).setText(R.string.code_shrinking_manager);
 
         ImageView back = findViewById(R.id.ig_toolbar_back);
         back.setOnClickListener(this);

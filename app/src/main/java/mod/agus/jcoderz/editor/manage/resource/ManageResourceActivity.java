@@ -33,8 +33,8 @@ import mod.SketchwareUtil;
 import mod.agus.jcoderz.lib.FilePathUtil;
 import mod.agus.jcoderz.lib.FileResConfig;
 import mod.agus.jcoderz.lib.FileUtil;
-import mod.hey.studios.code.SrcCodeEditorLegacy;
 import mod.hey.studios.code.SrcCodeEditor;
+import mod.hey.studios.code.SrcCodeEditorLegacy;
 import mod.hey.studios.util.Helper;
 import mod.hilal.saif.activities.tools.ConfigActivity;
 
@@ -91,7 +91,7 @@ public class ManageResourceActivity extends Activity implements View.OnClickList
     }
 
     private void initToolbar() {
-        ((TextView) findViewById(R.id.tx_toolbar_title)).setText("Resource Manager");
+        ((TextView) findViewById(R.id.tx_toolbar_title)).setText(R.string.text_title_menu_resource);
         ImageView back = findViewById(R.id.ig_toolbar_back);
         Helper.applyRippleToToolbarView(back);
         back.setOnClickListener(Helper.getBackPressedClickListener(this));
@@ -130,7 +130,7 @@ public class ManageResourceActivity extends Activity implements View.OnClickList
         final TextView cancel = view.findViewById(R.id.dialog_text_cancel);
         final TextView save = view.findViewById(R.id.dialog_text_save);
 
-        title.setText(isFolder ? "Create a new folder" : "Create a new file");
+        title.setText(isFolder ? R.string.create_a_new_folder : R.string.create_a_new_file);
         fileType.setVisibility(View.GONE);
         if (!isFolder) {
             filename.setText(".xml");
@@ -138,7 +138,7 @@ public class ManageResourceActivity extends Activity implements View.OnClickList
         cancel.setOnClickListener(Helper.getDialogDismissListener(dialog));
         save.setOnClickListener(v -> {
             if (filename.getText().toString().isEmpty()) {
-                SketchwareUtil.toastError("Invalid name");
+                SketchwareUtil.toastError(getString(R.string.invalid_name));
                 return;
             }
 
@@ -151,7 +151,7 @@ public class ManageResourceActivity extends Activity implements View.OnClickList
             }
 
             if (FileUtil.isExistFile(path)) {
-                SketchwareUtil.toastError("File exists already");
+                SketchwareUtil.toastError(getString(R.string.file_exists_already));
                 return;
             }
             if (isFolder) {
@@ -160,7 +160,7 @@ public class ManageResourceActivity extends Activity implements View.OnClickList
                 FileUtil.writeFile(path, "<?xml version=\"1.0\" encoding=\"utf-8\"?>");
             }
             handleAdapter(temp);
-            SketchwareUtil.toast("Created file successfully");
+            SketchwareUtil.toast(getString(R.string.created_file_successfully));
             dialog.dismiss();
         });
 
@@ -196,7 +196,7 @@ public class ManageResourceActivity extends Activity implements View.OnClickList
         gridView.setOnItemLongClickListener((parent, view, position, id) -> {
             if (FileUtil.isDirectory(frc.listFileResource.get(position))) {
                 PopupMenu popupMenu = new PopupMenu(this, view);
-                popupMenu.getMenu().add("Delete");
+                popupMenu.getMenu().add(R.string.common_word_delete);
                 popupMenu.setOnMenuItemClickListener(item -> {
                     showDeleteDialog(position);
                     return true;
@@ -231,7 +231,7 @@ public class ManageResourceActivity extends Activity implements View.OnClickList
         properties.offset = Environment.getExternalStorageDirectory();
         properties.extensions = null;
         dialog = new FilePickerDialog(this, properties);
-        dialog.setTitle("Select a resource file");
+        dialog.setTitle(getString(R.string.select_a_resource_file));
         dialog.setDialogSelectionListener(selections -> {
             for (String path : selections) {
                 try {
@@ -262,9 +262,9 @@ public class ManageResourceActivity extends Activity implements View.OnClickList
         save.setOnClickListener(v -> {
             if (!newName.getText().toString().isEmpty()) {
                 if (FileUtil.renameFile(path, path.substring(0, path.lastIndexOf("/")) + "/" + newName.getText().toString())) {
-                    SketchwareUtil.toast("Renamed successfully");
+                    SketchwareUtil.toast(getString(R.string.renamed_successfully));
                 } else {
-                    SketchwareUtil.toastError("Renaming failed");
+                    SketchwareUtil.toastError(getString(R.string.renaming_failed));
                 }
                 handleAdapter(temp);
                 handleFab();
@@ -282,15 +282,15 @@ public class ManageResourceActivity extends Activity implements View.OnClickList
     private void showDeleteDialog(final int position) {
         new AlertDialog.Builder(this)
                 .setTitle(Uri.fromFile(new File(adapter.getItem(position))).getLastPathSegment())
-                .setMessage("Are you sure you want to delete this "
+                .setMessage(R.string.are_you_sure_you_want_to_delete_this
                         + (FileUtil.isDirectory(adapter.getItem(position)) ? "folder" : "file") + "? "
-                        + "This action cannot be reverted!")
-                .setPositiveButton("Delete", (dialog, which) -> {
+                        + R.string.this_action_cannot_be_reversed)
+                .setPositiveButton(R.string.common_word_delete, (dialog, which) -> {
                     FileUtil.deleteFile(frc.listFileResource.get(position));
                     handleAdapter(temp);
-                    SketchwareUtil.toast("Deleted");
+                    SketchwareUtil.toast(getString(R.string.common_word_delete));
                 })
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton(R.string.common_word_cancel, null)
                 .show();
     }
 
@@ -307,7 +307,7 @@ public class ManageResourceActivity extends Activity implements View.OnClickList
             intent.putExtra("xml", "");
             startActivity(intent);
         } else {
-            SketchwareUtil.toast("Only XML files can be edited");
+            SketchwareUtil.toast(getString(R.string.only_xml_files_can_be_edited));
         }
     }
 
@@ -334,6 +334,7 @@ public class ManageResourceActivity extends Activity implements View.OnClickList
             return position;
         }
 
+        @SuppressLint("NonConstantResourceId")
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
@@ -364,27 +365,27 @@ public class ManageResourceActivity extends Activity implements View.OnClickList
                 popupMenu.inflate(R.menu.popup_menu_double);
                 popupMenu.getMenu().getItem(0).setVisible(false);
                 popupMenu.setOnMenuItemClickListener(item -> {
-                    switch (item.getTitle().toString()) {
-                        case "Edit with...":
+                    switch (item.getItemId()) {
+                        case R.id.edit_with:
                             if (frc.listFileResource.get(position).endsWith("xml")) {
                                 Intent intent = new Intent(Intent.ACTION_VIEW);
                                 intent.setDataAndType(Uri.fromFile(new File(frc.listFileResource.get(position))), "text/plain");
                                 startActivity(intent);
                             } else {
-                                SketchwareUtil.toast("Only XML files can be edited");
+                                SketchwareUtil.toast(getString(R.string.only_xml_files_can_be_edited));
                             }
                             break;
 
-                        case "Edit":
+                        case R.id.edit:
                             goEdit(position);
                             break;
 
-                        case "Delete":
+                        case R.id.delete:
                             FileUtil.deleteFile(frc.listFileResource.get(position));
                             handleAdapter(temp);
                             break;
 
-                        case "Rename":
+                        case R.id.rename:
                             showRenameDialog(frc.listFileResource.get(position));
                             break;
 

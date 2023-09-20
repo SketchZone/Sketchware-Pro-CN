@@ -209,10 +209,10 @@ public class MainActivity extends BasePermissionAppCompatActivity {
 
                             if (BackupFactory.zipContainsFile(path, "local_libs")) {
                                 new AlertDialog.Builder(MainActivity.this)
-                                        .setTitle("Warning")
+                                        .setTitle(getString(R.string.common_word_warning))
                                         .setMessage(BackupRestoreManager.getRestoreIntegratedLocalLibrariesMessage(false, -1, -1, null))
-                                        .setPositiveButton("Copy", (dialog, which) -> manager.doRestore(path, true))
-                                        .setNegativeButton("Don't copy", (dialog, which) -> manager.doRestore(path, false))
+                                        .setPositiveButton(R.string.common_word_copy, (dialog, which) -> manager.doRestore(path, true))
+                                        .setNegativeButton(R.string.common_word_don_t_copy, (dialog, which) -> manager.doRestore(path, false))
                                         .setNeutralButton(R.string.common_word_cancel, null)
                                         .show();
                             } else {
@@ -234,14 +234,14 @@ public class MainActivity extends BasePermissionAppCompatActivity {
                     "and it's important to know them all if you want your projects to still work.\n" +
                     "You can view all changes whenever you want at the updated About Sketchware Pro screen.");
 
-            dialog.b("View", v -> {
+            dialog.b(getString(R.string.common_word_view), v -> {
                 dialog.dismiss();
                 Intent launcher = new Intent(this, AboutModActivity.class);
                 launcher.putExtra("select", "majorChanges");
                 startActivity(launcher);
             });
-            dialog.a("Close", Helper.getDialogDismissListener(dialog));
-            dialog.configureDefaultButton("Never show again", v -> {
+            dialog.a(getString(R.string.common_word_close), Helper.getDialogDismissListener(dialog));
+            dialog.configureDefaultButton(getString(R.string.sketchware_for_ino_popup_title_button_never_show_again), v -> {
                 ConfigActivity.setSetting(ConfigActivity.SETTING_SKIP_MAJOR_CHANGES_REMINDER, true);
                 dialog.dismiss();
             });
@@ -304,8 +304,8 @@ public class MainActivity extends BasePermissionAppCompatActivity {
                     FileUtil.requestAllFilesAccessPermission(this);
                     dialog.dismiss();
                 });
-                dialog.a("Skip", Helper.getDialogDismissListener(dialog));
-                dialog.configureDefaultButton("Don't show anymore", v -> {
+                dialog.a(getString(R.string.common_word_skip), Helper.getDialogDismissListener(dialog));
+                dialog.configureDefaultButton(getString(R.string.don_t_show_anymore), v -> {
                     try {
                         if (!optOutFile.createNewFile())
                             throw new IOException("Failed to create file " + optOutFile);

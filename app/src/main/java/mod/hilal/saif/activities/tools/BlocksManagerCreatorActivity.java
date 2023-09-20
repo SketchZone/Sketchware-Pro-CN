@@ -1,5 +1,6 @@
 package mod.hilal.saif.activities.tools;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -83,6 +84,7 @@ public class BlocksManagerCreatorActivity extends AppCompatActivity {
         initializeLogic();
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void initialize() {
         ScrollView scrollView = findViewById(R.id.scroll_view);
         pageTitle = findViewById(R.id.tx_toolbar_title);
@@ -116,7 +118,7 @@ public class BlocksManagerCreatorActivity extends AppCompatActivity {
                     save.setEnabled(true);
                 } else if (!mode.equals("edit")) {
                     nameLayout.setErrorEnabled(true);
-                    nameLayout.setError("Block name already in use");
+                    nameLayout.setError(getString(R.string.block_name_already_in_use));
                     save.setEnabled(false);
                 } else {
                     HashMap<String, Object> savedBlocksListBlock = blocksList.get(blockPosition);
@@ -124,7 +126,7 @@ public class BlocksManagerCreatorActivity extends AppCompatActivity {
 
                     if (!string.equals(blockNameObject)) {
                         nameLayout.setErrorEnabled(true);
-                        nameLayout.setError("Block name already in use");
+                        nameLayout.setError(getString(R.string.block_name_already_in_use));
                         save.setEnabled(false);
                     }
                 }
@@ -161,7 +163,7 @@ public class BlocksManagerCreatorActivity extends AppCompatActivity {
                     "Header (h)"
             );
             AtomicInteger choice = new AtomicInteger();
-            new AlertDialog.Builder(this).setTitle("Block type")
+            new AlertDialog.Builder(this).setTitle(R.string.blocks_manager_block_type)
                     .setSingleChoiceItems(choices.toArray(new String[0]),
                             types.indexOf(type.getText().toString()), (dialog, which) -> choice.set(which))
                     .setPositiveButton(R.string.common_word_save, (dialog, which) -> type.setText(types.get(choice.get())))
@@ -188,6 +190,7 @@ public class BlocksManagerCreatorActivity extends AppCompatActivity {
         });
 
         spec.addTextChangedListener(new BaseTextWatcher() {
+            @SuppressLint("Range")
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 Matcher matcher = Pattern.compile("%[smdb]\\.?[a-zA-Z]*").matcher(s.toString());
@@ -348,14 +351,14 @@ public class BlocksManagerCreatorActivity extends AppCompatActivity {
         if (mode.equals("add")) {
             blockPosition = Integer.parseInt(getIntent().getStringExtra("pallet"));
             colour.setText(palletColour);
-            pageTitle.setText("Add a new block");
+            pageTitle.setText(R.string.blocks_manager_add_a_new_block);
             return;
         }
         blockPosition = Integer.parseInt(getIntent().getStringExtra("pos"));
         colour.setText(palletColour);
-        pageTitle.setText("Insert block");
+        pageTitle.setText(R.string.blocks_manager_insert_block);
         if (mode.equals("edit")) {
-            pageTitle.setText("Edit block");
+            pageTitle.setText(R.string.blocks_manager_edit_block);
             fillUpInputs(blockPosition);
         }
     }
@@ -556,7 +559,7 @@ public class BlocksManagerCreatorActivity extends AppCompatActivity {
         }
         tempMap.put("code", code.getText().toString());
         FileUtil.writeFile(path, new Gson().toJson(blocksList));
-        SketchwareUtil.toast("Saved");
+        SketchwareUtil.toast(getString(R.string.common_word_save));
         finish();
     }
 }

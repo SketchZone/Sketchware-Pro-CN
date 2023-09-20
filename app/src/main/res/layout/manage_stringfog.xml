@@ -25,7 +25,7 @@
                 android:gravity="center|left"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:text="Activated"
+                android:text="@string/code_shrinker_activated"
                 android:textColor="#ffe53935"
                 android:textSize="16sp" />
 
@@ -47,7 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="left"
-                    android:text="Activating StringFog will encrypt the strings in compilation time, which will make your app more difficult to reverse-engineer."
+                    android:text="@string/manage_stringfog_massage"
                     android:textColor="#ff757575"
                     android:textSize="14sp" />
             </LinearLayout>

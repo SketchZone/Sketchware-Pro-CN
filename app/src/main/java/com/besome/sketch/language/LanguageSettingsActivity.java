@@ -10,7 +10,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.besome.sketch.MainActivity;
 import com.besome.sketch.SketchApplication;
-
 import com.besome.sketch.language.util.MultiLanguageUtil;
 import com.besome.sketch.language.util.SpUtil;
 import com.besome.sketch.lib.base.BaseAppCompatActivity;
@@ -23,7 +22,7 @@ import java.util.Objects;
 import a.a.a.mB;
 import mod.hey.studios.util.Helper;
 
-public class LanguageSettingActivity extends BaseAppCompatActivity implements View.OnClickListener {
+public class LanguageSettingsActivity extends BaseAppCompatActivity implements View.OnClickListener {
     private static final int ITEM_LANGUAGE_CHINESE = 1;
     private static final int ITEM_LANGUAGE_ENGLISH = 2;
     private LinearLayout content;
@@ -44,7 +43,7 @@ public class LanguageSettingActivity extends BaseAppCompatActivity implements Vi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_language_setting);
+        setContentView(R.layout.activity_language_settings);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(true);
@@ -86,7 +85,7 @@ public class LanguageSettingActivity extends BaseAppCompatActivity implements Vi
         } else {
             //不为空，那么修改app语言，并true是把语言信息保存到sp中，false是不保存到sp中
             Locale newLocale = new Locale(language, area);
-            MultiLanguageUtil.changeAppLanguage(LanguageSettingActivity.this, newLocale, true);
+            MultiLanguageUtil.changeAppLanguage(LanguageSettingsActivity.this, newLocale, true);
             MultiLanguageUtil.changeAppLanguage(SketchApplication.getContext(), newLocale, true);
         }
         //重启app,这一步一定要加上，如果不重启app，可能打开新的页面显示的语言会不正确

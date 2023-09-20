@@ -37,7 +37,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="8dp"
-                        android:text="Event properties"
+                        android:text="@string/event_properties"
                         android:textColor="#ff616161"
                         android:textSize="16sp" />
 
@@ -230,7 +230,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="6dp"
-                        android:text="Create New Listener"
+                        android:text="@string/create_new_listener"
                         android:textColor="#ff212121"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -344,7 +344,7 @@
                     android:background="#ff008dcd"
                     android:gravity="center"
                     android:padding="8dp"
-                    android:text="cancel"
+                    android:text="@string/common_word_cancel"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
                     android:textColor="#ffffffff"
                     android:textSize="14sp" />
@@ -359,7 +359,7 @@
                     android:background="#ff008dcd"
                     android:gravity="center"
                     android:padding="8dp"
-                    android:text="Save"
+                    android:text="@string/common_word_save"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
                     android:textColor="#ffffffff"
                     android:textSize="14sp" />

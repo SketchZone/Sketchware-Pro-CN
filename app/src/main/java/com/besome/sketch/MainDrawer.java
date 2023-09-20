@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.besome.sketch.help.ProgramInfoActivity;
 import com.besome.sketch.help.SystemSettingActivity;
+import com.besome.sketch.language.LanguageSettingsActivity;
 import com.besome.sketch.tools.NewKeyStoreActivity;
 import com.sketchware.remod.R;
 
@@ -123,12 +124,12 @@ public class MainDrawer extends LinearLayout implements View.OnClickListener {
      */
     private void initializeDrawerItems() {
         DrawerItem menuAboutModders = DrawerItem.MENU_ABOUT_MODDERS;
-        menuAboutModders.icon = R.drawable.side_menu_info_icon_over_white;
-        menuAboutModders.title = "About The Team";
+        menuAboutModders.icon = R.drawable.user_96_white_filled;
+        menuAboutModders.title = Helper.getResString(R.string.main_drawer_title_about_the_team);
 
         DrawerItem menuChangelog = DrawerItem.MENU_CHANGELOG;
         menuChangelog.icon = R.drawable.icon_file_white_96;
-        menuChangelog.title = "Changelog";
+        menuChangelog.title = Helper.getResString(R.string.main_drawer_title_changelog);
 
         DrawerItem menuSystemSettings = DrawerItem.MENU_SYSTEM_SETTINGS;
         menuSystemSettings.icon = R.drawable.side_menu_setting_icon_over_white;
@@ -138,13 +139,17 @@ public class MainDrawer extends LinearLayout implements View.OnClickListener {
         menuProgramInfo.icon = R.drawable.side_menu_info_icon_over_white;
         menuProgramInfo.title = Helper.getResString(R.string.main_drawer_title_program_information);
 
+        DrawerItem menuLanguageSettings = DrawerItem.MENU_LANGUAGE_SETTINGS;
+        menuLanguageSettings.icon = R.drawable.language_48;
+        menuLanguageSettings.title = Helper.getResString(R.string.main_drawer_title_language_settings);
+
         DrawerItem menuDeveloperTools = DrawerItem.MENU_DEVELOPER_TOOLS;
         menuDeveloperTools.icon = R.drawable.ic_export_his_white_48dp;
-        menuDeveloperTools.title = "Developer Tools";
+        menuDeveloperTools.title = Helper.getResString(R.string.main_drawer_title_developer_tools);
 
         DrawerItem menuCreateKeystore = DrawerItem.MENU_CREATE_KEYSTORE;
         menuCreateKeystore.icon = R.drawable.new_96;
-        menuCreateKeystore.title = "Create Release Keystore";
+        menuCreateKeystore.title = Helper.getResString(R.string.main_drawer_title_create_release_keystore);
     }
 
     private void openSlackInvitationInBrowser() {
@@ -183,10 +188,10 @@ public class MainDrawer extends LinearLayout implements View.OnClickListener {
         MENU_ABOUT_MODDERS,
         MENU_CHANGELOG,
         MENU_SYSTEM_SETTINGS,
-        MENU_PROGRAM_INFO,
+        MENU_LANGUAGE_SETTINGS,
         MENU_DEVELOPER_TOOLS,
-        MENU_CREATE_KEYSTORE;
-
+        MENU_CREATE_KEYSTORE,
+        MENU_PROGRAM_INFO;
         /**
          * The label of the item
          */
@@ -284,6 +289,10 @@ public class MainDrawer extends LinearLayout implements View.OnClickListener {
                         Intent intent = new Intent(activity, ProgramInfoActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         activity.startActivityForResult(intent, 105);
+                    }else if (id == DrawerItem.MENU_LANGUAGE_SETTINGS.ordinal()) {
+                        Intent intent = new Intent(activity, LanguageSettingsActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        activity.startActivity(intent);
                     } else if (id == DrawerItem.MENU_DEVELOPER_TOOLS.ordinal()) {
                         Intent intent = new Intent(activity, Tools.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);

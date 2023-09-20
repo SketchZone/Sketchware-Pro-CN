@@ -15,4 +15,8 @@
         android:id="@+id/sortProject"
         android:title="@string/sort_projects"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/exit"
+        android:title="@string/common_word_exit"
+        app:showAsAction="never" />
 </menu>

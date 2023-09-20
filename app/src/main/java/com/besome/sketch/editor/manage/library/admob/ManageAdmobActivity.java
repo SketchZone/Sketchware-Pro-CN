@@ -131,6 +131,7 @@ public class ManageAdmobActivity extends BaseAppCompatActivity implements View.O
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
                 case 236:
@@ -207,7 +208,7 @@ public class ManageAdmobActivity extends BaseAppCompatActivity implements View.O
         ((TextView) findViewById(R.id.tv_title_inter)).setText(Helper.getResString(R.string.design_library_admob_title_interstitial));
         ((TextView) findViewById(R.id.tv_title_inter_name)).setText(Helper.getResString(R.string.design_library_admob_title_ad_name) + " : ");
         ((TextView) findViewById(R.id.tv_title_inter_id)).setText(Helper.getResString(R.string.design_library_admob_title_ad_unit_id) + " : ");
-        ((TextView) findViewById(R.id.tv_title_reward)).setText("Rewarded Ad");
+        ((TextView) findViewById(R.id.tv_title_reward)).setText(R.string.design_library_admob_title_rewarded_ad);
         ((TextView) findViewById(R.id.tv_title_reward_name)).setText(Helper.getResString(R.string.design_library_admob_title_ad_name) + " : ");
         ((TextView) findViewById(R.id.tv_title_reward_id)).setText(Helper.getResString(R.string.design_library_admob_title_ad_unit_id) + " : ");
         ((TextView) findViewById(R.id.tv_title_test_device)).setText(Helper.getResString(R.string.design_library_admob_dialog_set_test_device_title));

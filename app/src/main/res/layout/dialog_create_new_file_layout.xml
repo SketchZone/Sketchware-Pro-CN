@@ -24,7 +24,7 @@
             android:id="@+id/dialog_create_new_file_layoutTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Create a new file"
+            android:text="@string/create_a_new_file"
             android:textColor="#ff008dcd"
             android:textSize="18sp"
             android:textStyle="bold" />

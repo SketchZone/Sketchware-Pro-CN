@@ -49,7 +49,7 @@ public class ManagePermissionActivity extends Activity {
 
     private void setUpSearchView() {
         sv.setActivated(true);
-        sv.setQueryHint("Search for a permission");
+        sv.setQueryHint(getString(R.string.search_for_a_permission));
         sv.onActionViewExpanded();
         sv.setIconifiedByDefault(true);
         sv.clearFocus();
@@ -75,7 +75,7 @@ public class ManagePermissionActivity extends Activity {
     }
 
     public void initToolbar() {
-        ((TextView) findViewById(R.id.tx_toolbar_title)).setText("Permission Manager");
+        ((TextView) findViewById(R.id.tx_toolbar_title)).setText(R.string.permission_manager);
         ImageView back = findViewById(R.id.ig_toolbar_back);
         Helper.applyRipple(this, back);
         back.setOnClickListener(Helper.getBackPressedClickListener(this));
@@ -84,15 +84,15 @@ public class ManagePermissionActivity extends Activity {
         resetPermissions.setImageResource(R.drawable.ic_restore_white_24dp);
         resetPermissions.setOnClickListener(v ->
                 new AlertDialog.Builder(this)
-                        .setTitle("Reset permissions")
-                        .setMessage("Are you sure you want to reset all permissions? This cannot be undone!")
-                        .setPositiveButton("Reset", (dialog, which) -> {
+                        .setTitle(R.string.manage_permissions_title)
+                        .setMessage(R.string.manage_permissions_massage)
+                        .setPositiveButton(R.string.common_word_reset, (dialog, which) -> {
                             FileUtil.writeFile(new FilePathUtil().getPathPermission(numProj), "[]");
                             //As FileResConfig only refreshes permissions during <init>()V, this is required.
                             frc = new FileResConfig(numProj);
                             setItems();
                         })
-                        .setNegativeButton("Cancel", null)
+                        .setNegativeButton(R.string.common_word_cancel, null)
                         .show());
     }
 

@@ -192,9 +192,12 @@ public class ProjectsFragment extends DA implements View.OnClickListener {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.sortProject) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.sortProject) {
             showProjectSortingDialog();
             return true;
+        } else if (itemId == R.id.exit) {
+            requireActivity().finish();
         }
 
         return super.onOptionsItemSelected(item);

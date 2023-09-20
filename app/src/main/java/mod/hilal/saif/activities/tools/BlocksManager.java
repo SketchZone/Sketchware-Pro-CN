@@ -85,14 +85,14 @@ public class BlocksManager extends AppCompatActivity {
 
         back.setOnClickListener(Helper.getBackPressedClickListener(this));
         Helper.applyRippleToToolbarView(back);
-        title.setText("Block manager");
+        title.setText(R.string.block_manager);
         settings.setVisibility(View.VISIBLE);
         settings.setImageResource(R.drawable.settings_96_white);
         Helper.applyRippleToToolbarView(settings);
         settings.setOnClickListener(v -> {
             aB dialog = new aB(this);
             dialog.a(R.drawable.ic_folder_48dp);
-            dialog.b("Block configuration");
+            dialog.b(getString(R.string.block_configuration));
 
             LinearLayout.LayoutParams defaultParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             LinearLayout customView = new LinearLayout(this);
@@ -103,7 +103,7 @@ public class BlocksManager extends AppCompatActivity {
             tilPalettesPath.setLayoutParams(defaultParams);
             tilPalettesPath.setOrientation(LinearLayout.VERTICAL);
             tilPalettesPath.setPadding(dpToPx(4), dpToPx(4), dpToPx(4), dpToPx(4));
-            tilPalettesPath.setHint("JSON file with palettes");
+            tilPalettesPath.setHint(R.string.json_file_with_palettes);
             customView.addView(tilPalettesPath);
 
             EditText palettesPath = new EditText(this);
@@ -117,7 +117,7 @@ public class BlocksManager extends AppCompatActivity {
             tilBlocksPath.setLayoutParams(defaultParams);
             tilBlocksPath.setOrientation(LinearLayout.VERTICAL);
             tilBlocksPath.setPadding(dpToPx(4), dpToPx(4), dpToPx(4), dpToPx(4));
-            tilBlocksPath.setHint("JSON file with blocks");
+            tilBlocksPath.setHint(R.string.json_file_with_blocks);
             customView.addView(tilBlocksPath);
 
             EditText blocksPath = new EditText(this);
@@ -139,7 +139,7 @@ public class BlocksManager extends AppCompatActivity {
                 dialog.dismiss();
             });
             dialog.a(Helper.getResString(R.string.common_word_cancel), Helper.getDialogDismissListener(dialog));
-            dialog.configureDefaultButton("Defaults", view -> {
+            dialog.configureDefaultButton(getString(R.string.common_word_defaults), view -> {
                 ConfigActivity.setSetting(ConfigActivity.SETTING_BLOCKMANAGER_DIRECTORY_PALETTE_FILE_PATH,
                         ConfigActivity.getDefaultValue(ConfigActivity.SETTING_BLOCKMANAGER_DIRECTORY_PALETTE_FILE_PATH));
                 ConfigActivity.setSetting(ConfigActivity.SETTING_BLOCKMANAGER_DIRECTORY_BLOCK_FILE_PATH,
@@ -266,7 +266,7 @@ public class BlocksManager extends AppCompatActivity {
         });
         card2.setOnLongClickListener(v -> {
             new AlertDialog.Builder(this)
-                    .setTitle("Recycle bin")
+                    .setTitle(R.string.common_word_recycle_bin)
                     .setMessage("Are you sure you want to empty the recycle bin? " +
                             "Blocks inside will be deleted PERMANENTLY, you CANNOT recover them!")
                     .setPositiveButton("Empty", (dialog, which) -> _emptyRecyclebin())
@@ -377,7 +377,7 @@ public class BlocksManager extends AppCompatActivity {
     private void showPaletteDialog(boolean isEditing, Integer oldPosition, String oldName, String oldColor, Integer insertAtPosition) {
         aB dialog = new aB(this);
         dialog.a(R.drawable.positive_96);
-        dialog.b(!isEditing ? "Create a new palette" : "Edit palette");
+        dialog.b(!isEditing ? getString(R.string.create_a_new_palette) : getString(R.string.edit_palette));
 
         LinearLayout customView = new LinearLayout(this);
         customView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
@@ -531,32 +531,26 @@ public class BlocksManager extends AppCompatActivity {
 
             _a(background);
             background.setOnLongClickListener(v -> {
-                final String moveUp = "Move up";
-                final String moveDown = "Move down";
-                final String edit = "Edit";
-                final String delete = "Delete";
-                final String insert = "Insert";
-
                 PopupMenu popup = new PopupMenu(BlocksManager.this, background);
                 Menu menu = popup.getMenu();
-                if (position != 0) menu.add(moveUp);
-                if (position != getCount() - 1) menu.add(moveDown);
-                menu.add(edit);
-                menu.add(delete);
-                menu.add(insert);
+                if (position != 0) menu.add(Menu.NONE,1,Menu.NONE, R.string.move_up);
+                if (position != getCount() - 1) menu.add(Menu.NONE,2,Menu.NONE, R.string.move_down);
+                menu.add(Menu.NONE,3,Menu.NONE,R.string.common_word_edit);
+                menu.add(Menu.NONE,4,Menu.NONE,R.string.common_word_delete);
+                menu.add(Menu.NONE,5,Menu.NONE, R.string.common_word_insert);
                 popup.setOnMenuItemClickListener(item -> {
-                    switch (item.getTitle().toString()) {
-                        case edit:
+                    switch (item.getItemId()) {
+                        case 3:
                             showPaletteDialog(true, position,
                                     pallet_listmap.get(position).get("name").toString(),
                                     pallet_listmap.get(position).get("color").toString(), null);
                             break;
 
-                        case delete:
+                        case 4:
                             new AlertDialog.Builder(BlocksManager.this)
                                     .setTitle(pallet_listmap.get(position).get("name").toString())
-                                    .setMessage("Remove all blocks related to this palette?")
-                                    .setPositiveButton("Remove permanently", (dialog, which) -> {
+                                    .setMessage(R.string.remove_all_blocks_related_to_this_palette)
+                                    .setPositiveButton(R.string.blocks_manage_remove_permanently, (dialog, which) -> {
                                         pallet_listmap.remove(position);
                                         FileUtil.writeFile(pallet_dir, new Gson().toJson(pallet_listmap));
                                         _removeRelatedBlocks(position + 9);
@@ -564,7 +558,7 @@ public class BlocksManager extends AppCompatActivity {
                                         _refresh_list();
                                     })
                                     .setNegativeButton(R.string.common_word_cancel, null)
-                                    .setNeutralButton("Move to recycle bin", (dialog, which) -> {
+                                    .setNeutralButton(R.string.blocks_manage_move_to_recycle_bin, (dialog, which) -> {
                                         _moveRelatedBlocksToRecycleBin(position + 9);
                                         pallet_listmap.remove(position);
                                         FileUtil.writeFile(pallet_dir, new Gson().toJson(pallet_listmap));
@@ -574,15 +568,15 @@ public class BlocksManager extends AppCompatActivity {
                                     }).show();
                             break;
 
-                        case moveUp:
+                        case 1:
                             _MoveUp(position);
                             break;
 
-                        case moveDown:
+                        case 2:
                             _moveDown(position);
                             break;
 
-                        case insert:
+                        case 5:
                             showPaletteDialog(false, null, null, null, position);
                             break;
 

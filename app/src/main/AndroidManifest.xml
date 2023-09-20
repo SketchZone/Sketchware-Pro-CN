@@ -26,7 +26,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name="com.besome.sketch.language.LanguageSettingActivity"
+            android:name="com.besome.sketch.language.LanguageSettingsActivity"
             android:exported="false" />
 
         <provider

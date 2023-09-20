@@ -42,7 +42,7 @@ public class ManageStringfogActivity extends Activity implements CompoundButton.
     }
 
     private void initToolbar() {
-        ((TextView) findViewById(R.id.tx_toolbar_title)).setText("StringFog Manager");
+        ((TextView) findViewById(R.id.tx_toolbar_title)).setText(R.string.stringfog_manager);
 
         ImageView ig_toolbar_back = findViewById(R.id.ig_toolbar_back);
         ig_toolbar_back.setOnClickListener(Helper.getBackPressedClickListener(this));

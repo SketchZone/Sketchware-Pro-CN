@@ -93,7 +93,7 @@ public class EventsMaker extends Activity {
         );
         newLayout.setFocusable(false);
         newLayout.setGravity(16);
-        newLayout.addView(newText("Listeners:", 16.0f, false, 0xff888888,
+        newLayout.addView(newText(getString(R.string.listeners), 16.0f, false, 0xff888888,
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0));
         base.addView(newLayout, 1);
         CardView newCard = newCard(
@@ -105,7 +105,7 @@ public class EventsMaker extends Activity {
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 0);
         newCard.addView(newLayout2);
-        makeup(newLayout2, 0x7f07043e, "Activity events", getNumOfEvents(""));
+        makeup(newLayout2, 0x7f07043e, getString(R.string.activity_events), getNumOfEvents(""));
         base.addView(newCard, 1);
         newLayout2.setOnClickListener(v -> {
             Intent intent = new Intent();
@@ -150,7 +150,7 @@ public class EventsMaker extends Activity {
                 create.dismiss();
                 return;
             }
-            SketchwareUtil.toastError("Invalid name!");
+            SketchwareUtil.toastError(getString(R.string.invalid_name));
         });
         cancel.setOnClickListener(Helper.getDialogDismissListener(create));
         create.show();
@@ -235,7 +235,7 @@ public class EventsMaker extends Activity {
                 create.dismiss();
                 return;
             }
-            SketchwareUtil.toastError("Invalid name!");
+            SketchwareUtil.toastError(getString(R.string.invalid_name));
         });
         cancel.setOnClickListener(Helper.getDialogDismissListener(create));
         create.show();
@@ -285,19 +285,19 @@ public class EventsMaker extends Activity {
         dialogProperties.offset = file;
         dialogProperties.extensions = null;
         FilePickerDialog filePickerDialog = new FilePickerDialog(this, dialogProperties);
-        filePickerDialog.setTitle("Select a .txt file");
+        filePickerDialog.setTitle(getString(R.string.select_a_txt_file));
         filePickerDialog.setDialogSelectionListener(selections -> {
             if (FileUtil.readFile(selections[0]).equals("")) {
-                SketchwareUtil.toastError("The selected file is empty!");
+                SketchwareUtil.toastError(getString(R.string.the_selected_file_is_empty));
             } else if (FileUtil.readFile(selections[0]).equals("[]")) {
-                SketchwareUtil.toastError("The selected file is empty!");
+                SketchwareUtil.toastError(getString(R.string.the_selected_file_is_empty));
             } else {
                 try {
                     String[] split = FileUtil.readFile(selections[0]).split("\n");
                     importEvents(new Gson().fromJson(split[0], Helper.TYPE_MAP_LIST),
                             new Gson().fromJson(split[1], Helper.TYPE_MAP_LIST));
                 } catch (Exception e) {
-                    SketchwareUtil.toastError("Invalid file");
+                    SketchwareUtil.toastError(getString(R.string.invalid_file));
                 }
             }
         });
@@ -315,7 +315,7 @@ public class EventsMaker extends Activity {
         listMap.addAll(data);
         FileUtil.writeFile(LISTENERS_FILE.getAbsolutePath(), new Gson().toJson(listMap));
         refreshList();
-        SketchwareUtil.toast("Successfully imported events");
+        SketchwareUtil.toast(getString(R.string.successfully_imported_events));
     }
 
     private void exportAll() {
@@ -433,7 +433,7 @@ public class EventsMaker extends Activity {
     }
 
     private void setToolbar() {
-        ((TextView) findViewById(R.id.tx_toolbar_title)).setText("Event manager");
+        ((TextView) findViewById(R.id.tx_toolbar_title)).setText(R.string.event_manager);
         ImageView back_icon = findViewById(R.id.ig_toolbar_back);
         back_icon.setOnClickListener(Helper.getBackPressedClickListener(this));
         Helper.applyRippleToToolbarView(back_icon);
@@ -443,15 +443,15 @@ public class EventsMaker extends Activity {
         more_icon.setOnClickListener(v -> {
             PopupMenu popupMenu = new PopupMenu(this, more_icon);
             final Menu menu = popupMenu.getMenu();
-            menu.add("Import events");
-            menu.add("Export events");
+            menu.add(Menu.NONE,1,Menu.NONE, R.string.import_events);
+            menu.add(Menu.NONE,2,Menu.NONE, R.string.export_events);
             popupMenu.setOnMenuItemClickListener(item -> {
-                switch (item.getTitle().toString()) {
-                    case "Import events":
+                switch (item.getItemId()) {
+                    case 1:
                         openFileExplorerImport();
                         break;
 
-                    case "Export events":
+                    case 2:
                         exportAll();
                         SketchwareUtil.toast("Successfully exported events to:\n" +
                                 "/Internal storage/.sketchware/data/system/export/events", Toast.LENGTH_LONG);

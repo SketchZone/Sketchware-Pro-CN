@@ -71,9 +71,9 @@ public class ManageAssetsActivity extends Activity {
         fab.setOnClickListener(v -> showCreateDialog());
 
         tv_noFileExist = findViewById(R.id.text_info);
-        tv_noFileExist.setText("No files");
+        tv_noFileExist.setText(R.string.common_word_no_files);
 
-        ((TextView) findViewById(R.id.tx_toolbar_title)).setText("Asset Manager");
+        ((TextView) findViewById(R.id.tx_toolbar_title)).setText(R.string.asset_manager);
         ImageView imageView = findViewById(R.id.ig_toolbar_back);
         Helper.applyRippleToToolbarView(imageView);
         imageView.setOnClickListener(Helper.getBackPressedClickListener(this));
@@ -111,13 +111,13 @@ public class ManageAssetsActivity extends Activity {
         final TextView cancel = view.findViewById(R.id.dialog_text_cancel);
         final TextView save = view.findViewById(R.id.dialog_text_save);
 
-        file.setText("File");
+        file.setText(R.string.common_word_file);
         activity.setVisibility(View.GONE);
 
         cancel.setOnClickListener(Helper.getDialogDismissListener(dialog));
         save.setOnClickListener(v -> {
             if (filename.getText().toString().isEmpty()) {
-                SketchwareUtil.toastError("Invalid filename");
+                SketchwareUtil.toastError(getString(R.string.invalid_filename));
                 return;
             }
 
@@ -129,12 +129,12 @@ public class ManageAssetsActivity extends Activity {
             } else if (checkedRadioButtonId == R.id.radio_button_folder) {
                 FileUtil.makeDir(new File(current_path, editable).getAbsolutePath());
             } else {
-                SketchwareUtil.toast("Select a file type");
+                SketchwareUtil.toast(getString(R.string.select_a_file_type));
                 return;
             }
 
             refresh();
-            SketchwareUtil.toast("File was created successfully");
+            SketchwareUtil.toast(getString(R.string.file_was_created_successfully));
             dialog.dismiss();
         });
 
@@ -156,7 +156,7 @@ public class ManageAssetsActivity extends Activity {
         properties.extensions = null;
 
         FilePickerDialog dialog = new FilePickerDialog(this, properties);
-        dialog.setTitle("Select an asset file");
+        dialog.setTitle(getString(R.string.manager_assets_select_an_asset_file));
         dialog.setDialogSelectionListener(selections -> {
             for (String path : selections) {
                 File file = new File(path);
@@ -186,7 +186,7 @@ public class ManageAssetsActivity extends Activity {
             if (!newFileName.getText().toString().isEmpty()) {
                 FileUtil.renameFile(myAdapter.getItem(position), new File(current_path, newFileName.getText().toString()).getAbsolutePath());
                 refresh();
-                SketchwareUtil.toast("Renamed successfully");
+                SketchwareUtil.toast(getString(R.string.renamed_successfully));
             }
 
             dialog.dismiss();
@@ -202,12 +202,12 @@ public class ManageAssetsActivity extends Activity {
     private void showDeleteDialog(final int position) {
         new AlertDialog.Builder(this)
                 .setTitle(myAdapter.getFileName(position))
-                .setMessage("Are you sure you want to delete this " + (myAdapter.isFolder(position) ? "folder" : "file") + "? "
-                        + "This action cannot be reversed!")
+                .setMessage(getString(R.string.are_you_sure_you_want_to_delete_this) + (myAdapter.isFolder(position) ? "folder" : "file") + "? "
+                        + getString(R.string.this_action_cannot_be_reversed))
                 .setPositiveButton(R.string.common_word_delete, (dialog, which) -> {
                     FileUtil.deleteFile(myAdapter.getItem(position));
                     refresh();
-                    SketchwareUtil.toast("Deleted successfully");
+                    SketchwareUtil.toast(getString(R.string.deleted_successfully));
                 })
                 .setNegativeButton(R.string.common_word_cancel, null)
                 .create()
@@ -294,11 +294,11 @@ public class ManageAssetsActivity extends Activity {
                 PopupMenu popupMenu = new PopupMenu(ManageAssetsActivity.this, v);
 
                 if (!isFolder(position)) {
-                    popupMenu.getMenu().add(0, 0, 0, "Edit");
+                    popupMenu.getMenu().add(0, 0, 0, R.string.common_word_edit);
                 }
 
-                popupMenu.getMenu().add(0, 1, 0, "Rename");
-                popupMenu.getMenu().add(0, 2, 0, "Delete");
+                popupMenu.getMenu().add(0, 1, 0, R.string.common_word_rename);
+                popupMenu.getMenu().add(0, 2, 0, R.string.common_word_delete);
 
                 popupMenu.setOnMenuItemClickListener(item -> {
                     switch (item.getItemId()) {

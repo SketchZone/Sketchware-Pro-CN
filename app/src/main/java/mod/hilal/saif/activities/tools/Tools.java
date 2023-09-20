@@ -118,7 +118,7 @@ public class Tools extends Activity {
 
     private void newToolbar(View parent) {
         View toolbar = getLayoutInflater().inflate(R.layout.toolbar_improved, null);
-        ((TextView) toolbar.findViewById(R.id.tx_toolbar_title)).setText("Tools");
+        ((TextView) toolbar.findViewById(R.id.tx_toolbar_title)).setText(R.string.main_drawer_title_developer_tools);
         ImageView back = toolbar.findViewById(R.id.ig_toolbar_back);
 
         back.setOnClickListener(Helper.getBackPressedClickListener(this));
@@ -194,7 +194,7 @@ public class Tools extends Activity {
         CardView blockManager = newCard(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0.0f);
         LinearLayout newLayout = newLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 0.0f);
         blockManager.addView(newLayout);
-        makeup(newLayout, R.drawable.block_96_blue, "Block manager", "Manage your own blocks to use in Logic Editor");
+        makeup(newLayout, R.drawable.block_96_blue, getString(R.string.block_manager), getString(R.string.block_manage_subtitle));
         base.addView(blockManager);
         newLayout.setOnClickListener(new ActivityLauncher(
                 new Intent(getApplicationContext(), BlocksManager.class)));
@@ -202,7 +202,7 @@ public class Tools extends Activity {
         CardView blockSelectorManager = newCard(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0.0f);
         LinearLayout blockSelectorManagerLayout = newLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 0.0f);
         blockSelectorManager.addView(blockSelectorManagerLayout);
-        makeup(blockSelectorManagerLayout, R.drawable.pull_down_48, "Block selector menu manager", "Manage your own block selector menus");
+        makeup(blockSelectorManagerLayout, R.drawable.pull_down_48, getString(R.string.block_selector_menu_manager), getString(R.string.block_select_manage_subtitle));
         base.addView(blockSelectorManager);
         blockSelectorManagerLayout.setOnClickListener(new ActivityLauncher(
                 new Intent(getApplicationContext(), BlockSelectorActivity.class)));
@@ -210,7 +210,7 @@ public class Tools extends Activity {
         CardView componentManager = newCard(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0.0f);
         LinearLayout componentManagerLayout = newLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 0.0f);
         componentManager.addView(componentManagerLayout);
-        makeup(componentManagerLayout, R.drawable.collage_48, "Component manager", "Manage your own components");
+        makeup(componentManagerLayout, R.drawable.collage_48, getString(R.string.component_manager), getString(R.string.components_manage_subtitle));
         base.addView(componentManager);
         componentManagerLayout.setOnClickListener(new ActivityLauncher(
                 new Intent(getApplicationContext(), ManageCustomComponentActivity.class)));
@@ -218,7 +218,7 @@ public class Tools extends Activity {
         CardView eventManager = newCard(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0.0f);
         LinearLayout eventManagerLayout = newLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 0.0f);
         eventManager.addView(eventManagerLayout);
-        makeup(eventManagerLayout, R.drawable.event_on_item_clicked_48dp, "Event manager", "Manage your own events");
+        makeup(eventManagerLayout, R.drawable.event_on_item_clicked_48dp, getString(R.string.event_manager), getString(R.string.events_manage_subtitle));
         base.addView(eventManager);
         eventManagerLayout.setOnClickListener(new ActivityLauncher(
                 new Intent(getApplicationContext(), EventsMaker.class)));
@@ -226,7 +226,7 @@ public class Tools extends Activity {
         CardView localLibraryManager = newCard(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0.0f);
         LinearLayout localLibraryManagerLayout = newLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 0.0f);
         localLibraryManager.addView(localLibraryManagerLayout);
-        makeup(localLibraryManagerLayout, R.drawable.colored_box_96, "Local library manager", "Manage and download local libraries");
+        makeup(localLibraryManagerLayout, R.drawable.colored_box_96, getString(R.string.local_library_manager), getString(R.string.local_libraries_manage_subtitle));
         base.addView(localLibraryManager);
         localLibraryManagerLayout.setOnClickListener(new ActivityLauncher(
                 new Intent(getApplicationContext(), ManageLocalLibraryActivity.class),
@@ -235,7 +235,7 @@ public class Tools extends Activity {
         CardView modSettings = newCard(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0.0f);
         LinearLayout modSettingsLayout = newLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 0.0f);
         modSettings.addView(modSettingsLayout);
-        makeup(modSettingsLayout, R.drawable.engineering_48, "Mod settings", "Change general mod settings");
+        makeup(modSettingsLayout, R.drawable.engineering_48, getString(R.string.mod_settings), getString(R.string.mod_settings_manage_subtitle));
         base.addView(modSettings);
         modSettingsLayout.setOnClickListener(new ActivityLauncher(
                 new Intent(getApplicationContext(), ConfigActivity.class)));
@@ -243,14 +243,14 @@ public class Tools extends Activity {
         CardView openWorkingDirectory = newCard(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0.0f);
         LinearLayout openWorkingDirectoryLayout = newLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 0.0f);
         openWorkingDirectory.addView(openWorkingDirectoryLayout);
-        makeup(openWorkingDirectoryLayout, R.mipmap.ic_type_folder, "Open working directory", "Open Sketchware Pro's directory and edit files in it");
+        makeup(openWorkingDirectoryLayout, R.mipmap.ic_type_folder, getString(R.string.open_working_directory), getString(R.string.open_working_directory_manage_subtitle));
         base.addView(openWorkingDirectory);
         openWorkingDirectoryLayout.setOnClickListener(v -> openWorkingDirectory());
 
         CardView signApkFile = newCard(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0.0f);
         LinearLayout signApkFileLayout = newLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 0.0f);
         signApkFile.addView(signApkFileLayout);
-        makeup(signApkFileLayout, R.drawable.ic_apk_color_96dp, "Sign an APK file with testkey", "Sign an already existing APK file with testkey and signature schemes up to V4");
+        makeup(signApkFileLayout, R.drawable.ic_apk_color_96dp, getString(R.string.sign_an_apk_file_with_testkey), getString(R.string.sign_manage_subtitle));
         base.addView(signApkFile);
         signApkFileLayout.setOnClickListener(v -> signApkFileDialog());
 
@@ -266,7 +266,7 @@ public class Tools extends Activity {
     private void signApkFileDialog() {
         aB apkPathDialog = new aB(this);
         apkPathDialog.a(R.drawable.ic_apk_color_96dp);
-        apkPathDialog.b("Input APK");
+        apkPathDialog.b(getString(R.string.input_apk));
 
         View testkey_root = getLayoutInflater().inflate(R.layout.manage_font_add, null, false);
         TextView font_preview = testkey_root.findViewById(R.id.font_preview);
@@ -282,11 +282,11 @@ public class Tools extends Activity {
             properties.extensions = new String[]{"apk"};
             FilePickerDialog dialog = new FilePickerDialog(this, properties);
             dialog.setDialogSelectionListener(files -> ed_input.getEditText().setText(files[0]));
-            dialog.setTitle("Select the APK to sign");
+            dialog.setTitle(getString(R.string.select_the_apk_to_sign));
             dialog.show();
         });
 
-        font_preview.setText("Path of APK to sign");
+        font_preview.setText(R.string.path_of_apk_to_sign);
         font_preview.setVisibility(View.VISIBLE);
         tv_collection.setVisibility(View.GONE);
         chk_collection.setVisibility(View.GONE);
@@ -294,7 +294,7 @@ public class Tools extends Activity {
 
         apkPathDialog.a(Helper.getResString(R.string.common_word_cancel),
                 Helper.getDialogDismissListener(apkPathDialog));
-        apkPathDialog.b("Next", next -> {
+        apkPathDialog.b(getString(R.string.common_word_next), next -> {
             apkPathDialog.dismiss();
 
             String input_apk_path = ed_input.getEditText().getText().toString();
@@ -337,7 +337,7 @@ public class Tools extends Activity {
         scroll_view.addView(tv_log);
         layout_quiz.addView(scroll_view);
 
-        tv_progress.setText("Signing APK...");
+        tv_progress.setText(R.string.design_signing_apk);
 
         AlertDialog building_dialog = new AlertDialog.Builder(this)
                 .setView(building_root)

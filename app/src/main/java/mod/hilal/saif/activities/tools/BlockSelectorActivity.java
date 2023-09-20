@@ -92,6 +92,8 @@ public class BlockSelectorActivity extends AppCompatActivity implements View.OnC
         listview1 = findViewById(R.id.listv);
         value = findViewById(R.id.val);
         LinearLayout add_value = findViewById(R.id.add_val);
+        TextView title = findViewById(R.id.tx_toolbar_title);
+        title.setText(R.string.block_selector_menu_manager);
         fixbug();
         back.setOnClickListener(Helper.getBackPressedClickListener(this));
         add_value.setOnClickListener(this);
@@ -115,17 +117,17 @@ public class BlockSelectorActivity extends AppCompatActivity implements View.OnC
         listview1.setOnItemLongClickListener((parent, view, position, id) -> {
             if (current_item != 0) {
                 new AlertDialog.Builder(this).setTitle(contents.get(position))
-                        .setMessage("Delete this item?")
-                        .setPositiveButton("Delete", (dialog, which) -> {
+                        .setMessage(R.string.delete_this_item)
+                        .setPositiveButton(R.string.common_word_delete, (dialog, which) -> {
                             contents.remove(position);
                             map.put("data", contents);
                             _save_item();
                             _showItem(current_item);
                         })
-                        .setNegativeButton("Cancel", null)
-                        .setNeutralButton("Copy item", (dialog, which) -> {
+                        .setNegativeButton(R.string.common_word_cancel, null)
+                        .setNeutralButton(R.string.copy_item, (dialog, which) -> {
                             ((ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE)).setPrimaryClip(ClipData.newPlainText("clipboard", contents.get(position)));
-                            SketchwareUtil.toast("Copied to clipboard");
+                            SketchwareUtil.toast(getString(R.string.copied_to_clipboard));
                         })
                         .show();
             }
@@ -185,23 +187,23 @@ public class BlockSelectorActivity extends AppCompatActivity implements View.OnC
     private void showOptionsMenu() {
         PopupMenu popupMenu = new PopupMenu(this, options_menu);
         Menu menu = popupMenu.getMenu();
-        menu.add("Import block selector menus");
-        menu.add("Export current block selector menu");
-        menu.add("Export all block selector menus");
+        menu.add(Menu.NONE,1,Menu.NONE, R.string.import_block_selector_menus);
+        menu.add(Menu.NONE,2,Menu.NONE, R.string.export_current_block_selector_menu);
+        menu.add(Menu.NONE,3,Menu.NONE, R.string.export_all_block_selector_menus);
         popupMenu.setOnMenuItemClickListener(item -> {
-            switch (item.getTitle().toString()) {
-                case "Export current block selector menu":
+            switch (item.getItemId()) {
+                case 2:
                     ArrayList<HashMap<String, Object>> arrayList = new ArrayList<>();
                     arrayList.add(data.get(current_item));
                     FileUtil.writeFile(FileUtil.getExternalStorageDir().concat("/.sketchware/resources/block/export/menu/") + data.get(current_item).get("name") + ".json", new Gson().toJson(arrayList));
                     SketchwareUtil.toast("Successfully exported block menu to:\n/Internal storage/.sketchware/resources/block/export", Toast.LENGTH_LONG);
                     break;
 
-                case "Import block selector menus":
+                case 1:
                     openFileExplorerImport();
                     break;
 
-                case "Export all block selector menus":
+                case 3:
                     FileUtil.writeFile(FileUtil.getExternalStorageDir().concat("/.sketchware/resources/block/export/menu/") + "All_Menus.json", new Gson().toJson(data));
                     SketchwareUtil.toast("Successfully exported block menus to:\n/Internal storage/.sketchware/resources/block/export", Toast.LENGTH_LONG);
                     break;
@@ -242,12 +244,12 @@ public class BlockSelectorActivity extends AppCompatActivity implements View.OnC
                     value.setText("");
                 }
             } else {
-                SketchwareUtil.toastError("This menu can't be modified.");
+                SketchwareUtil.toastError(getString(R.string.this_menu_can_t_be_modified));
             }
         } else if (id == R.id.dele) {
             if (current_item != 0) {
-                new AlertDialog.Builder(this).setMessage("Remove this menu and its items?")
-                        .setPositiveButton("Remove", (dialog, which) -> {
+                new AlertDialog.Builder(this).setMessage(R.string.remove_this_menu_and_its_items)
+                        .setPositiveButton(R.string.common_word_remove, (dialog, which) -> {
                             data.remove(spinner1.getSelectedItemPosition());
                             _save_item();
                             _refresh_display();
@@ -255,10 +257,10 @@ public class BlockSelectorActivity extends AppCompatActivity implements View.OnC
                             isNewGroup = false;
                             spinner1.setSelection(0);
                         })
-                        .setNegativeButton("Cancel", null)
+                        .setNegativeButton(R.string.common_word_cancel, null)
                         .create().show();
             } else {
-                SketchwareUtil.toastError("This menu can't be deleted.");
+                SketchwareUtil.toastError(getString(R.string.this_menu_can_t_be_deleted));
             }
         } else if (id == R.id.edi) {
             if (current_item != 0) {
@@ -320,9 +322,9 @@ public class BlockSelectorActivity extends AppCompatActivity implements View.OnC
         filePickerDialog.setDialogSelectionListener(selections -> {
             String fileContent = FileUtil.readFile(selections[0]);
             if (fileContent.equals("")) {
-                SketchwareUtil.toastError("The selected file is empty!");
+                SketchwareUtil.toastError(getString(R.string.the_selected_file_is_empty));
             } else if (fileContent.equals("[]")) {
-                SketchwareUtil.toastError("The selected file is empty!");
+                SketchwareUtil.toastError(getString(R.string.the_selected_file_is_empty));
             } else {
                 try {
                     _importMenu(new Gson().fromJson(fileContent, Helper.TYPE_MAP_LIST));
@@ -341,7 +343,7 @@ public class BlockSelectorActivity extends AppCompatActivity implements View.OnC
         if (data.size() != 0) {
             _showItem(0);
         }
-        SketchwareUtil.toast("Successfully imported menu");
+        SketchwareUtil.toast(getString(R.string.successfully_imported_menu));
     }
 
     private void _readFile() {

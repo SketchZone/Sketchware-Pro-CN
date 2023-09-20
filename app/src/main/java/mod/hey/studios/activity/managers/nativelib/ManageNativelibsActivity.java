@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -92,7 +93,7 @@ public class ManageNativelibsActivity extends Activity implements View.OnClickLi
         ImageView back = findViewById(R.id.ig_toolbar_back);
         back.setOnClickListener(Helper.getBackPressedClickListener(this));
         Helper.applyRippleToToolbarView(back);
-        ((TextView) findViewById(R.id.tx_toolbar_title)).setText("Native library Manager");
+        ((TextView) findViewById(R.id.tx_toolbar_title)).setText(R.string.native_library_manager);
 
         loadFile = findViewById(R.id.ig_toolbar_load_file);
         Helper.applyRippleToToolbarView(loadFile);
@@ -128,9 +129,9 @@ public class ManageNativelibsActivity extends Activity implements View.OnClickLi
         final EditText filename = root.findViewById(R.id.dialog_edittext_name);
         filenameLayout = (TextInputLayout) filename.getParent().getParent();
 
-        title.setText("Create a new folder");
+        title.setText(R.string.create_a_new_folder);
         fileType.setVisibility(View.GONE);
-        filenameLayout.setHint("Folder name");
+        filenameLayout.setHint(R.string.common_word_folder_name);
 
         root.findViewById(R.id.dialog_text_cancel).setOnClickListener(Helper.getDialogDismissListener(dialog));
         root.findViewById(R.id.dialog_text_save).setOnClickListener(save -> {
@@ -152,7 +153,7 @@ public class ManageNativelibsActivity extends Activity implements View.OnClickLi
 
             FileUtil.makeDir(path);
             handleAdapter(nativeLibrariesPath);
-            SketchwareUtil.toast("Created folder successfully");
+            SketchwareUtil.toast(getString(R.string.created_folder_successfully));
 
             dialog.dismiss();
         });
@@ -192,11 +193,11 @@ public class ManageNativelibsActivity extends Activity implements View.OnClickLi
             if (FileUtil.isDirectory(frc.listFileNativeLibs.get(position))) {
                 PopupMenu menu = new PopupMenu(this, view);
 
-                menu.getMenu().add("Delete");
+                menu.getMenu().add(Menu.NONE,1,Menu.NONE,R.string.common_word_delete);
                 menu.setOnMenuItemClickListener(item -> {
                     FileUtil.deleteFile(frc.listFileNativeLibs.get(position));
                     handleAdapter(nativeLibrariesPath);
-                    SketchwareUtil.toast("Deleted");
+                    SketchwareUtil.toast(getString(R.string.common_word_deleted));
 
                     return true;
                 });
@@ -229,7 +230,7 @@ public class ManageNativelibsActivity extends Activity implements View.OnClickLi
         properties.extensions = new String[]{"so"};
 
         filePicker = new FilePickerDialog(this, properties);
-        filePicker.setTitle("Select a native library (.so)");
+        filePicker.setTitle(getString(R.string.select_a_native_library_so));
         filePicker.setDialogSelectionListener(selections -> {
             for (String path : selections) {
                 try {
@@ -257,7 +258,7 @@ public class ManageNativelibsActivity extends Activity implements View.OnClickLi
             filename.setText(path.substring(path.lastIndexOf("/") + 1));
         } catch (Exception ignored) {
         }
-        filenameLayout.setHint("New filename");
+        filenameLayout.setHint(R.string.new_filename);
 
         cancel.setOnClickListener
                 (Helper.getDialogDismissListener(dialog));
@@ -266,16 +267,16 @@ public class ManageNativelibsActivity extends Activity implements View.OnClickLi
             if (!newName.isEmpty()) {
                 if (FileUtil.renameFile(path,
                         path.substring(0, path.lastIndexOf(File.separator)) + File.separator + newName)) {
-                    SketchwareUtil.toast("Renamed successfully");
+                    SketchwareUtil.toast(getString(R.string.renamed_successfully));
                 } else {
-                    SketchwareUtil.toastError("Renaming failed");
+                    SketchwareUtil.toastError(getString(R.string.renaming_failed));
                 }
 
                 handleAdapter(nativeLibrariesPath);
                 handleFab();
                 dialog.dismiss();
             } else {
-                filenameLayout.setError("Enter a name");
+                filenameLayout.setError(getString(R.string.enter_a_name));
             }
         });
 
@@ -337,14 +338,13 @@ public class ManageNativelibsActivity extends Activity implements View.OnClickLi
                 menu.getMenu().getItem(2).setVisible(false);
 
                 menu.setOnMenuItemClickListener(item -> {
-                    String title = item.getTitle().toString();
-                    switch (title) {
-                        case "Delete":
+                    switch (item.getItemId()) {
+                        case 1:
                             FileUtil.deleteFile(frc.listFileNativeLibs.get(position));
                             handleAdapter(nativeLibrariesPath);
                             break;
 
-                        case "Rename":
+                        case 2:
                             showDialog(frc.listFileNativeLibs.get(position));
                             break;
 

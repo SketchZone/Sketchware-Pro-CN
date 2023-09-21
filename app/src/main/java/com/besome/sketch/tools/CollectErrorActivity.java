@@ -43,9 +43,9 @@ public class CollectErrorActivity extends Activity {
                     .setMessage("An error occurred while running Sketchware Pro. " +
                             "Do you want to report this error log so that we can fix it? " +
                             "No personal information will be included.")
-                    .setPositiveButton("Send", null)
-                    .setNegativeButton("Cancel", (dialogInterface, which) -> finish())
-                    .setNeutralButton("Show error", null) // null to set proper onClick listeners later without dismissing the AlertDialog
+                    .setPositiveButton(R.string.common_word_send, null)
+                    .setNegativeButton(R.string.common_word_cancel, (dialogInterface, which) -> finish())
+                    .setNeutralButton(R.string.common_word_show_error, null) // null to set proper onClick listeners later without dismissing the AlertDialog
                     .show();
 
             TextView messageView = dialog.findViewById(android.R.id.message);

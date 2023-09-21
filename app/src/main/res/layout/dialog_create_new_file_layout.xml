@@ -72,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:autofillHints=""
-            android:hint="Filename"
+            android:hint="@string/common_word_filename"
             android:inputType="text"
             android:textColorHint="#008dcd"
             android:textSize="18sp" />

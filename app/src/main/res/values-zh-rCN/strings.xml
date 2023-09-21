@@ -464,7 +464,7 @@
     <string name="design_manager_image_title_add_image">添加图像</string>
     <string name="design_manager_image_title_edit_image">修改图像</string>
     <string name="design_manager_image_title_edit_image_name">修改图像名称</string>
-    <string name="design_manager_image_description_guide_add_image">如果你在这里添加图片\n You 您可以将它用作图标(Icon)或图像视图(ImageView)</string>
+    <string name="design_manager_image_description_guide_add_image">如果您在这里添加图片,您可以将它用作图标(Icon)或图像视图(ImageView)</string>
     <string name="design_manager_image_hint_enter_image_name">输入图像名称</string>
     <string name="design_manager_image_title_apply_same_naming">对其他可用的图像,应用相同的命名方式</string>
 
@@ -2583,7 +2583,7 @@
     <string name="publish_message_dialog_authorization_error">此json文件的访问令牌已过期. 请选择一个有效的json文件</string>
 
     <string name="publish_title_dialog_invalid_json">无效的Json文件</string>
-    <string name="publish_message_dialog_invalid_json">json文件无效. 请仔细检查文件</string>
+    <string name="publish_message_dialog_invalid_json">json文件无效.请仔细检查文件</string>
 
     <string name="publish_connecting_account_have_account">我有一个Google Play开发者帐户</string>
     <string name="publish_connecting_account_no_have_account">我没有Google Play开发者帐户</string>
@@ -2593,13 +2593,13 @@
     <string name="publish_select_account_json_title_client_mail">客户电子邮件</string>
 
     <string name="publish_select_account_json_title_dialog_json_file_desc">选择Json文件</string>
-    <string name="publish_select_account_json_message_dialog_json_file_desc">此过程对于以后的发布是必要的. Sketchware不保存或编辑此json文件. 你想继续吗？</string>
+    <string name="publish_select_account_json_message_dialog_json_file_desc">此过程对于以后的发布是必要的.Sketchware不保存或编辑此json文件.你想继续吗?</string>
 
     <string name="publish_select_account_json_dialog_refresh_account_title">刷新服务帐户</string>
-    <string name="publish_select_account_json_dialog_refresh_account_desc">服务帐户凭据将被重置. 你想继续吗？</string>
+    <string name="publish_select_account_json_dialog_refresh_account_desc">服务帐户凭据将被重置.你想继续吗?</string>
 
     <string name="publish_no_account_title">成为发布者</string>
-    <string name="publish_no_account_desc">要在Google Play上发布应用,您需要一个Google Play开发者帐户. 请先创建一个Google Play开发者帐户.</string>
+    <string name="publish_no_account_desc">要在Google Play上发布应用,您需要一个Google Play开发者帐户.请先创建一个Google Play开发者帐户.</string>
     <string name="publish_no_account_step_desc">请参阅文档以获取其他帮助.</string>
 
     <string name="publish_no_account_move_to_console">转到开发者控制台</string>
@@ -3570,11 +3570,13 @@
     <string name="import_project_desc_download_complete_is_not_root">下载%s完成.在项目选项卡中刷新项目列表，然后查看下载的项目.</string>
 
     <string name="myprojects_list_menu_title_sign_export">签署/导出</string>
-    <!--one翻译-->
+    <!--oneSkyer翻译  2023.9.20-->
     <string name="text_title_menu_resource">Resource管理</string>
     <string name="text_title_menu_assets">Asset管理</string>
-    <string name="text_title_menu_permission">许可</string>
+    <string name="text_title_menu_permission">权限</string>
     <string name="text_title_menu_local_library">本地库</string>
+    <string name="text_title_menu_java">Java/Kotlin管理</string>
+    <string name="text_subtitle_menu_java">导入Java/Kotlin文件</string>
     <string name="text_subtitle_menu_resource">导入resource文件</string>
     <string name="text_subtitle_menu_assets">导入asset文件</string>
     <string name="text_subtitle_menu_permission">添加自定义权限</string>
@@ -3601,8 +3603,8 @@
     <string name="component_description_fb_ads_banner">Facebook广告横幅用于显示带有Facebook广告的广告横幅</string>
     <string name="component_description_fb_ads_interstitial">Facebook广告插页式广告用于与Facebook广告一起展示插页式广告</string>
     <string name="property_border_color">图像边框颜色</string>
-    <string name="design_drawer_menu_androidmanifest">AndroidManifest</string>
-    <string name="design_drawer_menu_androidmanifest_subtitle">修改AndroidManifest</string>
+    <string name="design_drawer_menu_androidmanifest">AndroidManifest管理</string>
+    <string name="design_drawer_menu_androidmanifest_subtitle">管理AndroidManifest</string>
     <string name="design_drawer_menu_proguard">代码缩减</string>
     <string name="design_drawer_menu_proguard_subtitle">使用R8/ProGuard最小化/混淆您的应用程序</string>
     <string name="design_drawer_menu_stringfog">加密字符串</string>
@@ -3886,6 +3888,8 @@
     <string name="block_selector_menu_manager">块选择器菜单管理</string>
     <string name="block_select_manage_subtitle">管理您自己的块选择器菜单</string>
     <string name="components_manage_subtitle">管理您自己的组件</string>
+    <string name="events_manage_subtitle">管理您自己的活动</string>
+    <string name="local_libraries_manage_subtitle">管理和下载本地库</string>
     <string name="mod_settings_manage_subtitle">更改常规模组设置</string>
     <string name="open_working_directory_manage_subtitle">打开Sketchware Pro的目录并编辑其中的文件</string>
     <string name="sign_manage_subtitle">使用测试密钥和高达V4的签名方案对现有APK文件进行签名</string>
@@ -3913,8 +3917,9 @@
     <string name="common_word_skip">跳过</string>
     <string name="don_t_show_anymore">不再显示</string>
     <string name="common_word_don_t_copy">不复制</string>
-    <string name="common_word_palettes">选项板</string>
+    <string name="common_word_palettes">调色板:</string>
     <string name="googlemap_settings">GoogleMap设置</string>
+    <string name="resource_manager">Resource管理</string>
     <string name="created_file_successfully">已成功创建文件</string>
     <string name="only_xml_files_can_be_edited">只能编辑XML文件</string>
     <string name="select_a_resource_file">选择资源文件</string>
@@ -3922,7 +3927,7 @@
     <string name="add_to_androidmanifest">添加到AndroidManifest</string>
     <string name="invalid_name">无效名称</string>
     <string name="stringfog_manager">加密字符串管理</string>
-    <string name="backup_options">Backup Options</string>
+    <string name="backup_options">备份选项</string>
     <string name="include_used_local_libraries">包括已使用的本地库</string>
     <string name="include_used_custom_blocks">包括已使用的自定义块</string>
     <string name="common_word_back_up">备份</string>
@@ -3947,6 +3952,60 @@
     <string name="select_a_txt_file">选择一个.txt文件</string>
     <string name="listeners">监听器:</string>
     <string name="activity_events">活动事件</string>
+    <string name="androidmanifest_manager">AndroidManifest管理</string>
+    <string name="mainfest_generating_source">正在生成源...</string>
+    <string name="mainfest_add_activity">添加活动</string>
+    <string name="mainfest_new_activity_added">活动已添加</string>
+    <string name="mainfest_activity_removed">活动已删除</string>
+    <string name="activities">活动:</string>
+    <string name="config_built_in_blocks">内置块</string>
+    <string name="config_show_all_variable_blocks">显示所有变量块</string>
+    <string name="config_show_all_blocks_of_palettes">显示调色板的所有块</string>
+    <string name="config_backup_directory">备份目录</string>
+    <string name="config_use_legacy_code_editor">使用旧式代码编辑器</string>
+    <string name="config_install_projects_with_root_access">安装具有root访问权限的项目</string>
+    <string name="config_launch_projects_after_installing">安装后启动项目</string>
+    <string name="config_use_new_version_control">使用新版本控制</string>
+    <string name="config_enable_block_text_input_highlighting">启用块文本输入突出显示</string>
+    <string name="config_backup_filename_format">备份文件名格式</string>
+    <string name="reset_to_default_complete">重置为默认完成.</string>
+    <string name="config_subtitle1">可能会减慢在逻辑编辑器中加载块的速度.</string>
+    <string name="config_subtitle2">所有变量块都是可见的,即使您没有变量.</string>
+    <string name="config_subtitle3">将显示每个可用块.将减慢打开调色板的速度!</string>
+    <string name="config_subtitle4">默认目录为/Internal storage/.sketchware/backups/.</string>
+    <string name="config_subtitle5">内部目录/Internal storage/, e.g. sketchware/backups</string>
+    <string name="config_subtitle6">启用v6.2.0中的旧代码编辑器.</string>
+    <string name="config_subtitle7">使用根访问生成后自动安装项目APK.</string>
+    <string name="config_subtitle8">使用root自动安装后自动打开项目.</string>
+    <string name="config_subtitle9">为项目启用自定义版本代码和名称.</string>
+    <string name="config_subtitle10">在编辑块的文本参数时启用语法高亮显示.</string>
+    <string name="config_subtitle11">默认值为\"$projectName v$versionName ($pkgName, $versionCode) $time(yyyy-MM-dd\'T\'HHmmss)\"</string>
+    <string name="config_toast1">无法获取root访问权限</string>
+    <string name="config_toast2">检测到无效的首选项.恢复默认值</string>
+    <string name="config_toast3">检测到旧版的无效首选项</string>
+    <string name="config_toast4">代码编辑器,恢复默认值</string>
+    <string name="config_format">格式</string>
+    <string name="tools_select_an_entry_to_modify">选择要修改的条目</string>
+    <string name="tools_select_an_action">选择一个操作</string>
+    <string name="permanently_this_cannot_be_undone">永久?这是无法撤消的.</string>
+    <string name="delete_file">删除文件?</string>
+    <string name="are_you_sure_you_want_to_delete_this_file_permanently_this_cannot_be_undone">是否确实要永久删除此文件?这是无法撤消的.</string>
+    <string name="an_error_occurred_check_the_log_for_more_details">发生错误.检查日志以获取更多详细信息.</string>
+    <string name="log_reader_search_log">搜索日志</string>
+    <string name="log_reader_menu_clear_all">全部清除</string>
+    <string name="log_reader_menu_filter_by_package">按包筛选</string>
+    <string name="log_reader_menu_auto_scroll">自动滚动</string>
+    <string name="log_reader_filter_by_package_name">按包名称筛选</string>
+    <string name="log_reader_massage">对于多个包名称,请用逗号分隔(,).</string>
+    <string name="common_word_apply">应用</string>
+    <string name="log_reader_copied_to_clipboard">已复制到剪贴板</string>
+    <string name="manage_sound_add_sound">添加声音</string>
+    <string name="manage_screen_type">类型</string>
+    <string name="common_word_folder">folder</string>
+    <string name="about_mod_major_changes">Sketchware Pro的主要更改将显示在此处.</string>
+    <string name="common_word_send">Send</string>
+    <string name="common_word_show_error">Show error</string>
+    <string name="common_word_filename">Filename</string>
     <!-- ************************************************************************************************************************* -->
     <!-- *************************************************  append 3.9.0 end    ************************************************** -->
     <!-- ************************************************************************************************************************* -->

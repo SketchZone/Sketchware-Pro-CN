@@ -123,8 +123,8 @@ public class ConfigActivity extends Activity {
             if (value instanceof Boolean) {
                 return (Boolean) value;
             } else {
-                SketchwareUtil.toastError("Detected invalid preference for legacy "
-                                + " Code Editor. Restoring defaults",
+                SketchwareUtil.toastError(Helper.getResString(R.string.config_toast3)
+                                + Helper.getResString(R.string.config_toast4),
                         Toast.LENGTH_LONG);
                 settings.remove(SETTING_LEGACY_CODE_EDITOR);
                 FileUtil.writeFile(SETTINGS_FILE.getAbsolutePath(), new Gson().toJson(settings));
@@ -144,7 +144,7 @@ public class ConfigActivity extends Activity {
             if (value instanceof Boolean) {
                 return (Boolean) value;
             } else {
-                SketchwareUtil.toastError("Detected invalid preference. Restoring defaults",
+                SketchwareUtil.toastError(Helper.getResString(R.string.config_toast2),
                         Toast.LENGTH_LONG);
                 settings.remove(keyName);
                 FileUtil.writeFile(SETTINGS_FILE.getAbsolutePath(), new Gson().toJson(settings));
@@ -280,22 +280,22 @@ public class ConfigActivity extends Activity {
         toolbar_back.setFocusable(true);
         Helper.applyRippleToToolbarView(toolbar_back);
         toolbar_back.setOnClickListener(Helper.getBackPressedClickListener(this));
-        toolbar_title.setText("Mod settings");
+        toolbar_title.setText(R.string.mod_settings);
 
-        addSwitchPreference("Built-in blocks",
-                "May slow down loading blocks in Logic Editor.",
+        addSwitchPreference(getString(R.string.config_built_in_blocks),
+                getString(R.string.config_subtitle1),
                 SETTING_SHOW_BUILT_IN_BLOCKS,
                 false);
-        addSwitchPreference("Show all variable blocks",
-                "All variable blocks will be visible, even if you don't have variables for them.",
+        addSwitchPreference(getString(R.string.config_show_all_variable_blocks),
+                getString(R.string.config_subtitle2),
                 SETTING_ALWAYS_SHOW_BLOCKS,
                 false);
-        addSwitchPreference("Show all blocks of palettes",
-                "Every single available block will be shown. Will slow down opening palettes!",
+        addSwitchPreference(getString(R.string.config_show_all_blocks_of_palettes),
+                getString(R.string.config_subtitle3),
                 SETTING_SHOW_EVERY_SINGLE_BLOCK,
                 false);
-        addTextInputPreference("Backup directory",
-                "The default directory is /Internal storage/.sketchware/backups/.", v -> {
+        addTextInputPreference(getString(R.string.config_backup_directory),
+                getString(R.string.config_subtitle4), v -> {
                     final LinearLayout container = new LinearLayout(this);
                     container.setPadding(
                             (int) getDip(20),
@@ -307,8 +307,8 @@ public class ConfigActivity extends Activity {
                     tilBackupDirectory.setLayoutParams(new LinearLayout.LayoutParams(
                             ViewGroup.LayoutParams.MATCH_PARENT,
                             ViewGroup.LayoutParams.WRAP_CONTENT));
-                    tilBackupDirectory.setHint("Backup directory");
-                    tilBackupDirectory.setHelperText("Directory inside /Internal storage/, e.g. sketchware/backups");
+                    tilBackupDirectory.setHint(R.string.config_backup_directory);
+                    tilBackupDirectory.setHelperText(getString(R.string.config_subtitle5));
                     container.addView(tilBackupDirectory);
 
                     final EditText backupDirectory = new EditText(this);
@@ -320,44 +320,45 @@ public class ConfigActivity extends Activity {
                     tilBackupDirectory.addView(backupDirectory);
 
                     new AlertDialog.Builder(this)
-                            .setTitle("Backup directory")
+                            .setTitle(R.string.config_backup_directory)
                             .setView(container)
                             .setPositiveButton(R.string.common_word_save, (dialogInterface, which) -> {
                                 ConfigActivity.setSetting(SETTING_BACKUP_DIRECTORY, backupDirectory.getText().toString());
-                                SketchwareUtil.toast("Saved");
+                                SketchwareUtil.toast(getString(R.string.common_word_saved));
                             })
                             .setNegativeButton(R.string.common_word_cancel, (dialogInterface, which) -> dialogInterface.dismiss())
                             .show();
                 });
-        addSwitchPreference("Use legacy Code Editor",
-                "Enables old Code Editor from v6.2.0.",
+        addSwitchPreference(getString(R.string.config_use_legacy_code_editor),
+                getString(R.string.config_subtitle6),
                 SETTING_LEGACY_CODE_EDITOR,
                 false);
-        addSwitchPreference("Install projects with root access", "Automatically installs project APKs after building using root access.",
+        addSwitchPreference(getString(R.string.config_install_projects_with_root_access),
+                getString(R.string.config_subtitle7),
                 SETTING_ROOT_AUTO_INSTALL_PROJECTS, false, (buttonView, isChecked) -> {
             if (isChecked) {
                 Shell.getShell(shell -> {
                     if (!shell.isRoot()) {
-                        SketchwareUtil.toastError("Couldn't acquire root access");
+                        SketchwareUtil.toastError(getString(R.string.config_toast1));
                         buttonView.setChecked(false);
                     }
                 });
             }
         });
-        addSwitchPreference("Launch projects after installing",
-                "Opens projects automatically after auto-installation using root.",
+        addSwitchPreference(getString(R.string.config_launch_projects_after_installing),
+                getString(R.string.config_subtitle8),
                 SETTING_ROOT_AUTO_OPEN_AFTER_INSTALLING,
                 true);
-        addSwitchPreference("Use new Version Control",
-                "Enables custom version code and name for projects.",
+        addSwitchPreference(getString(R.string.config_use_new_version_control),
+                getString(R.string.config_subtitle9),
                 SETTING_USE_NEW_VERSION_CONTROL,
                 false);
-        addSwitchPreference("Enable block text input highlighting",
-                "Enables syntax highlighting while editing blocks' text parameters.",
+        addSwitchPreference(getString(R.string.config_enable_block_text_input_highlighting),
+                getString(R.string.config_subtitle10),
                 SETTING_USE_ASD_HIGHLIGHTER,
                 false);
-        addTextInputPreference("Backup filename format",
-                "Default is \"$projectName v$versionName ($pkgName, $versionCode) $time(yyyy-MM-dd'T'HHmmss)\"", v -> {
+        addTextInputPreference(getString(R.string.config_backup_filename_format),
+                getString(R.string.config_subtitle11), v -> {
                     final LinearLayout container = new LinearLayout(this);
                     container.setPadding(
                             (int) getDip(20),
@@ -369,7 +370,7 @@ public class ConfigActivity extends Activity {
                     tilBackupFormat.setLayoutParams(new LinearLayout.LayoutParams(
                             ViewGroup.LayoutParams.MATCH_PARENT,
                             ViewGroup.LayoutParams.WRAP_CONTENT));
-                    tilBackupFormat.setHint("Format");
+                    tilBackupFormat.setHint(getString(R.string.config_format));
                     tilBackupFormat.setHelperText("This defines how SWB backup files get named.\n" +
                             "Available variables:\n" +
                             " - $projectName - Project name\n" +
@@ -391,18 +392,18 @@ public class ConfigActivity extends Activity {
                     tilBackupFormat.addView(backupFilename);
 
                     new AlertDialog.Builder(this)
-                            .setTitle("Backup filename format")
+                            .setTitle(R.string.config_backup_filename_format)
                             .setView(container)
                             .setNegativeButton(R.string.common_word_cancel, (dialogInterface, which) -> dialogInterface.dismiss())
                             .setPositiveButton(R.string.common_word_save, (dialogInterface, which) -> {
                                 setting_map.put(SETTING_BACKUP_FILENAME, backupFilename.getText().toString());
                                 FileUtil.writeFile(SETTINGS_FILE.getAbsolutePath(), new Gson().toJson(setting_map));
-                                SketchwareUtil.toast("Saved");
+                                SketchwareUtil.toast(getString(R.string.common_word_saved));
                             })
                             .setNeutralButton(R.string.common_word_reset, (dialogInterface, which) -> {
                                 setting_map.remove(SETTING_BACKUP_FILENAME);
                                 FileUtil.writeFile(SETTINGS_FILE.getAbsolutePath(), new Gson().toJson(setting_map));
-                                SketchwareUtil.toast("Reset to default complete.");
+                                SketchwareUtil.toast(getString(R.string.reset_to_default_complete));
                             })
                             .show();
                 });

@@ -178,7 +178,7 @@ public class AndroidManifestInjection extends Activity {
                 (int) getDip(8));
         sub_skin.setFocusable(false);
         sub_skin.setGravity(Gravity.CENTER_VERTICAL);
-        TextView sub = newText("Activities:", 16, false, Color.GRAY, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0);
+        TextView sub = newText(getString(R.string.activities), 16, false, Color.GRAY, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0);
         sub_skin.addView(sub);
         base.addView(sub_skin);
 
@@ -212,7 +212,7 @@ public class AndroidManifestInjection extends Activity {
                 (int) getDip(8),
                 (int) getDip(8),
                 (int) getDip(8));
-        addnew.setText("Add Activity");
+        addnew.setText(R.string.mainfest_add_activity);
         addnew.setTextColor(Color.WHITE);
         addnew.setPadding(
                 (int) getDip(50),
@@ -268,7 +268,7 @@ public class AndroidManifestInjection extends Activity {
         btnSave.setOnClickListener(v -> {
             create.dismiss();
             AndroidManifestInjector.setLauncherActivity(sc_id, inputValue.getText().toString());
-            SketchwareUtil.toast("Saved");
+            SketchwareUtil.toast(getString(R.string.common_word_saved));
         });
 
         btnCancel.setOnClickListener(Helper.getDialogDismissListener(create));
@@ -297,7 +297,7 @@ public class AndroidManifestInjection extends Activity {
             addNewActivity(inputValue.getText().toString());
 
             create.dismiss();
-            SketchwareUtil.toast("New Activity added");
+            SketchwareUtil.toast(getString(R.string.mainfest_new_activity_added));
         });
 
         btnCancel.setOnClickListener(Helper.getDialogDismissListener(create));
@@ -413,7 +413,7 @@ public class AndroidManifestInjection extends Activity {
         FileUtil.writeFile(path, new Gson().toJson(data));
         refreshList();
         removeComponents(activity_name);
-        SketchwareUtil.toast("activity removed");
+        SketchwareUtil.toast(getString(R.string.mainfest_activity_removed));
     }
 
     private void removeComponents(String str) {
@@ -481,7 +481,7 @@ public class AndroidManifestInjection extends Activity {
         ImageView _quickSource = toolbar.findViewById(R.id.ig_toolbar_load_file);
 
         TextView _title = toolbar.findViewById(R.id.tx_toolbar_title);
-        _title.setText("AndroidManifest Manager");
+        _title.setText(R.string.androidmanifest_manager);
         _back.setOnClickListener(Helper.getBackPressedClickListener(this));
 
         _quickSource.setImageResource(R.drawable.code_white_48);
@@ -495,7 +495,7 @@ public class AndroidManifestInjection extends Activity {
 
     private void showQuickManifestSourceDialog() {
         ProgressDialog progress = new ProgressDialog(this);
-        progress.setMessage("Generating source...");
+        progress.setMessage(getString(R.string.mainfest_generating_source));
         progress.show();
 
         new Thread(() -> {
@@ -503,7 +503,7 @@ public class AndroidManifestInjection extends Activity {
 
             AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this)
                     .setTitle("AndroidManifest.xml")
-                    .setPositiveButton("Dismiss", null);
+                    .setPositiveButton(R.string.common_word_dismiss, null);
 
             runOnUiThread(() -> {
                 if (isFinishing()) return;

@@ -39,8 +39,8 @@ public class SketchDialog extends Dialog {
     //Defaults Strings
     public String mTitle = "";
     public String mMessage = "";
-    public String mPositiveStr = "Ok";
-    public String mNegativeStr = "Cancel";
+    public String mPositiveStr = Helper.getResString(R.string.common_word_ok);
+    public String mNegativeStr = Helper.getResString(R.string.common_word_cancel);
     public String mNeutralStr = "";
     //View.OnClickListener
     private View.OnClickListener mPositiveClick;

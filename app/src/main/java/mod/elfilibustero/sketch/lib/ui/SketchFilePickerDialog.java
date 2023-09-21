@@ -121,14 +121,14 @@ public class SketchFilePickerDialog extends aB {
                 loadFiles(file, fileList, adapter);
             }
         });
-        super.b("Select", _v -> {
+        super.b(Helper.getResString(R.string.common_word_select), _v -> {
             if (filePath != null && !filePath.isDirectory()) {
                 if (onFileSelectedListener != null) {
                     onFileSelectedListener.onFileSelected(this, filePath);
                 }
             }
         });
-        super.a("Cancel", Helper.getDialogDismissListener(this)); 
+        super.a(Helper.getResString(R.string.common_word_cancel), Helper.getDialogDismissListener(this));
     }
 
     private void loadFiles(File directory, List<File> fileList, FileAdapter adapter) {

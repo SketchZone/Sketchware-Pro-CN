@@ -317,7 +317,7 @@ public class AboutModActivity extends AppCompatActivity {
                     majorChanges.setTextSize(14);
                 }
 
-                majorChanges.setText("Major changes to Sketchware Pro will appear here.");
+                majorChanges.setText(R.string.about_mod_major_changes);
                 viewContainer.addView(majorChanges);
             }
             container.addView(v, 0);

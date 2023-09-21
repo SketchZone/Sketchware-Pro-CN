@@ -377,7 +377,7 @@ public class ManageJavaActivity extends Activity {
 
         new AlertDialog.Builder(this)
                 .setTitle(adapter.getFileName(position))
-                .setMessage(R.string.are_you_sure_you_want_to_delete_this + (adapter.isFolder(position) ? "folder" : "file") + "? "
+                .setMessage(R.string.are_you_sure_you_want_to_delete_this + (adapter.isFolder(position) ? getString(R.string.common_word_folder) :getString(R.string.common_word_file)) + "? "
                         + (isInManifest ? getString(R.string.this_will_also_remove_it_from_androidmanifest) : "")
                         + R.string.this_action_cannot_be_reversed)
                 .setPositiveButton(R.string.common_word_delete, (dialog, which) -> {

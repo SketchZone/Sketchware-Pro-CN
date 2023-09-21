@@ -38,6 +38,7 @@ import kellinwood.security.zipsigner.ZipSigner;
 import mod.SketchwareUtil;
 import mod.agus.jcoderz.lib.FileUtil;
 import mod.alucard.tn.apksigner.ApkSigner;
+import mod.hey.studios.code.SrcCodeEditor;
 import mod.hey.studios.code.SrcCodeEditorLegacy;
 import mod.hey.studios.util.Helper;
 import mod.khaled.logcat.LogReaderActivity;
@@ -136,16 +137,16 @@ public class Tools extends Activity {
         properties.error_dir = getExternalCacheDir();
         properties.extensions = null;
         FilePickerDialog dialog = new FilePickerDialog(this, properties);
-        dialog.setTitle("Select an entry to modify");
+        dialog.setTitle(getString(R.string.tools_select_an_entry_to_modify));
         dialog.setDialogSelectionListener(files -> {
             final boolean isDirectory = new File(files[0]).isDirectory();
             if (files.length > 1 || isDirectory) {
                 new AlertDialog.Builder(this)
-                        .setTitle("Select an action")
-                        .setSingleChoiceItems(new String[]{"Delete"}, -1, (actionDialog, which) -> {
+                        .setTitle(R.string.tools_select_an_action)
+                        .setSingleChoiceItems(new String[]{getString(R.string.common_word_delete)}, -1, (actionDialog, which) -> {
                             new AlertDialog.Builder(this)
-                                    .setTitle("Delete " + (isDirectory ? "folder" : "file") + "?")
-                                    .setMessage("Are you sure you want to delete this " + (isDirectory ? "folder" : "file") + " permanently? This cannot be undone.")
+                                    .setTitle(R.string.common_word_delete + (isDirectory ? "folder" : "file") + "?")
+                                    .setMessage(R.string.are_you_sure_you_want_to_delete_this + (isDirectory ? "folder" : "file") + getString(R.string.permanently_this_cannot_be_undone))
                                     .setPositiveButton(R.string.common_word_delete, (deleteConfirmationDialog, pressedButton) -> {
                                         for (String file : files) {
                                             FileUtil.deleteFile(file);
@@ -159,13 +160,13 @@ public class Tools extends Activity {
                         .show();
             } else {
                 new AlertDialog.Builder(this)
-                        .setTitle("Select an action")
-                        .setSingleChoiceItems(new String[]{"Edit", "Delete"}, -1, (actionDialog, which) -> {
+                        .setTitle(R.string.tools_select_an_action)
+                        .setSingleChoiceItems(new String[]{getString(R.string.common_word_edit), getString(R.string.common_word_delete)}, -1, (actionDialog, which) -> {
                             switch (which) {
                                 case 0:
                                     Intent intent = new Intent(getApplicationContext(), ConfigActivity.isLegacyCeEnabled() ?
                                             SrcCodeEditorLegacy.class
-                                            : mod.hey.studios.code.SrcCodeEditor.class);
+                                            : SrcCodeEditor.class);
                                     intent.putExtra("title", Uri.parse(files[0]).getLastPathSegment());
                                     intent.putExtra("content", files[0]);
                                     intent.putExtra("xml", "");
@@ -174,8 +175,8 @@ public class Tools extends Activity {
 
                                 case 1:
                                     new AlertDialog.Builder(this)
-                                            .setTitle("Delete file?")
-                                            .setMessage("Are you sure you want to delete this file permanently? This cannot be undone.")
+                                            .setTitle(R.string.delete_file)
+                                            .setMessage(R.string.are_you_sure_you_want_to_delete_this_file_permanently_this_cannot_be_undone)
                                             .setPositiveButton(R.string.common_word_delete, (deleteDialog, pressedButton) ->
                                                     FileUtil.deleteFile(files[0]))
                                             .setNegativeButton(R.string.common_word_cancel, null)
@@ -361,7 +362,7 @@ public class Tools extends Activity {
                             zipSigner.setKeymode(ZipSigner.KEY_TESTKEY);
                             zipSigner.signZip(inputApkPath, outputApkPath);
                         } catch (Exception e) {
-                            tv_progress.setText("An error occurred. Check the log for more details.");
+                            tv_progress.setText(R.string.an_error_occurred_check_the_log_for_more_details);
                             tv_log.setText("Failed to sign APK with zipsigner: " + e);
                         }
                     }
@@ -377,7 +378,7 @@ public class Tools extends Activity {
                                         + Uri.fromFile(new File(outputApkPath)).getLastPathSegment(),
                                 Toast.LENGTH_LONG);
                     } else {
-                        tv_progress.setText("An error occurred. Check the log for more details.");
+                        tv_progress.setText(R.string.an_error_occurred_check_the_log_for_more_details);
                     }
                 });
             }

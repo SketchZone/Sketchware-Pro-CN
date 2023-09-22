@@ -197,7 +197,7 @@ public class ActComponentsDialog extends Dialog {
                         activitiesComponents.get(i).put("value", codeEditor.getText());
                         FileUtil.writeFile(ACTIVITIES_COMPONENTS_FILE_PATH, new Gson()
                                 .toJson(activitiesComponents));
-                        SketchwareUtil.toast("Saved");
+                        SketchwareUtil.toast(Helper.getResString(R.string.common_word_save));
                         dismiss();
                         return;
                     }

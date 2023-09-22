@@ -3505,12 +3505,12 @@
     <string name="search_recent_message_delete_keyword_dialog_delete_all">要删除所有关键字吗？</string>
     <string name="search_recent_title_delete_keyword_dialog">删除关键字</string>
 
-    <string name="search_result_title">搜索结果 %s</string>
+    <string name="search_result_title">搜索结果%s</string>
     <string name="search_result_message_no_data">没有搜索结果显示:(</string>
 
-    <string name="myprojects_export_project_actionbar_title">出口项目</string>
+    <string name="myprojects_export_project_actionbar_title">导出项目</string>
     <string name="myprojects_export_project_message_failed_to_export">导出失败</string>
-    <string name="myprojects_export_project_message_exceed_limit">超过了可以创建的网址数量. 您可以在“管理导出的URL”菜单中管理网址.</string>
+    <string name="myprojects_export_project_message_exceed_limit">超过了可以创建的网址数量.您可以在“管理导出的URL”菜单中管理网址.</string>
     <string name="myprojects_export_project_message_complete_export">网址已创建. 您可以在"管理导出的URL"菜单中管理网址.</string>
 
     <string name="myprojects_export_project_word_remain_days">剩余天数</string>
@@ -3546,7 +3546,7 @@
     <string name="manage_export_url_popup_desc_extend_expire">URL的到期日期将扩展为%s天.你想继续吗?</string>
 
     <string name="manage_export_url_popup_title_delete_url">删除网址</string>
-    <string name="manage_export_url_popup_desc_delete_url">该网址将被删除,网址无法恢复.你想继续吗？</string>
+    <string name="manage_export_url_popup_desc_delete_url">该网址将被删除,网址无法恢复.你想继续吗?</string>
 
     <string name="manage_export_url_word_extend">延长</string>
 
@@ -3812,7 +3812,7 @@
     <string name="src_code_editor_toast2">只能格式化Java和XML文件</string>
     <string name="src_code_editor_toast3">目前不支持,抱歉!</string>
     <string name="common_word_saved">已保存</string>
-    <string name="new_listener">新侦听器</string>
+    <string name="new_listener">新监听器</string>
     <string name="independent_class_method">独立的类/方法</string>
     <string name="input_attribute_value">输入属性值</string>
     <string name="create_a_new_file">创建新文件</string>
@@ -4001,11 +4001,37 @@
     <string name="log_reader_copied_to_clipboard">已复制到剪贴板</string>
     <string name="manage_sound_add_sound">添加声音</string>
     <string name="manage_screen_type">类型</string>
-    <string name="common_word_folder">folder</string>
+    <string name="common_word_folder">文件夹</string>
     <string name="about_mod_major_changes">Sketchware Pro的主要更改将显示在此处.</string>
-    <string name="common_word_send">Send</string>
-    <string name="common_word_show_error">Show error</string>
-    <string name="common_word_filename">Filename</string>
+    <string name="common_word_send">发送</string>
+    <string name="common_word_show_error">显示错误</string>
+    <string name="common_word_filename">文件名</string>
+    <string name="create_a_new_event">创建新事件</string>
+    <string name="create_a_new_activity_event">创建新的活动事件</string>
+    <string name="some_required_fields_are_empty">某些必填字段为空!</string>
+    <string name="delete_this_event">删除此事件?</string>
+    <string name="blocks_manager_menu_import_blocks">导入块</string>
+    <string name="blocks_manager_menu_export_blocks">导出块</string>
+    <string name="blocks_manager_select_a_json_file">选择JSON文件</string>
+    <string name="invalid_json_file">无效的JSON文件</string>
+    <string name="blocks_manager_menu_delete_permanently">永久删除</string>
+    <string name="blocks_manager_menu_restore">恢复</string>
+    <string name="blocks_manager_menu_insert_above">在上面插入</string>
+    <string name="blocks_manager_menu_delete">删除</string>
+    <string name="blocks_manager_menu_move_to_palette">移动到调色板</string>
+    <string name="are_you_sure_you_want_to_delete_this_block">是否确实要删除此块?</string>
+    <string name="delete_permanently">永久删除</string>
+    <string name="blocks_manager_restore_to">还原到</string>
+    <string name="blocks_manager_move_to">移动到</string>
+    <string name="common_word_move">移动</string>
+    <string name="import_blocks">导入块</string>
+    <string name="imported_successfully">导入成功</string>
+    <string name="common_word_reverse">颠倒</string>
+    <string name="common_word_code_editor">代码编辑器</string>
+    <string name="used_custom_blocks">使用的自定义块</string>
+    <string name="project_configuration">项目配置</string>
+    <string name="project_setting_hint1">删除文件中不推荐使用的旧方法,如showMessage,getDip等.</string>
+    <string name="project_setting_hint2">使用新的MaterialComponents AppTheme（将用MaterialButton替换按钮,请小心!）</string>
     <!-- ************************************************************************************************************************* -->
     <!-- *************************************************  append 3.9.0 end    ************************************************** -->
     <!-- ************************************************************************************************************************* -->

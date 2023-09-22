@@ -135,7 +135,7 @@ public class EventsMakerCreator extends Activity {
 
     private void save() {
         if (!filledIn()) {
-            SketchwareUtil.toast("Some required fields are empty!");
+            SketchwareUtil.toast(getString(R.string.some_required_fields_are_empty));
             return;
         }
         if (!OldResourceIdMapper.isValidIconId(eventIcon.getText().toString())) {
@@ -192,9 +192,9 @@ public class EventsMakerCreator extends Activity {
         if (isEdit) {
             tx_toolbar_title.setText(event_name);
         } else if (isActivityEvent) {
-            tx_toolbar_title.setText("Create a new Activity event");
+            tx_toolbar_title.setText(R.string.create_a_new_activity_event);
         } else {
-            tx_toolbar_title.setText(lisName + "Create a new event");
+            tx_toolbar_title.setText(lisName + getString(R.string.create_a_new_event));
         }
         ImageView back_icon = findViewById(R.id.ig_toolbar_back);
         back_icon.setOnClickListener(Helper.getBackPressedClickListener(this));

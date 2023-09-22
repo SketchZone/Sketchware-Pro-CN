@@ -111,7 +111,7 @@ public class EventsMakerDetails extends Activity {
     private void setToolbar() {
         TextView tx_toolbar_title = findViewById(R.id.tx_toolbar_title);
         if (lisName.equals("")) {
-            tx_toolbar_title.setText("Activity events");
+            tx_toolbar_title.setText(R.string.activity_events);
         } else {
             tx_toolbar_title.setText(lisName);
         }
@@ -161,7 +161,7 @@ public class EventsMakerDetails extends Activity {
             ((LinearLayout) icon.getParent()).setGravity(17);
             title.setText((String) _data.get(position).get("name"));
             if ("".equals(_data.get(position).get("var"))) {
-                subtitle.setText("Activity event");
+                subtitle.setText(R.string.activity_events);
             } else {
                 subtitle.setText((String) _data.get(position).get("var"));
             }
@@ -184,7 +184,7 @@ public class EventsMakerDetails extends Activity {
             root.setOnLongClickListener(v -> {
                 dia = new AlertDialog.Builder(EventsMakerDetails.this)
                         .setTitle((String) _data.get(position).get("name"))
-                        .setMessage("Delete this event?")
+                        .setMessage(R.string.delete_this_event)
                         .setPositiveButton(R.string.common_word_delete, (dialog, which) -> deleteItem(position))
                         .setNeutralButton(R.string.common_word_edit, (dialog, which) -> {
                             Intent intent = new Intent();

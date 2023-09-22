@@ -73,7 +73,7 @@ public class CustomBlocksDialog {
         }
 
         new AlertDialog.Builder(c)
-                .setTitle("Used Custom Blocks")
+                .setTitle(R.string.used_custom_blocks)
                 .setPositiveButton(R.string.common_word_close, null)
                 .setView(background)
                 .show();

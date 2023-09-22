@@ -31,7 +31,7 @@ public class ProjectSettingsDialog {
     public void show() {
         aB dialog = new aB(activity);
         dialog.a(R.drawable.services_48);
-        dialog.b("Project Configuration");
+        dialog.b(activity.getString(R.string.project_configuration));
 
         ScrollView preferenceScroller = new ScrollView(dialog.getContext());
         {
@@ -74,13 +74,13 @@ public class ProjectSettingsDialog {
         CheckBox removeOldMethods = addTogglePref(
                 ProjectSettings.SETTING_DISABLE_OLD_METHODS,
                 false,
-                "Remove old deprecated methods in files, like showMessage, getDip, etc.",
+                activity.getString(R.string.project_setting_hint1),
                 preferenceContainer);
 
         CheckBox useNewMaterialComponentsAppTheme = addTogglePref(
                 ProjectSettings.SETTING_ENABLE_BRIDGELESS_THEMES,
                 false,
-                "Use new MaterialComponents AppTheme (will replace e.g. Button with MaterialButton, be careful!)",
+                activity.getString(R.string.project_setting_hint2),
                 preferenceContainer);
 
         preferenceScroller.addView(preferenceContainer);

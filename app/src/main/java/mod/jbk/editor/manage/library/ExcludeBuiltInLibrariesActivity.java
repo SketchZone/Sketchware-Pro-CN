@@ -260,16 +260,16 @@ public class ExcludeBuiltInLibrariesActivity extends BaseAppCompatActivity imple
     }
 
     public static String getDefaultItemDescription() {
-        return "Use custom Library versions";
+        return Helper.getResString(R.string.use_custom_library_versions);
     }
 
     public static String getSelectedLibrariesItemDescription() {
-        return "%1$d/%2$d built-in libraries excluded";
+        return Helper.getResString(R.string._1_d_2_d_built_in_libraries_excluded);
     }
 
     private void showSelectBuiltInLibrariesDialog() {
         aB dialog = new aB(this);
-        dialog.b("Select built-in libraries");
+        dialog.b(getString(R.string.select_built_in_libraries));
         RecyclerView list = new RecyclerView(this);
 
         // magic to initialize scrollbars even without android:scrollbars defined in XML

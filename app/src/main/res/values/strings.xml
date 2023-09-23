@@ -2961,4 +2961,12 @@ Please check the URL again."</string>
     <string name="export_project_notice2">/Internal storage/sketchware/keystore/release_key.jks and enter the alias\'s password.\n</string>
     <string name="export_project_notice3">Note that this only signs your APK using signing scheme V1, to target Android 11+ for example,</string>
     <string name="export_project_notice4">use a 3rd-party tool (for now).</string>
+    <string name="select_a_json_file">Select a JSON file</string>
+    <string name="cancel_button_label">Cancel</string>
+    <string name="choose_button_label">Select</string>
+    <string name="error_dir_access">Directory cannot be accessed</string>
+    <string name="label_parent_directory">Parent Directory</string>
+    <string name="use_custom_library_versions">Use custom Library versions</string>
+    <string name="select_built_in_libraries">Select built-in libraries</string>
+    <string name="_1_d_2_d_built_in_libraries_excluded">%1$d/%2$d built-in libraries excluded</string>
 </resources>

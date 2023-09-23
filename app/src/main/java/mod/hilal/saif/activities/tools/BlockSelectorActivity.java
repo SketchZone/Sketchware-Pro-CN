@@ -273,7 +273,7 @@ public class BlockSelectorActivity extends AppCompatActivity implements View.OnC
                 spinner1.setEnabled(false);
                 listview1.setEnabled(false);
             } else {
-                SketchwareUtil.toastError("This menu can't be modified.");
+                SketchwareUtil.toastError(getString(R.string.this_menu_can_t_be_modified));
             }
         } else if (id == R.id.save) {
             save();
@@ -318,7 +318,7 @@ public class BlockSelectorActivity extends AppCompatActivity implements View.OnC
         dialogProperties.offset = file;
         dialogProperties.extensions = new String[]{"json"};
         FilePickerDialog filePickerDialog = new FilePickerDialog(this, dialogProperties);
-        filePickerDialog.setTitle("Select a JSON file");
+        filePickerDialog.setTitle(getString(R.string.select_a_json_file));
         filePickerDialog.setDialogSelectionListener(selections -> {
             String fileContent = FileUtil.readFile(selections[0]);
             if (fileContent.equals("")) {

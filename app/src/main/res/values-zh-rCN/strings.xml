@@ -316,8 +316,8 @@
     <string name="myprojects_sign_apk_dialog_message_confirm_delete_certificate">您确定要删除此证书吗？ 您将无法撤消此操作,并且在将应用上传到Google Play商店时可能会出现问题.</string>
     <string name="myprojects_sign_apk_dialog_complete_create_certificate">新证书已创建</string>
 
-    <string name="myprojects_export_title_email_subject">%s APK文件的安装</string>
-    <string name="myprojects_export_title_email_body">附加文件 : %s </string>
+    <string name="myprojects_export_title_email_subject">%sAPK文件的安装</string>
+    <string name="myprojects_export_title_email_body">附加文件:%s </string>
     <string name="myprojects_export_chooser_title_email">选择邮件</string>
     <string name="myprojects_export_button_share">分享APK文件</string>
 
@@ -611,7 +611,7 @@
     <string name="component_message_no_components">没有要显示的组件</string>
 
     <string name="component_file_picker_hint_mime_type">输入 Mime 类型</string>
-    <string name="component_file_picker_title_select_mime_type">选择 Mime 类型</string>
+    <string name="component_file_picker_title_select_mime_type">选择Mime类型</string>
 
     <string name="component_file_picker_title_select_mime_type_all_files">全部文件</string>
     <string name="component_file_picker_title_select_mime_type_image_files">图像文件</string>
@@ -3922,7 +3922,7 @@
     <string name="resource_manager">Resource管理</string>
     <string name="created_file_successfully">已成功创建文件</string>
     <string name="only_xml_files_can_be_edited">只能编辑XML文件</string>
-    <string name="select_a_resource_file">选择资源文件</string>
+    <string name="select_a_resource_file">选择resource文件</string>
     <string name="file_exists_already">文件已存在</string>
     <string name="add_to_androidmanifest">添加到AndroidManifest</string>
     <string name="invalid_name">无效名称</string>
@@ -4071,6 +4071,14 @@
     <string name="export_project_notice2">/Internal storage/sketchware/keystore/release_key.jks并输入别名的密码.\n</string>
     <string name="export_project_notice3">请注意,这只会使用签名方案V1对您的APK进行签名,例如定位到Android 11+,</string>
     <string name="export_project_notice4">使用第三方工具（目前）.</string>
+    <string name="select_a_json_file">选择JSON文件</string>
+    <string name="cancel_button_label">取消</string>
+    <string name="choose_button_label">选择</string>
+    <string name="error_dir_access">无法访问目录</string>
+    <string name="label_parent_directory">上级目录</string>
+    <string name="use_custom_library_versions">使用自定义库版本</string>
+    <string name="select_built_in_libraries">选择内置库</string>
+    <string name="_1_d_2_d_built_in_libraries_excluded">%1$d/%2$d内置库已排除</string>
     <!-- ************************************************************************************************************************* -->
     <!-- *************************************************  append 3.9.0 end    ************************************************** -->
     <!-- ************************************************************************************************************************* -->

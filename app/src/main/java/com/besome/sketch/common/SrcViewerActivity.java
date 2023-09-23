@@ -163,7 +163,7 @@ public class SrcViewerActivity extends AppCompatActivity {
                 Gravity.CENTER));
 
         new AlertDialog.Builder(this)
-                .setTitle("Select font size")
+                .setTitle(R.string.select_font_size)
                 .setIcon(R.drawable.ic_font_48dp)
                 .setView(layout)
                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {

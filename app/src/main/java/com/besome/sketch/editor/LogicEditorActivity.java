@@ -1534,7 +1534,7 @@ public class LogicEditorActivity extends BaseAppCompatActivity implements View.O
             i++;
         }
         dialog.a(a2);
-        dialog.configureDefaultButton("Code Editor", v -> {
+        dialog.configureDefaultButton(getString(R.string.common_word_code_editor), v -> {
             AsdAllEditor editor = new AsdAllEditor(this);
             editor.setCon(ss.getArgValue().toString());
             editor.show();
@@ -2465,7 +2465,7 @@ public class LogicEditorActivity extends BaseAppCompatActivity implements View.O
         codeEditor.getComponent(Magnifier.class).setWithinEditorForcibly(true);
 
         AlertDialog dialog = new AlertDialog.Builder(this)
-                .setTitle("Source code")
+                .setTitle(R.string.source_code)
                 .setIcon(R.drawable.code_icon)
                 .setPositiveButton(R.string.common_word_close, null)
                 .create();

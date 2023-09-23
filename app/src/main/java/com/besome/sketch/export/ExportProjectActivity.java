@@ -295,7 +295,7 @@ public class ExportProjectActivity extends BaseAppCompatActivity {
             RelativeLayout.LayoutParams btnExportAppBundleParams = (RelativeLayout.LayoutParams) btn_export_src.getLayoutParams();
             btnExportAppBundleParams.setMargins(
                     0,
-                    (int) getDip(48),
+                    (int) getDip(40),
                     0,
                     (int) getDip(16)
             );
@@ -437,10 +437,10 @@ public class ExportProjectActivity extends BaseAppCompatActivity {
             ((LinearLayout) plannedParent).addView(exportAppBundleRoot);
         }
 
-        titleExportAppBundle.setText("Export Android App Bundle");
-        btnExportAppBundle.setText("Export AAB");
+        titleExportAppBundle.setText(R.string.export_android_app_bundle);
+        btnExportAppBundle.setText(R.string.export_aab);
         titleAppBundlePath.setText(Helper.getResString(R.string.myprojects_export_project_title_local_path));
-        btnSendAppBundle.setText("Send AAB");
+        btnSendAppBundle.setText(R.string.send_aab);
         layoutExportAppBundle.setVisibility(View.GONE);
 
         btnExportAppBundle.setOnClickListener(v -> {
@@ -455,9 +455,9 @@ public class ExportProjectActivity extends BaseAppCompatActivity {
                 dialog.show();
             } else {
                 GetKeyStoreCredentialsDialog credentialsDialog = new GetKeyStoreCredentialsDialog(this,
-                        R.drawable.color_about_96, "Sign outputted AAB", "The generated .aab file must be signed.\n" +
-                        "Copy your keystore to /Internal storage/sketchware/keystore/release_key.jks " +
-                        "and enter the alias' password.");
+                        R.drawable.color_about_96, getString(R.string.export_sign_outputted_aab), getString(R.string.export_project_notice_aab) +
+                        getString(R.string.export_project_copy) +
+                        getString(R.string.export_project_and_enter_the_alias_password));
                 credentialsDialog.setListener(credentials -> {
                     btnExportAppBundle.setVisibility(View.GONE);
                     layoutExportAppBundle.setVisibility(View.GONE);
@@ -535,11 +535,11 @@ public class ExportProjectActivity extends BaseAppCompatActivity {
         btn_sign_apk.setOnClickListener(v -> {
             GetKeyStoreCredentialsDialog credentialsDialog = new GetKeyStoreCredentialsDialog(this,
                     R.drawable.color_about_96,
-                    "Sign an APK",
-                    "To sign an APK, you need a keystore. Use your already created one, and copy it to " +
-                            "/Internal storage/sketchware/keystore/release_key.jks and enter the alias's password.\n" +
-                            "Note that this only signs your APK using signing scheme V1, to target Android 11+ for example, " +
-                            "use a 3rd-party tool (for now).");
+                    getString(R.string.export_sign_an_apk),
+                    getString(R.string.export_project_notice) +
+                            getString(R.string.export_project_notice2) +
+                            getString(R.string.export_project_notice3) +
+                            getString(R.string.export_project_notice4));
             credentialsDialog.setListener(credentials -> {
                 btn_sign_apk.setVisibility(View.GONE);
                 layout_apk_path.setVisibility(View.GONE);

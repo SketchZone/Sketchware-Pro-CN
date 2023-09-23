@@ -558,7 +558,7 @@ public class ExtraMenuBean {
                     }
                     if (activityMenu.size() >= 1) {
                         TextView txt = new TextView(logicEditor);
-                        txt.setText("Custom Activities");
+                        txt.setText(R.string.extra_menu_custom_activities);
                         txt.setPadding(
                                 (int) getDip(2),
                                 (int) getDip(4),
@@ -737,7 +737,7 @@ public class ExtraMenuBean {
             dialog.dismiss();
         });
         dialog.a(Helper.getResString(R.string.common_word_cancel), Helper.getDialogDismissListener(dialog));
-        dialog.configureDefaultButton("Code Editor", v -> {
+        dialog.configureDefaultButton(Helper.getResString(R.string.common_word_code_editor), v -> {
             AsdAllEditor editor = new AsdAllEditor(logicEditor);
             editor.setCon(menu.getArgValue().toString());
             editor.show();
@@ -786,7 +786,7 @@ public class ExtraMenuBean {
             dialog.dismiss();
         });
         dialog.a(Helper.getResString(R.string.common_word_cancel), Helper.getDialogDismissListener(dialog));
-        dialog.configureDefaultButton("Code Editor", v -> {
+        dialog.configureDefaultButton(Helper.getResString(R.string.common_word_code_editor), v -> {
             if (ConfigActivity.isLegacyCeEnabled()) {
                 AsdOldDialog asdOldDialog = new AsdOldDialog(logicEditor);
                 asdOldDialog.setCon(edittext.getText().toString());
@@ -813,7 +813,7 @@ public class ExtraMenuBean {
         mProperty.selection_type = DialogConfigs.FILE_AND_DIR_SELECT;
         String path;
         if (menuName.equals("Assets")) {
-            fpd.setTitle("Select an Asset");
+            fpd.setTitle(logicEditor.getString(R.string.extra_menu_select_an_asset));
             path = String.format(ASSETS_PATH, sc_id);
             markedPath.add(0, path + ss.getArgValue().toString());
             fpd.markFiles(markedPath);
@@ -822,7 +822,7 @@ public class ExtraMenuBean {
             String[] strArr = path.split("/");
             splitter = strArr[strArr.length - 1];
         } else if (menuName.equals("NativeLib")) {
-            fpd.setTitle("Select a Native library");
+            fpd.setTitle(logicEditor.getString(R.string.extra_menu_select_a_native_library));
             path = String.format(NATIVE_PATH, sc_id);
             markedPath.add(0, path + ss.getArgValue().toString());
             fpd.markFiles(markedPath);

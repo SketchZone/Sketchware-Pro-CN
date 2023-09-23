@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
@@ -58,9 +59,9 @@ public class CompileLogActivity extends Activity {
         Helper.applyRippleToToolbarView(back);
 
         if (getIntent().getBooleanExtra("showingLastError", false)) {
-            title.setText("Last compile log");
+            title.setText(R.string.compile_log_last_compile_log);
         } else {
-            title.setText("Compile log");
+            title.setText(R.string.compile_log_compile_log);
         }
 
         String sc_id = getIntent().getStringExtra("sc_id");
@@ -90,9 +91,9 @@ public class CompileLogActivity extends Activity {
                 if (compileErrorSaver.logFileExists()) {
                     compileErrorSaver.deleteSavedLogs();
                     getIntent().removeExtra("error");
-                    SketchwareUtil.toast("Compile logs have been cleared.");
+                    SketchwareUtil.toast(getString(R.string.compile_log_compile_logs_have_been_cleared));
                 } else {
-                    SketchwareUtil.toast("No compile logs found.");
+                    SketchwareUtil.toast(getString(R.string.compile_log_no_compile_logs_found));
                 }
 
                 setErrorText();
@@ -103,28 +104,24 @@ public class CompileLogActivity extends Activity {
         menu.setVisibility(View.VISIBLE);
         Helper.applyRippleToToolbarView(menu);
 
-        final String wrapTextLabel = "Wrap text";
-        final String monospacedFontLabel = "Monospaced font";
-        final String fontSizeLabel = "Font size";
-
         PopupMenu options = new PopupMenu(this, menu);
-        options.getMenu().add(wrapTextLabel).setCheckable(true).setChecked(getWrappedTextPreference());
-        options.getMenu().add(monospacedFontLabel).setCheckable(true).setChecked(getMonospacedFontPreference());
-        options.getMenu().add(fontSizeLabel);
+        options.getMenu().add(Menu.NONE,1,Menu.NONE,R.string.word_wrap).setCheckable(true).setChecked(getWrappedTextPreference());
+        options.getMenu().add(Menu.NONE,2,Menu.NONE, R.string.monospaced_font).setCheckable(true).setChecked(getMonospacedFontPreference());
+        options.getMenu().add(Menu.NONE,3,Menu.NONE,R.string.font_size);
 
         options.setOnMenuItemClickListener(menuItem -> {
-            switch (menuItem.getTitle().toString()) {
-                case wrapTextLabel:
+            switch (menuItem.getItemId()) {
+                case 1:
                     menuItem.setChecked(!menuItem.isChecked());
                     toggleWrapText(menuItem.isChecked());
                     break;
 
-                case monospacedFontLabel:
+                case 2:
                     menuItem.setChecked(!menuItem.isChecked());
                     toggleMonospacedText(menuItem.isChecked());
                     break;
 
-                case fontSizeLabel:
+                case 3:
                     changeFontSizeDialog();
                     break;
 
@@ -214,7 +211,7 @@ public class CompileLogActivity extends Activity {
                 Gravity.CENTER));
 
         new AlertDialog.Builder(this)
-                .setTitle("Select font size")
+                .setTitle(R.string.select_font_size)
                 .setView(layout)
                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {
                     logViewerPreferences.edit().putInt(PREFERENCE_FONT_SIZE, picker.getValue()).apply();

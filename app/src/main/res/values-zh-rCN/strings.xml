@@ -2474,7 +2474,7 @@
     <!-- *************************************************  append 3.1.0 start       ********************************************* -->
     <!-- ************************************************************************************************************************* -->
 
-    <string name="common_word_step">%d 步</string>
+    <string name="common_word_step">%d一步</string>
     <string name="common_word_prev">上一个</string>
     <string name="common_word_next">下一个</string>
     <string name="common_word_go_to_documentation">转到文档</string>
@@ -3818,7 +3818,7 @@
     <string name="create_a_new_file">创建新文件</string>
     <string name="rename_file">重命名文件</string>
     <string name="event_properties">事件属性</string>
-    <string name="create_new_listener">创建新侦听器</string>
+    <string name="create_new_listener">创建新监听器</string>
     <string name="select_moreblock_type">选择更多块类型</string>
     <string name="custom_parameter">自定义参数</string>
     <string name="developer_tools_component_optional">自选</string>
@@ -4032,6 +4032,45 @@
     <string name="project_configuration">项目配置</string>
     <string name="project_setting_hint1">删除文件中不推荐使用的旧方法,如showMessage,getDip等.</string>
     <string name="project_setting_hint2">使用新的MaterialComponents AppTheme（将用MaterialButton替换按钮,请小心!）</string>
+    <string name="blocks_manager">块管理</string>
+    <string name="popup_menu_delete_file">删除文件</string>
+    <string name="blocks_manager_menu_duplicate">重复</string>
+    <string name="delete_block">删除块?</string>
+    <string name="last_edit">最后编辑:</string>
+    <string name="exclude_built_in_libraries">排除内置库</string>
+    <string name="this_might_break_your_project_if_you_don_t_know_what_you_re_doing">如果您不知道自己在做什么，这可能会破坏您的项目!</string>
+    <string name="excluded_built_in_libraries">排除的内置库</string>
+    <string name="couldn_t_save_configuration">无法保存配置:</string>
+    <string name="couldn_t_add_scrollbars_to_recyclerview">无法将滚动条添加到回收器视图</string>
+    <string name="exclude_builtln_dialog">重置排除的内置库?此操作无法撤消.</string>
+    <string name="none_selected_tap_here_to_configure">未选择任何选项,点击此处进行配置.</string>
+    <string name="font_size">字体大小</string>
+    <string name="complete_brackets">符号补全</string>
+    <string name="dark_theme">深色主题</string>
+    <string name="exit_confirmation">退出确认</string>
+    <string name="select_font_size">选择字体大小</string>
+    <string name="code_editor_error">错误:代码包含不正确的嵌套括号</string>
+    <string name="compile_log_last_compile_log">上次编译日志</string>
+    <string name="compile_log_compile_log">编译日志</string>
+    <string name="compile_log_compile_logs_have_been_cleared">编译日志已清除.</string>
+    <string name="compile_log_no_compile_logs_found">未找到编译日志.</string>
+    <string name="monospaced_font">等宽字体</string>
+    <string name="extra_menu_select_an_asset">选择Asset</string>
+    <string name="extra_menu_select_a_native_library">选择本地库</string>
+    <string name="extra_menu_custom_activities">自定义活动</string>
+    <string name="source_code">源代码</string>
+    <string name="export_android_app_bundle">导出安卓应用包</string>
+    <string name="export_aab">导出AAB</string>
+    <string name="send_aab">发送AAB</string>
+    <string name="export_sign_an_apk">为APK签名</string>
+    <string name="export_project_notice">要对APK进行签名,您需要一个密钥库.使用已创建的一个,并将其复制到</string>
+    <string name="export_sign_outputted_aab">签名输出的AAB</string>
+    <string name="export_project_notice_aab">生成的.aab文件必须签名.\n</string>
+    <string name="export_project_and_enter_the_alias_password">并输入别名密码.</string>
+    <string name="export_project_copy">将密钥库复制到/Internal storage/sketchware/keystore/release_key.jks</string>
+    <string name="export_project_notice2">/Internal storage/sketchware/keystore/release_key.jks并输入别名的密码.\n</string>
+    <string name="export_project_notice3">请注意,这只会使用签名方案V1对您的APK进行签名,例如定位到Android 11+,</string>
+    <string name="export_project_notice4">使用第三方工具（目前）.</string>
     <!-- ************************************************************************************************************************* -->
     <!-- *************************************************  append 3.9.0 end    ************************************************** -->
     <!-- ************************************************************************************************************************* -->

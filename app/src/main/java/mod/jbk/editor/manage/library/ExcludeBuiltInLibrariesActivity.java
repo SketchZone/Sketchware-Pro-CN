@@ -76,7 +76,7 @@ public class ExcludeBuiltInLibrariesActivity extends BaseAppCompatActivity imple
         }
 
         TextView title = findViewById(R.id.tx_toolbar_title);
-        title.setText("Exclude built-in libraries");
+        title.setText(R.string.exclude_built_in_libraries);
         ImageView back = findViewById(R.id.ig_toolbar_back);
         back.setOnClickListener(Helper.getBackPressedClickListener(this));
         Helper.applyRippleToToolbarView(back);
@@ -89,9 +89,9 @@ public class ExcludeBuiltInLibrariesActivity extends BaseAppCompatActivity imple
         TextView enable = findViewById(R.id.tv_enable);
         enable.setText(Helper.getResString(R.string.design_library_settings_title_enabled));
         TextView warning = findViewById(R.id.tv_desc);
-        warning.setText("This might break your project if you don't know what you're doing!");
+        warning.setText(R.string.this_might_break_your_project_if_you_don_t_know_what_you_re_doing);
         TextView label = findViewById(R.id.tv_title);
-        label.setText("Excluded built-in libraries");
+        label.setText(R.string.excluded_built_in_libraries);
 
         LinearLayout excludedLibraries = findViewById(R.id.item);
         excludedLibraries.setOnClickListener(this);
@@ -114,7 +114,7 @@ public class ExcludeBuiltInLibrariesActivity extends BaseAppCompatActivity imple
     }
 
     private void onSaveError(Throwable throwable) {
-        String errorMessage = "Couldn't save configuration: " + throwable.getMessage();
+        String errorMessage = Helper.getResString(R.string.couldn_t_save_configuration) + throwable.getMessage();
         LogUtil.e(TAG, errorMessage, throwable);
         onSaveError(errorMessage);
     }
@@ -165,7 +165,7 @@ public class ExcludeBuiltInLibrariesActivity extends BaseAppCompatActivity imple
                 .map(BuiltInLibraries.BuiltInLibrary::getName)
                 .collect(Collectors.joining(", "));
         if (libraries.isEmpty()) {
-            libraries = "None selected. Tap here to configure.";
+            libraries = getString(R.string.none_selected_tap_here_to_configure);
         }
         preview.setText(libraries);
     }
@@ -174,7 +174,7 @@ public class ExcludeBuiltInLibrariesActivity extends BaseAppCompatActivity imple
         aB dialog = new aB(this);
         dialog.a(R.drawable.rollback_96);
         dialog.b(Helper.getResString(R.string.common_word_reset));
-        dialog.a("Reset excluded built-in libraries? This action cannot be undone.");
+        dialog.a(getString(R.string.exclude_builtln_dialog));
         dialog.b(Helper.getResString(R.string.common_word_reset), v -> {
             saveConfig(sc_id, false, Collections.emptyList());
             enabled.setChecked(false);
@@ -256,7 +256,7 @@ public class ExcludeBuiltInLibrariesActivity extends BaseAppCompatActivity imple
     }
 
     public static String getItemTitle() {
-        return "Exclude built-in libraries";
+        return Helper.getResString(R.string.exclude_built_in_libraries);
     }
 
     public static String getDefaultItemDescription() {
@@ -281,7 +281,7 @@ public class ExcludeBuiltInLibrariesActivity extends BaseAppCompatActivity imple
             method.setAccessible(true);
             method.invoke(list, typedArray);
         } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
-            LogUtil.e(TAG, "Couldn't add scrollbars to RecyclerView", e);
+            LogUtil.e(TAG, getString(R.string.couldn_t_add_scrollbars_to_recyclerview), e);
         }
         typedArray.recycle();
         list.setVerticalScrollBarEnabled(true);
@@ -318,7 +318,7 @@ public class ExcludeBuiltInLibrariesActivity extends BaseAppCompatActivity imple
 
         @Override
         public void a(String s) {
-            activity.get().onSaveError("Couldn't save configuration: " + s);
+            activity.get().onSaveError(Helper.getResString(R.string.couldn_t_save_configuration) + s);
         }
 
         @Override

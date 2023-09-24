@@ -31,5 +31,6 @@
         android:src="@drawable/plus_96"
         app:backgroundTint="#ffffffff"
         app:elevation="6dp"
-        app:fabSize="normal" />
+        app:fabSize="normal"
+        app:tint="@null"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

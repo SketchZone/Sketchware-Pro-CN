@@ -27,6 +27,7 @@ import java.io.Writer
 class JavacLogger(
     context: Context,
     errorWriter: PrintWriter,
+    warningWriter: PrintWriter,
     infoWriter: PrintWriter
 ) : Log(context, infoWriter, errorWriter) {
 
@@ -34,10 +35,11 @@ class JavacLogger(
 
     companion object {
         fun preRegister(context: Context, messageCollector: MessageCollector) {
-            context.put(Log.logKey, Context.Factory {
+            context.put(Log.logKey, Context.Factory<Log> {
                 JavacLogger(
                     it,
                     PrintWriter(MessageCollectorAdapter(messageCollector, CompilerMessageSeverity.ERROR)),
+                    PrintWriter(MessageCollectorAdapter(messageCollector, CompilerMessageSeverity.WARNING)),
                     PrintWriter(MessageCollectorAdapter(messageCollector, CompilerMessageSeverity.INFO))
                 )
             })

@@ -2969,4 +2969,17 @@ Please check the URL again."</string>
     <string name="use_custom_library_versions">Use custom Library versions</string>
     <string name="select_built_in_libraries">Select built-in libraries</string>
     <string name="_1_d_2_d_built_in_libraries_excluded">%1$d/%2$d built-in libraries excluded</string>
+    <string name="compile_error_no_compile_errors_have_been_saved_yet">No compile errors have been saved yet.</string>
+    <string name="alias_can_t_be_empty">Alias can\'t be empty</string>
+    <string name="password_can_t_be_empty">Password can\'t be empty</string>
+    <string name="algorithm_can_t_be_empty">Algorithm can\'t be empty</string>
+    <string name="keystore_not_found">Keystore not found</string>
+    <string name="sign_using_key_store">Sign using key store</string>
+    <string name="sign_using_testkey">Sign using testkey</string>
+    <string name="don_t_sign">Don\'t sign</string>
+    <string name="official_beta">Official / Beta</string>
+    <string name="mqin_view">View</string>
+    <string name="admin_setting_hint">Explain a reason for unbanning this account</string>
+    <string name="while_you_wait">While you wait...</string>
+    <string name="import_from_google_services_json">Import from google-services.json</string>
 </resources>

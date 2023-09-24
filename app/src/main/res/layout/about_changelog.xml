@@ -17,7 +17,7 @@
         android:textColor="#424242"
         android:textSize="14sp"
         android:textStyle="bold"
-        tools:text="Official / Beta" />
+        tools:text="@string/official_beta" />
 
     <LinearLayout
         android:layout_width="match_parent"

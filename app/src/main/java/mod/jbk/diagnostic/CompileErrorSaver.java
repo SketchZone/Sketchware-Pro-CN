@@ -4,13 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.besome.sketch.tools.CompileLogActivity;
+import com.sketchware.remod.R;
 
 import mod.agus.jcoderz.lib.FilePathUtil;
 import mod.agus.jcoderz.lib.FileUtil;
+import mod.hey.studios.util.Helper;
 
 public class CompileErrorSaver {
 
-    private static final String MESSAGE_NO_COMPILE_ERRORS_SAVED = "No compile errors have been saved yet.";
+    private static final String MESSAGE_NO_COMPILE_ERRORS_SAVED = Helper.getResString(R.string.compile_error_no_compile_errors_have_been_saved_yet);
 
     private final String sc_id;
     private final String path;

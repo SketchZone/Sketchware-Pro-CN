@@ -132,12 +132,12 @@
 
     <string name="common_message_complete_update">更新</string>
 
-    <string name="common_message_confirm">你确定？</string>
+    <string name="common_message_confirm">你确定?</string>
 
-    <string name="common_error_unknown">未知错误！请联系管理员</string>
+    <string name="common_error_unknown">未知错误!请联系管理员</string>
     <string name="common_error_failed_load_data">无法加载数据</string>
     <string name="common_error_failed_to_initialize">无法初始化 </string>
-    <string name="common_error_an_error_occurred">发生错误！</string>
+    <string name="common_error_an_error_occurred">发生错误!</string>
     <string name="common_error_failed_to_save">无法保存</string>
     <string name="common_error_failed_to_connect_server">无法连接到服务器</string>
     <string name="common_error_failed_to_load_ad">广告无法载入</string>
@@ -266,8 +266,8 @@
 
     <string name="myprojects_share_project_consent_actionbar_title">使用条款协议(Terms of Use Agreement)</string>
 
-    <string name="myprojects_share_project_consent_description_agree">您同意 不会分享</string>
-    <string name="myprojects_share_project_consent_button_agree">我同意(I Agree)</string>
+    <string name="myprojects_share_project_consent_description_agree">您同意不会分享</string>
+    <string name="myprojects_share_project_consent_button_agree">我同意</string>
 
     <string name="myprojects_share_project_consent_title_sexual_content">色情内容</string>
     <string name="myprojects_share_project_consent_title_empty_projects">空项目</string>
@@ -313,7 +313,7 @@
 
 
     <string name="myprojects_sign_apk_dialog_title_delete_certificate">删除证书</string>
-    <string name="myprojects_sign_apk_dialog_message_confirm_delete_certificate">您确定要删除此证书吗？ 您将无法撤消此操作,并且在将应用上传到Google Play商店时可能会出现问题.</string>
+    <string name="myprojects_sign_apk_dialog_message_confirm_delete_certificate">您确定要删除此证书吗? 您将无法撤消此操作,并且在将应用上传到Google Play商店时可能会出现问题.</string>
     <string name="myprojects_sign_apk_dialog_complete_create_certificate">新证书已创建</string>
 
     <string name="myprojects_export_title_email_subject">%sAPK文件的安装</string>
@@ -347,7 +347,7 @@
     <string name="design_quit_title_exit_projet">退出项目</string>
     <string name="design_quit_button_save_and_exit">保存&amp;退出</string>
 
-    <string name="design_quit_message_confirm_save">您想在退出前保存更改吗？</string>
+    <string name="design_quit_message_confirm_save">您想在退出前保存更改吗?</string>
 
     <string name="design_restore_data_title">还原数据</string>
     <string name="design_restore_data_message_confirm">出了点问题,以前的数据没有保存.你想恢复它吗?</string>
@@ -448,8 +448,8 @@
     <string name="design_manager_view_title_activity_preset">活动预设</string>
     <string name="design_manager_view_title_empty_activity">空活动</string>
 
-    <string name="design_manager_view_title_view_name">查看名称 : </string>
-    <string name="design_manager_view_title_activity_name">活动名称 : </string>
+    <string name="design_manager_view_title_view_name">查看名称: </string>
+    <string name="design_manager_view_title_activity_name">活动名称: </string>
 
     <string name="design_manager_view_message_slow_down">包括抽屉或FAB可能会减慢某些设备上的编译速度.</string>
 
@@ -515,7 +515,7 @@
     <string name="view_widget_favorites_save_title">将小部件保存到我的收藏夹</string>
     <string name="view_widget_favorites_save_guide">保存的小部件保存到我的收藏夹并可从所有项目访问</string>
     <string name="view_widget_favorites_delete_title">从我的收藏中删除</string>
-    <string name="view_widget_favorites_delete_message">您确定要删除我的收藏中保存的小部件吗？ 此操作无法撤消.</string>
+    <string name="view_widget_favorites_delete_message">您确定要删除我的收藏中保存的小部件吗?此操作无法撤消.</string>
 
     <!-- ************************************************************************************************************************* -->
     <!-- *************************************************   View   End                  ***************************************** -->
@@ -541,9 +541,9 @@
 
     <string name="event_dialog_confirm_reset_logic">你确定你想重置这个逻辑吗？</string>
 
-    <string name="event_dialog_confirm_delete_moreblock">你确定要删除这个更多的块吗？</string>
-    <string name="event_dialog_confirm_delete_component">您确定要删除选定的组件吗？</string>
-    <string name="event_dialog_confirm_delete_logic">所选事件的所有逻辑数据都将丢失\n你想继续吗？</string>
+    <string name="event_dialog_confirm_delete_moreblock">你确定要删除这个更多的块吗?</string>
+    <string name="event_dialog_confirm_delete_component">您确定要删除选定的组件吗?</string>
+    <string name="event_dialog_confirm_delete_logic">所选事件的所有逻辑数据都将丢失\n你想继续吗?</string>
 
     <string name="event_initialize">当活动创建</string>
     <string name="event_definefunc">更多的块</string>
@@ -610,7 +610,7 @@
     <string name="component_message_component_block_added">新的块已添加到逻辑编辑器</string>
     <string name="component_message_no_components">没有要显示的组件</string>
 
-    <string name="component_file_picker_hint_mime_type">输入 Mime 类型</string>
+    <string name="component_file_picker_hint_mime_type">输入Mime类型</string>
     <string name="component_file_picker_title_select_mime_type">选择Mime类型</string>
 
     <string name="component_file_picker_title_select_mime_type_all_files">全部文件</string>
@@ -651,13 +651,13 @@
     <string name="logic_block_favorites_delete_message">您确定要从我的收藏中删除您保存的区块吗?此操作无法撤消.</string>
 
 
-    <string name="logic_variable_type_boolean">布尔</string>
-    <string name="logic_variable_type_number">号码</string>
-    <string name="logic_variable_type_string">字符串</string>
-    <string name="logic_variable_type_map">Map</string>
-    <string name="logic_variable_type_list_number">号码列表</string>
-    <string name="logic_variable_type_list_string">字符串列表</string>
-    <string name="logic_variable_type_list_map">Map列表</string>
+    <string name="logic_variable_type_boolean">布尔(Boolean)</string>
+    <string name="logic_variable_type_number">数字(Number)</string>
+    <string name="logic_variable_type_string">字符串(String)</string>
+    <string name="logic_variable_type_map">集合(Map)</string>
+    <string name="logic_variable_type_list_number">数字列表(List Number)</string>
+    <string name="logic_variable_type_list_string">字符串列表(List String)</string>
+    <string name="logic_variable_type_list_map">集合列表(List Map)</string>
 
     <string name="logic_editor_title_select_view">选择小部件</string>
 
@@ -670,18 +670,18 @@
     <string name="logic_editor_title_select_variable_number">选择数字变量</string>
     <string name="logic_editor_title_select_variable_boolean">选择布尔变量</string>
     <string name="logic_editor_title_select_variable_string">选择字符串变量</string>
-    <string name="logic_editor_title_select_variable_map">选择地图变量</string>
+    <string name="logic_editor_title_select_variable_map">选择集合变量</string>
 
-    <string name="logic_editor_title_select_list_number">选择号码列表</string>
+    <string name="logic_editor_title_select_list_number">选择数字列表</string>
     <string name="logic_editor_title_select_list_boolean">选择布尔列表</string>
     <string name="logic_editor_title_select_list_string">选择字符串列表</string>
-    <string name="logic_editor_title_select_list_map">选择地图列表</string>
+    <string name="logic_editor_title_select_list_map">选择集合列表</string>
 
     <string name="logic_editor_title_select_list">选择列表</string>
     <string name="logic_editor_title_select_activity">选择活动</string>
 
     <string name="logic_editor_title_select_component_intent">选择意图(intent)组件</string>
-    <string name="logic_editor_title_select_component_file">选择文件组件</string>
+    <string name="logic_editor_title_select_component_file">选择文件(file)组件</string>
     <string name="logic_editor_title_select_component_intent_action">选择意图(intent)行动</string>
     <string name="logic_editor_title_select_component_intent_flags">选择意图(intent)标志</string>
 
@@ -740,10 +740,10 @@
 
     <string name="logic_editor_more_block_title_name_of_block">块名称</string>
 
-    <string name="logic_editor_more_block_dialog_message_confirm_goback">你确定？</string>
+    <string name="logic_editor_more_block_dialog_message_confirm_goback">你确定?</string>
     <string name="logic_editor_more_block_dialog_description_goback">你目前的工作将会丢失</string>
 
-    <string name="logic_editor_more_block_hint_enter_new_block_name">* 输入该块的新名称</string>
+    <string name="logic_editor_more_block_hint_enter_new_block_name">*输入该块的新名称</string>
     <string name="logic_editor_more_block_hint_enter_block_label">输入标签文字</string>
     <string name="logic_editor_more_block_hint_enter_variable_name">输入一个变量名称</string>
 
@@ -779,7 +779,7 @@
     <string name="account_mypage_tab_title_shared">共享</string>
     <string name="account_mypage_tab_title_favorite">喜爱</string>
 
-    <string name="account_mypage_title_remaing_shares">剩余的分享: </string>
+    <string name="account_mypage_title_remaing_shares">剩余的分享:</string>
     <string name="account_mypage_button_go_premmium">去溢价</string>
 
     <string name="account_mypage_message_no_projects">没有要显示的项目</string>
@@ -964,7 +964,7 @@
     <string name="language_error_failed_update_on_server">无法更新服务器上的文件</string>
     <string name="language_error_failed_delete_from_server">无法从服务器上删除</string>
 
-    <string name="language_message_confirm_strings_xml_upload">strings.xml文件将被上传. 继续？</string>
+    <string name="language_message_confirm_strings_xml_upload">strings.xml文件将被上传. 继续?</string>
     <string name="language_message_strings_xml_not_valid">你的strings.xml文件无效. 请仔细检查文件.</string>
 
 
@@ -1190,9 +1190,9 @@
     <string name="picker_color_custom_color_not_found">找不到自定义颜色</string>
     <string name="picker_color_already_exist">这种颜色已经存在</string>
     <string name="picker_color_title_delete_all_custom_color">删除所有自定义颜色</string>
-    <string name="picker_color_message_delete_all_custom_color">你确定？ 此操作无法撤消</string>
+    <string name="picker_color_message_delete_all_custom_color">你确定? 此操作无法撤消</string>
     <string name="picker_color_title_delete_custom_color">删除自定义颜色</string>
-    <string name="picker_color_message_delete_custom_color">你确定？ 此操作无法撤消</string>
+    <string name="picker_color_message_delete_custom_color">你确定?此操作无法撤消</string>
 
     <string name="bottom_sheet_behavior">com.google.android.material.bottomsheet.BottomSheetBehavior</string>
     <string name="collection_duplicated_name">我的集合中有重复的文件名</string>
@@ -1262,8 +1262,8 @@
     <string name="property_progress">进度</string>
     <string name="property_translation_x">位移X</string>
     <string name="property_translation_y">位移Y</string>
-    <string name="property_scale_x">尺度X</string>
-    <string name="property_scale_y">尺度Y</string>
+    <string name="property_scale_x">缩放X</string>
+    <string name="property_scale_y">缩放Y</string>
     <string name="property_custom_view_listview">自定义视图</string>
 
     <!-- ************************************************************************************************************************* -->
@@ -1473,7 +1473,7 @@
     <string name="block_map_is_empty_tail">为空</string>
 
     <string name="block_map_get_all_keys_head"></string>
-    <string name="block_map_get_all_keys_body_1">获取所有密钥到</string>
+    <string name="block_map_get_all_keys_body_1">获取所有keys到</string>
     <string name="block_map_get_all_keys_tail"></string>
 
     <string name="block_add_list_int_head">添加</string>
@@ -1526,7 +1526,7 @@
     <string name="block_add_list_map_body_2">到</string>
     <string name="block_add_list_map_tail"></string>
 
-    <string name="block_insert_list_map_head">插入密钥</string>
+    <string name="block_insert_list_map_head">插入key</string>
     <string name="block_insert_list_map_body_1">值</string>
     <string name="block_insert_list_map_body_2">在</string>
     <string name="block_insert_list_map_body_3">到</string>
@@ -1537,7 +1537,7 @@
     <string name="block_get_at_list_map_body_2">在</string>
     <string name="block_get_at_list_map_tail"></string>
 
-    <string name="block_set_at_list_map_head">设置密钥</string>
+    <string name="block_set_at_list_map_head">设置key</string>
     <string name="block_set_at_list_map_body_1">值</string>
     <string name="block_set_at_list_map_body_2">at</string>
     <string name="block_set_at_list_map_body_3">到</string>
@@ -2474,9 +2474,9 @@
     <!-- *************************************************  append 3.1.0 start       ********************************************* -->
     <!-- ************************************************************************************************************************* -->
 
-    <string name="common_word_step">%d一步</string>
-    <string name="common_word_prev">上一个</string>
-    <string name="common_word_next">下一个</string>
+    <string name="common_word_step">第%d步</string>
+    <string name="common_word_prev">上一步</string>
+    <string name="common_word_next">下一步</string>
     <string name="common_word_go_to_documentation">转到文档</string>
 
     <string name="property_ad_size">广告尺寸</string>
@@ -2816,7 +2816,7 @@
     <string name="design_library_admob_title_admob_manager">AdMob管理器</string>
 
     <string name="design_library_firebase_setting_step1_title">项目设置</string>
-    <string name="design_library_firebase_setting_step1_desc">输入项目ID,Web API密钥和App ID</string>
+    <string name="design_library_firebase_setting_step1_desc">输入完整的数据库URL,Web API Key和App ID</string>
 
     <string name="design_library_firebase_setting_step2_title">存储URL设置</string>
     <string name="design_library_firebase_setting_step2_desc">输入Firebase存储URL</string>
@@ -3716,14 +3716,14 @@
     <string name="main_drawer_title_sketchware_for_arduino">Sketchware for Arduino</string>
     <string name="medium_url">https://medium.com/sketchware</string>
     <string name="program_information_title_open_source_license">开源许可证</string>
-    <string name="program_information_title_suggest_ideas">提出想法</string>
+    <string name="program_information_title_suggest_ideas">提出建议</string>
     <string name="program_information_title_system_information">系统信息</string>
     <string name="tutorial_dialog_description_confirm_save_as_new_project">是否要将教程另存为新项目?您将能够自由地玩弄它.</string>
     <string name="local_library_manager_enter_dependency">输入依赖关系</string>
     <string name="local_library_manager_dependency_info">您可以在Github中找到库的依赖项,通常在自述文件中.</string>
     <string name="local_library_manager_skip_downloading_dependencies">跳过下载子依赖项</string>
     <string name="about_title">关于Sketchware Pro</string>
-    <string name="about_team_title">团队</string>
+    <string name="about_team_title">开发团队</string>
     <string name="about_specialthanks_title">特别鸣谢</string>
     <string name="about_changelog_title">更新日志</string>
     <string name="about_majorchanges_title">主要变化</string>
@@ -4079,6 +4079,19 @@
     <string name="use_custom_library_versions">使用自定义库版本</string>
     <string name="select_built_in_libraries">选择内置库</string>
     <string name="_1_d_2_d_built_in_libraries_excluded">%1$d/%2$d内置库已排除</string>
+    <string name="compile_error_no_compile_errors_have_been_saved_yet">尚未保存任何编译错误.</string>
+    <string name="alias_can_t_be_empty">别名不能为空</string>
+    <string name="password_can_t_be_empty">密码不能为空</string>
+    <string name="algorithm_can_t_be_empty">算法不能为空</string>
+    <string name="keystore_not_found">未找到密钥库</string>
+    <string name="sign_using_key_store">使用密钥库签名</string>
+    <string name="sign_using_testkey">使用测试密钥签名</string>
+    <string name="don_t_sign">不签名</string>
+    <string name="official_beta">正式版/测试版</string>
+    <string name="mqin_view">查看</string>
+    <string name="admin_setting_hint">解释取消禁止此帐户的原因</string>
+    <string name="while_you_wait">在您等待时...</string>
+    <string name="import_from_google_services_json">从google-services.json导入</string>
     <!-- ************************************************************************************************************************* -->
     <!-- *************************************************  append 3.9.0 end    ************************************************** -->
     <!-- ************************************************************************************************************************* -->

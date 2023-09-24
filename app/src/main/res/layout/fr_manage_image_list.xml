@@ -56,7 +56,8 @@
                 android:src="@drawable/ic_add_white_36dp"
                 android:visibility="gone"
                 app:borderWidth="0dp"
-                tools:visibility="visible" />
+                tools:visibility="visible"
+                app:tint="@null"/>
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
         <LinearLayout

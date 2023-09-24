@@ -50,7 +50,8 @@
                 android:layout_margin="16dp"
                 android:backgroundTint="@color/color_btn_ltpink_normal"
                 android:src="@drawable/ic_add_white_36dp"
-                app:borderWidth="0dp" />
+                app:borderWidth="0dp"
+                app:tint="@null"/>
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
         <LinearLayout

@@ -234,7 +234,7 @@ public class MainActivity extends BasePermissionAppCompatActivity {
                     "and it's important to know them all if you want your projects to still work.\n" +
                     "You can view all changes whenever you want at the updated About Sketchware Pro screen.");
 
-            dialog.b(getString(R.string.common_word_view), v -> {
+            dialog.b(getString(R.string.mqin_view), v -> {
                 dialog.dismiss();
                 Intent launcher = new Intent(this, AboutModActivity.class);
                 launcher.putExtra("select", "majorChanges");

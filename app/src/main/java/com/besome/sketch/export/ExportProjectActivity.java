@@ -295,7 +295,7 @@ public class ExportProjectActivity extends BaseAppCompatActivity {
             RelativeLayout.LayoutParams btnExportAppBundleParams = (RelativeLayout.LayoutParams) btn_export_src.getLayoutParams();
             btnExportAppBundleParams.setMargins(
                     0,
-                    (int) getDip(40),
+                    (int) getDip(48),
                     0,
                     (int) getDip(16)
             );

@@ -74,5 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center|right"
         android:layout_margin="16dp"
-        app:srcCompat="@drawable/ic_add_white_24dp" />
+        app:srcCompat="@drawable/ic_add_white_24dp"
+        app:tint="@null"
+        app:backgroundTint="@color/color_btn_blue_normal"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

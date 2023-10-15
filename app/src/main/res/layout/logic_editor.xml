@@ -46,7 +46,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/action_button_margin"
                 android:src="@drawable/block_flled_white"
-                app:tint="@null"/>
+                app:tint="@null"
+                app:backgroundTint="@color/color_btn_blue_normal"/>
 
             <LinearLayout
                 android:id="@+id/area_palette"

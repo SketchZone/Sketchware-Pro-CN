@@ -251,15 +251,13 @@
                 android:id="@+id/docs_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#ffffffff"
-                android:theme="@style/AppTheme.Button.CoolGreen" />
+                android:textColor="#ffffffff" />
 
             <Button
                 android:id="@+id/add_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#ffffffff"
-                android:theme="@style/AppTheme.Button.LightBlue" />
+                android:textColor="#ffffffff" />
         </LinearLayout>
     </RelativeLayout>
 

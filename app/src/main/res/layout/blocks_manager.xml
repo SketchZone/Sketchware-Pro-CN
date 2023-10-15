@@ -99,5 +99,7 @@
         android:layout_gravity="bottom|center|end"
         android:layout_margin="16dp"
         app:srcCompat="@drawable/ic_add_white_24dp"
+        app:backgroundTint="@color/color_btn_blue_normal"
+        app:tint="@null"
         android:contentDescription="TODO" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

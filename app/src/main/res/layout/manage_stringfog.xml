@@ -16,7 +16,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <Switch
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/sw_pg_enabled"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

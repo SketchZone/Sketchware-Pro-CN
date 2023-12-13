@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 
+import com.google.android.material.materialswitch.MaterialSwitch;
 import com.sketchware.remod.R;
 
 import mod.hey.studios.util.Helper;
@@ -14,7 +14,7 @@ import mod.hey.studios.util.Helper;
 public class ManageStringfogActivity extends Activity implements CompoundButton.OnCheckedChangeListener {
 
     private StringfogHandler stringfogHandler;
-    private Switch sw_pg_enabled;
+    private MaterialSwitch sw_pg_enabled;
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

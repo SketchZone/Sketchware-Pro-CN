@@ -4100,6 +4100,23 @@
     <string name="while_you_wait">在您等待时...</string>
     <string name="import_from_google_services_json">从google-services.json导入</string>
     <string name="can_t_generate_app_bundle">无法生成App Bundle</string>
+    <string name="common_word_class">类</string>
+    <string name="java_class">Java类</string>
+    <string name="java_activity">Java活动</string>
+    <string name="kotlin_class">Kotlin类</string>
+    <string name="kotlin_activity">Kotlin活动</string>
+    <string name="invalid_folder_name">文件夹名无效</string>
+    <string name="folder_already_exists">文件夹已存在</string>
+    <string name="save_changes">保存更改?</string>
+    <string name="save_your_changes">是否要保存更改?否则,文件将被还原.</string>
+    <string name="file_saved">文件已保存</string>
+    <string name="none">无项目</string>
+    <string name="blocks">块:</string>
+    <string name="are_you_sure_you_want_to_empty_the_recycle_bin">是否确实要清空回收站?</string>
+    <string name="blocks_inside_will_be_deleted_permanently_you_cannot_recover_them">里面的块将被永久删除,您无法恢复它们!</string>
+    <string name="empty">清空</string>
+    <string name="malformed_hexadecimal_color">格式错误的十六进制颜色</string>
+    <string name="events">"Events: "</string>
     <!-- ************************************************************************************************************************* -->
     <!-- *************************************************  append 3.9.0 end    ************************************************** -->
     <!-- ************************************************************************************************************************* -->

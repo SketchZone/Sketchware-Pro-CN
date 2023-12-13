@@ -174,7 +174,7 @@
         <item name="tabSelectedTextColor">@color/main_tab_selected_text_color</item>
     </style>
 
-    <style name="NumberPickerText" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+    <style name="NumberPickerText" parent="@style/Theme.Material3.Light.Dialog.Alert">
         <item name="android:textColorPrimary">@color/scolor_blue_01</item>
         <item name="android:textSize">14.0dip</item>
         <item name="android:textColorHighlight">#ffeeeeee</item>
@@ -245,7 +245,7 @@
 
     <style name="Theme.Design" parent="@style/Theme.AppCompat" />
 
-    <style name="Theme.Design.BottomSheetDialog" parent="@style/Theme.AppCompat.Dialog">
+    <style name="Theme.Design.BottomSheetDialog" parent="@style/Theme.Material3.Light.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowAnimationStyle">@style/Animation.Design.BottomSheetDialog</item>
         <item name="bottomSheetStyle">@style/Widget.Design.BottomSheet.Modal</item>

@@ -43,19 +43,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Folder" />
+            android:text="@string/common_word_folder" />
 
         <RadioButton
             android:id="@+id/dialog_radio_filetype_class"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Class" />
+            android:text="@string/common_word_class" />
 
         <RadioButton
             android:id="@+id/dialog_radio_filetype_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Activity" />
+            android:text="@string/common_word_activity" />
     </RadioGroup>
 
     <com.google.android.material.textfield.TextInputLayout

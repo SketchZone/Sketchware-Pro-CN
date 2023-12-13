@@ -362,7 +362,7 @@ public class EventsMaker extends Activity {
         } else {
             eventAmount = 0;
         }
-        return "Events: " + eventAmount;
+        return getString(R.string.events) + eventAmount;
     }
 
     private void makeup(View view, int resIcon, String title, String description) {
@@ -512,7 +512,7 @@ public class EventsMaker extends Activity {
             linearLayout.setOnLongClickListener(v -> {
                 new AlertDialog.Builder(EventsMaker.this)
                         .setTitle(_data.get(position).get("name").toString())
-                        .setItems(new String[]{"Edit", "Export", "Delete"}, (dialog, which) -> {
+                        .setItems(new String[]{getString(R.string.common_word_edit), getString(R.string.common_word_export), getString(R.string.common_word_delete)}, (dialog, which) -> {
                             switch (which) {
                                 case 0:
                                     editItemDialog(position);

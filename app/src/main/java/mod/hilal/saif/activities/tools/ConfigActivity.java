@@ -16,11 +16,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.annotations.NonNull;
+import com.google.android.material.materialswitch.MaterialSwitch;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
@@ -495,7 +495,7 @@ public class ConfigActivity extends Activity {
         );
         preferenceRoot.addView(switchContainer);
 
-        Switch switchView = new Switch(this);
+        MaterialSwitch switchView = new MaterialSwitch(this);
         switchView.setLayoutParams(new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT

@@ -2989,4 +2989,21 @@ Please check the URL again."</string>
     <string name="while_you_wait">While you wait...</string>
     <string name="import_from_google_services_json">Import from google-services.json</string>
     <string name="can_t_generate_app_bundle">Can\'t generate App Bundle</string>
+    <string name="common_word_class">Class</string>
+    <string name="java_class">Java Class</string>
+    <string name="java_activity">Java Activity</string>
+    <string name="kotlin_class">Kotlin Class</string>
+    <string name="kotlin_activity">Kotlin Activity</string>
+    <string name="invalid_folder_name">Invalid folder name</string>
+    <string name="folder_already_exists">Folder already exists</string>
+    <string name="save_changes">Save Changes?</string>
+    <string name="save_your_changes">Do you want to save your changes? If not, the file will be reverted.</string>
+    <string name="file_saved">File saved</string>
+    <string name="none">None</string>
+    <string name="blocks">Blocks:</string>
+    <string name="are_you_sure_you_want_to_empty_the_recycle_bin">Are you sure you want to empty the recycle bin? </string>
+    <string name="blocks_inside_will_be_deleted_permanently_you_cannot_recover_them">Blocks inside will be deleted PERMANENTLY, you CANNOT recover them!</string>
+    <string name="empty">Empty</string>
+    <string name="malformed_hexadecimal_color">Malformed hexadecimal color</string>
+    <string name="events">"Events: "</string>
 </resources>

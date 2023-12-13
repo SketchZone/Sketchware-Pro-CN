@@ -190,8 +190,8 @@ public class ManageJavaActivity extends Activity {
         EditText inputName = root.findViewById(R.id.dialog_edittext_name);
         RadioGroup radio_fileType = root.findViewById(R.id.dialog_radio_filetype);
 
-        ((TextView) root.findViewById(R.id.dialog_radio_filetype_class)).setText("Java Class");
-        ((TextView) root.findViewById(R.id.dialog_radio_filetype_activity)).setText("Java Activity");
+        ((TextView) root.findViewById(R.id.dialog_radio_filetype_class)).setText(R.string.java_class);
+        ((TextView) root.findViewById(R.id.dialog_radio_filetype_activity)).setText(R.string.java_activity);
 
         // Literally the worst way of doing this but editing resources.arsc is much more painful
         final int dialog_radio_filetype_kt_class = 1001;
@@ -200,12 +200,12 @@ public class ManageJavaActivity extends Activity {
             ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
             radio_fileType.addView(
-                    createRadioButton("Kotlin Class", dialog_radio_filetype_kt_class),
+                    createRadioButton(getString(R.string.kotlin_class), dialog_radio_filetype_kt_class),
                     layoutParams
             );
 
             radio_fileType.addView(
-                    createRadioButton("Kotlin Activity", dialog_radio_filetype_kt_activity),
+                    createRadioButton(getString(R.string.kotlin_activity), dialog_radio_filetype_kt_activity),
                     layoutParams
             );
         }

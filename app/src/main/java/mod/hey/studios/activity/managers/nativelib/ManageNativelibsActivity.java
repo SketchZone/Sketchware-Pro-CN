@@ -138,7 +138,7 @@ public class ManageNativelibsActivity extends Activity implements View.OnClickLi
             String name = filename.getText().toString();
 
             if (name.isEmpty()) {
-                filenameLayout.setError("Invalid folder name");
+                filenameLayout.setError(getString(R.string.invalid_folder_name));
                 return;
             }
             filenameLayout.setError(null);
@@ -146,7 +146,7 @@ public class ManageNativelibsActivity extends Activity implements View.OnClickLi
             String path = fpu.getPathNativelibs(numProj) + "/" + name;
 
             if (FileUtil.isExistFile(path)) {
-                filenameLayout.setError("Folder already exists");
+                filenameLayout.setError(getString(R.string.folder_already_exists));
                 return;
             }
             filenameLayout.setError(null);

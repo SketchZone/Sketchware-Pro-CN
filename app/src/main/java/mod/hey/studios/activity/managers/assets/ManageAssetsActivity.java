@@ -202,7 +202,7 @@ public class ManageAssetsActivity extends Activity {
     private void showDeleteDialog(final int position) {
         new AlertDialog.Builder(this)
                 .setTitle(myAdapter.getFileName(position))
-                .setMessage(getString(R.string.are_you_sure_you_want_to_delete_this) + (myAdapter.isFolder(position) ? "folder" : "file") + "? "
+                .setMessage(getString(R.string.are_you_sure_you_want_to_delete_this) + (myAdapter.isFolder(position) ? R.string.common_word_folder : R.string.common_word_file) + "? "
                         + getString(R.string.this_action_cannot_be_reversed))
                 .setPositiveButton(R.string.common_word_delete, (dialog, which) -> {
                     FileUtil.deleteFile(myAdapter.getItem(position));

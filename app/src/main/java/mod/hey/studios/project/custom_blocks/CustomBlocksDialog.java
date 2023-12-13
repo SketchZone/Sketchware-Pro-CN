@@ -53,7 +53,7 @@ public class CustomBlocksDialog {
 
         if (list.isEmpty()) {
             TextView noteNone = new TextView(c);
-            noteNone.setText("None");
+            noteNone.setText(R.string.none);
             noteNone.setTextColor(0xff000000);
             noteNone.setTextSize(14f);
 

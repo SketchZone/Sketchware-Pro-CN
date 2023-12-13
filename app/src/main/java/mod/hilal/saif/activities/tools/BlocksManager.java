@@ -2,6 +2,7 @@ package mod.hilal.saif.activities.tools;
 
 import static mod.SketchwareUtil.dpToPx;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
@@ -203,6 +204,7 @@ public class BlocksManager extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void _refresh_list() {
         parsePaletteJson:
         {
@@ -229,7 +231,7 @@ public class BlocksManager extends AppCompatActivity {
         ((BaseAdapter) listview1.getAdapter()).notifyDataSetChanged();
         listview1.onRestoreInstanceState(savedState);
 
-        card2_sub.setText("Blocks: " + (long) (_getN(-1)));
+        card2_sub.setText(getString(R.string.blocks) + (long) (_getN(-1)));
     }
 
     private double _getN(final double _p) {
@@ -267,9 +269,9 @@ public class BlocksManager extends AppCompatActivity {
         card2.setOnLongClickListener(v -> {
             new AlertDialog.Builder(this)
                     .setTitle(R.string.common_word_recycle_bin)
-                    .setMessage("Are you sure you want to empty the recycle bin? " +
-                            "Blocks inside will be deleted PERMANENTLY, you CANNOT recover them!")
-                    .setPositiveButton("Empty", (dialog, which) -> _emptyRecyclebin())
+                    .setMessage(getString(R.string.are_you_sure_you_want_to_empty_the_recycle_bin) +
+                            getString(R.string.blocks_inside_will_be_deleted_permanently_you_cannot_recover_them))
+                    .setPositiveButton(R.string.empty, (dialog, which) -> _emptyRecyclebin())
                     .setNegativeButton(R.string.common_word_cancel, null)
                     .show();
             return true;
@@ -472,7 +474,7 @@ public class BlocksManager extends AppCompatActivity {
                 }
                 dialog.dismiss();
             } catch (IllegalArgumentException | StringIndexOutOfBoundsException e) {
-                color.setError("Malformed hexadecimal color");
+                color.setError(getString(R.string.malformed_hexadecimal_color));
                 color.requestFocus();
             }
         });
@@ -503,6 +505,7 @@ public class BlocksManager extends AppCompatActivity {
             return position;
         }
 
+        @SuppressLint("SetTextI18n")
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
             LayoutInflater _inflater = getLayoutInflater();
@@ -516,8 +519,8 @@ public class BlocksManager extends AppCompatActivity {
             final TextView sub = convertView.findViewById(R.id.sub);
 
             title.setText(pallet_listmap.get(position).get("name").toString());
-            sub.setText("Blocks: " + (long) (_getN(position + 9)));
-            card2_sub.setText("Blocks: " + (long) (_getN(-1)));
+            sub.setText(getString(R.string.blocks) + (long) (_getN(position + 9)));
+            card2_sub.setText(getString(R.string.blocks) + (long) (_getN(-1)));
 
             int backgroundColor;
             String paletteColorValue = (String) palettes.get(position).get("color");

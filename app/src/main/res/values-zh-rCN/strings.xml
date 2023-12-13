@@ -2544,6 +2544,13 @@
     <string name="design_library_firebase_message_need_compat">由于Firebase需要AppCompat作为依赖项,因此将启用AppCompat库.</string>
     <string name="design_library_appcompat_need_firebase_disable">使用Firebase时,无法禁用AppCompat库.</string>
 
+    <string name="design_library_admob_dialog_set_app_id">输入App ID</string>
+    <string name="design_library_admob_dialog_set_app_id_title">App ID</string>
+    <string name="design_library_admob_setting_message_add_app_id">App ID为必填项</string>
+    <string name="design_library_admob_setting_step5_desc">请查看以下信息.如果它们都正确,请单击"保存".</string>
+    <string name="design_library_admob_setting_step5_title">评论信息</string>
+    <string name="design_library_admob_title_app_id">App ID</string>
+
     <string name="root_spec_on_ad_loaded_head">广告加载</string>
     <string name="root_spec_on_ad_loaded_tail"></string>
 
@@ -3829,8 +3836,8 @@
     <string name="code_shrinker_full_mode">完整模式</string>
     <string name="common_word_type">类型</string>
     <string name="manage_stringfog_massage">激活StringFog将在编译时加密字符串,这将使您的应用程序更难进行逆向工程.</string>
-    <string name="sort_by_project_name">按项目名称排序</string>
-    <string name="sort_by_id">按ID排序</string>
+    <string name="sort_by_project_name">按名称排序</string>
+    <string name="sort_by_id">按序号排序</string>
     <string name="ascending_a_z">升序(A-Z)</string>
     <string name="descending_z_a">降序(Z-A)</string>
     <string name="myprojects_list_menu_title_back_up">备份</string>
@@ -4092,6 +4099,7 @@
     <string name="admin_setting_hint">解释取消禁止此帐户的原因</string>
     <string name="while_you_wait">在您等待时...</string>
     <string name="import_from_google_services_json">从google-services.json导入</string>
+    <string name="can_t_generate_app_bundle">无法生成App Bundle</string>
     <!-- ************************************************************************************************************************* -->
     <!-- *************************************************  append 3.9.0 end    ************************************************** -->
     <!-- ************************************************************************************************************************* -->

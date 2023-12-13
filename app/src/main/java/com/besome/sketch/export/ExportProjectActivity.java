@@ -32,6 +32,7 @@ import androidx.core.content.FileProvider;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.besome.sketch.lib.base.BaseAppCompatActivity;
+import com.google.android.material.button.MaterialButton;
 import com.sketchware.remod.BuildConfig;
 import com.sketchware.remod.R;
 
@@ -290,7 +291,7 @@ public class ExportProjectActivity extends BaseAppCompatActivity {
         }
         relativeLayout.addView(titleExportAppBundle);
 
-        Button btnExportAppBundle = new Button(this);
+        MaterialButton btnExportAppBundle =  new MaterialButton(this);
         {
             RelativeLayout.LayoutParams btnExportAppBundleParams = (RelativeLayout.LayoutParams) btn_export_src.getLayoutParams();
             btnExportAppBundleParams.setMargins(
@@ -303,13 +304,6 @@ public class ExportProjectActivity extends BaseAppCompatActivity {
             btnExportAppBundle.setAllCaps(false);
             btnExportAppBundle.setTextColor(Color.WHITE);
             btnExportAppBundle.setTextSize(14f);
-            {
-                GradientDrawable drawable = new GradientDrawable();
-                drawable.setColor(0xffff5955);
-                drawable.setCornerRadius(6);
-                btnExportAppBundle.setBackground(drawable);
-            }
-            btnExportAppBundle.setHighlightColor(0xffff8784);
         }
 
         relativeLayout.addView(btnExportAppBundle);
@@ -447,7 +441,7 @@ public class ExportProjectActivity extends BaseAppCompatActivity {
             aB dialog = new aB(this);
             if (BuildConfig.FLAVOR.equals(BuildConfig.FLAVOR_NAME_WITHOUT_AABS)) {
                 dialog.a(R.drawable.break_warning_96_red);
-                dialog.b("Can't generate App Bundle");
+                dialog.b(getString(R.string.can_t_generate_app_bundle));
                 dialog.a("This Sketchware Pro version doesn't support building AABs as it must work on " +
                         "Android 7.1.1 and earlier. Use Sketchware Pro " + BuildConfig.VERSION_NAME_WITHOUT_FLAVOR + "-" +
                         BuildConfig.FLAVOR_NAME_WITH_AABS + " instead.");

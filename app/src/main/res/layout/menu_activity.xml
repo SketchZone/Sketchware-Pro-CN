@@ -120,7 +120,7 @@
                         android:orientation="vertical"
                         android:padding="3dp">
 
-                        <EditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -139,7 +139,7 @@
                         android:orientation="vertical"
                         android:padding="3dp">
 
-                        <EditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/title"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

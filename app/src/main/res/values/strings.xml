@@ -2988,4 +2988,5 @@ Please check the URL again."</string>
     <string name="admin_setting_hint">Explain a reason for unbanning this account</string>
     <string name="while_you_wait">While you wait...</string>
     <string name="import_from_google_services_json">Import from google-services.json</string>
+    <string name="can_t_generate_app_bundle">Can\'t generate App Bundle</string>
 </resources>

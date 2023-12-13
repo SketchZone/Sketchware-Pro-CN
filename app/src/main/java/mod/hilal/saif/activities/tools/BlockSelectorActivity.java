@@ -30,6 +30,7 @@ import com.github.angads25.filepicker.model.DialogConfigs;
 import com.github.angads25.filepicker.model.DialogProperties;
 import com.github.angads25.filepicker.view.FilePickerDialog;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
 import com.sketchware.remod.R;
@@ -61,10 +62,10 @@ public class BlockSelectorActivity extends AppCompatActivity implements View.OnC
     private TextView label;
     private ListView listview1;
     private HashMap<String, Object> map = new HashMap<>();
-    private EditText name;
+    private TextInputEditText name;
     private ImageView options_menu;
     private Spinner spinner1;
-    private EditText title;
+    private TextInputEditText title;
     private EditText value;
 
     @Override

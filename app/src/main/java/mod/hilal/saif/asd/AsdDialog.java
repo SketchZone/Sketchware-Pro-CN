@@ -69,6 +69,7 @@ public class AsdDialog extends Dialog implements DialogInterface.OnDismissListen
             popupMenu.setOnMenuItemClickListener(item -> {
                 switch (item.getItemId()) {
                     case 5:
+                        item.setChecked(!item.isChecked());
                         pref.edit().putBoolean("dlg_pp", item.isChecked()).apply();
                         StringBuilder sb = new StringBuilder();
                         String[] split = codeEditor.getText().toString().split("\n");

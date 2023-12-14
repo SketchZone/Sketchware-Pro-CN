@@ -459,7 +459,7 @@
 
     <string name="design_manager_view_description_guide_use_custom_view">自定义视图可用于更改项目在列表视图(ListView)或微调(Spinner)内显示的方式</string>
 
-    <string name="design_manager_view_hint_enter_view_name">输入查看名称</string>
+    <string name="design_manager_view_hint_enter_view_name">输入视图名称</string>
 
     <string name="design_manager_image_title_add_image">添加图像</string>
     <string name="design_manager_image_title_edit_image">修改图像</string>
@@ -3979,14 +3979,14 @@
     <string name="config_subtitle1">可能会减慢在逻辑编辑器中加载块的速度.</string>
     <string name="config_subtitle2">所有变量块都是可见的,即使您没有变量.</string>
     <string name="config_subtitle3">将显示每个可用块.将减慢打开调色板的速度!</string>
-    <string name="config_subtitle4">默认目录为/Internal storage/.sketchware/backups/.</string>
+    <string name="config_subtitle4">默认目录/Internal storage/.sketchware/backups/.</string>
     <string name="config_subtitle5">内部目录/Internal storage/, e.g. sketchware/backups</string>
     <string name="config_subtitle6">启用v6.2.0中的旧代码编辑器.</string>
     <string name="config_subtitle7">使用根访问生成后自动安装项目APK.</string>
     <string name="config_subtitle8">使用root自动安装后自动打开项目.</string>
     <string name="config_subtitle9">为项目启用自定义版本代码和名称.</string>
     <string name="config_subtitle10">在编辑块的文本参数时启用语法高亮显示.</string>
-    <string name="config_subtitle11">默认值为\"$projectName v$versionName ($pkgName, $versionCode) $time(yyyy-MM-dd\'T\'HHmmss)\"</string>
+    <string name="config_subtitle11">默认值\"$projectName v$versionName ($pkgName, $versionCode) $time(yyyy-MM-dd\'T\'HHmmss)\"</string>
     <string name="config_toast1">无法获取root访问权限</string>
     <string name="config_toast2">检测到无效的首选项.恢复默认值</string>
     <string name="config_toast3">检测到旧版的无效首选项</string>
@@ -4116,7 +4116,12 @@
     <string name="blocks_inside_will_be_deleted_permanently_you_cannot_recover_them">里面的块将被永久删除,您无法恢复它们!</string>
     <string name="empty">清空</string>
     <string name="malformed_hexadecimal_color">格式错误的十六进制颜色</string>
-    <string name="events">"Events: "</string>
+    <string name="events">事件:</string>
+    <string name="follow_system">跟随系统</string>
+    <string name="keystore_alias">密钥库别名</string>
+    <string name="alias_password">别名密码</string>
+    <string name="example_sha256withrsa">例如: SHA256withRSA</string>
+    <string name="signing_algorithm">签名算法</string>
     <!-- ************************************************************************************************************************* -->
     <!-- *************************************************  append 3.9.0 end    ************************************************** -->
     <!-- ************************************************************************************************************************* -->

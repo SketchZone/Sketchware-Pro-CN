@@ -2698,8 +2698,8 @@ Please check the URL again."</string>
     <string name="auto_complete">Auto complete</string>
     <string name="auto_complete_symbol_pair">Auto complete symbol pair</string>
     <string name="find_replace"><![CDATA[Find & Replace]]></string>
-    <string name="chinese">chinese</string>
-    <string name="english">english</string>
+    <string name="chinese">Chinese</string>
+    <string name="english">English</string>
     <string name="src_code_editor_warning">Warning</string>
     <string name="src_code_editor_massage">You have unsaved changes. Are you sure you want to exit?</string>
     <string name="undo">Undo</string>
@@ -3005,5 +3005,10 @@ Please check the URL again."</string>
     <string name="blocks_inside_will_be_deleted_permanently_you_cannot_recover_them">Blocks inside will be deleted PERMANENTLY, you CANNOT recover them!</string>
     <string name="empty">Empty</string>
     <string name="malformed_hexadecimal_color">Malformed hexadecimal color</string>
-    <string name="events">"Events: "</string>
+    <string name="events">Events:</string>
+    <string name="follow_system">Follow system</string>
+    <string name="keystore_alias">Keystore alias</string>
+    <string name="alias_password">Alias password</string>
+    <string name="example_sha256withrsa">Example: SHA256withRSA</string>
+    <string name="signing_algorithm">Signing algorithm</string>
 </resources>

@@ -6,7 +6,6 @@ import android.os.Parcelable;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -14,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,7 +22,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.besome.sketch.lib.base.CollapsibleViewHolder;
 import com.besome.sketch.lib.ui.CollapsibleButton;
-import com.google.android.material.appbar.MaterialToolbar;
 import com.google.gson.Gson;
 import com.sketchware.remod.R;
 
@@ -58,15 +57,34 @@ public class ManageCustomComponentActivity extends AppCompatActivity {
         super.onCreate(_savedInstanceState);
         setContentView(R.layout.manage_custom_component);
         init();
+        setToolbar();
+    }
+
+    private void setToolbar() {
+        ((TextView) findViewById(R.id.tx_toolbar_title)).setText(R.string.event_manager);
+        ImageView back_icon = findViewById(R.id.ig_toolbar_back);
+        back_icon.setOnClickListener(Helper.getBackPressedClickListener(this));
+        Helper.applyRippleToToolbarView(back_icon);
+        final ImageView more_icon = findViewById(R.id.ig_toolbar_load_file);
+        more_icon.setVisibility(View.VISIBLE);
+        more_icon.setImageResource(R.drawable.ic_more_vert_white_24dp);
+        more_icon.setOnClickListener(v -> {
+            PopupMenu popupMenu = new PopupMenu(this, more_icon);
+            final Menu menu = popupMenu.getMenu();
+            menu.add(Menu.NONE, 0, Menu.NONE, R.string.common_word_import);
+            popupMenu.setOnMenuItemClickListener(item -> {
+                if (item.getItemId() == 0) {
+                    showFilePickerDialog();
+                    return true;
+                }
+                return super.onOptionsItemSelected(item);
+            });
+            popupMenu.show();
+        });
+        Helper.applyRippleToToolbarView(more_icon);
     }
 
     private void init() {
-        MaterialToolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        toolbar.setNavigationOnClickListener(Helper.getBackPressedClickListener(this));
-
         tv_guide = findViewById(R.id.tv_guide);
         componentView = findViewById(R.id.list);
 
@@ -78,21 +96,6 @@ public class ManageCustomComponentActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         readSettings();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0, 0, 0, R.string.common_word_import);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == 0) {
-            showFilePickerDialog();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

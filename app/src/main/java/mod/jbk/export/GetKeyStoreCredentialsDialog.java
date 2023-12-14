@@ -149,7 +149,7 @@ public class GetKeyStoreCredentialsDialog {
 
         tilAlias = new TextInputLayout(activity);
         alias = new EditText(activity);
-        alias.setHint("Keystore alias");
+        alias.setHint(R.string.keystore_alias);
         tilAlias.addView(alias, 0, new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -157,7 +157,7 @@ public class GetKeyStoreCredentialsDialog {
 
         tilPassword = new TextInputLayout(activity);
         password = new EditText(activity);
-        password.setHint("Alias password");
+        password.setHint(R.string.alias_password);
         password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         tilPassword.setEndIconMode(TextInputLayout.END_ICON_PASSWORD_TOGGLE);
         tilPassword.addView(password, 0, new LinearLayout.LayoutParams(
@@ -166,9 +166,9 @@ public class GetKeyStoreCredentialsDialog {
         inputContainer.addView(tilPassword);
 
         tilSigningAlgorithm = new TextInputLayout(activity);
-        tilSigningAlgorithm.setHelperText("Example: SHA256withRSA");
+        tilSigningAlgorithm.setHelperText(activity.getString(R.string.example_sha256withrsa));
         signingAlgorithm = new EditText(activity);
-        signingAlgorithm.setHint("Signing algorithm");
+        signingAlgorithm.setHint(R.string.signing_algorithm);
         tilSigningAlgorithm.addView(signingAlgorithm, 0, new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));

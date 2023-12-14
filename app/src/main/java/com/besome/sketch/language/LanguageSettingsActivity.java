@@ -23,19 +23,26 @@ import a.a.a.mB;
 import mod.hey.studios.util.Helper;
 
 public class LanguageSettingsActivity extends BaseAppCompatActivity implements View.OnClickListener {
-    private static final int ITEM_LANGUAGE_CHINESE = 1;
-    private static final int ITEM_LANGUAGE_ENGLISH = 2;
+    private static final int ITEM_LANGUAGE_FOLLOW_SYSTEM = 1;
+    private static final int ITEM_LANGUAGE_CHINESE = 2;
+    private static final int ITEM_LANGUAGE_ENGLISH = 3;
+
     private LinearLayout content;
 
+    /**
+     * @param key
+     * @param name
+     */
     private void addSingleLineItem(int key, int name) {
         addSingleLineItem(key, getString(name));
     }
+
     private void addSingleLineItem(int key, String name) {
         PropertyOneLineItem item = new PropertyOneLineItem(this);
         item.setKey(key);
         item.setName(name);
         content.addView(item);
-        if (key == ITEM_LANGUAGE_CHINESE || key == ITEM_LANGUAGE_ENGLISH) {
+        if (key == ITEM_LANGUAGE_FOLLOW_SYSTEM || key == ITEM_LANGUAGE_CHINESE || key == ITEM_LANGUAGE_ENGLISH) {
             item.setOnClickListener(this);
         }
     }
@@ -52,7 +59,8 @@ public class LanguageSettingsActivity extends BaseAppCompatActivity implements V
         getSupportActionBar().setTitle(Helper.getResString(R.string.main_drawer_title_language_settings));
         toolbar.setNavigationOnClickListener(Helper.getBackPressedClickListener(this));
         content = findViewById(R.id.content);
-        addSingleLineItem(ITEM_LANGUAGE_CHINESE,getString(R.string.chinese));
+        addSingleLineItem(ITEM_LANGUAGE_FOLLOW_SYSTEM, getString(R.string.follow_system));
+        addSingleLineItem(ITEM_LANGUAGE_CHINESE, getString(R.string.chinese));
         addSingleLineItem(ITEM_LANGUAGE_ENGLISH,getString(R.string.english));
     }
 
@@ -63,6 +71,9 @@ public class LanguageSettingsActivity extends BaseAppCompatActivity implements V
             if (v instanceof PropertyOneLineItem) {
                 key = ((PropertyOneLineItem) v).getKey();
                 switch (key) {
+                    case ITEM_LANGUAGE_FOLLOW_SYSTEM:
+                        changeLanguage("", "");
+                        break;
                     case ITEM_LANGUAGE_CHINESE:
                         changeLanguage("zh", "CN");
                         break;
@@ -76,6 +87,10 @@ public class LanguageSettingsActivity extends BaseAppCompatActivity implements V
         }
     }
 
+    /**
+     * @param language
+     * @param area
+     */
     //修改应用内语言设置
     private void changeLanguage(String language, String area) {
         if (TextUtils.isEmpty(language) && TextUtils.isEmpty(area)) {

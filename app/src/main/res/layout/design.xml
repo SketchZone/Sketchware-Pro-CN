@@ -85,8 +85,7 @@
                         android:layout_marginTop="4dp"
                         android:layout_marginBottom="4dp"
                         android:src="@drawable/sorting_options_48"
-                        android:background="@drawable/textview_style"
-                        android:theme="@style/AppTheme.Button.LightBlue" />
+                        android:background="@drawable/textview_style" />
 
                     <Button
                         android:id="@+id/btn_execute"

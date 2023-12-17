@@ -57,20 +57,26 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="56.0dip"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@id/btn_cancel"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
                     android:textColor="#ffffffff"
                     android:theme="@style/AppTheme.Button.LightBlue" />
 
                 <Button
                     android:id="@id/btn_add"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
                     android:textColor="#ffffffff"
                     android:theme="@style/AppTheme.Button.Blue" />
             </LinearLayout>

@@ -290,6 +290,7 @@ public class SrcCodeEditor extends AppCompatActivity {
                 break;
 
             case 6:
+                item.setChecked(!item.isChecked());
                 if (getIntent().hasExtra("java")) {
                     StringBuilder b = new StringBuilder();
 

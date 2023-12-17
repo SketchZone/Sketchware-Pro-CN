@@ -332,16 +332,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/events_creator_cancel"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    android:padding="8dp"
+                    android:layout_marginEnd="8dp"
                     android:text="@string/common_word_cancel"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
                     android:textColor="#ffffffff"
@@ -349,12 +352,10 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/events_creator_save"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_marginStart="8dp"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    android:padding="8dp"
                     android:text="@string/common_word_save"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
                     android:textColor="#ffffffff"

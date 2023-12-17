@@ -172,22 +172,15 @@ public class EventsHandler {
      */
     public static void addEventsToListener(String name, ArrayList<String> list) {
         switch (name) {
-            case " onLongClickListener":
-                list.add(" onLongClick");
-                break;
-
-            case "onSwipeRefreshLayoutListener":
-                list.add("onSwipeRefreshLayout");
-                break;
-
-            case "AsyncTaskClass":
+            case " onLongClickListener" -> list.add(" onLongClick");
+            case "onSwipeRefreshLayoutListener" -> list.add("onSwipeRefreshLayout");
+            case "AsyncTaskClass" -> {
                 list.add("onPreExecute");
                 list.add("doInBackground");
                 list.add("onProgressUpdate");
                 list.add("onPostExecute");
-                break;
-
-            default:
+            }
+            default -> {
                 for (int i = 0, cachedCustomEventsSize = cachedCustomEvents.size(); i < cachedCustomEventsSize; i++) {
                     HashMap<String, Object> customEvent = cachedCustomEvents.get(i);
                     if (customEvent != null) {
@@ -210,44 +203,34 @@ public class EventsHandler {
                         SketchwareUtil.toastError("Found invalid (null) Custom Event at position " + i);
                     }
                 }
-                break;
+            }
         }
     }
 
     public static int getIcon(String name) {
         switch (name) {
-            case "Import":
-            case "onActivityResult":
-            case "initializeLogic":
-            case "onBackPressed":
-            case "onPostCreate":
-            case "onStart":
-            case "onResume":
-            case "onPause":
-            case "onStop":
-            case "onDestroy":
-            case "onTabLayoutNewTabAdded":
+            case "Import", "onActivityResult", "initializeLogic", "onBackPressed", "onPostCreate", "onStart", "onResume", "onPause", "onStop", "onDestroy", "onTabLayoutNewTabAdded" -> {
                 return R.drawable.widget_source;
-
-            case " onLongClick":
+            }
+            case " onLongClick" -> {
                 return R.drawable.check_upload_apk_48dp;
-
-            case "onSwipeRefreshLayout":
+            }
+            case "onSwipeRefreshLayout" -> {
                 return R.drawable.widget_swipe_refresh;
-
-            case "onPreExecute":
+            }
+            case "onPreExecute" -> {
                 return R.drawable.event_on_stop_tracking_touch_48dp;
-
-            case "doInBackground":
+            }
+            case "doInBackground" -> {
                 return R.drawable.event_on_animation_start_48dp;
-
-            case "onProgressUpdate":
+            }
+            case "onProgressUpdate" -> {
                 return R.drawable.event_on_page_started_48dp;
-
-            case "onPostExecute":
+            }
+            case "onPostExecute" -> {
                 return R.drawable.event_on_progress_changed_48dp;
-
-            default:
+            }
+            default -> {
                 for (int i = 0, cachedCustomEventsSize = cachedCustomEvents.size(); i < cachedCustomEventsSize; i++) {
                     HashMap<String, Object> customEvent = cachedCustomEvents.get(i);
                     if (customEvent != null) {
@@ -275,44 +258,44 @@ public class EventsHandler {
                         SketchwareUtil.toastError("Found invalid (null) Custom Event at position " + i);
                     }
                 }
-
                 return R.drawable.android_icon;
+            }
         }
     }
 
     public static String getDesc(String name) {
         switch (name) {
-            case "Import":
-                return "add custom imports";
-
-            case "onActivityResult":
-                return "onActivityResult";
-
-            case "initializeLogic":
+            case "Import" -> {
+                return Helper.getResString(R.string.add_custom_imports);
+            }
+            case "onActivityResult" -> {
+                return Helper.getResString(R.string.onactivityresult);
+            }
+            case "initializeLogic" -> {
                 return "initializeLogic";
-
-            case "onSwipeRefreshLayout":
-                return "On SwipeRefreshLayout swipe";
-
-            case " onLongClick":
-                return "onLongClick";
-
-            case "onTabLayoutNewTabAdded":
-                return "return the name of current tab";
-
-            case "onPreExecute":
+            }
+            case "onSwipeRefreshLayout" -> {
+                return Helper.getResString(R.string.on_swiperefreshlayout_swipe);
+            }
+            case " onLongClick" -> {
+                return Helper.getResString(R.string.onlongclick);
+            }
+            case "onTabLayoutNewTabAdded" -> {
+                return Helper.getResString(R.string.return_the_name_of_current_tab);
+            }
+            case "onPreExecute" -> {
                 return "This method contains the code which is executed before the background processing starts.";
-
-            case "doInBackground":
+            }
+            case "doInBackground" -> {
                 return "This method contains the code which needs to be executed in background.";
-
-            case "onProgressUpdate":
+            }
+            case "onProgressUpdate" -> {
                 return "This method receives progress updates from doInBackground method.";
-
-            case "onPostExecute":
+            }
+            case "onPostExecute" -> {
                 return "This method is called after doInBackground method completes processing.";
-
-            default:
+            }
+            default -> {
                 for (int i = 0, cachedCustomEventsSize = cachedCustomEvents.size(); i < cachedCustomEventsSize; i++) {
                     HashMap<String, Object> customEvent = cachedCustomEvents.get(i);
                     if (customEvent != null) {
@@ -335,72 +318,71 @@ public class EventsHandler {
                         SketchwareUtil.toastError("Found invalid (null) Custom Event at position " + i);
                     }
                 }
-
                 return "No_Description";
+            }
         }
     }
 
     public static String getEventCode(String targetId, String name, String param) {
         switch (name) {
-            case "Import":
+            case "Import" -> {
                 // Changed from: "...vF\n${param}\n//3b..."
                 return "//Ul5kmZqmO867OV0QTGOpjwX7MXmgzxzQBSZTf0Y16PnDXkhLsZfvF\r\n" +
                         param + "\r\n" +
                         "//3b5IqsVG57gNqLi7FBO2MeOW6iI7tOustUGwcA7HKXm0o7lovZ";
-
-            case "onActivityResult":
-            case "initializeLogic":
+            }
+            case "onActivityResult", "initializeLogic" -> {
                 return "";
-
-            case "onSwipeRefreshLayout":
+            }
+            case "onSwipeRefreshLayout" -> {
                 // Changed from: "@Override \npublic void..."
                 return "@Override\r\n" +
                         "public void onRefresh() {\n" +
                         param + "\r\n" +
                         "}";
-
-            case " onLongClick":
+            }
+            case " onLongClick" -> {
                 // Changed from: "@Override\r\n public boolean..."
                 return "@Override\r\n" +
                         "public boolean onLongClick(View _view) {\r\n" +
                         param + "\r\n" +
                         "return true;\r\n" +
                         "}";
-
-            case "onTabLayoutNewTabAdded":
+            }
+            case "onTabLayoutNewTabAdded" -> {
                 // Changed from: "public  CharSequence  onTabLayoutNewTabAdded( int   _position ){..."
                 return "public CharSequence onTabLayoutNewTabAdded(int _position) {\r\n" +
                         param + "\r\n" +
                         "return null;\r\n" +
                         "}";
-
-            case "onPreExecute":
+            }
+            case "onPreExecute" -> {
                 return "@Override\r\n" +
                         "protected void onPreExecute() {\r\n" +
                         param + "\r\n" +
                         "}";
-
-            case "doInBackground":
+            }
+            case "doInBackground" -> {
                 return "@Override\r\n" +
                         "protected String doInBackground(String... params) {\r\n" +
                         "String _param = params[0];\r\n" +
                         param + "\r\n" +
                         "}";
-
-            case "onProgressUpdate":
+            }
+            case "onProgressUpdate" -> {
                 return "@Override\r\n" +
                         "protected void onProgressUpdate(Integer... values) {\r\n" +
                         "int _value = values[0];\r\n" +
                         param + "\r\n" +
                         "}";
-
-            case "onPostExecute":
+            }
+            case "onPostExecute" -> {
                 return "@Override\r\n" +
                         "protected void onPostExecute(String _result) {\r\n" +
                         param + "\r\n" +
                         "}";
-
-            default:
+            }
+            default -> {
                 for (int i = 0, cachedCustomEventsSize = cachedCustomEvents.size(); i < cachedCustomEventsSize; i++) {
                     HashMap<String, Object> customEvent = cachedCustomEvents.get(i);
                     if (customEvent != null) {
@@ -423,32 +405,26 @@ public class EventsHandler {
                         SketchwareUtil.toastError("Found invalid (null) Custom Event at position " + i);
                     }
                 }
-
                 return "//no code";
+            }
         }
     }
 
     public static String getBlocks(String name) {
         switch (name) {
-            case "Import":
-            case "initializeLogic":
-            case "onSwipeRefreshLayout":
-            case " onLongClick":
-            case "onPreExecute":
+            case "Import", "initializeLogic", "onSwipeRefreshLayout", " onLongClick", "onPreExecute" -> {
                 return "";
-
-            case "onActivityResult":
+            }
+            case "onActivityResult" -> {
                 return "%d.requestCode %d.resultCode %m.intent";
-
-            case "onTabLayoutNewTabAdded":
-            case "onProgressUpdate":
+            }
+            case "onTabLayoutNewTabAdded", "onProgressUpdate" -> {
                 return "%d";
-
-            case "doInBackground":
-            case "onPostExecute":
+            }
+            case "doInBackground", "onPostExecute" -> {
                 return "%s";
-
-            default:
+            }
+            default -> {
                 for (int i = 0, cachedCustomEventsSize = cachedCustomEvents.size(); i < cachedCustomEventsSize; i++) {
                     HashMap<String, Object> customEvent = cachedCustomEvents.get(i);
                     if (customEvent != null) {
@@ -471,44 +447,44 @@ public class EventsHandler {
                         SketchwareUtil.toastError("Found invalid (null) Custom Event at position " + i);
                     }
                 }
-
                 return "";
+            }
         }
     }
 
     public static String getSpec(String name, String event) {
         switch (event) {
-            case "Import":
+            case "Import" -> {
                 return "create new import";
-
-            case "onActivityResult":
+            }
+            case "onActivityResult" -> {
                 return "OnActivityResult %d.requestCode %d.resultCode %m.intent.data";
-
-            case "initializeLogic":
+            }
+            case "initializeLogic" -> {
                 return "initializeLogic";
-
-            case "onSwipeRefreshLayout":
+            }
+            case "onSwipeRefreshLayout" -> {
                 return "when " + name + " refresh";
-
-            case " onLongClick":
+            }
+            case " onLongClick" -> {
                 return "when " + name + " long clicked";
-
-            case "onTabLayoutNewTabAdded":
+            }
+            case "onTabLayoutNewTabAdded" -> {
                 return name + " return tab title %d.position";
-
-            case "onPreExecute":
+            }
+            case "onPreExecute" -> {
                 return name + " onPreExecute ";
-
-            case "doInBackground":
+            }
+            case "doInBackground" -> {
                 return name + " doInBackground %s.param";
-
-            case "onProgressUpdate":
+            }
+            case "onProgressUpdate" -> {
                 return name + " onProgressUpdate progress %d.value";
-
-            case "onPostExecute":
+            }
+            case "onPostExecute" -> {
                 return name + " onPostExecute result %s.result";
-
-            default:
+            }
+            default -> {
                 for (int i = 0, cachedCustomEventsSize = cachedCustomEvents.size(); i < cachedCustomEventsSize; i++) {
                     HashMap<String, Object> customEvent = cachedCustomEvents.get(i);
                     if (customEvent != null) {
@@ -531,30 +507,30 @@ public class EventsHandler {
                         SketchwareUtil.toastError("Found invalid (null) Custom Event at position " + i);
                     }
                 }
-
                 return "no spec";
+            }
         }
     }
 
     ///listeners codes
     public static String getListenerCode(String name, String var, String param) {
         switch (name) {
-            case " onLongClickListener":
+            case " onLongClickListener" -> {
                 return var + ".setOnLongClickListener(new View.OnLongClickListener() {\r\n" +
                         param + "\r\n" +
                         "});";
-
-            case "onSwipeRefreshLayoutListener":
+            }
+            case "onSwipeRefreshLayoutListener" -> {
                 return var + ".setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {\r\n" +
                         param + "\r\n" +
                         "});";
-
-            case "AsyncTaskClass":
+            }
+            case "AsyncTaskClass" -> {
                 return "private class " + var + " extends AsyncTask<String, Integer, String> {\r\n" +
                         param + "\r\n" +
                         "}";
-
-            default:
+            }
+            default -> {
                 for (int i = 0, cachedCustomListenersSize = cachedCustomListeners.size(); i < cachedCustomListenersSize; i++) {
                     HashMap<String, Object> customListener = cachedCustomListeners.get(i);
                     Object eventName = customListener.get("name");
@@ -573,8 +549,8 @@ public class EventsHandler {
                         SketchwareUtil.toastError("Found invalid name data type in Custom Event #" + (i + 1));
                     }
                 }
-
                 return "//no listener code";
+            }
         }
     }
 

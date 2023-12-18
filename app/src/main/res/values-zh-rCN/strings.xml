@@ -3809,7 +3809,7 @@
     <string name="auto_complete_symbol_pair">自动完成符号</string>
     <string name="find_replace">查找并替换</string>
     <string name="chinese">中文</string>
-    <string name="english">英文</string>
+    <string name="english">English</string>
     <string name="src_code_editor_warning">警告</string>
     <string name="src_code_editor_massage">您有未保存的更改,是否确实要退出?</string>
     <string name="undo">撤消</string>

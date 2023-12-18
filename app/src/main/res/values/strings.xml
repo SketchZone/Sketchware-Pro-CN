@@ -2698,7 +2698,7 @@ Please check the URL again."</string>
     <string name="auto_complete">Auto complete</string>
     <string name="auto_complete_symbol_pair">Auto complete symbol pair</string>
     <string name="find_replace"><![CDATA[Find & Replace]]></string>
-    <string name="chinese">Chinese</string>
+    <string name="chinese">中文</string>
     <string name="english">English</string>
     <string name="src_code_editor_warning">Warning</string>
     <string name="src_code_editor_massage">You have unsaved changes. Are you sure you want to exit?</string>

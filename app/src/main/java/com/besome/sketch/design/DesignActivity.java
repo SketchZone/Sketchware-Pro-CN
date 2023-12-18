@@ -1134,7 +1134,7 @@ public class DesignActivity extends BaseAppCompatActivity implements OnClickList
                             if (!dialog.isCancelableOnBackPressed()) {
                                 dialog.setIsCancelableOnBackPressed(true);
                                 maybeShow();
-                                publishProgress("Canceling build...");
+                                publishProgress(currentActivity.getString(R.string.canceling_build));
                                 canceled = true;
                             }
                             dialog.show();

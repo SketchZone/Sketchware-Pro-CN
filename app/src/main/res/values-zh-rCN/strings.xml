@@ -358,6 +358,11 @@
     <string name="design_run_message_invalid_forever_block">停止块不存在于永久块</string>
     <string name="design_run_message_usage_break_block">中断块只能重复或内部使用于永久块</string>
 
+    <string name="design_cancel_build_title">取消构建?</string>
+    <string name="design_cancel_build_desc">您确定要取消构建吗?这可能需要一些时间.</string>
+    <string name="design_cancel_build_btn_stop">停止构建</string>
+    <string name="design_cancel_build_btn_continue">继续构建</string>
+
     <string name="design_drawer_menu_title">组件配置</string>
     <string name="design_drawer_menu_bottom_title">全局</string>
 
@@ -4158,6 +4163,7 @@
     <string name="onactivityresult">当活动返回结果</string>
     <string name="onlongclick">当长按</string>
     <string name="add_custom_imports">添加自定义导入</string>
+    <string name="canceling_build">取消构建...</string>
     <!-- ************************************************************************************************************************* -->
     <!-- *************************************************  append 3.9.0 end    ************************************************** -->
     <!-- ************************************************************************************************************************* -->

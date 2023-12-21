@@ -139,6 +139,7 @@
             android:id="@+id/btn_open_doc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:textColor="#ffffffff"
             android:textSize="@dimen/text_size_button_material"
             android:theme="@style/AppTheme.Button.LightBlue"

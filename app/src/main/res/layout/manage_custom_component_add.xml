@@ -533,7 +533,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="16dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:padding="8dp"
                 android:text="@string/common_word_accept"
                 android:textColor="#FFFFFF"

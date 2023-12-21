@@ -313,7 +313,7 @@ public class AboutModActivity extends AppCompatActivity {
                     majorChanges.setPadding(eightDp, eightDp, eightDp, eightDp);
 
                     majorChanges.setTextColor(ContextCompat.getColor(AboutModActivity.this,
-                            R.color.primary_text_default_material_light));
+                            androidx.appcompat.R.color.primary_text_default_material_light));
                     majorChanges.setTextSize(14);
                 }
 

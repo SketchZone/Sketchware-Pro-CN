@@ -13,9 +13,9 @@
         android:background="#ffffffff"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingLeft="14dp"
+        android:paddingStart="14dp"
         android:paddingTop="8dp"
-        android:paddingRight="14dp"
+        android:paddingEnd="14dp"
         android:paddingBottom="8dp">
 
         <ImageView
@@ -98,7 +98,7 @@
             android:id="@+id/cv_console"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:layout_margin="2dp"
             android:background="?selectableItemBackground"
             android:clickable="true"
@@ -120,7 +120,7 @@
                     android:id="@+id/tv_goto_console"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
                     android:textSize="10sp"
                     tools:text="@string/design_library_admob_button_goto_setting" />
             </LinearLayout>

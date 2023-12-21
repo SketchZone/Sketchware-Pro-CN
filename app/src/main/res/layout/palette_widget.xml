@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingRight="4dp"
+                android:paddingEnd="4dp"
                 android:paddingBottom="4dp" />
 
             <LinearLayout
@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingRight="4dp"
+                android:paddingEnd="4dp"
                 android:paddingBottom="4dp" />
         </LinearLayout>
     </com.besome.sketch.lib.ui.CustomScrollView>

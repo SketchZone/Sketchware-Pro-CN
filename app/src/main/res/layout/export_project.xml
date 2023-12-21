@@ -34,7 +34,7 @@
                         android:id="@id/icon_apk"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:src="@drawable/ic_apk_color_48dp" />
 
@@ -43,8 +43,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
-                        android:layout_marginLeft="8dp"
-                        android:layout_toRightOf="@id/icon_apk"
+                        android:layout_marginStart="8dp"
+                        android:layout_toEndOf="@id/icon_apk"
                         android:textColor="@color/scolor_black_01"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -76,8 +76,8 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="24dp"
-                                android:layout_marginLeft="16dp"
-                                android:layout_marginRight="16dp"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginEnd="16dp"
                                 android:gravity="center_vertical"
                                 android:orientation="horizontal">
 
@@ -90,7 +90,7 @@
                                     android:id="@id/title_apk_path"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="8dp"
+                                    android:layout_marginStart="8dp"
                                     android:textSize="14sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
@@ -98,9 +98,9 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="24dp"
-                                android:layout_marginLeft="16dp"
+                                android:layout_marginStart="16dp"
                                 android:layout_marginTop="4dp"
-                                android:layout_marginRight="16dp"
+                                android:layout_marginEnd="16dp"
                                 android:background="@drawable/bg_round_light_grey"
                                 android:orientation="horizontal">
 
@@ -114,8 +114,8 @@
                                         android:layout_height="match_parent"
                                         android:gravity="center_vertical"
                                         android:lines="1"
-                                        android:paddingLeft="8dp"
-                                        android:paddingRight="8dp"
+                                        android:paddingStart="8dp"
+                                        android:paddingEnd="8dp"
                                         android:textColor="@color/scolor_black_01"
                                         android:textSize="13sp" />
                                 </HorizontalScrollView>
@@ -147,7 +147,7 @@
                         android:id="@id/icon_src"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:src="@drawable/android_icon" />
 
@@ -156,8 +156,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
-                        android:layout_marginLeft="8dp"
-                        android:layout_toRightOf="@id/icon_src"
+                        android:layout_marginStart="8dp"
+                        android:layout_toEndOf="@id/icon_src"
                         android:textColor="@color/scolor_black_01"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -193,8 +193,8 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="24dp"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
 
@@ -207,7 +207,7 @@
                                 android:id="@id/title_src_path"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
+                                android:layout_marginStart="8dp"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -215,9 +215,9 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="24dp"
-                            android:layout_marginLeft="16dp"
+                            android:layout_marginStart="16dp"
                             android:layout_marginTop="4dp"
-                            android:layout_marginRight="16dp"
+                            android:layout_marginEnd="16dp"
                             android:background="@drawable/bg_round_light_grey"
                             android:orientation="horizontal">
 
@@ -231,8 +231,8 @@
                                     android:layout_height="match_parent"
                                     android:gravity="center_vertical"
                                     android:lines="1"
-                                    android:paddingLeft="8dp"
-                                    android:paddingRight="8dp"
+                                    android:paddingStart="8dp"
+                                    android:paddingEnd="8dp"
                                     android:textColor="@color/scolor_black_01"
                                     android:textSize="13sp" />
                             </HorizontalScrollView>
@@ -242,8 +242,8 @@
                             android:id="@id/btn_send_src"
                             android:layout_width="wrap_content"
                             android:layout_height="40dp"
-                            android:layout_gravity="right"
-                            android:layout_marginRight="16dp"
+                            android:layout_gravity="end"
+                            android:layout_marginEnd="16dp"
                             android:textColor="#ffffffff"
                             android:textSize="12sp"
                             android:theme="@style/AppTheme.Button.Green" />

@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="#fff5f5f5"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp">
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -45,9 +45,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
                 android:padding="5dp"
                 android:text="use (moreblockName[type|typeName] or\nmoreblockName[type|typeName|typeCode]) for custom moreblock type(S)"
                 android:textSize="14sp"
@@ -57,7 +57,7 @@
                 android:id="@+id/tv_title_blockname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:textColor="@color/color_primary"
                 android:textSize="14sp"
@@ -67,8 +67,8 @@
                 android:id="@+id/ti_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:importantForAutofill="noExcludeDescendants">
 
                 <EditText
@@ -92,9 +92,9 @@
                     android:id="@+id/tv_title_select_mb_type"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
-                    android:layout_marginRight="8dp"
+                    android:layout_marginEnd="8dp"
                     android:text="@string/select_moreblock_type"
                     android:textColor="@color/color_primary"
                     android:textSize="14sp"
@@ -166,9 +166,9 @@
                     android:id="@+id/tv_title_add_variable"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
-                    android:layout_marginRight="8dp"
+                    android:layout_marginEnd="8dp"
                     android:textColor="@color/color_primary"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -179,8 +179,8 @@
                     android:layout_marginTop="8dp"
                     android:orientation="vertical"
                     android:paddingHorizontal="16dp"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp">
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
 
                     <LinearLayout
                         android:id="@+id/var_type_spinner"
@@ -188,8 +188,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_outline"
                         android:orientation="vertical"
-                        android:paddingLeft="8dp"
-                        android:paddingRight="8dp" />
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -202,7 +202,7 @@
                             android:id="@+id/ti_variable_name"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="8dp"
+                            android:layout_marginEnd="8dp"
                             android:layout_weight="1.0"
                             android:importantForAutofill="noExcludeDescendants">
 
@@ -243,9 +243,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginRight="16dp"
+                    android:layout_marginEnd="16dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -253,7 +253,7 @@
                         android:id="@+id/ti_label"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="8dp"
+                        android:layout_marginEnd="8dp"
                         android:layout_weight="1.0"
                         android:importantForAutofill="noExcludeDescendants">
 
@@ -282,9 +282,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="4dp"
-                android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp"
                 android:text="@string/custom_parameter"
                 android:textColor="@color/color_primary"
                 android:textSize="14sp"
@@ -304,16 +304,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginRight="16dp"
+                    android:layout_marginEnd="16dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="8dp"
+                        android:layout_marginEnd="8dp"
                         android:layout_weight="1.0"
                         android:importantForAutofill="noExcludeDescendants">
 
@@ -331,7 +331,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="8dp"
+                        android:layout_marginEnd="8dp"
                         android:layout_weight="1.0"
                         android:importantForAutofill="noExcludeDescendants">
 

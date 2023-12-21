@@ -9,8 +9,8 @@
         android:layout_height="40dp"
         android:background="@drawable/layout_rounded_border_lightblue"
         android:gravity="center_vertical"
-        android:paddingLeft="4dp"
-        android:paddingRight="4dp">
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp">
 
         <Spinner
             android:id="@+id/spn_widget"
@@ -64,7 +64,7 @@
             android:id="@+id/layout_property_see_all"
             android:layout_width="wrap_content"
             android:layout_height="82dp"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:orientation="horizontal" />
     </RelativeLayout>

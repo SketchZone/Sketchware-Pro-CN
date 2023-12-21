@@ -63,10 +63,10 @@
             android:id="@+id/tv_image_name"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:gravity="center|left"
+            android:gravity="center|start"
             android:textColor="#fff5f5f5"
             android:textSize="14sp"
             tools:text="scenic" />
@@ -77,7 +77,7 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_margin="2dp"
         android:src="@drawable/ic_9_patch_blue_48dp" />
 </RelativeLayout>

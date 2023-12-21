@@ -15,11 +15,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#ff008dcd"
-            android:gravity="center|left"
+            android:gravity="center|start"
             android:orientation="horizontal"
-            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
             android:paddingTop="8dp"
-            android:paddingRight="4dp"
+            android:paddingEnd="4dp"
             android:paddingBottom="8dp">
 
             <ImageView
@@ -34,7 +34,7 @@
                 android:id="@+id/pagetitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
                 android:layout_weight="1"
                 android:padding="8dp"
                 android:text="@string/blocks_manager"
@@ -72,7 +72,7 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center|right"
+        android:layout_gravity="bottom|center|end"
         android:layout_margin="16dp"
         app:srcCompat="@drawable/ic_add_white_24dp"
         app:tint="@null"

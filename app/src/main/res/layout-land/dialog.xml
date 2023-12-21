@@ -34,8 +34,8 @@
                 android:layout_marginBottom="8dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
                 android:textColor="@color/color_primary"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -68,16 +68,16 @@
         android:background="@color/scolor_blue_01"
         android:gravity="center|end"
         android:orientation="horizontal"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp">
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
 
         <TextView
             android:id="@+id/common_dialog_default_button"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             android:textColor="#ffffffff"
             android:textSize="14sp" />
 
@@ -93,8 +93,8 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="4dp"
             android:gravity="center"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             android:textColor="#ffffffff"
             android:textStyle="bold" />
 
@@ -103,8 +103,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             android:textColor="#ffffffff"
             android:textStyle="bold" />
     </LinearLayout>

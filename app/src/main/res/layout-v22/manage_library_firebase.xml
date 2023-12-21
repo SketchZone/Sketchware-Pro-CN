@@ -14,9 +14,9 @@
         android:orientation="horizontal"
         android:paddingHorizontal="14.0dip"
         android:paddingVertical="8.0dip"
-        android:paddingLeft="14.0dip"
+        android:paddingStart="14.0dip"
         android:paddingTop="8.0dip"
-        android:paddingRight="14.0dip"
+        android:paddingEnd="14.0dip"
         android:paddingBottom="8.0dip">
 
         <ImageView
@@ -95,7 +95,7 @@
             android:id="@id/cv_console"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:layout_margin="2.0dip"
             android:background="?selectableItemBackground"
             android:clickable="true"
@@ -117,7 +117,7 @@
                     android:id="@id/tv_goto_console"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8.0dip"
+                    android:layout_marginStart="8.0dip"
                     android:textSize="10.0sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -127,8 +127,8 @@
         android:layout_width="fill_parent"
         android:layout_height="1.1999817dip"
         android:layout_marginHorizontal="64.0dip"
-        android:layout_marginLeft="64.0dip"
-        android:layout_marginRight="64.0dip"
+        android:layout_marginStart="64.0dip"
+        android:layout_marginEnd="64.0dip"
         android:background="@color/color_secondary"
         android:visibility="gone" />
 

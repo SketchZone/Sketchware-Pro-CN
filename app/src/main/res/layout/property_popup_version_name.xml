@@ -15,7 +15,7 @@
             android:id="@id/img_down1"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:layout_marginLeft="16.0dip"
+            android:layout_marginStart="16.0dip"
             android:background="#fff6f6f6"
             android:padding="8.0dip"
             android:src="@drawable/selector_ic_chevron_left_grey_48" />
@@ -25,7 +25,7 @@
             android:layout_width="150.0dip"
             android:layout_height="fill_parent"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="8.0dip"
+            android:layout_marginStart="8.0dip"
             android:background="@drawable/textview_style"
             android:gravity="center"
             android:textColor="#ffffffff"
@@ -35,7 +35,7 @@
             android:id="@id/img_up1"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:layout_marginLeft="8.0dip"
+            android:layout_marginStart="8.0dip"
             android:background="#fff6f6f6"
             android:padding="8.0dip"
             android:src="@drawable/selector_ic_chevron_right_grey_48" />
@@ -51,7 +51,7 @@
             android:id="@id/img_down2"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:layout_marginLeft="16.0dip"
+            android:layout_marginStart="16.0dip"
             android:background="#fff6f6f6"
             android:padding="8.0dip"
             android:src="@drawable/selector_ic_chevron_left_grey_48" />
@@ -61,7 +61,7 @@
             android:layout_width="150.0dip"
             android:layout_height="fill_parent"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="8.0dip"
+            android:layout_marginStart="8.0dip"
             android:background="@drawable/textview_style"
             android:gravity="center"
             android:textColor="#ffffffff"
@@ -71,7 +71,7 @@
             android:id="@id/img_up2"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:layout_marginLeft="8.0dip"
+            android:layout_marginStart="8.0dip"
             android:background="#fff6f6f6"
             android:padding="8.0dip"
             android:src="@drawable/selector_ic_chevron_right_grey_48" />

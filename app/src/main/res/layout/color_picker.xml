@@ -12,7 +12,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingLeft="8.0dip">
+        android:paddingStart="8.0dip">
 
         <LinearLayout
             android:layout_width="0.0dip"
@@ -68,8 +68,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:fillViewport="true"
-        android:paddingLeft="8.0dip"
-        android:paddingRight="8.0dip">
+        android:paddingStart="8.0dip"
+        android:paddingEnd="8.0dip">
 
         <LinearLayout
             android:id="@id/layout_color_title"

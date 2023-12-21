@@ -28,24 +28,24 @@
                 android:layout_height="match_parent"
                 android:background="#ffffffff"
                 android:orientation="vertical"
-                android:paddingLeft="6dp"
+                android:paddingStart="6dp"
                 android:paddingTop="8dp"
-                android:paddingRight="6dp"
+                android:paddingEnd="6dp"
                 android:paddingBottom="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:gravity="center|left"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center|start"
                     android:orientation="horizontal">
 
                     <Spinner
                         android:id="@+id/spinner"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="8dp"
+                        android:layout_marginEnd="8dp"
                         android:layout_weight="1"
                         android:background="#fffafafa"
                         android:spinnerMode="dropdown" />
@@ -54,7 +54,7 @@
                         android:id="@+id/dele"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginRight="12dp"
+                        android:layout_marginEnd="12dp"
                         android:gravity="center"
                         android:orientation="vertical">
 
@@ -69,7 +69,7 @@
                         android:id="@+id/edi"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginRight="12dp"
+                        android:layout_marginEnd="12dp"
                         android:gravity="center"
                         android:orientation="vertical">
 
@@ -99,9 +99,9 @@
                     android:id="@+id/label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="8dp"
+                    android:paddingStart="8dp"
                     android:paddingTop="8dp"
-                    android:paddingRight="8dp"
+                    android:paddingEnd="8dp"
                     android:text="@string/new_menu"
                     android:textColor="#ff616161"
                     android:textSize="16sp" />
@@ -116,7 +116,7 @@
                         android:id="@+id/namelay"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center|left"
+                        android:gravity="center|start"
                         android:orientation="vertical"
                         android:padding="3dp">
 
@@ -124,7 +124,7 @@
                             android:id="@+id/name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center|left"
+                            android:gravity="center|start"
                             android:hint="Name"
                             android:padding="8dp"
                             android:textColor="#ff000000"
@@ -135,7 +135,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center|left"
+                        android:gravity="center|start"
                         android:orientation="vertical"
                         android:padding="3dp">
 
@@ -143,7 +143,7 @@
                             android:id="@+id/title"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center|left"
+                            android:gravity="center|start"
                             android:hint="Title"
                             android:padding="8dp"
                             android:textColor="#ff000000"
@@ -155,7 +155,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:gravity="center|right"
+                        android:gravity="center|end"
                         android:orientation="horizontal">
 
                         <com.google.android.material.button.MaterialButton
@@ -173,7 +173,7 @@
                             android:id="@+id/save"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="8dp"
+                            android:layout_marginStart="8dp"
                             android:gravity="center"
                             android:padding="8dp"
                             android:text="@string/common_word_save"
@@ -209,8 +209,8 @@
                 android:id="@+id/cardv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:orientation="vertical"
                 app:cardCornerRadius="5dp"
@@ -220,7 +220,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#ffffffff"
-                    android:gravity="center|left"
+                    android:gravity="center|start"
                     android:orientation="horizontal"
                     android:padding="8dp">
 
@@ -230,7 +230,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="#fffafafa"
-                        android:gravity="center|left"
+                        android:gravity="center|start"
                         android:hint="Value"
                         android:padding="8dp"
                         android:singleLine="true"

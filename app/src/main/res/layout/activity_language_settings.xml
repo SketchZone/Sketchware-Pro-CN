@@ -1,28 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rg_language"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <include layout="@layout/toolbar" />
-
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:layout_height="?actionBarSize"
+        android:background="?colorPrimary"
+        android:contentInsetStart="0dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:contentInsetStart="0dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextAppearance="@style/ToolbarTextAppearance">
 
-        <ScrollView
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/layout_main_logo"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:ignore="UselessParent">
+            android:layout_gravity="center"
+            android:contentDescription="@string/title_sketchware"
+            android:scaleType="fitCenter"
+            android:src="@drawable/top_title_logo" />
+    </androidx.appcompat.widget.Toolbar>
 
-            <LinearLayout
-                android:id="@+id/content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
-        </ScrollView>
-    </LinearLayout>
-</LinearLayout>
+    <RadioButton
+        android:id="@+id/rb_chinese"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:button="@null"
+        android:drawableEnd="@drawable/language_selector"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="@string/chinese"
+        android:textSize="14sp"
+        android:textColor="#ff757575" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:background="#ffc7c7c7" />
+
+    <RadioButton
+        android:id="@+id/rb_english"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:button="@null"
+        android:drawableEnd="@drawable/language_selector"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="@string/english"
+        android:textSize="14sp"
+        android:textColor="#ff757575" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:background="#ffc7c7c7" />
+
+</RadioGroup>

@@ -73,7 +73,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
                     android:orientation="horizontal">
 
                     <Button
@@ -81,7 +82,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:padding="8dp"
+                        android:layout_marginEnd="8dp"
                         android:textColor="#ffffffff"
                         android:textSize="@dimen/text_size_button_material"
                         android:theme="@style/AppTheme.Button.Blue" />
@@ -91,9 +92,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:layout_marginLeft="8dp"
                         android:layout_weight="1"
-                        android:padding="8dp"
                         android:textColor="#ffffffff"
                         android:textSize="@dimen/text_size_button_material"
                         android:theme="@style/AppTheme.Button.LightBlue" />

@@ -168,13 +168,13 @@ public class AndroidManifestInjectionDetails extends Activity {
         }
         final EditText editText = inflate.findViewById(R.id.dialog_input_value);
         if (type.equals("permission")) {
-            editText3.setHint("permission");
+            editText3.setHint(R.string.permission);
         }
         final TextView textView = (TextView) ((ViewGroup) editText2.getParent()).getChildAt(0);
         if (type.equals("permission")) {
-            textView.setText("Add new Permission");
+            textView.setText(R.string.add_new_permission);
         } else {
-            textView.setText("Add new Attribute");
+            textView.setText(R.string.add_new_attribute);
         }
 
         textsave.setOnClickListener(_view -> {
@@ -306,8 +306,8 @@ public class AndroidManifestInjectionDetails extends Activity {
             root.setOnClickListener(v -> showDial(position));
             root.setOnLongClickListener(v -> {
                 new AlertDialog.Builder(AndroidManifestInjectionDetails.this)
-                        .setTitle("Delete this attribute?")
-                        .setMessage("This action cannot be undone.")
+                        .setTitle(R.string.delete_this_attribute)
+                        .setMessage(R.string.this_action_cannot_be_undone)
                         .setPositiveButton(R.string.common_word_delete, (dialog, which) -> {
                             listMap.remove(position);
                             applyChange();

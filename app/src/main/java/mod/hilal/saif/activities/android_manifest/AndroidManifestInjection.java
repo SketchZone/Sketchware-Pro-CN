@@ -24,6 +24,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
@@ -44,7 +45,6 @@ import mod.hey.studios.code.SrcCodeEditorLegacy;
 import mod.hey.studios.util.Helper;
 import mod.hilal.saif.activities.tools.ConfigActivity;
 import mod.hilal.saif.android_manifest.AndroidManifestInjector;
-import mod.hilal.saif.asd.DialogButtonGradientDrawable;
 import mod.jbk.code.CodeEditorColorSchemes;
 import mod.jbk.code.CodeEditorLanguages;
 
@@ -109,7 +109,7 @@ public class AndroidManifestInjection extends Activity {
         CardView application_card = newCard(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0);
         LinearLayout application_skin = newLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, 0);
         application_card.addView(application_skin);
-        makeup(application_skin, R.drawable.icons8_app_attrs, "Application", "Default properties for the app");
+        makeup(application_skin, R.drawable.icons8_app_attrs, getString(R.string.application), getString(R.string.default_properties_for_the_app));
         base.addView(application_card);
         application_skin.setOnClickListener(v -> {
             Intent intent = new Intent();
@@ -124,7 +124,7 @@ public class AndroidManifestInjection extends Activity {
             CardView permission_card = newCard(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0);
             LinearLayout permission_skin = newLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, 0);
             permission_card.addView(permission_skin);
-            makeup(permission_skin, R.drawable.event_on_signin_complete_48dp, "Permissions", "Add custom Permissions to the app");
+            makeup(permission_skin, R.drawable.event_on_signin_complete_48dp, getString(R.string.permissions), getString(R.string.add_custom_permissions_to_the_app));
             base.addView(permission_card);
             permission_skin.setOnClickListener(_view -> {
                 Intent inta = new Intent();
@@ -140,7 +140,7 @@ public class AndroidManifestInjection extends Activity {
             CardView permission_card = newCard(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0);
             LinearLayout permission_skin = newLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, 0);
             permission_card.addView(permission_skin);
-            makeup(permission_skin, R.drawable.recycling_48, "Launcher Activity", "Change the default Launcher Activity");
+            makeup(permission_skin, R.drawable.recycling_48, getString(R.string.launcher_activity), getString(R.string.change_the_default_launcher_activity));
             base.addView(permission_card);
             permission_skin.setOnClickListener(v -> showLauncherActDialog(AndroidManifestInjector.getLauncherActivity(sc_id)));
         }
@@ -148,7 +148,7 @@ public class AndroidManifestInjection extends Activity {
         CardView allAct_card = newCard(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0);
         LinearLayout allAct_skin = newLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, 0);
         allAct_card.addView(allAct_skin);
-        makeup(allAct_skin, R.drawable.icons8_all_activities_attrs, "All Activities", "Add attributes for all Activities");
+        makeup(allAct_skin, R.drawable.icons8_all_activities_attrs, getString(R.string.all_activities), getString(R.string.add_attributes_for_all_activities));
         base.addView(allAct_card);
         allAct_skin.setOnClickListener(v -> {
             Intent inta = new Intent();
@@ -162,7 +162,7 @@ public class AndroidManifestInjection extends Activity {
         CardView appCom_card = newCard(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0);
         LinearLayout appCom_skin = newLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, 0);
         appCom_card.addView(appCom_skin);
-        makeup(appCom_skin, R.drawable.icons8_app_components, "App Components", "Add extra components");
+        makeup(appCom_skin, R.drawable.icons8_app_components, getString(R.string.app_components), getString(R.string.add_extra_components));
         base.addView(appCom_card);
         appCom_skin.setOnClickListener(v -> showAppComponentDialog());
 
@@ -222,8 +222,7 @@ public class AndroidManifestInjection extends Activity {
         addnew.setGravity(Gravity.CENTER);
         addnew.setBackgroundColor(0xff008dcd);
         addnew.setTextSize(15);
-        addnew.setBackground(new DialogButtonGradientDrawable()
-                .getIns((int) getDip(4), 0, 0xff2196f3, 0xff2196f3));
+        addnew.setBackground(ContextCompat.getDrawable(this, R.drawable.textview_style));
         addnew.setElevation((int) getDip(1));
         base.addView(addnew);
         addnew.setOnClickListener(v -> showAddActivityDialog());
@@ -261,9 +260,9 @@ public class AndroidManifestInjection extends Activity {
         inputAttr.setVisibility(View.GONE);
         final EditText inputValue = inflate.findViewById(R.id.dialog_input_value);
         final TextView textView = (TextView) ((ViewGroup) inputAttr.getParent()).getChildAt(0);
-        textView.setText("Launcher Activity (e.g. main)");
+        textView.setText(R.string.launcher_activity_e_g_main);
         inputValue.setText(actnamr);
-        inputValue.setHint("Activity name");
+        inputValue.setHint(R.string.activity_name);
 
         btnSave.setOnClickListener(v -> {
             create.dismiss();
@@ -289,9 +288,9 @@ public class AndroidManifestInjection extends Activity {
         inputAttr.setVisibility(View.GONE);
         final EditText inputValue = inflate.findViewById(R.id.dialog_input_value);
         final TextView textView = (TextView) ((ViewGroup) inputAttr.getParent()).getChildAt(0);
-        textView.setText("Activity name");
+        textView.setText(R.string.activity_name);
         inputValue.setText(activityName);
-        inputValue.setHint("Activity name");
+        inputValue.setHint(R.string.activity_name);
 
         btnSave.setOnClickListener(v -> {
             addNewActivity(inputValue.getText().toString());
@@ -515,7 +514,7 @@ public class AndroidManifestInjection extends Activity {
                 editor.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_GITHUB));
                 editor.setEditorLanguage(CodeEditorLanguages.loadTextMateLanguage(CodeEditorLanguages.SCOPE_NAME_XML));
                 editor.setTextSize(14);
-                editor.setText(!source.equals("") ? source : "Failed to generate source.");
+                editor.setText(!source.equals("") ? source : getString(R.string.failed_to_generate_source));
                 editor.getComponent(Magnifier.class).setWithinEditorForcibly(true);
 
                 AlertDialog dialog = dialogBuilder.create();
@@ -595,7 +594,7 @@ public class AndroidManifestInjection extends Activity {
             linearLayout.setOnLongClickListener(v -> {
                 new AlertDialog.Builder(AndroidManifestInjection.this)
                         .setTitle((String) _data.get(position).get("act_name"))
-                        .setMessage("Delete all attributes related to this activity?")
+                        .setMessage(R.string.delete_all_attributes)
                         .setPositiveButton(R.string.common_word_delete, (dialog, which) -> deleteActivity(position))
                         .setNegativeButton(R.string.common_word_cancel, null)
                         .show();

@@ -358,6 +358,11 @@
     <string name="design_run_message_invalid_forever_block">停止块不存在于永久块</string>
     <string name="design_run_message_usage_break_block">中断块只能重复或内部使用于永久块</string>
 
+    <string name="design_cancel_build_title">取消构建?</string>
+    <string name="design_cancel_build_desc">您确定要取消构建吗?这可能需要一些时间.</string>
+    <string name="design_cancel_build_btn_stop">停止构建</string>
+    <string name="design_cancel_build_btn_continue">继续构建</string>
+
     <string name="design_drawer_menu_title">组件配置</string>
     <string name="design_drawer_menu_bottom_title">全局</string>
 
@@ -3809,7 +3814,7 @@
     <string name="auto_complete_symbol_pair">自动完成符号</string>
     <string name="find_replace">查找并替换</string>
     <string name="chinese">中文</string>
-    <string name="english">英文</string>
+    <string name="english">English</string>
     <string name="src_code_editor_warning">警告</string>
     <string name="src_code_editor_massage">您有未保存的更改,是否确实要退出?</string>
     <string name="undo">撤消</string>
@@ -4122,6 +4127,43 @@
     <string name="alias_password">别名密码</string>
     <string name="example_sha256withrsa">例如: SHA256withRSA</string>
     <string name="signing_algorithm">签名算法</string>
+    <string name="application">应用</string>
+    <string name="default_properties_for_the_app">应用的默认属性</string>
+    <string name="permissions">权限</string>
+    <string name="add_custom_permissions_to_the_app">向应用添加自定义权限</string>
+    <string name="launcher_activity">启动器活动</string>
+    <string name="change_the_default_launcher_activity">更改默认的启动器活动</string>
+    <string name="all_activities">所有活动</string>
+    <string name="add_attributes_for_all_activities">为所有活动添加属性</string>
+    <string name="app_components">应用组件</string>
+    <string name="add_extra_components">添加额外的组件</string>
+    <string name="activity_name">活动名称</string>
+    <string name="launcher_activity_e_g_main">启动器活动 (例如:main)</string>
+    <string name="failed_to_generate_source">无法生成源.</string>
+    <string name="delete_all_attributes">删除与此活动相关的所有属性?</string>
+    <string name="delete_this_attribute">删除此属性?</string>
+    <string name="this_action_cannot_be_undone">此操作无法撤消.</string>
+    <string name="permission">许可</string>
+    <string name="add_new_permission">添加新权限</string>
+    <string name="add_new_attribute">添加新属性</string>
+    <string name="warning_font_doesn_t_seem_to_be_valid">警告:字体似乎无效</string>
+    <string name="couldn_t_load_font">无法加载字体:</string>
+    <string name="failed_to_load_font">无法加载字体</string>
+    <string name="error_while_loading_font">加载字体时出错:</string>
+    <string name="error_while_loading_sound">加载声音时出错:</string>
+    <string name="failed_to_load_sound">无法加载声音</string>
+    <string name="on_activity_save_instance_state">当活动保存实例状态</string>
+    <string name="on_create_options_menu">当创建选项菜单</string>
+    <string name="on_activity_restore_instance_state">当活动还原实例状态</string>
+    <string name="on_context_menu_selected">当选择上下文菜单</string>
+    <string name="on_create_context_menu">当创建上下文菜单</string>
+    <string name="on_options_menu_selected">当选择选项菜单</string>
+    <string name="on_swiperefreshlayout_swipe">当SwipeRefreshLayout滑动</string>
+    <string name="return_the_name_of_current_tab">返回当前选项卡的名称</string>
+    <string name="onactivityresult">当活动返回结果</string>
+    <string name="onlongclick">当长按</string>
+    <string name="add_custom_imports">添加自定义导入</string>
+    <string name="canceling_build">取消构建...</string>
     <!-- ************************************************************************************************************************* -->
     <!-- *************************************************  append 3.9.0 end    ************************************************** -->
     <!-- ************************************************************************************************************************* -->

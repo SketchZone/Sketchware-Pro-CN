@@ -443,15 +443,15 @@ public class EventsMaker extends Activity {
         more_icon.setOnClickListener(v -> {
             PopupMenu popupMenu = new PopupMenu(this, more_icon);
             final Menu menu = popupMenu.getMenu();
-            menu.add(Menu.NONE,1,Menu.NONE, R.string.import_events);
-            menu.add(Menu.NONE,2,Menu.NONE, R.string.export_events);
+            menu.add(Menu.NONE,3,Menu.NONE, R.string.import_events);
+            menu.add(Menu.NONE,4,Menu.NONE, R.string.export_events);
             popupMenu.setOnMenuItemClickListener(item -> {
                 switch (item.getItemId()) {
-                    case 1:
+                    case 3:
                         openFileExplorerImport();
                         break;
 
-                    case 2:
+                    case 4:
                         exportAll();
                         SketchwareUtil.toast("Successfully exported events to:\n" +
                                 "/Internal storage/.sketchware/data/system/export/events", Toast.LENGTH_LONG);
@@ -519,7 +519,7 @@ public class EventsMaker extends Activity {
                                     break;
 
                                 case 1:
-                                    export(1);
+                                    export(position);
                                     break;
 
                                 case 2:

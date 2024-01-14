@@ -57,17 +57,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
-            android:layout_marginRight="24dp">
+            android:layout_marginEnd="24dp">
 
             <TextView
                 android:id="@+id/file_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -82,8 +82,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/seek"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="16dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="16dp"
                 android:textSize="12sp" />
 
             <TextView
@@ -91,8 +91,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/seek"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="16dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="16dp"
                 android:textSize="12sp" />
         </RelativeLayout>
 
@@ -116,7 +116,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:gravity="center|right"
+        android:gravity="center|end"
         android:orientation="horizontal">
 
         <TextView

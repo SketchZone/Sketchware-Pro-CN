@@ -1,7 +1,6 @@
 package com.besome.sketch.language;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -27,6 +26,9 @@ import mod.hey.studios.util.Helper;
 
 public class LanguageSettingsActivity extends BaseAppCompatActivity {
     private RadioGroup radioGroup_language;
+    private RadioButton radioButton_fs;
+    private RadioButton radioButton_zh;
+    private RadioButton radioButton_en;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,8 +36,9 @@ public class LanguageSettingsActivity extends BaseAppCompatActivity {
         setContentView(R.layout.activity_language_settings);
         Toolbar toolbar = findViewById(R.id.toolbar);
         radioGroup_language = findViewById(R.id.rg_language);
-        RadioButton radioButton_zh = findViewById(R.id.rb_chinese);
-        RadioButton radioButton_en = findViewById(R.id.rb_english);
+        radioButton_zh = findViewById(R.id.rb_chinese);
+        radioButton_en = findViewById(R.id.rb_english);
+        radioButton_fs = findViewById(R.id.rb_follow_system);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -46,33 +49,16 @@ public class LanguageSettingsActivity extends BaseAppCompatActivity {
     }
 
     private void getAppLanguage() {
-        String mLocale;
-        // 截取java虚拟机返回字符串的前两个字符（中文：zh   英文：en ）。
-        // 因为返回的内容为zh_CN，其中zh代表语言（中文），CN代表地区或国家（中国大陆）。
-        // 截取前两位只对语言进行判断。
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            mLocale = String.valueOf(getResources().getConfiguration().getLocales().get(0)).substring(0, 2);
+        radioButton_fs.setId(R.id.rb_follow_system);
+        radioButton_zh.setId(R.id.rb_chinese);
+        radioButton_en.setId(R.id.rb_english);
+        int checkid = SpUtil.getInt("CheckID");
+        if (checkid == R.id.rb_chinese) {
+            radioButton_zh.setChecked(true);
+        } else if (checkid == R.id.rb_english) {
+            radioButton_en.setChecked(true);
         } else {
-            mLocale = String.valueOf(getResources().getConfiguration().locale).substring(0, 2);
-        }
-
-//        /**
-//         * 也可以使用Locale获取
-//         */
-//        Locale myLocale = Locale.getDefault();
-//        //语言
-//        mLocale = myLocale.getLanguage();
-//        //地区
-//        String mCountry = myLocale.getCountry();
-
-        /**
-         * 缓存系统语言
-         */
-        switch (mLocale) {
-            case "zh" ->//中文
-                    radioGroup_language.check(R.id.rb_chinese);
-            case "en" ->//英文
-                    radioGroup_language.check(R.id.rb_english);
+            radioButton_fs.setChecked(true);
         }
     }
 
@@ -88,8 +74,10 @@ public class LanguageSettingsActivity extends BaseAppCompatActivity {
         if (v == R.id.menu_save) {
             if (radioGroup_language.getCheckedRadioButtonId() == R.id.rb_chinese) {
                 changeLanguage("zh", "CN");
-            } else {
+            } else if (radioGroup_language.getCheckedRadioButtonId() == R.id.rb_english) {
                 changeLanguage("en", "US");
+            } else {
+                changeLanguage("", "");
             }
         }
         return super.onOptionsItemSelected(item);
@@ -101,6 +89,7 @@ public class LanguageSettingsActivity extends BaseAppCompatActivity {
      */
     //修改应用内语言设置
     private void changeLanguage(String language, String area) {
+        SpUtil.saveInt("CheckID", radioGroup_language.getCheckedRadioButtonId());
         if (TextUtils.isEmpty(language) && TextUtils.isEmpty(area)) {
             //如果语言和地区都是空，那么跟随系统
             SpUtil.saveString(ConstantGlobal.LOCALE_LANGUAGE, "");

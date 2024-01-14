@@ -24,9 +24,9 @@
                 android:layout_height="wrap_content"
                 android:gravity="start"
                 android:orientation="vertical"
-                android:paddingLeft="16.0dip"
+                android:paddingStart="16.0dip"
                 android:paddingTop="16.0dip"
-                android:paddingRight="16.0dip"
+                android:paddingEnd="16.0dip"
                 android:paddingBottom="20.0dip">
 
                 <com.besome.sketch.lib.ui.MiddleLineHeader
@@ -40,7 +40,7 @@
                     android:id="@id/linear_my_project"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center|left"
+                    android:gravity="center|start"
                     android:orientation="horizontal"
                     android:visibility="gone">
 
@@ -48,9 +48,9 @@
                         android:id="@id/tv_select_my_project"
                         android:layout_width="120.0dip"
                         android:layout_height="wrap_content"
-                        android:gravity="center|left"
-                        android:paddingLeft="4.0dip"
-                        android:paddingRight="4.0dip"
+                        android:gravity="center|start"
+                        android:paddingStart="4.0dip"
+                        android:paddingEnd="4.0dip"
                         android:textColor="#ff008dce"
                         android:textSize="13.0sp"
                         android:textStyle="bold" />
@@ -65,7 +65,7 @@
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center|left"
+                    android:gravity="center|start"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -82,9 +82,9 @@
                         <LinearLayout
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="8.0dip"
+                            android:layout_marginStart="8.0dip"
                             android:layout_marginTop="4.0dip"
-                            android:gravity="center|left"
+                            android:gravity="center|start"
                             android:orientation="horizontal">
 
                             <TextView
@@ -92,9 +92,9 @@
                                 android:layout_width="0.0dip"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3.0"
-                                android:gravity="left"
-                                android:paddingLeft="4.0dip"
-                                android:paddingRight="4.0dip"
+                                android:gravity="start"
+                                android:paddingStart="4.0dip"
+                                android:paddingEnd="4.0dip"
                                 android:textColor="#ff999999"
                                 android:textSize="13.0sp" />
 
@@ -102,7 +102,7 @@
                                 android:id="@id/tv_pkg_name"
                                 android:layout_width="0.0dip"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="8.0dip"
+                                android:layout_marginStart="8.0dip"
                                 android:layout_weight="7.0"
                                 android:textColor="#ff404040"
                                 android:textSize="13.0sp" />
@@ -111,9 +111,9 @@
                         <LinearLayout
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="8.0dip"
+                            android:layout_marginStart="8.0dip"
                             android:layout_marginTop="4.0dip"
-                            android:gravity="center|left"
+                            android:gravity="center|start"
                             android:orientation="horizontal">
 
                             <TextView
@@ -121,9 +121,9 @@
                                 android:layout_width="0.0dip"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3.0"
-                                android:gravity="left"
-                                android:paddingLeft="4.0dip"
-                                android:paddingRight="4.0dip"
+                                android:gravity="start"
+                                android:paddingStart="4.0dip"
+                                android:paddingEnd="4.0dip"
                                 android:textColor="#ff999999"
                                 android:textSize="13.0sp" />
 
@@ -131,7 +131,7 @@
                                 android:id="@id/tv_ws_name"
                                 android:layout_width="0.0dip"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="8.0dip"
+                                android:layout_marginStart="8.0dip"
                                 android:layout_weight="7.0"
                                 android:textColor="#ff404040"
                                 android:textSize="13.0sp" />
@@ -140,8 +140,8 @@
                         <LinearLayout
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="8.0dip"
-                            android:gravity="center|left"
+                            android:layout_marginStart="8.0dip"
+                            android:gravity="center|start"
                             android:orientation="horizontal">
 
                             <TextView
@@ -149,9 +149,9 @@
                                 android:layout_width="0.0dip"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3.0"
-                                android:gravity="left"
-                                android:paddingLeft="4.0dip"
-                                android:paddingRight="4.0dip"
+                                android:gravity="start"
+                                android:paddingStart="4.0dip"
+                                android:paddingEnd="4.0dip"
                                 android:textColor="#ff999999"
                                 android:textSize="13.0sp" />
 
@@ -159,7 +159,7 @@
                                 android:id="@id/tv_app_name"
                                 android:layout_width="0.0dip"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="8.0dip"
+                                android:layout_marginStart="8.0dip"
                                 android:layout_weight="7.0"
                                 android:textColor="#ff404040"
                                 android:textSize="15.0sp"
@@ -178,7 +178,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="4.0dip"
-                    android:gravity="center|left"
+                    android:gravity="center|start"
                     android:orientation="horizontal">
 
                     <TextView
@@ -186,9 +186,9 @@
                         android:layout_width="0.0dip"
                         android:layout_height="wrap_content"
                         android:layout_weight="3.0"
-                        android:gravity="left"
-                        android:paddingLeft="4.0dip"
-                        android:paddingRight="4.0dip"
+                        android:gravity="start"
+                        android:paddingStart="4.0dip"
+                        android:paddingEnd="4.0dip"
                         android:textColor="#ff999999"
                         android:textSize="13.0sp" />
 
@@ -196,7 +196,7 @@
                         android:id="@id/tv_sc_ver_code"
                         android:layout_width="0.0dip"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8.0dip"
+                        android:layout_marginStart="8.0dip"
                         android:layout_weight="1.0"
                         android:textColor="#ff404040"
                         android:textSize="13.0sp" />
@@ -206,9 +206,9 @@
                         android:layout_width="0.0dip"
                         android:layout_height="wrap_content"
                         android:layout_weight="3.0"
-                        android:gravity="left"
-                        android:paddingLeft="4.0dip"
-                        android:paddingRight="4.0dip"
+                        android:gravity="start"
+                        android:paddingStart="4.0dip"
+                        android:paddingEnd="4.0dip"
                         android:textColor="#ff999999"
                         android:textSize="13.0sp" />
 
@@ -216,7 +216,7 @@
                         android:id="@id/tv_sc_ver_name"
                         android:layout_width="0.0dip"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8.0dip"
+                        android:layout_marginStart="8.0dip"
                         android:layout_weight="1.0"
                         android:textColor="#ff404040"
                         android:textSize="13.0sp" />
@@ -233,7 +233,7 @@
                     android:layout_marginTop="8.0dip"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingRight="4.0dip">
+                    android:paddingEnd="4.0dip">
 
                     <TextView
                         android:id="@id/tv_visibility_title"
@@ -257,7 +257,7 @@
                             android:id="@id/rd_privacy_onlyme"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="8.0dip"
+                            android:layout_marginStart="8.0dip"
                             android:layout_weight="1.0" />
                     </RadioGroup>
                 </LinearLayout>
@@ -286,7 +286,7 @@
                     android:id="@id/linear_shared_project"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center|left"
+                    android:gravity="center|start"
                     android:orientation="horizontal"
                     android:visibility="gone">
 
@@ -294,9 +294,9 @@
                         android:id="@id/tv_select_shared_projects"
                         android:layout_width="120.0dip"
                         android:layout_height="wrap_content"
-                        android:gravity="center|left"
-                        android:paddingLeft="4.0dip"
-                        android:paddingRight="4.0dip"
+                        android:gravity="center|start"
+                        android:paddingStart="4.0dip"
+                        android:paddingEnd="4.0dip"
                         android:textColor="#ff999999"
                         android:textSize="13.0sp"
                         android:textStyle="bold" />
@@ -327,8 +327,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8.0dip"
-                    android:paddingLeft="4.0dip"
-                    android:paddingRight="4.0dip"
+                    android:paddingStart="4.0dip"
+                    android:paddingEnd="4.0dip"
                     android:textColor="#ff008dce"
                     android:textSize="16.0sp"
                     android:textStyle="bold" />
@@ -354,8 +354,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16.0dip"
-                    android:paddingLeft="4.0dip"
-                    android:paddingRight="4.0dip"
+                    android:paddingStart="4.0dip"
+                    android:paddingEnd="4.0dip"
                     android:textColor="#ff008dce"
                     android:textSize="16.0sp"
                     android:textStyle="bold" />
@@ -382,7 +382,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="8.0dip">
+            android:padding="16dip">
 
             <Button
                 android:id="@id/btn_cancel"

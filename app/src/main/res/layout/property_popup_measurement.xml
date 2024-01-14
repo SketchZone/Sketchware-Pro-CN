@@ -13,7 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8.0dip"
-            android:layout_marginRight="8.0dip"
+            android:layout_marginEnd="8.0dip"
             android:layout_marginBottom="8.0dip"
             android:orientation="vertical">
 
@@ -43,7 +43,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8.0dip"
-            android:layout_marginRight="16.0dip"
+            android:layout_marginEnd="16.0dip"
             android:layout_marginBottom="8.0dip"
             android:orientation="vertical">
 
@@ -69,7 +69,7 @@
                 android:id="@id/direct_input"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:gravity="left"
+                android:gravity="start"
                 android:orientation="horizontal">
 
                 <com.google.android.material.textfield.TextInputLayout

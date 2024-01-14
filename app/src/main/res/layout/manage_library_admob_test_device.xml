@@ -23,7 +23,7 @@
             android:id="@+id/tv_set_test_device"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="4dp"
+            android:paddingStart="4dp"
             android:textSize="12sp"
             tools:text="@string/design_library_admob_button_set_test_device" />
     </LinearLayout>

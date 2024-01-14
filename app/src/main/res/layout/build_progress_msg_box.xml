@@ -4,8 +4,8 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_marginLeft="24.0dip"
-    android:layout_marginRight="24.0dip"
+    android:layout_marginStart="24.0dip"
+    android:layout_marginEnd="24.0dip"
     android:orientation="vertical">
 
     <LinearLayout
@@ -51,8 +51,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="start|center"
-            android:paddingLeft="16.0dip"
-            android:paddingRight="16.0dip"
+            android:paddingStart="16.0dip"
+            android:paddingEnd="16.0dip"
             android:text="@string/common_message_loading"
             android:textColor="#ffffffff"
             android:textSize="12.0sp" />

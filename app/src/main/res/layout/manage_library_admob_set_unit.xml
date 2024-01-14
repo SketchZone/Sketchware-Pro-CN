@@ -18,9 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="8dp"
+            android:paddingStart="8dp"
             android:paddingTop="16dp"
-            android:paddingRight="8dp"
+            android:paddingEnd="8dp"
             android:paddingBottom="16dp">
 
             <LinearLayout
@@ -29,15 +29,15 @@
                 android:layout_marginBottom="4dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
 
                 <TextView
                     android:id="@+id/tv_banner_title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.0"
-                    android:gravity="center|left"
+                    android:gravity="center|start"
                     android:textColor="@color/scolor_blue_01"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -66,14 +66,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:orientation="horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
 
                 <TextView
                     android:id="@+id/tv_banner_name_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center|left"
+                    android:gravity="center|start"
                     android:textColor="#ff404040"
                     android:textSize="14sp"
                     tools:text="@string/design_library_admob_title_ad_name" />
@@ -82,7 +82,7 @@
                     android:id="@+id/tv_banner_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center|left"
+                    android:gravity="center|start"
                     android:textColor="#ff7d7d7d"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -92,14 +92,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:orientation="horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
 
                 <TextView
                     android:id="@+id/tv_banner_id_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center|left"
+                    android:gravity="center|start"
                     android:textColor="#ff404040"
                     android:textSize="14sp"
                     tools:text="@string/design_library_admob_title_ad_unit_id" />
@@ -108,7 +108,7 @@
                     android:id="@+id/tv_banner_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center|left"
+                    android:gravity="center|start"
                     android:textColor="#ff7d7d7d"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -126,9 +126,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="8dp"
+            android:paddingStart="8dp"
             android:paddingTop="16dp"
-            android:paddingRight="8dp"
+            android:paddingEnd="8dp"
             android:paddingBottom="16dp">
 
             <LinearLayout
@@ -137,15 +137,15 @@
                 android:layout_marginBottom="4dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
 
                 <TextView
                     android:id="@+id/tv_inter_title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.0"
-                    android:gravity="center|left"
+                    android:gravity="center|start"
                     android:textColor="@color/scolor_blue_01"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -174,14 +174,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:orientation="horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
 
                 <TextView
                     android:id="@+id/tv_inter_name_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center|left"
+                    android:gravity="center|start"
                     android:textColor="#ff404040"
                     android:textSize="14sp"
                     tools:text="@string/design_library_admob_title_ad_name" />
@@ -190,7 +190,7 @@
                     android:id="@+id/tv_inter_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center|left"
+                    android:gravity="center|start"
                     android:textColor="#ff7d7d7d"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -200,14 +200,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:orientation="horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
 
                 <TextView
                     android:id="@+id/tv_inter_id_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center|left"
+                    android:gravity="center|start"
                     android:textColor="#ff404040"
                     android:textSize="14sp"
                     tools:text="@string/design_library_admob_title_ad_unit_id" />
@@ -216,7 +216,7 @@
                     android:id="@+id/tv_inter_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center|left"
+                    android:gravity="center|start"
                     android:textColor="#ff7d7d7d"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -234,9 +234,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="8dp"
+            android:paddingStart="8dp"
             android:paddingTop="16dp"
-            android:paddingRight="8dp"
+            android:paddingEnd="8dp"
             android:paddingBottom="16dp">
 
             <LinearLayout
@@ -245,15 +245,15 @@
                 android:layout_marginBottom="4dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
 
                 <TextView
                     android:id="@+id/tv_reward_title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.0"
-                    android:gravity="center|left"
+                    android:gravity="center|start"
                     android:text="@string/design_library_admob_title_rewarded_ad"
                     android:textColor="@color/scolor_blue_01"
                     android:textSize="16sp"
@@ -282,14 +282,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:orientation="horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
 
                 <TextView
                     android:id="@+id/tv_reward_name_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center|left"
+                    android:gravity="center|start"
                     android:textColor="#ff404040"
                     android:textSize="14sp"
                     tools:text="@string/design_library_admob_title_ad_name" />
@@ -298,7 +298,7 @@
                     android:id="@+id/tv_reward_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center|left"
+                    android:gravity="center|start"
                     android:textColor="#ff7d7d7d"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -308,14 +308,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:orientation="horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
 
                 <TextView
                     android:id="@+id/tv_reward_id_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center|left"
+                    android:gravity="center|start"
                     android:textColor="#ff404040"
                     android:textSize="14sp"
                     tools:text="@string/design_library_admob_title_ad_unit_id" />
@@ -324,7 +324,7 @@
                     android:id="@+id/tv_reward_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center|left"
+                    android:gravity="center|start"
                     android:textColor="#ff7d7d7d"
                     android:textSize="12sp" />
             </LinearLayout>

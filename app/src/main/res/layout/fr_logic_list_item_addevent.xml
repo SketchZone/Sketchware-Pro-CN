@@ -2,9 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="64.0dip"
-    android:layout_marginLeft="8.0dip"
+    android:layout_marginStart="8.0dip"
     android:layout_marginTop="4.0dip"
-    android:layout_marginRight="8.0dip"
+    android:layout_marginEnd="8.0dip"
     android:background="@drawable/selector_toggle_list_view">
 
     <ImageView
@@ -12,8 +12,8 @@
         android:layout_width="28.0dip"
         android:layout_height="28.0dip"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="12.0dip"
-        android:layout_marginRight="12.0dip"
+        android:layout_marginStart="12.0dip"
+        android:layout_marginEnd="12.0dip"
         android:contentDescription="@null" />
 
     <TextView

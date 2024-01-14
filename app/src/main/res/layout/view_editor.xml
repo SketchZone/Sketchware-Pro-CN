@@ -38,7 +38,7 @@
         android:id="@+id/shape"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_toRightOf="@+id/layout_palette"
+        android:layout_toEndOf="@+id/layout_palette"
         android:background="#fff0f0ff"
         android:forceDarkAllowed="false"
         tools:ignore="UnusedAttribute"/>
@@ -54,8 +54,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:translationY="150dp" />
 
     <ImageView

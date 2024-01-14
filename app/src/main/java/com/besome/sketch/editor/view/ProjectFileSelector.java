@@ -143,7 +143,7 @@ public class ProjectFileSelector extends LinearLayout implements View.OnClickLis
         initializeDropdown(context);
         setGravity(Gravity.CENTER_VERTICAL);
         TypedValue background = new TypedValue();
-        context.getTheme().resolveAttribute(R.attr.selectableItemBackground, background, true);
+        context.getTheme().resolveAttribute(androidx.appcompat.R.attr.selectableItemBackground, background, true);
         setBackgroundResource(background.resourceId);
         setOnClickListener(this);
         currentFileType = 0;

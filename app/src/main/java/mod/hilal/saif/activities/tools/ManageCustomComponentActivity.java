@@ -61,7 +61,7 @@ public class ManageCustomComponentActivity extends AppCompatActivity {
     }
 
     private void setToolbar() {
-        ((TextView) findViewById(R.id.tx_toolbar_title)).setText(R.string.event_manager);
+        ((TextView) findViewById(R.id.tx_toolbar_title)).setText(R.string.component_manager);
         ImageView back_icon = findViewById(R.id.ig_toolbar_back);
         back_icon.setOnClickListener(Helper.getBackPressedClickListener(this));
         Helper.applyRippleToToolbarView(back_icon);

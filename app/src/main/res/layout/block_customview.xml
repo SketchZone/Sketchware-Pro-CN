@@ -8,9 +8,9 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="3dp"
-        android:layout_marginRight="4dp"
+        android:layout_marginEnd="4dp"
         android:layout_marginBottom="3dp"
         android:orientation="vertical"
         app:cardCornerRadius="8dp"
@@ -22,15 +22,15 @@
             android:layout_height="wrap_content"
             android:background="#ffffffff"
             android:orientation="vertical"
-            android:paddingLeft="8dp"
+            android:paddingStart="8dp"
             android:paddingTop="5dp"
-            android:paddingRight="8dp"
+            android:paddingEnd="8dp"
             android:paddingBottom="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center|left"
+                android:gravity="center|start"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -44,9 +44,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:focusable="false"
-                        android:paddingLeft="2dp"
+                        android:paddingStart="2dp"
                         android:paddingTop="2dp"
-                        android:paddingRight="2dp"
+                        android:paddingEnd="2dp"
                         android:paddingBottom="6dp"
                         android:text="application"
                         android:textColor="#ff424242"

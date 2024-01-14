@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:checked="true"
-                android:gravity="center|left"
+                android:gravity="center|start"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
                 android:text="@string/code_shrinker_activated"
@@ -38,7 +38,7 @@
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="32dp"
-                    android:layout_marginRight="8dp"
+                    android:layout_marginEnd="8dp"
                     android:padding="4dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/connected_96" />
@@ -46,7 +46,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="left"
+                    android:gravity="start"
                     android:text="@string/manage_stringfog_massage"
                     android:textColor="#ff757575"
                     android:textSize="14sp" />

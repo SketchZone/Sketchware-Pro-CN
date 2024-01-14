@@ -3,9 +3,9 @@
     android:id="@+id/layout_item"
     android:layout_width="match_parent"
     android:layout_height="64dp"
-    android:layout_marginLeft="4dp"
+    android:layout_marginStart="4dp"
     android:layout_marginTop="2dp"
-    android:layout_marginRight="4dp"
+    android:layout_marginEnd="4dp"
     android:layout_marginBottom="2dp"
     android:background="@color/transparent"
     android:elevation="4dp">
@@ -17,21 +17,21 @@
         android:background="?selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
-        android:gravity="center|left"
+        android:gravity="center|start"
         android:orientation="horizontal">
 
         <CheckBox
             android:id="@+id/chk_select"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:contentDescription="@null" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_weight="1"
             android:orientation="vertical">
 

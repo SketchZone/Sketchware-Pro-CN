@@ -208,10 +208,10 @@ public class AndroidManifestInjection extends Activity {
                 (int) getDip(45),
                 0.0f));
         ((LinearLayout.LayoutParams) addnew.getLayoutParams()).setMargins(
+                (int) getDip(16),
                 (int) getDip(8),
-                (int) getDip(8),
-                (int) getDip(8),
-                (int) getDip(8));
+                (int) getDip(16),
+                (int) getDip(16));
         addnew.setText(R.string.mainfest_add_activity);
         addnew.setTextColor(Color.WHITE);
         addnew.setPadding(
@@ -220,7 +220,6 @@ public class AndroidManifestInjection extends Activity {
                 (int) getDip(50),
                 (int) getDip(8));
         addnew.setGravity(Gravity.CENTER);
-        addnew.setBackgroundColor(0xff008dcd);
         addnew.setTextSize(15);
         addnew.setBackground(ContextCompat.getDrawable(this, R.drawable.textview_style));
         addnew.setElevation((int) getDip(1));

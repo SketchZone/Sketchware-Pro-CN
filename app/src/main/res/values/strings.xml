@@ -3052,4 +3052,5 @@ Please check the URL again."</string>
     <string name="onlongclick">onLongClick</string>
     <string name="add_custom_imports">add custom imports</string>
     <string name="canceling_build">Canceling build...</string>
+    <string name="edit_value">Edit Value</string>
 </resources>

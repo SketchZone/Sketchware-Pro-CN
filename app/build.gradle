@@ -108,14 +108,14 @@ dependencies {
     implementation "androidx.viewpager:viewpager:1.0.0"
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
     implementation "androidx.compose.material3:material3:1.0.1"
-    implementation "com.airbnb.android:lottie:3.1.0"
+    implementation "com.airbnb.android:lottie:6.3.0"
     implementation "com.google.android.flexbox:flexbox:3.0.0"
 
-    implementation "androidx.annotation:annotation:1.6.0"
-    implementation "com.android.tools:annotations:31.1.1"
+    implementation "androidx.annotation:annotation:1.7.1"
+    implementation "com.android.tools:annotations:31.2.1"
     implementation "com.google.guava:guava:32.0.1-jre"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'com.google.android.material:material:1.10.0'
 
     def editorGroupId = "io.github.Rosemoe.sora-editor"
     implementation platform("io.github.Rosemoe.sora-editor:bom:0.22.0")
@@ -150,7 +150,7 @@ dependencies {
 
     //noinspection GradleDependency
     minApi21Implementation "org.eclipse.jdt:ecj:3.13.0"
-    minApi26Implementation "org.eclipse.jdt:ecj:3.26.0"
+    minApi26Implementation "org.eclipse.jdt:ecj:3.36.0"
 
     minApi26Implementation project(path: ":kotlinc")
 

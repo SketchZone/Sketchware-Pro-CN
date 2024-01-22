@@ -10,7 +10,7 @@ if (analyticsEnabled) {
 }
 
 android {
-    compileSdk 33
+    compileSdk 34
 
     def gitCommitHash = "git rev-parse HEAD".execute().text.trim()
 

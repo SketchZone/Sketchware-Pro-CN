@@ -378,7 +378,7 @@
     <string name="design_drawer_menu_description_theme">颜色主题</string>
     <string name="design_drawer_menu_description_library">组件设置</string>
     <string name="design_drawer_menu_description_collection">我保存的组件</string>
-    <string name="design_drawer_menu_description_view">管理多个屏幕</string>
+    <string name="design_drawer_menu_description_view">管理多个视图</string>
     <string name="design_drawer_menu_description_image">导入照片和图标</string>
     <string name="design_drawer_menu_description_sound">导入音乐和声音效果</string>
     <string name="design_drawer_menu_description_font">导入不同的字体</string>

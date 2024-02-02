@@ -94,7 +94,7 @@
     <string name="common_message_insufficient_storage_space">存储空间不足\n请腾出空间再试试</string>
     <string name="common_message_not_enough_memory">内存不足</string>
     <string name="common_message_progress">进行中</string>
-    <string name="common_message_loading">正在加载</string>
+    <string name="common_message_loading">正在加载...</string>
     <string name="common_message_downloading">正在下载</string>
     <string name="common_message_downloading_data">正在下载数据文件</string>
     <string name="common_message_downloading_resources">下载资源中</string>
@@ -3761,7 +3761,7 @@
     <string name="design_show_source_code">显示源代码</string>
     <string name="design_install_last_built_apk">安装上次构建的APK</string>
     <string name="design_error3">清理临时文件!</string>
-    <string name="design_toast">APK不再存在</string>
+    <string name="design_toast">APK不存在</string>
     <string name="design_failed_to_generate_source">无法生成源.</string>
     <string name="common_word_dismiss">取消</string>
     <string name="design_generating_source">正在生成源...</string>
@@ -4164,6 +4164,8 @@
     <string name="onlongclick">当长按</string>
     <string name="add_custom_imports">添加自定义导入</string>
     <string name="canceling_build">取消构建...</string>
+    <string name="enter_a_value">输入值</string>
+    <string name="enter_a_title">输入标题</string>
     <!-- ************************************************************************************************************************* -->
     <!-- *************************************************  append 3.9.0 end    ************************************************** -->
     <!-- ************************************************************************************************************************* -->

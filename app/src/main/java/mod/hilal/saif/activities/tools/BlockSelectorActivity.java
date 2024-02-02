@@ -88,7 +88,7 @@ public class BlockSelectorActivity extends AppCompatActivity implements View.OnC
         add = findViewById(R.id.add);
         name = findViewById(R.id.name);
         title = findViewById(R.id.title);
-        MaterialButton cancel = findViewById(R.id.canc);
+        MaterialButton cancel = findViewById(R.id.cancel);
         MaterialButton save = findViewById(R.id.save);
         listview1 = findViewById(R.id.listv);
         value = findViewById(R.id.val);
@@ -144,9 +144,9 @@ public class BlockSelectorActivity extends AppCompatActivity implements View.OnC
 
     private void save() {
         if (name.getText().toString().isEmpty()) {
-            SketchwareUtil.toast("Enter a name");
+            SketchwareUtil.toast(getString(R.string.enter_a_name));
         } else if (title.getText().toString().isEmpty()) {
-            SketchwareUtil.toast("Enter a title");
+            SketchwareUtil.toast(getString(R.string.enter_a_title));
         } else {
             if (isNewGroup) {
                 map = new HashMap<>();
@@ -236,7 +236,7 @@ public class BlockSelectorActivity extends AppCompatActivity implements View.OnC
         } else if (id == R.id.add_val) {
             if (current_item != 0) {
                 if (value.getText().toString().isEmpty()) {
-                    SketchwareUtil.toast("Enter a value");
+                    SketchwareUtil.toast(getString(R.string.enter_a_value));
                 } else {
                     contents.add(value.getText().toString());
                     map.put("data", contents);
@@ -278,7 +278,7 @@ public class BlockSelectorActivity extends AppCompatActivity implements View.OnC
             }
         } else if (id == R.id.save) {
             save();
-        } else if (id == R.id.canc) {
+        } else if (id == R.id.cancel) {
             _fabVisibility(true);
             TransitionManager.beginDelayedTransition(background, autoTransition);
             Helper.setViewsVisibility(false, options_menu, add, edit, delete);

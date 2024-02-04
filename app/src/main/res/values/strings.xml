@@ -2560,4 +2560,5 @@ Please try again later"</string>
     <string name="canceling_build">Canceling build...</string>
     <string name="enter_a_value">Enter a value</string>
     <string name="enter_a_title">Enter a title</string>
+    <string name="sketchware_for_ino_popup_title_button_never_show_again">Never show again</string>
 </resources>

@@ -58,7 +58,7 @@
             android:layout_height="48.0dip"
             android:layout_gravity="center_vertical"
             android:layout_margin="8.0dip"
-            android:background="@drawable/textview_style"
+            android:background="@color/color_primary"
             android:gravity="center"
             android:textColor="#ffffffff" />
     </LinearLayout>

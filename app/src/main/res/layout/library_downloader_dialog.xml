@@ -13,7 +13,7 @@
         android:layout_weight="1"
         android:focusable="false"
         android:text="@string/local_library_manager_enter_dependency"
-        android:textColor="#ff296cf7"
+        android:textColor="@color/color_primary"
         android:textSize="18sp" />
 
     <com.google.android.material.divider.MaterialDivider
@@ -73,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
         android:layout_marginBottom="10dp"
-        android:backgroundTint="#ff296cf7"
         android:text="@string/common_word_download"
-        app:rippleColor="@null" />
+        app:rippleColor="@null"
+        android:theme="@style/AppTheme.Button.LightBlue" />
 </LinearLayout>

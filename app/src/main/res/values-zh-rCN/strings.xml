@@ -74,13 +74,11 @@
     <string name="common_word_component">组件</string>
     <string name="common_word_drawer">抽屉</string>
     <string name="common_word_moreblock">组合块</string>
-
     <string name="common_word_image">图片</string>
     <string name="common_word_sound">音频</string>
     <string name="common_word_font">字体</string>
     <string name="common_word_widget">小部件</string>
     <string name="common_word_block">块</string>
-
     <string name="common_word_variable">变量</string>
 
     <string name="common_message_insufficient_storage_space_title">存储空间不足</string>
@@ -147,50 +145,34 @@
     <!-- ************************************************************************************************************************* -->
 
     <string name="myprojects_confirm_project_delete">你确定要删除这个项目吗?</string>
-
     <string name="myprojects_list_menu_title_create_a_new_project">创建新项目</string>
-
     <string name="myprojects_list_menu_title_settings">设置</string>
-
     <string name="myprojects_list_menu_title_delete">删除</string>
-
     <string name="myprojects_settings_description_change_icon">点击更改图标</string>
     <string name="myprojects_settings_hint_enter_application_name">输入应用程序名称</string>
-
     <string name="myprojects_settings_actionbar_title_new_projet">新项目</string>
     <string name="myprojects_settings_actionbar_title_project_settings">项目设置</string>
     <string name="myprojects_settings_title_advanced_settings">高级设置</string>
-
     <string name="myprojects_settings_hint_enter_package_name">包名</string>
     <string name="myprojects_settings_hint_enter_project_name">项目名</string>
-
     <string name="myprojects_settings_message_contain_dot">包名称必须至少包含一个或多个点(.)字符</string>
-
     <string name="myprojects_settings_button_save">保存</string>
     <string name="myprojects_settings_button_create_app">创建应用</string>
-
     <string name="myprojects_settings_context_menu_title_choose">选择</string>
     <string name="myprojects_settings_context_menu_title_choose_gallery">从相册中选择</string>
     <string name="myprojects_settings_context_menu_title_choose_gallery_with_crop">从图库中选择(裁剪)</string>
     <string name="myprojects_settings_context_menu_title_choose_gallery_default">更改为默认图标</string>
-
     <string name="myprojects_settings_message_package_rename">此项目与Firebase关联. 如果更改软件包名称,Firebase可能无法正常工作.</string>
     <string name="myprojects_settings_confirm_reset_icon">你确定要重置图标吗？</string>
-
     <string name="myprojects_settings_version_control_title">版本控制</string>
     <string name="myprojects_settings_version_control_title_code">代码</string>
     <string name="myprojects_settings_version_control_title_name">名字</string>
-
     <string name="myprojects_sign_apk_incorrect_password">密码错误</string>
-
     <string name="myprojects_sign_apk_hint_enter_new_password">输入新密码</string>
-
     <string name="myprojects_sign_apk_new_certificate_title_new_certificate">创建一个新证书</string>
     <string name="myprojects_sign_apk_new_certificate_hint_certificate_name">输入证书名称</string>
-
     <string name="myprojects_sign_apk_new_certificate_title_certificate">证书</string>
     <string name="myprojects_sign_apk_new_certificate_title_validity">有效期(年)</string>
-
     <string name="myprojects_sign_apk_new_certificate_hint_first_and_last_name">名字和姓氏</string>
     <string name="myprojects_sign_apk_new_certificate_hint_organizational_unit">组织单位</string>
     <string name="myprojects_sign_apk_new_certificate_hint_organization">组织</string>
@@ -198,11 +180,8 @@
     <string name="myprojects_sign_apk_new_certificate_hint_state">州或省</string>
     <string name="myprojects_sign_apk_new_certificate_hint_country_code">国家代码(XX)</string>
     <string name="myprojects_sign_apk_new_certificate_hint_confirm_password">确认密码</string>
-
     <string name="myprojects_sign_apk_new_certificate_button_create">创建</string>
-
     <string name="myprojects_sign_apk_error_failed_create_new_certificate">无法创建新证书</string>
-
     <string name="myprojects_sign_apk_dialog_complete_create_certificate">新证书已创建</string>
     <!-- ************************************************************************************************************************* -->
     <!-- *************************************************        MY PROJECTS  End      ****************************************** -->
@@ -229,7 +208,6 @@
 
     <string name="design_quit_title_exit_projet">退出项目</string>
     <string name="design_quit_button_save_and_exit">保存&amp;退出</string>
-
     <string name="design_quit_message_confirm_save">您想在退出前保存更改吗?</string>
 
     <string name="design_restore_data_title">还原数据</string>
@@ -237,7 +215,6 @@
 
 
     <string name="design_run_title_ready_to_build">准备建立 </string>
-
     <string name="design_run_message_invalid_forever_block">停止块不存在于永久块</string>
     <string name="design_run_message_usage_break_block">中断块只能重复或内部使用于永久块</string>
 
@@ -248,7 +225,6 @@
 
     <string name="design_drawer_menu_title">组件配置</string>
     <string name="design_drawer_menu_bottom_title">全局</string>
-
     <string name="design_drawer_menu_title_theme">主题</string>
     <string name="design_drawer_menu_title_library">库</string>
     <string name="design_drawer_menu_title_collection">收藏</string>
@@ -257,7 +233,6 @@
     <string name="design_drawer_menu_title_sound">音频</string>
     <string name="design_drawer_menu_title_font">字体</string>
     <string name="design_drawer_menu_title_source_code">显示源代码</string>
-
     <string name="design_drawer_menu_description_theme">颜色主题</string>
     <string name="design_drawer_menu_description_library">组件设置</string>
     <string name="design_drawer_menu_description_collection">我保存的组件</string>
@@ -268,45 +243,32 @@
     <string name="design_drawer_menu_description_source_code">显示Java和Xml文件</string>
 
     <string name="design_library_settings_title_enabled">启用</string>
-
     <string name="design_library_settings_guide_tutorial">如果这是您第一次设置,请参阅教程.</string>
-
     <string name="design_library_title_appcompat">程序兼容性</string>
     <string name="design_library_title_appcompat_and_design">应用程序兼容和设计</string>
     <string name="design_library_message_confirm_uncheck_appcompat_and_design">现有的抽屉布局和FAB将被删除.继续?</string>
     <string name="design_library_description_appcompat_and_design">抽屉布局,浮动行动按钮 </string>
     <string name="design_library_description_firebase">使用Firebase数据库和身份验证</string>
     <string name="design_library_message_slow_down_compilation_time">启用库可能会减慢某些设备上的编译速度.</string>
-
     <string name="design_library_appcompat_description">激活此兼容库可让您将抽屉布局和浮动操作按钮添加到活动中.</string>
-
     <string name="design_library_firebase_description">如果启用,您将能够使用Firebase DB,Auth和存储组件.</string>
-
     <string name="design_library_firebase_title_firebase_settings">Firebase设置</string>
-
     <string name="design_library_firebase_title_data_location">数据位置</string>
     <string name="design_library_firebase_hint_enter_data_location">输入数据位置</string>
-
     <string name="design_library_firebase_hint_enter_firebase_project_id">输入Firebase项目ID</string>
     <string name="design_library_firebase_hint_enter_firebase_app_id">输入Firebase APP ID</string>
     <string name="design_library_firebase_hint_enter_firebase_api_key">输入Firebase API密钥</string>
     <string name="design_library_firebase_hint_enter_firebase_storage_bucket_url">输入Firebase存储桶(Bucket) Url</string>
-
     <string name="design_library_firebase_description_settings">项目ID,应用程序ID和API密钥必须与Firebase控制台中的值匹配.</string>
     <string name="design_library_firebase_description_storage">存储分区网址必须与Firebase存储中的值匹配才能正常运行.</string>
-
     <string name="design_library_firebase_title_firebase_setup_tutorial">Firebase安装教程</string>
     <string name="design_library_firebase_title_firebase">Firebase</string>
-
     <string name="design_library_firebase_dialog_description_confirm_uncheck_firebase">如果您取消选中Firebase数据库选项,现有的Firebase组件将被删除. 你确定你要继续吗？</string>
-
     <string name="design_library_firebase_button_goto_firebase_console">转到Firebase控制台</string>
     <string name="design_library_firebase_button_goto_firebase_database">转到Firebase数据库</string>
     <string name="design_library_firebase_button_goto_firebase_authentication">转到Firebase身份验证</string>
     <string name="design_library_firebase_button_goto_firebase_storage">转到Firebase存储</string>
-
     <string name="design_library_firebase_description_about_firebase">Firebase实时数据库是Google基于云的NoSQL数据库,您可以在其中实时保存和同步数据.</string>
-
     <string name="design_library_guide_setup_first">为了使用此组件,您必须首先在库管理器中设置.</string>
     <string name="design_library_firebase_guide_setup_first">为了使用此组件,您必须先在Firebase设置中设置API密钥.</string>
     <string name="design_library_firebase_guide_path_example">从根开始的路径.\nex)\"users/username\"</string>
@@ -314,55 +276,40 @@
 
     <string name="design_manager_tab_title_this_project">此项目</string>
     <string name="design_manager_tab_title_my_collection">我的收藏</string>
-
     <string name="design_manager_title_add_to_collection">添加到我的收藏</string>
     <string name="design_manager_change_name_button">重命名</string>
-
     <string name="design_manager_message_collection_name_conflict">似乎有一个命名冲突. 请确保没有重复的名称.</string>
     <string name="design_manager_message_collection_name_no_conflict">没有命名冲突</string>
-
     <string name="design_manager_message_edit_complete">编辑完成</string>
     <string name="design_manager_message_add_complete">添加完成</string>
     <string name="design_manager_message_import_complete">导入完成</string>
-
     <string name="design_manager_view_title_add_custom_view">新的自定义视图</string>
-
     <string name="design_manager_view_title_add_view">新活动</string>
     <string name="design_manager_view_title_edit_view">修改活动</string>
-
     <string name="design_manager_view_title_screen_orientation">屏幕方向</string>
     <string name="design_manager_view_title_keyboad_settings">键盘设置</string>
-
     <string name="design_manager_view_title_activity_preset">活动预设</string>
     <string name="design_manager_view_title_empty_activity">空活动</string>
-
     <string name="design_manager_view_title_view_name">查看名称: </string>
     <string name="design_manager_view_title_activity_name">活动名称: </string>
-
     <string name="design_manager_view_message_slow_down">包括抽屉或FAB可能会减慢某些设备上的编译速度.</string>
-
     <string name="design_manager_view_message_no_view">没有要显示的视图</string>
     <string name="design_manager_view_description_guide_create_activity">要创建新的活动,请在此处添加它</string>
     <string name="design_manager_view_description_guide_create_custom_view">在此创建一个新的自定义视图</string>
-
     <string name="design_manager_view_description_guide_use_custom_view">自定义视图可用于更改项目在列表视图(ListView)或微调(Spinner)内显示的方式</string>
-
     <string name="design_manager_view_hint_enter_view_name">输入视图名称</string>
-
     <string name="design_manager_image_title_add_image">添加图像</string>
     <string name="design_manager_image_title_edit_image">修改图像</string>
     <string name="design_manager_image_title_edit_image_name">修改图像名称</string>
     <string name="design_manager_image_description_guide_add_image">如果您在这里添加图片,您可以将它用作图标(Icon)或图像视图(ImageView)</string>
     <string name="design_manager_image_hint_enter_image_name">输入图像名称</string>
     <string name="design_manager_image_title_apply_same_naming">对其他可用的图像,应用相同的命名方式</string>
-
     <string name="design_manager_sound_title_add_sound">添加音频</string>
     <string name="design_manager_sound_title_edit_sound">修改音频</string>
     <string name="design_manager_sound_title_edit_sound_name">修改音频名称</string>
     <string name="design_manager_sound_hint_enter_sound_name">输入音频名称</string>
     <string name="design_manager_sound_description_guide_add_sound">添加背景音乐或音效</string>
     <string name="design_manager_sound_title_apply_same_naming">对其他可用的声音,应用相同的命名方式</string>
-
     <string name="design_manager_font_title_add_font">添加字体</string>
     <string name="design_manager_font_title_edit_font">修改字体</string>
     <string name="design_manager_font_title_edit_font_name">修改字体名称</string>
@@ -371,22 +318,16 @@
     <string name="design_manager_font_description_example_sentence">预览的一个例句</string>
     <string name="design_manager_font_description_guide_add_font">添加.ttf扩展名的字体文件</string>
     <string name="design_manager_font_title_apply_same_naming">对其他可用的字体,应用相同的命名风格</string>
-
     <string name="design_manager_font_description_look_like_this">我的新字体看起来像这样!</string>
-
     <string name="design_manager_icon_actionbar_title">导入图标</string>
     <string name="design_manager_icon_hint_enter_icon_name">输入图标名称</string>
-
     <string name="design_manager_image_import_icon_button_black">黑色</string>
     <string name="design_manager_image_import_icon_button_grey">灰色</string>
     <string name="design_manager_image_import_icon_button_white">白色</string>
-
     <string name="design_manager_block_detail_actionbar_title">块细节</string>
     <string name="design_manager_block_hint_enter_block_name">输出块名称</string>
-
     <string name="design_manager_widget_title_actionbar_title">小部件详细信息</string>
     <string name="design_manager_widget_hint_enter_widget_name">输入小部件名称</string>
-
     <string name="design_property_recent_message_nodata">最近使用的属性将被显示</string>
 
     <!-- ************************************************************************************************************************* -->
@@ -413,7 +354,6 @@
     <!-- *************************************************   Event   Start               ***************************************** -->
     <!-- ************************************************************************************************************************* -->
 
-
     <string name="event_title_add_new_event">添加新事件</string>
     <string name="event_title_add_new_component">添加新组件</string>
 
@@ -428,7 +368,6 @@
     <string name="event_context_menu_title_delete_event">删除事件</string>
 
     <string name="event_dialog_confirm_reset_logic">你确定你想重置这个逻辑吗？</string>
-
     <string name="event_dialog_confirm_delete_moreblock">你确定要删除这个更多的块吗?</string>
     <string name="event_dialog_confirm_delete_component">您确定要删除选定的组件吗?</string>
     <string name="event_dialog_confirm_delete_logic">所选事件的所有逻辑数据都将丢失\n你想继续吗?</string>
@@ -457,7 +396,6 @@
     <string name="event_onitemclicked">当点击项目</string>
     <string name="event_onitemlongclicked">当长按项目</string>
     <string name="event_onbindcustomview">当绑定自定义视图</string>
-
     <string name="event_onchildadded">当子类添加</string>
     <string name="event_onchildchanged">当子类改变</string>
     <string name="event_onchildremoved">当子类离开</string>
@@ -500,12 +438,10 @@
 
     <string name="component_file_picker_hint_mime_type">输入Mime类型</string>
     <string name="component_file_picker_title_select_mime_type">选择Mime类型</string>
-
     <string name="component_file_picker_title_select_mime_type_all_files">全部文件</string>
     <string name="component_file_picker_title_select_mime_type_image_files">图像文件</string>
     <string name="component_file_picker_title_select_mime_type_audio_files">音频文件</string>
     <string name="component_file_picker_title_select_mime_type_text_files">文本文件</string>
-
     <string name="component_title_add_component">全部组件</string>
 
     <string name="component_description_intent">Intent \n用于启动新的活动</string>
@@ -524,7 +460,6 @@
     <string name="component_description_firebase_storage">Firebase存储 \n是为了 需要存储和提供 用户创建的内容 的应用开发者 创建的 </string>
     <string name="component_description_camera">相机 \n用于拍摄照片.</string>
     <string name="component_description_file_picker">文件选择器\n用于选择 RAW和媒体文件,如图像,音频和文本.(不就是个 文件选择器)</string>
-
     <string name="component_description_file_picker_guide_mime_type_example">MIME用于识别数据类型.\nex)\"*/*\", \"image/*\", \"audio/*\", \"text/*\"</string>
     <!-- ************************************************************************************************************************* -->
     <!-- *************************************************   Component   End             ***************************************** -->
@@ -3426,6 +3361,10 @@
     <string name="publish_images_step_name">图形资源</string>
     <string name="publish_check_upload_apk_step_desc">确定此发布的类型</string>
     <string name="publish_check_upload_apk_step_name">发布类型</string>
+    <string name="edit_value">编辑值</string>
+    <string name="note_removed">注意:从清单中删除了活动</string>
+    <string name="active">活跃</string>
+    <string name="inactive">不活跃</string>
     <!-- ************************************************************************************************************************* -->
     <!-- *************************************************  append 3.9.0 end    ************************************************** -->
     <!-- ************************************************************************************************************************* -->

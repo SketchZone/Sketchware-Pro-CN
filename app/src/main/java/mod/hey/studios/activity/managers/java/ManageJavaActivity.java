@@ -346,7 +346,7 @@ public class ManageJavaActivity extends Activity {
                     if (frc.getJavaManifestList().contains(adapter.getFullName(position))) {
                         frc.getJavaManifestList().remove(adapter.getFullName(position));
                         FileUtil.writeFile(fpu.getManifestJava(sc_id), new Gson().toJson(frc.listJavaManifest));
-                        SketchwareUtil.toast("NOTE: Removed Activity from manifest");
+                        SketchwareUtil.toast(getString(R.string.note_removed));
                     }
 
                     if (finalRenameOccurrences != null && finalRenameOccurrences.isChecked()) {

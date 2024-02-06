@@ -111,10 +111,10 @@ public class AboutAdapters {
                     isActiveBool = (boolean) isActive;
                 }
                 if (isActiveBool) {
-                    holder.status.setText("Active");
+                    holder.status.setText(R.string.active);
                     rippleRound(holder.status, "#13cc9d", "#13cc9d", 100);
                 } else {
-                    holder.status.setText("Inactive");
+                    holder.status.setText(R.string.inactive);
                     rippleRound(holder.status, "#676767", "#676767", 100);
                 }
             } else {

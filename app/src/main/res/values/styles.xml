@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppBaseTheme" parent="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge" />
+    <style name="AppBaseTheme" parent="@style/Theme.Material3.Light.NoActionBar" />
 
     <style name="AppTheme" parent="@style/AppBaseTheme">
         <item name="colorAccent">@color/color_accent</item>
@@ -9,6 +9,8 @@
         <item name="colorControlNormal">@color/color_primary</item>
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
+        <item name="textInputStyle">@style/TextAppearance.App.TextInputLayout</item>
+        <item name="overlapAnchor">false</item>
     </style>
 
     <style name="AppTheme.Button.Blue" parent="@style/Base.Widget.AppCompat.Button">

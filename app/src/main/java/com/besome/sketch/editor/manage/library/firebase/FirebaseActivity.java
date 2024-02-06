@@ -154,6 +154,7 @@ public class FirebaseActivity extends BaseAppCompatActivity implements View.OnCl
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         if (stepNumber > STEP_1) {
             setStep(--stepNumber);
         } else {

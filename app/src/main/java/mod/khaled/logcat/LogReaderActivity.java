@@ -17,7 +17,6 @@ import android.os.Bundle;
 import android.text.InputFilter;
 import android.util.TypedValue;
 import android.view.Gravity;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -90,40 +89,45 @@ public class LogReaderActivity extends AppCompatActivity {
             filterEdittext.setLayoutParams(params);
         }
         filterEdittext.setTextSize(15f);
-        filterEdittext.setHint(R.string.log_reader_search_log);
+        filterEdittext.setHint("Search log");
         filterEdittext.setBackgroundTintList(ColorStateList.valueOf(0xffffffff));
         filterEdittext.setTextColor(0xffffffff);
         filterEdittext.setSingleLine(true);
         toolbar.addView(filterEdittext, toolbar.indexOfChild(optionsMenu));
 
         PopupMenu options = new PopupMenu(this, optionsMenu);
-        options.getMenu().add(Menu.NONE,1,Menu.NONE, R.string.log_reader_menu_clear_all);
-        options.getMenu().add(Menu.NONE,2,Menu.NONE, R.string.log_reader_menu_filter_by_package);
-        options.getMenu().add(Menu.NONE,3,Menu.NONE, R.string.log_reader_menu_auto_scroll).setCheckable(true).setChecked(true);
+        options.getMenu().add("Clear all");
+        options.getMenu().add("Filter by package");
+        options.getMenu().add("Auto scroll").setCheckable(true).setChecked(true);
         options.setOnMenuItemClickListener(menuItem -> {
-            switch (menuItem.getItemId()) {
-                case 1:
+            switch (menuItem.getTitle().toString()) {
+                case "Clear all":
                     mainList.clear();
                     ((Adapter) recyclerview.getAdapter()).deleteAll();
                     break;
 
-                case 2:
+                case "Filter by package":
                     AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                            .setTitle(R.string.log_reader_filter_by_package_name)
-                            .setMessage(R.string.log_reader_massage);
+                            .setTitle("Filter by package name")
+                            .setMessage("For multiple package names, separate them with a comma (,).");
                     final EditText _e = new EditText(this);
                     _e.setText(pkgFilter);
                     builder.setView(_e);
-                    builder.setPositiveButton(R.string.common_word_apply, (dialog, which) -> {
+                    builder.setPositiveButton("Apply", (dialog, which) -> {
                         pkgFilter = _e.getText().toString();
                         pkgFilterList = new ArrayList<>(Arrays.asList(pkgFilter.split(",")));
                         filterEdittext.setText(filterEdittext.getText().toString());
                     });
-                    builder.setNegativeButton(R.string.common_word_cancel, (dialog, which) -> dialog.dismiss());
+                    builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
+                    builder.setNeutralButton("Reset", (dialog, which) -> {
+                        pkgFilter = "";
+                        pkgFilterList.clear();
+                        filterEdittext.setText("");
+                    });
                     builder.show();
                     break;
 
-                case 3: {
+                case "Auto scroll": {
                     menuItem.setChecked(!menuItem.isChecked());
                     autoScroll = menuItem.isChecked();
                     if (autoScroll) {
@@ -414,7 +418,7 @@ public class LogReaderActivity extends AppCompatActivity {
                 holder.divider.setVisibility(View.VISIBLE);
             }
             holder.root.setOnLongClickListener(v -> {
-                SketchwareUtil.toast(getString(R.string.log_reader_copied_to_clipboard));
+                SketchwareUtil.toast("Copied to clipboard");
                 ((ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE)).setPrimaryClip(ClipData.newPlainText("clipboard", data.get(position).get("logRaw").toString()));
                 return true;
             });

@@ -310,7 +310,7 @@ public class Tools extends Activity {
 
                 confirmOverwrite.a(Helper.getResString(R.string.common_word_cancel),
                         Helper.getDialogDismissListener(confirmOverwrite));
-                confirmOverwrite.b("Overwrite", overwrite -> {
+                confirmOverwrite.b(getString(R.string.common_word_overwrite), overwrite -> {
                     confirmOverwrite.dismiss();
                     signApkFileWithDialog(input_apk_path, output_apk_path, true,
                             null, null, null, null);

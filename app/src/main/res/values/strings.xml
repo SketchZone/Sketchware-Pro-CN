@@ -2565,4 +2565,5 @@ Please try again later"</string>
     <string name="note_removed">NOTE: Removed Activity from manifest</string>
     <string name="active">Active</string>
     <string name="inactive">Inactive</string>
+    <string name="common_word_overwrite">Overwrite</string>
 </resources>

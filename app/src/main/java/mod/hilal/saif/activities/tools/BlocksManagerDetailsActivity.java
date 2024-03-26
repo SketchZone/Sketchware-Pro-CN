@@ -188,6 +188,7 @@ public class BlocksManagerDetailsActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         if (mode.equals("editor")) {
             swap.setImageResource(R.drawable.ic_menu_white_24dp);
             mode = "normal";

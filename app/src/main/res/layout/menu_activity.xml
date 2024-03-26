@@ -42,7 +42,7 @@
                 android:paddingTop="4dp"
                 android:paddingEnd="8dp"
                 android:paddingBottom="6dp"
-                android:text="Title"
+                android:text="@string/block_selector_menu_manager"
                 android:textColor="@color/tool_bar_text_color"
                 android:textSize="15sp"
                 android:textStyle="bold" />

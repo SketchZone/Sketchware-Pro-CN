@@ -118,10 +118,10 @@ dependencies {
     implementation 'com.google.android.material:material:1.10.0'
 
     def editorGroupId = "io.github.Rosemoe.sora-editor"
-    implementation platform("io.github.Rosemoe.sora-editor:bom:0.22.0")
-    implementation "io.github.Rosemoe.sora-editor:editor:0.22.0"
-    implementation "io.github.Rosemoe.sora-editor:language-java:0.22.0"
-    implementation "io.github.Rosemoe.sora-editor:language-textmate:0.22.0"
+    implementation platform("$editorGroupId:bom:0.23.4")
+    implementation "$editorGroupId:editor"
+    implementation "$editorGroupId:language-java"
+    implementation "$editorGroupId:language-textmate"
 
     implementation "de.hdodenhof:circleimageview:3.1.0"
     implementation "com.github.angads25:filepicker:1.1.1"
@@ -146,7 +146,7 @@ dependencies {
     minApi21Implementation "net.sf.proguard:proguard-base:6.0.3"
     minApi26Implementation files('libs/proguard-base-7.2.2.jar')
     minApi26Implementation 'com.guardsquare:proguard-core:9.0.2'
-    minApi26Implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22'
+    minApi26Implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.23'
 
     //noinspection GradleDependency
     minApi21Implementation "org.eclipse.jdt:ecj:3.13.0"

@@ -165,9 +165,9 @@ public class EventsMakerCreator extends Activity {
         if (isEdit) {
             binding.txToolbarTitle.setText(event_name);
         } else if (isActivityEvent) {
-            binding.txToolbarTitle.setText("Create a new Activity event");
+            binding.txToolbarTitle.setText(R.string.create_a_new_activity_event);
         } else {
-            binding.txToolbarTitle.setText(lisName + "Create a new event");
+            binding.txToolbarTitle.setText(lisName + R.string.create_a_new_event);
         }
         binding.igToolbarBack.setOnClickListener(Helper.getBackPressedClickListener(this));
         Helper.applyRippleToToolbarView(binding.igToolbarBack);

@@ -78,42 +78,14 @@ public class EventsMaker extends Activity {
     }
 
     private void setupViews() {
-        FloatingActionButton fab = findViewById(R.id.add_attr_fab);
-        ViewGroup base = (ViewGroup) binding.addAttrListview.getParent();
-        LinearLayout newLayout = newLayout(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                0);
-        newLayout.setBackgroundColor(Color.parseColor("#00000000"));
-        newLayout.setPadding(
-                (int) SketchwareUtil.getDip(8),
-                (int) SketchwareUtil.getDip(8),
-                (int) SketchwareUtil.getDip(8),
-                (int) SketchwareUtil.getDip(8)
-        );
-        newLayout.setFocusable(false);
-        newLayout.setGravity(16);
-        newLayout.addView(newText(getString(R.string.listeners), 16.0f, false, 0xff888888,
-                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0));
-        base.addView(newLayout, 1);
-        CardView newCard = newCard(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                0);
-        LinearLayout newLayout2 = newLayout(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                0);
-        newCard.addView(newLayout2);
-        makeup(newLayout2, 0x7f07043e, getString(R.string.activity_events), getNumOfEvents(""));
-        base.addView(newCard, 1);
-        newLayout2.setOnClickListener(v -> {
+        binding.eventsSub.setText(getNumOfEvents(""));
+        binding.activityEvents.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getApplicationContext(), EventsMakerDetails.class);
             intent.putExtra("lis_name", "");
             startActivity(intent);
         });
-        fab.setOnClickListener(v -> showAddDial());
+       binding.addAttrFab.setOnClickListener(v -> showAddDial());
         refreshList();
     }
 
@@ -353,73 +325,6 @@ public class EventsMaker extends Activity {
         return getString(R.string.events) + eventAmount;
     }
 
-    private void makeup(View view, int resIcon, String title, String description) {
-        View inflate = getLayoutInflater().inflate(R.layout.manage_library_base_item, null);
-        ImageView icon = inflate.findViewById(R.id.lib_icon);
-        inflate.findViewById(R.id.tv_enable).setVisibility(View.GONE);
-        icon.setImageResource(resIcon);
-        ((LinearLayout) icon.getParent()).setGravity(Gravity.CENTER);
-        ((TextView) inflate.findViewById(R.id.lib_title)).setText(title);
-        ((TextView) inflate.findViewById(R.id.lib_desc)).setText(description);
-        ((ViewGroup) view).addView(inflate);
-    }
-
-    private CardView newCard(int width, int height, float weight) {
-        CardView cardView = new CardView(this);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(width, height, weight);
-        layoutParams.setMargins(
-                (int) SketchwareUtil.getDip(4),
-                (int) SketchwareUtil.getDip(6),
-                (int) SketchwareUtil.getDip(4),
-                (int) SketchwareUtil.getDip(2)
-        );
-        cardView.setLayoutParams(layoutParams);
-        cardView.setPadding(
-                (int) SketchwareUtil.getDip(2),
-                (int) SketchwareUtil.getDip(2),
-                (int) SketchwareUtil.getDip(2),
-                (int) SketchwareUtil.getDip(2)
-        );
-        cardView.setCardBackgroundColor(Color.WHITE);
-        cardView.setRadius(SketchwareUtil.getDip(4));
-        return cardView;
-    }
-
-    private LinearLayout newLayout(int width, int height, float weight) {
-        LinearLayout linearLayout = new LinearLayout(this);
-        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(width, height, weight));
-        linearLayout.setPadding(
-                (int) SketchwareUtil.getDip(4),
-                (int) SketchwareUtil.getDip(4),
-                (int) SketchwareUtil.getDip(4),
-                (int) SketchwareUtil.getDip(4)
-        );
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColor(Color.WHITE);
-        linearLayout.setBackground(new RippleDrawable(new ColorStateList(new int[][]{new int[0]}, new int[]{Color.parseColor("#64B5F6")}), gradientDrawable, null));
-        linearLayout.setClickable(true);
-        linearLayout.setFocusable(true);
-        return linearLayout;
-    }
-
-    private TextView newText(String str, float size, boolean is, int color, int width, int length, float weight) {
-        TextView textView = new TextView(this);
-        textView.setLayoutParams(new LinearLayout.LayoutParams(width, length, weight));
-        textView.setPadding(
-                (int) SketchwareUtil.getDip(4),
-                (int) SketchwareUtil.getDip(4),
-                (int) SketchwareUtil.getDip(4),
-                (int) SketchwareUtil.getDip(4)
-        );
-        textView.setTextColor(color);
-        textView.setText(str);
-        textView.setTextSize(size);
-        if (is) {
-            textView.setTypeface(Typeface.DEFAULT_BOLD);
-        }
-        return textView;
-    }
-
     private void setToolbar() {
         binding.txToolbarTitle.setText(R.string.event_manager);
         binding.igToolbarBack.setOnClickListener(Helper.getBackPressedClickListener(this));
@@ -429,8 +334,8 @@ public class EventsMaker extends Activity {
         binding.igToolbarLoadFile.setOnClickListener(v -> {
             PopupMenu popupMenu = new PopupMenu(this, binding.igToolbarLoadFile);
             final Menu menu = popupMenu.getMenu();
-            menu.add(Menu.NONE,3,Menu.NONE, R.string.import_events);
-            menu.add(Menu.NONE,4,Menu.NONE, R.string.export_events);
+            menu.add(Menu.NONE, 3, Menu.NONE, R.string.import_events);
+            menu.add(Menu.NONE, 4, Menu.NONE, R.string.export_events);
             popupMenu.setOnMenuItemClickListener(item -> {
                 switch (item.getItemId()) {
                     case 3:

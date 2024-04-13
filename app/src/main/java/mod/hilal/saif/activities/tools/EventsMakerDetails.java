@@ -55,6 +55,8 @@ public class EventsMakerDetails extends Activity {
     }
 
     private void setupViews() {
+        binding.activityEvents.setVisibility(View.GONE);
+        binding.listeners.setVisibility(View.GONE);
         binding.addAttrFab.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getApplicationContext(), EventsMakerCreator.class);
@@ -109,7 +111,7 @@ public class EventsMakerDetails extends Activity {
 
     private void setToolbar() {
         if (lisName.equals("")) {
-            binding.txToolbarTitle.setText("Activity events");
+            binding.txToolbarTitle.setText(R.string.activity_events);
         } else {
             binding.txToolbarTitle.setText(lisName);
         }

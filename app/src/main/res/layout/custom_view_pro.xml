@@ -5,7 +5,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="2dip">
+            android:padding="2dp">
 
             <LinearLayout
                 android:layout_width="48.0dip"
@@ -63,5 +63,5 @@
                     android:textSize="11sp" />
             </LinearLayout>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

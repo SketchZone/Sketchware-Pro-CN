@@ -83,6 +83,8 @@ public class AndroidManifestInjectionDetails extends Activity {
         FloatingActionButton fab = findViewById(R.id.add_attr_fab);
         fab.setOnClickListener(v -> showAddDial());
         listView = findViewById(R.id.add_attr_listview);
+        findViewById(R.id.activity_events).setVisibility(View.GONE);
+        findViewById(R.id.listeners).setVisibility(View.GONE);
         refreshList();
     }
 
@@ -223,15 +225,15 @@ public class AndroidManifestInjectionDetails extends Activity {
         String str = "";
         switch (type) {
             case "all":
-                str = "Attributes for all activities";
+                str = getString(R.string.attributes_for_all_activities);
                 break;
 
             case "application":
-                str = "Application Attributes";
+                str = getString(R.string.application_attributes);
                 break;
 
             case "permission":
-                str = "Application Permissions";
+                str = getString(R.string.application_permissions);
                 break;
 
             default:
@@ -242,7 +244,7 @@ public class AndroidManifestInjectionDetails extends Activity {
         ViewGroup par = (ViewGroup) findViewById(R.id.tx_toolbar_title).getParent();
         ImageView _img = findViewById(R.id.ig_toolbar_back);
         _img.setOnClickListener(Helper.getBackPressedClickListener(this));
-        if (!str.equals("Attributes for all activities") && !str.equals("Application Attributes") && !str.equals("Application Permissions")) {
+        if (!str.equals(getString(R.string.attributes_for_all_activities)) && !str.equals(getString(R.string.application_attributes)) && !str.equals(getString(R.string.application_permissions))) {
             // Feature description: allows to inject anything into the {@code activity} tag of the Activity
             // (yes, Command Blocks can do that too, but removing features is bad.)
             TextView actComponent = newText("Components ASD", 15, Color.parseColor("#ffffff"), -2, -2, 0);

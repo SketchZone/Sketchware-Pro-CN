@@ -2566,4 +2566,13 @@ Please try again later"</string>
     <string name="active">Active</string>
     <string name="inactive">Inactive</string>
     <string name="common_word_overwrite">Overwrite</string>
+    <string name="attributes_for_all_activities">Attributes for all activities</string>
+    <string name="application_attributes">Application Attributes</string>
+    <string name="application_permissions">Application Permissions</string>
+    <string name="search_log">Search log</string>
+    <string name="clear_all">Clear all</string>
+    <string name="filter_by_package">Filter by package</string>
+    <string name="auto_scroll">Auto scroll</string>
+    <string name="filter_by_package_name">Filter by package name</string>
+    <string name="for_multiple_package_names">For multiple package names, separate them with a comma (,).</string>
 </resources>

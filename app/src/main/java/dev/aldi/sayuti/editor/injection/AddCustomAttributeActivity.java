@@ -48,6 +48,8 @@ public class AddCustomAttributeActivity extends AppCompatActivity {
 
         FloatingActionButton fab = findViewById(R.id.add_attr_fab);
         listView = findViewById(R.id.add_attr_listview);
+        findViewById(R.id.activity_events).setVisibility(View.GONE);
+        findViewById(R.id.listeners).setVisibility(View.GONE);
         fab.setOnClickListener(v -> dialog("create", 0));
 
         TextView title = findViewById(R.id.tx_toolbar_title);
@@ -187,8 +189,8 @@ public class AddCustomAttributeActivity extends AppCompatActivity {
             }
             options.setOnClickListener(v -> {
                 PopupMenu popupMenu = new PopupMenu(AddCustomAttributeActivity.this, options);
-                popupMenu.getMenu().add(Menu.NONE, 0, Menu.NONE, "Edit");
-                popupMenu.getMenu().add(Menu.NONE, 1, Menu.NONE, "Delete");
+                popupMenu.getMenu().add(Menu.NONE, 0, Menu.NONE, R.string.common_word_edit);
+                popupMenu.getMenu().add(Menu.NONE, 1, Menu.NONE, R.string.common_word_delete);
                 popupMenu.setOnMenuItemClickListener(item -> {
                     if (item.getItemId() == 0) {
                         dialog("edit", position);
@@ -196,7 +198,7 @@ public class AddCustomAttributeActivity extends AppCompatActivity {
                         activityInjections.remove(position);
                         FileUtil.writeFile(activityInjectionsFilePath, new Gson().toJson(activityInjections));
                         notifyDataSetChanged();
-                        SketchwareUtil.toast("Deleted successfully");
+                        SketchwareUtil.toast(getString(R.string.deleted_successfully));
                     }
                     return true;
                 });

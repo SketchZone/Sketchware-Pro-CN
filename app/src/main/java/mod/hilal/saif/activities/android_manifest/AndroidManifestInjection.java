@@ -240,7 +240,8 @@ public class AndroidManifestInjection extends Activity {
         intent.putExtra("content", APP_COMPONENTS_PATH);
         intent.putExtra("xml", "");
         intent.putExtra("disableHeader", "");
-        intent.putExtra("title", "App Components");
+        String title = getString(R.string.app_components);
+        intent.putExtra("title", title);
         startActivity(intent);
     }
 

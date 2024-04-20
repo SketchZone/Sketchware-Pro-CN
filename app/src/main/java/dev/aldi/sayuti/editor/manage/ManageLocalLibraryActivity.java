@@ -4,6 +4,7 @@ import static mod.SketchwareUtil.getDip;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.Dialog;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,6 +22,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.gson.Gson;
@@ -68,7 +70,7 @@ public class ManageLocalLibraryActivity extends Activity implements View.OnClick
     public void onClick(View v) {
         var view = getLayoutInflater().inflate(R.layout.library_downloader_dialog, null);
 
-        var dialog = new MaterialAlertDialogBuilder(this)
+        var dialog = new AlertDialog.Builder(this)
                 .setView(view)
                 .setCancelable(false)
                 .create();

@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.text.InputFilter;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -89,37 +90,37 @@ public class LogReaderActivity extends AppCompatActivity {
             filterEdittext.setLayoutParams(params);
         }
         filterEdittext.setTextSize(15f);
-        filterEdittext.setHint("Search log");
+        filterEdittext.setHint(R.string.search_log);
         filterEdittext.setBackgroundTintList(ColorStateList.valueOf(0xffffffff));
         filterEdittext.setTextColor(0xffffffff);
         filterEdittext.setSingleLine(true);
         toolbar.addView(filterEdittext, toolbar.indexOfChild(optionsMenu));
 
         PopupMenu options = new PopupMenu(this, optionsMenu);
-        options.getMenu().add("Clear all");
-        options.getMenu().add("Filter by package");
-        options.getMenu().add("Auto scroll").setCheckable(true).setChecked(true);
+        options.getMenu().add(Menu.NONE,1,Menu.NONE,R.string.clear_all);
+        options.getMenu().add(Menu.NONE,2,Menu.NONE,R.string.filter_by_package);
+        options.getMenu().add(Menu.NONE,3,Menu.NONE,R.string.auto_scroll).setCheckable(true).setChecked(true);
         options.setOnMenuItemClickListener(menuItem -> {
-            switch (menuItem.getTitle().toString()) {
-                case "Clear all":
+            switch (menuItem.getItemId()) {
+                case 1:
                     mainList.clear();
                     ((Adapter) recyclerview.getAdapter()).deleteAll();
                     break;
 
-                case "Filter by package":
+                case 2:
                     AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                            .setTitle("Filter by package name")
-                            .setMessage("For multiple package names, separate them with a comma (,).");
+                            .setTitle(R.string.filter_by_package_name)
+                            .setMessage(R.string.for_multiple_package_names);
                     final EditText _e = new EditText(this);
                     _e.setText(pkgFilter);
                     builder.setView(_e);
-                    builder.setPositiveButton("Apply", (dialog, which) -> {
+                    builder.setPositiveButton(R.string.common_word_apply, (dialog, which) -> {
                         pkgFilter = _e.getText().toString();
                         pkgFilterList = new ArrayList<>(Arrays.asList(pkgFilter.split(",")));
                         filterEdittext.setText(filterEdittext.getText().toString());
                     });
-                    builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
-                    builder.setNeutralButton("Reset", (dialog, which) -> {
+                    builder.setNegativeButton(R.string.common_word_cancel, (dialog, which) -> dialog.dismiss());
+                    builder.setNeutralButton(R.string.common_word_reset, (dialog, which) -> {
                         pkgFilter = "";
                         pkgFilterList.clear();
                         filterEdittext.setText("");
@@ -127,7 +128,7 @@ public class LogReaderActivity extends AppCompatActivity {
                     builder.show();
                     break;
 
-                case "Auto scroll": {
+                case 3: {
                     menuItem.setChecked(!menuItem.isChecked());
                     autoScroll = menuItem.isChecked();
                     if (autoScroll) {

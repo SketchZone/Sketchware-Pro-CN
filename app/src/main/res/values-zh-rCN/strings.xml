@@ -3366,6 +3366,15 @@
     <string name="active">活跃</string>
     <string name="inactive">不活跃</string>
     <string name="common_word_overwrite">覆盖</string>
+    <string name="attributes_for_all_activities">所有活动的属性</string>
+    <string name="application_attributes">应用程序属性</string>
+    <string name="application_permissions">应用程序权限</string>
+    <string name="search_log">搜索日志</string>
+    <string name="clear_all">全部清除</string>
+    <string name="filter_by_package">按包名称筛选</string>
+    <string name="auto_scroll">自动滚动</string>
+    <string name="filter_by_package_name">按包名称筛选</string>
+    <string name="for_multiple_package_names">对于多个包名称,请用逗号分隔它们 (,).</string>
     <!-- ************************************************************************************************************************* -->
     <!-- *************************************************  append 3.9.0 end    ************************************************** -->
     <!-- ************************************************************************************************************************* -->

@@ -40,7 +40,7 @@
                 android:textColor="@color/color_primary"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                tools:text="Component name" />
+                tools:text="@string/component_name" />
         </LinearLayout>
 
         <View
@@ -107,7 +107,7 @@
                     android:layout_marginEnd="16dp"
                     android:textColor="@color/grey"
                     android:textSize="12sp"
-                    tools:text="This is a simple description" />
+                    tools:text="@string/this_is_a_simple_description" />
             </LinearLayout>
 
             <LinearLayout

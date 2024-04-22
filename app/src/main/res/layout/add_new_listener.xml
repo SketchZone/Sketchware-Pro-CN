@@ -25,18 +25,33 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="8.0dip">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+               <ImageView
+                   android:layout_width="32dp"
+                   android:layout_height="32dp"
+                   android:layout_gravity="center"
+                   android:scaleType="fitCenter"
+                   android:src="@drawable/positive_96">
 
+               </ImageView>
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:focusable="false"
-                    android:padding="8.0dip"
-                    android:text="New Listener"
-                    android:textColor="#ff2196f3"
-                    android:textSize="18.0sp"
-                    android:textStyle="bold" />
-
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:textColor="@color/color_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="@string/new_listener" />
+            </LinearLayout>
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -100,7 +115,7 @@
                     android:layout_height="fill_parent"
                     android:gravity="center"
                     android:padding="8.0dip"
-                    android:text="Independent class/method"
+                    android:text="@string/independent_class_method"
                     android:textColor="#ff616161"
                     android:textSize="16.0sp" />
 
@@ -115,17 +130,19 @@
                         android:layout_weight="1.0"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:padding="4.0dip">
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp">
 
                         <TextView
                             android:id="@id/cancel"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
+                            android:background="@drawable/textview_style"
                             android:focusable="false"
                             android:gravity="center"
                             android:padding="8.0dip"
-                            android:text="Cancel"
-                            android:textColor="#ff616161"
+                            android:text="@string/common_word_cancel"
+                            android:textColor="#ffffffff"
                             android:textSize="14.0sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -135,17 +152,19 @@
                         android:layout_height="fill_parent"
                         android:layout_weight="1.0"
                         android:orientation="vertical"
-                        android:padding="4.0dip">
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp">
 
                         <TextView
                             android:id="@id/save"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
+                            android:background="@drawable/textview_style"
                             android:focusable="false"
                             android:gravity="center"
                             android:padding="8.0dip"
-                            android:text="Save"
-                            android:textColor="#ff2196f3"
+                            android:text="@string/common_word_save"
+                            android:textColor="#ffffffff"
                             android:textSize="14.0sp"
                             android:textStyle="bold" />
                     </LinearLayout>

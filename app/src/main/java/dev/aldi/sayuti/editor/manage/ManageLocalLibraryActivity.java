@@ -4,7 +4,6 @@ import static mod.SketchwareUtil.getDip;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.Dialog;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,9 +21,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.gson.Gson;
 import com.sketchware.remod.R;
 
@@ -37,6 +34,7 @@ import java.util.Objects;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
+import a.a.a.aB;
 import mod.SketchwareUtil;
 import mod.agus.jcoderz.lib.FileUtil;
 import mod.hey.studios.util.Helper;
@@ -70,17 +68,16 @@ public class ManageLocalLibraryActivity extends Activity implements View.OnClick
     public void onClick(View v) {
         var view = getLayoutInflater().inflate(R.layout.library_downloader_dialog, null);
 
-        var dialog = new AlertDialog.Builder(this)
-                .setView(view)
-                .setCancelable(false)
-                .create();
+        var dialog = new aB(this);
+                dialog.a(view);
+                dialog.b(getString(R.string.download_dependency));
+                dialog.a(R.drawable.download_48_blue);
+                dialog.show();
         EditText editText = view.findViewById(R.id.ed_input);
         CheckBox skipDownloadingDependencies = view.findViewById(R.id.checkbox);
         var linear = view.findViewById(R.id.btn_download);
         TextView text = view.findViewById(R.id.tv_progress);
         linear.setOnClickListener(v1 -> {
-            linear.setVisibility(View.GONE);
-            skipDownloadingDependencies.setEnabled(false);
             String url = editText.getText().toString();
             if (url.isEmpty()) {
                 SketchwareUtil.toastError(getString(R.string.local_library_toast));

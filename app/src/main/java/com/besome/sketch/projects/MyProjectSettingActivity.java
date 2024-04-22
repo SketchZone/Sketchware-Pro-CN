@@ -246,6 +246,7 @@ public class MyProjectSettingActivity extends BaseDialogActivity implements View
         } else {
             /* Set the dialog's title & create button label */
             e(Helper.getResString(R.string.myprojects_settings_actionbar_title_new_projet));
+            f(R.drawable.positive_96);
             d(Helper.getResString(R.string.myprojects_settings_button_create_app));
 
             String newProjectName = getIntent().getStringExtra("my_ws_name");

@@ -24,9 +24,9 @@ import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
 
-import com.github.angads25.filepicker.model.DialogConfigs;
-import com.github.angads25.filepicker.model.DialogProperties;
-import com.github.angads25.filepicker.view.FilePickerDialog;
+import com.developer.filepicker.model.DialogConfigs;
+import com.developer.filepicker.model.DialogProperties;
+import com.developer.filepicker.view.FilePickerDialog;
 import com.google.android.material.textfield.TextInputEditText;
 import com.sketchware.remod.R;
 
@@ -244,7 +244,7 @@ public class Tools extends Activity {
         CardView openWorkingDirectory = newCard(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0.0f);
         LinearLayout openWorkingDirectoryLayout = newLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 0.0f);
         openWorkingDirectory.addView(openWorkingDirectoryLayout);
-        makeup(openWorkingDirectoryLayout, com.github.angads25.filepicker.R.mipmap.ic_type_folder, getString(R.string.open_working_directory), getString(R.string.open_working_directory_manage_subtitle));
+        makeup(openWorkingDirectoryLayout,com.developer.filepicker.R.mipmap.ic_type_folder, getString(R.string.open_working_directory), getString(R.string.open_working_directory_manage_subtitle));
         base.addView(openWorkingDirectory);
         openWorkingDirectoryLayout.setOnClickListener(v -> openWorkingDirectory());
 

@@ -71,7 +71,7 @@ public class ManageLocalLibraryActivity extends Activity implements View.OnClick
         var dialog = new aB(this);
                 dialog.a(view);
                 dialog.b(getString(R.string.download_dependency));
-                dialog.a(R.drawable.download_48_blue);
+                dialog.a(R.drawable.color_download_24);
                 dialog.show();
         EditText editText = view.findViewById(R.id.ed_input);
         CheckBox skipDownloadingDependencies = view.findViewById(R.id.checkbox);

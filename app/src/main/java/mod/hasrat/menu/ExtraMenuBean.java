@@ -465,42 +465,42 @@ public class ExtraMenuBean {
                 break;
 
             case "fragmentAdapter":
-                title = "Select a FragmentAdapter Component";
+                title = Helper.getResString(R.string.select_a_fragmentadapter_component);
                 menus = getComponentMenus(ComponentBean.COMPONENT_TYPE_FRAGMENT_ADAPTER);
                 break;
 
             case "phoneauth":
-                title = "Select a FirebasePhone Component";
+                title = Helper.getResString(R.string.select_a_firebasephone_component);
                 menus = getComponentMenus(ComponentBean.COMPONENT_TYPE_FIREBASE_AUTH_PHONE);
                 break;
 
             case "dynamiclink":
-                title = "Select a DynamicLink Component";
+                title = Helper.getResString(R.string.select_a_dynamiclink_component);
                 menus = getComponentMenus(ComponentBean.COMPONENT_TYPE_FIREBASE_DYNAMIC_LINKS);
                 break;
 
             case "cloudmessage":
-                title = "Select a CloudMessage Component";
+                title = Helper.getResString(R.string.select_a_cloudmessage_component);
                 menus = getComponentMenus(ComponentBean.COMPONENT_TYPE_FIREBASE_CLOUD_MESSAGE);
                 break;
 
             case "googlelogin":
-                title = "Select a FirebaseGoogle Component";
+                title = Helper.getResString(R.string.select_a_firebasegoogle_component);
                 menus = getComponentMenus(ComponentBean.COMPONENT_TYPE_FIREBASE_AUTH_GOOGLE_LOGIN);
                 break;
 
             case "onesignal":
-                title = "Select a OneSignal Component";
+                title = Helper.getResString(R.string.select_a_onesignal_component);
                 menus = getComponentMenus(ComponentBean.COMPONENT_TYPE_ONESIGNAL);
                 break;
 
             case "fbadbanner":
-                title = "Select an FBAdsBanner Component";
+                title = Helper.getResString(R.string.select_an_fbadsbanner_component);
                 menus = getComponentMenus(ComponentBean.COMPONENT_TYPE_FACEBOOK_ADS_BANNER);
                 break;
 
             case "fbadinterstitial":
-                title = "Select an FBAdsInterstitial Component";
+                title = Helper.getResString(R.string.select_an_fbadsinterstitial_component);
                 menus = getComponentMenus(ComponentBean.COMPONENT_TYPE_FACEBOOK_ADS_INTERSTITIAL);
                 break;
 
@@ -520,14 +520,14 @@ public class ExtraMenuBean {
                 break;
 
             case "service":
-                title = "Select a Background Service";
+                title = Helper.getResString(R.string.select_a_background_service);
                 if (FileUtil.isExistFile(fpu.getManifestService(sc_id))) {
                     menus = frc.getServiceManifestList();
                 }
                 break;
 
             case "broadcast":
-                title = "Select a Broadcast Receiver";
+                title = Helper.getResString(R.string.select_a_broadcast_receiver);
                 if (FileUtil.isExistFile(fpu.getManifestBroadcast(sc_id))) {
                     menus = frc.getBroadcastManifestList();
                 }

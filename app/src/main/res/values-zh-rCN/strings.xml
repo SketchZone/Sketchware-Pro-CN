@@ -3378,6 +3378,22 @@
     <string name="component_name">组件名称</string>
     <string name="this_is_a_simple_description">这是一个简单的描述</string>
     <string name="download_dependency">下载依赖项</string>
+    <string name="advanced_version_control">高级版本控制</string>
+    <string name="version_code">版本代码</string>
+    <string name="version_name">版本名称</string>
+    <string name="version_name_extra">版本别名</string>
+    <string name="invalid_version_code">无效的版本代码</string>
+    <string name="invalid_version_name">无效的版本名称</string>
+    <string name="select_a_fragmentadapter_component">选择FragmentAdapter组件</string>
+    <string name="select_a_firebasephone_component">选择FirebasePhone组件</string>
+    <string name="select_a_dynamiclink_component">选择DynamicLink组件</string>
+    <string name="select_a_cloudmessage_component">选择CloudMessage组件</string>
+    <string name="select_a_firebasegoogle_component">选择FirebaseGoogle组件</string>
+    <string name="select_a_onesignal_component">选择OneSignal组件</string>
+    <string name="select_an_fbadsbanner_component">选择FBAdsBanner组件</string>
+    <string name="select_an_fbadsinterstitial_component">选择FBAdsInterstitial组件</string>
+    <string name="select_a_background_service">选择后台服务</string>
+    <string name="select_a_broadcast_receiver">选择广播接收机</string>
     <!-- ************************************************************************************************************************* -->
     <!-- *************************************************  append 3.9.0 end    ************************************************** -->
     <!-- ************************************************************************************************************************* -->

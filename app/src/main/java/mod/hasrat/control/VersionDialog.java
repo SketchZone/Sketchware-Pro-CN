@@ -28,7 +28,7 @@ public class VersionDialog {
 
     public void show() {
         final SketchDialog dialog = new SketchDialog(activity);
-        dialog.setTitle("Advanced Version Control");
+        dialog.setTitle(R.string.advanced_version_control);
         dialog.setIcon(R.drawable.numbers_48);
         final LinearLayout root = new LinearLayout(activity);
         root.setOrientation(LinearLayout.VERTICAL);
@@ -46,7 +46,7 @@ public class VersionDialog {
         );
         tilVersionCode.setLayoutParams(tilVersionCodeParams);
         final EditText version_code = new EditText(activity);
-        version_code.setHint("Version Code");
+        version_code.setHint(R.string.version_code);
         version_code.setImeOptions(EditorInfo.IME_ACTION_NEXT);
         version_code.setInputType(EditorInfo.TYPE_CLASS_NUMBER);
         version_code.setPadding(
@@ -74,7 +74,7 @@ public class VersionDialog {
         version_name1.setLayoutParams(new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
-        version_name1.setHint("Version Name");
+        version_name1.setHint(R.string.version_name);
         version_name1.setImeOptions(EditorInfo.IME_ACTION_NEXT);
         version_name1.setKeyListener(DigitsKeyListener.getInstance("1234567890."));
         version_name1.setPadding(
@@ -109,7 +109,7 @@ public class VersionDialog {
         version_name2.setLayoutParams(new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
-        version_name2.setHint("Version Name Extra");
+        version_name2.setHint(R.string.version_name_extra);
         version_name2.setImeOptions(EditorInfo.IME_ACTION_DONE);
         version_name2.setPadding(
                 (int) getDip(8),
@@ -140,13 +140,13 @@ public class VersionDialog {
             if (validVersionCode) {
                 version_code.setError(null);
             } else {
-                version_code.setError("Invalid Version Code");
+                version_code.setError(Helper.getResString(R.string.invalid_version_code));
             }
 
             if (validVersionName) {
                 version_name1.setError(null);
             } else {
-                version_name1.setError("Invalid Version Name");
+                version_name1.setError(Helper.getResString(R.string.invalid_version_name));
             }
 
             if (!mB.a() && validVersionCode && validVersionName) {

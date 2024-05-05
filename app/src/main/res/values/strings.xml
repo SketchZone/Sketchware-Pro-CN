@@ -2578,4 +2578,20 @@ Please try again later"</string>
     <string name="component_name">Component name</string>
     <string name="this_is_a_simple_description">This is a simple description</string>
     <string name="download_dependency">Download dependency</string>
+    <string name="advanced_version_control">Advanced Version Control</string>
+    <string name="version_code">Version Code</string>
+    <string name="version_name">Version Name</string>
+    <string name="version_name_extra">Version Name Extra</string>
+    <string name="invalid_version_code">Invalid Version Code</string>
+    <string name="invalid_version_name">Invalid Version Name</string>
+    <string name="select_a_fragmentadapter_component">Select a FragmentAdapter Component</string>
+    <string name="select_a_firebasephone_component">Select a FirebasePhone Component</string>
+    <string name="select_a_dynamiclink_component">Select a DynamicLink Component</string>
+    <string name="select_a_cloudmessage_component">Select a CloudMessage Component</string>
+    <string name="select_a_firebasegoogle_component">Select a FirebaseGoogle Component</string>
+    <string name="select_a_onesignal_component">Select a OneSignal Component</string>
+    <string name="select_an_fbadsbanner_component">Select an FBAdsBanner Component</string>
+    <string name="select_an_fbadsinterstitial_component">Select an FBAdsInterstitial Component</string>
+    <string name="select_a_background_service">Select a Background Service</string>
+    <string name="select_a_broadcast_receiver">Select a Broadcast Receiver</string>
 </resources>

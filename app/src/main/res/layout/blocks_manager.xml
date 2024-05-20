@@ -6,15 +6,56 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffeeeeee"
         android:orientation="vertical">
 
-        <include layout="@layout/toolbar_improved" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ff008dcd"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="10dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="4dp"
+            android:paddingBottom="8dp">
 
-        <com.google.android.material.card.MaterialCardView
+            <ImageView
+                android:id="@+id/ig_toolbar_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="8dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/arrow_back_white_48dp" />
+
+            <TextView
+                android:id="@+id/tx_toolbar_title"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:gravity="center|start"
+                android:paddingStart="10dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="6dp"
+                android:text="Title"
+                android:textColor="@color/tool_bar_text_color"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/ig_toolbar_load_file"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="9dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/add_file_48"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -26,9 +67,9 @@
                 android:id="@+id/recycle_bin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:baselineAligned="false"
                 android:gravity="center|start"
-                android:orientation="horizontal"
-                android:baselineAligned="false">
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="48dp"
@@ -70,7 +111,7 @@
                         tools:text="Blocks: 23" />
                 </LinearLayout>
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:layout_width="wrap_content"
@@ -98,8 +139,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center|end"
         android:layout_margin="16dp"
-        app:srcCompat="@drawable/ic_add_white_24dp"
+        android:contentDescription="TODO"
         app:backgroundTint="@color/color_btn_blue_normal"
-        app:tint="@null"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/ic_add_white_24dp"
+        app:tint="@null" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

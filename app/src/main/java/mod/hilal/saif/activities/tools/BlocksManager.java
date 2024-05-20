@@ -22,17 +22,16 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
 import com.sketchware.remod.R;
+import com.sketchware.remod.databinding.BlocksManagerBinding;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -56,14 +55,13 @@ public class BlocksManager extends AppCompatActivity {
     private String blocks_dir = "";
     private String pallet_dir = "";
     private ArrayList<HashMap<String, Object>> pallet_listmap = new ArrayList<>();
-    private ListView listview1;
-    private LinearLayout card2;
-    private TextView card2_sub;
+    private BlocksManagerBinding binding;
 
     @Override
-    public void onCreate(Bundle _savedInstanceState) {
-        super.onCreate(_savedInstanceState);
-        setContentView(R.layout.blocks_manager);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = BlocksManagerBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         initialize();
         initializeLogic();
     }
@@ -76,21 +74,14 @@ public class BlocksManager extends AppCompatActivity {
     }
 
     private void initialize() {
-        FloatingActionButton _fab = findViewById(R.id.fab);
-        listview1 = findViewById(R.id.list_pallete);
-        ImageView back = findViewById(R.id.ig_toolbar_back);
-        TextView title = findViewById(R.id.tx_toolbar_title);
-        ImageView settings = findViewById(R.id.ig_toolbar_load_file);
-        card2 = findViewById(R.id.recycle_bin);
-        card2_sub = findViewById(R.id.recycle_sub);
 
-        back.setOnClickListener(Helper.getBackPressedClickListener(this));
-        Helper.applyRippleToToolbarView(back);
-        title.setText(R.string.block_manager);
-        settings.setVisibility(View.VISIBLE);
-        settings.setImageResource(R.drawable.settings_96_white);
-        Helper.applyRippleToToolbarView(settings);
-        settings.setOnClickListener(v -> {
+        binding.igToolbarBack.setOnClickListener(Helper.getBackPressedClickListener(this));
+        Helper.applyRippleToToolbarView(binding.igToolbarBack);
+        binding.txToolbarTitle.setText(R.string.block_manager);
+        binding.igToolbarLoadFile.setVisibility(View.VISIBLE);
+        binding.igToolbarLoadFile.setImageResource(R.drawable.settings_96_white);
+        Helper.applyRippleToToolbarView(binding.igToolbarLoadFile);
+        binding.igToolbarLoadFile.setOnClickListener(v -> {
             aB dialog = new aB(this);
             dialog.a(R.drawable.ic_folder_48dp);
             dialog.b(getString(R.string.block_configuration));
@@ -153,13 +144,13 @@ public class BlocksManager extends AppCompatActivity {
             dialog.show();
         });
 
-        _fab.setOnClickListener(v -> showPaletteDialog(false, null, null, null, null));
+        binding.fab.setOnClickListener(v -> showPaletteDialog(false, null, null, null, null));
     }
 
     private void initializeLogic() {
         _readSettings();
         _refresh_list();
-        _recycleBin(card2);
+        _recycleBin(binding.recycleBin);
     }
 
     @Override
@@ -226,12 +217,12 @@ public class BlocksManager extends AppCompatActivity {
             pallet_listmap = new ArrayList<>();
         }
 
-        Parcelable savedState = listview1.onSaveInstanceState();
-        listview1.setAdapter(new PaletteAdapter(pallet_listmap));
-        ((BaseAdapter) listview1.getAdapter()).notifyDataSetChanged();
-        listview1.onRestoreInstanceState(savedState);
+        Parcelable savedState = binding.listPallete.onSaveInstanceState();
+        binding.listPallete.setAdapter(new PaletteAdapter(pallet_listmap));
+        ((BaseAdapter) binding.listPallete.getAdapter()).notifyDataSetChanged();
+        binding.listPallete.onRestoreInstanceState(savedState);
 
-        card2_sub.setText(getString(R.string.blocks) + (long) (_getN(-1)));
+        binding.recycleSub.setText(getString(R.string.blocks) + (long) (_getN(-1)));
     }
 
     private double _getN(final double _p) {
@@ -248,25 +239,25 @@ public class BlocksManager extends AppCompatActivity {
         if (_p > 0) {
             Collections.swap(pallet_listmap, (int) (_p), (int) (_p + -1));
 
-            Parcelable savedState = listview1.onSaveInstanceState();
+            Parcelable savedState = binding.listPallete.onSaveInstanceState();
             FileUtil.writeFile(pallet_dir, new Gson().toJson(pallet_listmap));
             _swapRelatedBlocks(_p + 9, _p + 8);
             _readSettings();
             _refresh_list();
-            listview1.onRestoreInstanceState(savedState);
+            binding.listPallete.onRestoreInstanceState(savedState);
         }
     }
 
     private void _recycleBin(final View _v) {
         _a(_v);
-        card2.setOnClickListener(v -> {
+        binding.recycleBin.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), BlocksManagerDetailsActivity.class);
             intent.putExtra("position", "-1");
             intent.putExtra("dirB", blocks_dir);
             intent.putExtra("dirP", pallet_dir);
             startActivity(intent);
         });
-        card2.setOnLongClickListener(v -> {
+        binding.recycleBin.setOnLongClickListener(v -> {
             new AlertDialog.Builder(this)
                     .setTitle(R.string.common_word_recycle_bin)
                     .setMessage(getString(R.string.are_you_sure_you_want_to_empty_the_recycle_bin) +
@@ -282,12 +273,12 @@ public class BlocksManager extends AppCompatActivity {
         if (_p < (pallet_listmap.size() - 1)) {
             Collections.swap(pallet_listmap, (int) (_p), (int) (_p + 1));
             {
-                Parcelable savedState = listview1.onSaveInstanceState();
+                Parcelable savedState = binding.listPallete.onSaveInstanceState();
                 FileUtil.writeFile(pallet_dir, new Gson().toJson(pallet_listmap));
                 _swapRelatedBlocks(_p + 9, _p + 10);
                 _readSettings();
                 _refresh_list();
-                listview1.onRestoreInstanceState(savedState);
+                binding.listPallete.onRestoreInstanceState(savedState);
             }
         }
     }
@@ -520,7 +511,7 @@ public class BlocksManager extends AppCompatActivity {
 
             title.setText(pallet_listmap.get(position).get("name").toString());
             sub.setText(getString(R.string.blocks) + (long) (_getN(position + 9)));
-            card2_sub.setText(getString(R.string.blocks) + (long) (_getN(-1)));
+            binding.recycleSub.setText(getString(R.string.blocks) + (long) (_getN(-1)));
 
             int backgroundColor;
             String paletteColorValue = (String) palettes.get(position).get("color");
@@ -536,11 +527,12 @@ public class BlocksManager extends AppCompatActivity {
             background.setOnLongClickListener(v -> {
                 PopupMenu popup = new PopupMenu(BlocksManager.this, background);
                 Menu menu = popup.getMenu();
-                if (position != 0) menu.add(Menu.NONE,1,Menu.NONE, R.string.move_up);
-                if (position != getCount() - 1) menu.add(Menu.NONE,2,Menu.NONE, R.string.move_down);
-                menu.add(Menu.NONE,3,Menu.NONE,R.string.common_word_edit);
-                menu.add(Menu.NONE,4,Menu.NONE,R.string.common_word_delete);
-                menu.add(Menu.NONE,5,Menu.NONE, R.string.common_word_insert);
+                if (position != 0) menu.add(Menu.NONE, 1, Menu.NONE, R.string.move_up);
+                if (position != getCount() - 1)
+                    menu.add(Menu.NONE, 2, Menu.NONE, R.string.move_down);
+                menu.add(Menu.NONE, 3, Menu.NONE, R.string.common_word_edit);
+                menu.add(Menu.NONE, 4, Menu.NONE, R.string.common_word_delete);
+                menu.add(Menu.NONE, 5, Menu.NONE, R.string.common_word_insert);
                 popup.setOnMenuItemClickListener(item -> {
                     switch (item.getItemId()) {
                         case 3:

@@ -115,7 +115,7 @@ dependencies {
     implementation "com.android.tools:annotations:31.2.1"
     implementation "com.google.guava:guava:32.0.1-jre"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'com.google.android.material:material:1.11.0'
 
     def editorGroupId = "io.github.Rosemoe.sora-editor"
     implementation platform("$editorGroupId:bom:0.23.4")

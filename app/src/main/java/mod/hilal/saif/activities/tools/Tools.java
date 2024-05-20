@@ -15,7 +15,6 @@ import android.util.Pair;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -269,11 +268,9 @@ public class Tools extends Activity {
         apkPathDialog.a(R.drawable.ic_apk_color_96dp);
         apkPathDialog.b(getString(R.string.input_apk));
 
-        View testkey_root = getLayoutInflater().inflate(R.layout.manage_font_add, null, false);
-        TextView font_preview = testkey_root.findViewById(R.id.font_preview);
+        View testkey_root = getLayoutInflater().inflate(R.layout.manage_apk_sign, null, false);
         TextInputEditText ed_input = testkey_root.findViewById(R.id.ed_input);
         ImageView select_file = testkey_root.findViewById(R.id.select_file);
-        CheckBox chk_collection = testkey_root.findViewById(R.id.add_to_collection_checkbox);
 
         select_file.setOnClickListener(view -> {
             DialogProperties properties = new DialogProperties();
@@ -285,10 +282,6 @@ public class Tools extends Activity {
             dialog.setTitle(getString(R.string.select_the_apk_to_sign));
             dialog.show();
         });
-
-        font_preview.setText(R.string.path_of_apk_to_sign);
-        font_preview.setVisibility(View.VISIBLE);
-        chk_collection.setVisibility(View.GONE);
         apkPathDialog.a(testkey_root);
 
         apkPathDialog.a(Helper.getResString(R.string.common_word_cancel),

@@ -37,6 +37,7 @@ import java.util.stream.Collectors;
 import a.a.a.aB;
 import mod.SketchwareUtil;
 import mod.agus.jcoderz.lib.FileUtil;
+import mod.hey.studios.build.BuildSettings;
 import mod.hey.studios.util.Helper;
 import mod.jbk.build.BuiltInLibraries;
 import mod.pranav.dependency.resolver.DependencyResolver;
@@ -49,6 +50,7 @@ public class ManageLocalLibraryActivity extends Activity implements View.OnClick
     private static String local_libs_path = "";
     private ArrayList<HashMap<String, Object>> lookup_list = new ArrayList<>();
     private ArrayList<HashMap<String, Object>> project_used_libs = new ArrayList<>();
+    private BuildSettings buildSettings;
 
     private void initToolbar() {
         ((TextView) findViewById(R.id.tx_toolbar_title)).setText(R.string.local_library_manager);
@@ -92,7 +94,7 @@ public class ManageLocalLibraryActivity extends Activity implements View.OnClick
             var group = parts[0];
             var artifact = parts[1];
             var version = parts[2];
-            var resolver = new DependencyResolver(group, artifact, version, skipDownloadingDependencies.isChecked());
+            var resolver = new DependencyResolver(group, artifact, version, skipDownloadingDependencies.isChecked(), buildSettings);
             var handler = new Handler(Looper.getMainLooper());
 
             class SetTextRunnable implements Runnable {
@@ -199,6 +201,7 @@ public class ManageLocalLibraryActivity extends Activity implements View.OnClick
 
         if (getIntent().hasExtra("sc_id")) {
             String sc_id = Objects.requireNonNull(getIntent().getStringExtra("sc_id"));
+            buildSettings = new BuildSettings(sc_id);
             notAssociatedWithProject = sc_id.equals("system");
             local_lib_file = FileUtil.getExternalStorageDir().concat("/.sketchware/data/").concat(sc_id.concat("/local_library"));
         }

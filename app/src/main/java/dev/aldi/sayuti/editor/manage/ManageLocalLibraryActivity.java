@@ -4,6 +4,7 @@ import static mod.SketchwareUtil.getDip;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -74,9 +75,8 @@ public class ManageLocalLibraryActivity extends Activity implements View.OnClick
     public void onClick(View v) {
         var view = getLayoutInflater().inflate(R.layout.library_downloader_dialog, null);
 
-        var dialog = new MaterialAlertDialogBuilder(this)
+        var dialog = new AlertDialog.Builder(this)
                 .setView(view)
-                .setCancelable(false)
                 .create();
         EditText editText = view.findViewById(R.id.ed_input);
         CheckBox skipDownloadingDependencies = view.findViewById(R.id.checkbox);

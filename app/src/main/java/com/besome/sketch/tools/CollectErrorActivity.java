@@ -3,6 +3,9 @@ package com.besome.sketch.tools;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -43,9 +46,9 @@ public class CollectErrorActivity extends Activity {
                     .setMessage("An error occurred while running Sketchware Pro. " +
                             "Do you want to report this error log so that we can fix it? " +
                             "No personal information will be included.")
-                    .setPositiveButton(R.string.common_word_send, null)
-                    .setNegativeButton(R.string.common_word_cancel, (dialogInterface, which) -> finish())
-                    .setNeutralButton(R.string.common_word_show_error, null) // null to set proper onClick listeners later without dismissing the AlertDialog
+                    .setPositiveButton("Copy", null)
+                    .setNegativeButton("Cancel", (dialogInterface, which) -> finish())
+                    .setNeutralButton("Show error", null) // null to set proper onClick listeners later without dismissing the AlertDialog
                     .show();
 
             TextView messageView = dialog.findViewById(android.R.id.message);
@@ -73,16 +76,21 @@ public class CollectErrorActivity extends Activity {
                         + "SDK version: " + Build.VERSION.SDK_INT + "\n"
                         + "Brand: " + Build.BRAND + "\n"
                         + "Manufacturer: " + Build.MANUFACTURER + "\n"
-                        + "Model: " + Build.MODEL + "\n";
+                        + "Model: " + Build.MODEL;
 
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE); 
+                ClipData clip = ClipData.newPlainText("error", deviceInfo + "\n\n```\n" + error + "\n```");
+                clipboard.setPrimaryClip(clip);
+                runOnUiThread(() -> SketchwareUtil.toast("Copied", Toast.LENGTH_LONG));
+/*
                 new Thread(() -> {
                     String stackTrace = error;
                     String webhookContent;
                     int i = 0;
-                    do {
+                    do { 
                         int maxLength = i == 0 ?
-                                2000 - deviceInfo.length() - 5 /* \n```\n */ - 3 /* ``` */
-                                : 2000 - 5 /* \n```\n */ - 3 /* ``` */;
+                                2000 - deviceInfo.length() - 8
+                                : 2000 - 8;
                         webhookContent = i == 0 ? deviceInfo : "";
                         webhookContent += "\n```\n";
 
@@ -115,6 +123,7 @@ public class CollectErrorActivity extends Activity {
                         runOnUiThread(() -> SketchwareUtil.toast("Sending crash logs…", Toast.LENGTH_LONG));
                     }
                 }).start();
+*/
             });
         }
     }

@@ -22,8 +22,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.gson.Gson;
 import com.sketchware.remod.R;
+
+import org.cosmic.ide.dependency.resolver.api.Artifact;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -34,7 +37,6 @@ import java.util.Objects;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
-import a.a.a.aB;
 import mod.SketchwareUtil;
 import mod.agus.jcoderz.lib.FileUtil;
 import mod.hey.studios.build.BuildSettings;
@@ -52,8 +54,10 @@ public class ManageLocalLibraryActivity extends Activity implements View.OnClick
     private ArrayList<HashMap<String, Object>> project_used_libs = new ArrayList<>();
     private BuildSettings buildSettings;
 
+    private Gson gson = new Gson();
+
     private void initToolbar() {
-        ((TextView) findViewById(R.id.tx_toolbar_title)).setText(R.string.local_library_manager);
+        ((TextView) findViewById(R.id.tx_toolbar_title)).setText(getString(R.string.local_library_manager));
         ImageView back_icon = findViewById(R.id.ig_toolbar_back);
         Helper.applyRippleToToolbarView(back_icon);
         back_icon.setOnClickListener(Helper.getBackPressedClickListener(this));
@@ -70,25 +74,26 @@ public class ManageLocalLibraryActivity extends Activity implements View.OnClick
     public void onClick(View v) {
         var view = getLayoutInflater().inflate(R.layout.library_downloader_dialog, null);
 
-        var dialog = new aB(this);
-                dialog.a(view);
-                dialog.b(getString(R.string.download_dependency));
-                dialog.a(R.drawable.color_download_24);
-                dialog.show();
+        var dialog = new MaterialAlertDialogBuilder(this)
+                .setView(view)
+                .setCancelable(false)
+                .create();
         EditText editText = view.findViewById(R.id.ed_input);
         CheckBox skipDownloadingDependencies = view.findViewById(R.id.checkbox);
         var linear = view.findViewById(R.id.btn_download);
         TextView text = view.findViewById(R.id.tv_progress);
         linear.setOnClickListener(v1 -> {
+            linear.setVisibility(View.GONE);
+            skipDownloadingDependencies.setEnabled(false);
             String url = editText.getText().toString();
             if (url.isEmpty()) {
-                SketchwareUtil.toastError(getString(R.string.local_library_toast));
+                SketchwareUtil.toastError("Please enter a dependency");
                 return;
             }
 
             var parts = url.split(":");
             if (parts.length != 3) {
-                SketchwareUtil.toastError(getString(R.string.local_library_toast1));
+                SketchwareUtil.toastError("Invalid dependency format");
                 return;
             }
             var group = parts[0];
@@ -116,37 +121,90 @@ public class ManageLocalLibraryActivity extends Activity implements View.OnClick
 
                 resolver.resolveDependency(new DependencyResolver.DependencyResolverCallback() {
                     @Override
-                    public void invalidPackaging(@NonNull String dep) {
-                        handler.post(new SetTextRunnable(getString(R.string.local_library_text) + dep));
+                    public void onResolving(@NonNull Artifact artifact, @NonNull Artifact dependency) {
+                        handler.post(new SetTextRunnable("Resolving " + dependency + " for " + artifact));
                     }
 
                     @Override
-                    public void dexing(@NonNull String dep) {
-                        handler.post(new SetTextRunnable(getString(R.string.local_library_dexing_dependency) + dep));
+                    public void onResolutionComplete(@NonNull Artifact dep) {
+                        handler.post(new SetTextRunnable("Dependency " + dep + " resolved"));
                     }
 
                     @Override
-                    public void dexingFailed(@NonNull String dependency, @NonNull Exception e) {
+                    public void onArtifactFound(@NonNull Artifact dep) {
+                        handler.post(new SetTextRunnable("Found " + dep + " in " + dep.getRepository().getName()));
+                    }
+
+                    @Override
+                    public void onArtifactNotFound(@NonNull Artifact dep) {
+                        handler.post(new SetTextRunnable("Dependency " + dep + " not found"));
+                    }
+
+                    @Override
+                    public void onSkippingResolution(@NonNull Artifact dep) {
+                        handler.post(new SetTextRunnable("Skipping resolution for " + dep));
+                    }
+
+                    @Override
+                    public void onVersionNotFound(@NonNull Artifact dep) {
+                        handler.post(new SetTextRunnable("Version not available for " + dep));
+                    }
+
+                    @Override
+                    public void onDependenciesNotFound(@NonNull Artifact dep) {
+                        handler.post(() -> {
+                            linear.setVisibility(View.VISIBLE);
+                            text.setText("Dependencies not found for  " + dep);
+                        });
+                    }
+
+                    @Override
+                    public void onInvalidScope(@NonNull Artifact dep, @NonNull String scope) {
+                        handler.post(new SetTextRunnable("Invalid scope for " + dep + ": " + scope));
+                    }
+
+                    @Override
+                    public void invalidPackaging(@NonNull Artifact dep) {
+                        handler.post(new SetTextRunnable("Invalid packaging for dependency " + dep));
+                    }
+
+
+                    @Override
+                    public void onDownloadStart(@NonNull Artifact dep) {
+                        handler.post(new SetTextRunnable("Downloading dependency " + dep));
+                    }
+
+                    @Override
+                    public void onDownloadEnd(@NonNull Artifact dep) {
+                        handler.post(new SetTextRunnable("Downloaded dependency " + dep));
+                    }
+
+                    @Override
+                    public void onDownloadError(@NonNull Artifact dep, @NonNull Throwable e) {
+                        handler.post(() -> {
+                            dialog.dismiss();
+                            SketchwareUtil.showAnErrorOccurredDialog(ManageLocalLibraryActivity.this,
+                                    "Downloading dependency '" + dep + "' failed: " + Log.getStackTraceString(e));
+                        });
+                    }
+
+                    @Override
+                    public void unzipping(@NonNull Artifact artifact) {
+                        handler.post(new SetTextRunnable("Unzipping dependency " + artifact));
+                    }
+
+                    @Override
+                    public void dexing(@NonNull Artifact dep) {
+                        handler.post(new SetTextRunnable("Dexing dependency " + dep));
+                    }
+
+                    @Override
+                    public void dexingFailed(@NonNull Artifact dependency, @NonNull Exception e) {
                         handler.post(() -> {
                             dialog.dismiss();
                             SketchwareUtil.showAnErrorOccurredDialog(ManageLocalLibraryActivity.this,
                                     "Dexing dependency '" + dependency + "' failed: " + Log.getStackTraceString(e));
                         });
-                    }
-
-                    @Override
-                    public void log(@NonNull String msg) {
-                        handler.post(new SetTextRunnable(msg));
-                    }
-
-                    @Override
-                    public void downloading(@NonNull String dep) {
-                        handler.post(new SetTextRunnable(getString(R.string.local_library_downloading_dependency) + dep));
-                    }
-
-                    @Override
-                    public void startResolving(@NonNull String dep) {
-                        handler.post(new SetTextRunnable(getString(R.string.local_library_resolving_dependency) + dep));
                     }
 
                     @Override
@@ -156,32 +214,14 @@ public class ManageLocalLibraryActivity extends Activity implements View.OnClick
 
                             dialog.dismiss();
                             if (!notAssociatedWithProject) {
-                                log(getString(R.string.local_library_log));
+                                new SetTextRunnable("Adding dependencies to project...").run();
                                 var fileContent = FileUtil.readFile(local_lib_file);
-                                var enabledLibs = new Gson().fromJson(fileContent, Helper.TYPE_MAP_LIST);
+                                var enabledLibs = gson.fromJson(fileContent, Helper.TYPE_MAP_LIST);
                                 enabledLibs.addAll(dependencies.stream().map(ManageLocalLibraryActivity::createLibraryMap).collect(Collectors.toUnmodifiableList()));
-                                FileUtil.writeFile(local_lib_file, new Gson().toJson(enabledLibs));
+                                FileUtil.writeFile(local_lib_file, gson.toJson(enabledLibs));
                             }
                             loadFiles();
                         });
-                    }
-
-                    @Override
-                    public void onDependencyNotFound(@NonNull String dep) {
-                        handler.post(() -> {
-                            linear.setVisibility(View.VISIBLE);
-                            text.setText("Dependency " + dep + " not found");
-                        });
-                    }
-
-                    @Override
-                    public void onDependencyResolveFailed(@NonNull Exception e) {
-                        handler.post(new SetTextRunnable(e.getMessage()));
-                    }
-
-                    @Override
-                    public void onDependencyResolved(@NonNull String dep) {
-                        handler.post(new SetTextRunnable("Dependency " + dep + " resolved"));
                     }
                 });
             });
@@ -341,10 +381,10 @@ public class ManageLocalLibraryActivity extends Activity implements View.OnClick
 
             convertView.findViewById(R.id.img_delete).setOnClickListener(v -> {
                 PopupMenu popupMenu = new PopupMenu(ManageLocalLibraryActivity.this, v);
-                popupMenu.getMenu().add(Menu.NONE, Menu.NONE, Menu.NONE, R.string.common_word_delete);
+                popupMenu.getMenu().add(Menu.NONE, Menu.NONE, Menu.NONE, "Delete");
                 popupMenu.setOnMenuItemClickListener(menuItem -> {
                     FileUtil.deleteFile(local_libs_path.concat(enabled.getText().toString()));
-                    SketchwareUtil.toast(getString(R.string.common_word_deleted_successfully));
+                    SketchwareUtil.toast("Deleted successfully");
                     loadFiles();
                     return true;
                 });

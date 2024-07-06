@@ -331,7 +331,7 @@ public class DesignActivity extends BaseAppCompatActivity implements OnClickList
                 menu.add(Menu.NONE, 5, Menu.NONE, R.string.design_show_source_code);
                 if (FileUtil.isExistFile(q.finalToInstallApkPath)) {
                     menu.add(Menu.NONE, 4, Menu.NONE, R.string.design_install_last_built_apk);
-                    menu.add(Menu.NONE, 6, Menu.NONE, "Show Apk signatures");
+                    menu.add(Menu.NONE, 6, Menu.NONE, R.string.show_apk_signatures);
                 }
 
                 popupMenu.setOnMenuItemClickListener(item -> {

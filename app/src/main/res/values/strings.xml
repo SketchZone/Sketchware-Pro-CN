@@ -2594,4 +2594,5 @@ Please try again later"</string>
     <string name="select_an_fbadsinterstitial_component">Select an FBAdsInterstitial Component</string>
     <string name="select_a_background_service">Select a Background Service</string>
     <string name="select_a_broadcast_receiver">Select a Broadcast Receiver</string>
+    <string name="show_apk_signatures">Show Apk signatures</string>
 </resources>

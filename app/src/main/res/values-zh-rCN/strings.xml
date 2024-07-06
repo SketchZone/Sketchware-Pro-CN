@@ -3394,6 +3394,8 @@
     <string name="select_an_fbadsinterstitial_component">选择FBAdsInterstitial组件</string>
     <string name="select_a_background_service">选择后台服务</string>
     <string name="select_a_broadcast_receiver">选择广播接收机</string>
+    <string name="show_apk_signatures">显示Apk签名</string>
+    <string name="signatures_title">签名</string>
     <!-- ************************************************************************************************************************* -->
     <!-- *************************************************  append 3.9.0 end    ************************************************** -->
     <!-- ************************************************************************************************************************* -->

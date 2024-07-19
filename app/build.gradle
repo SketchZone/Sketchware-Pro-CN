@@ -112,12 +112,12 @@ dependencies {
     implementation "androidx.viewpager:viewpager:1.0.0"
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
     implementation "androidx.compose.material3:material3:1.0.1"
-    implementation "com.airbnb.android:lottie:6.3.0"
+    implementation "com.airbnb.android:lottie:6.4.1"
     implementation "com.google.android.flexbox:flexbox:3.0.0"
 
     implementation "androidx.annotation:annotation:1.7.1"
-    implementation "com.android.tools:annotations:31.2.1"
-    implementation "com.google.guava:guava:32.0.1-jre"
+    implementation "com.android.tools:annotations:31.5.1"
+    implementation "com.google.guava:guava:33.2.1-jre"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.android.material:material:1.11.0'
 
@@ -138,8 +138,8 @@ dependencies {
     implementation "com.android.tools:r8:8.0.40"
     implementation "com.github.Iyxan23:zipalign-java:1.1.2"
 
-    implementation "com.google.code.gson:gson:2.10.1"
-    implementation "com.madgag:scpkix-jdk15on:1.47.0.2"
+    implementation "com.google.code.gson:gson:2.11.0"
+    implementation "com.madgag:scpkix-jdk15on:1.47.0.3"
 
     //noinspection GradleDependency
     implementation "com.squareup.okhttp3:okhttp:4.10.0"
@@ -147,14 +147,14 @@ dependencies {
     implementation "com.squareup.okio:okio:3.1.0"
     implementation "com.github.Cosmic-Ide:DependencyResolver:290880eb6c"
 
-    minApi21Implementation "net.sf.proguard:proguard-base:6.0.3"
+    minApi21Implementation "net.sf.proguard:proguard-base:6.2.2"
     minApi26Implementation files('libs/proguard-base-7.2.2.jar')
     minApi26Implementation 'com.guardsquare:proguard-core:9.0.2'
     minApi26Implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.0.0'
 
     //noinspection GradleDependency
     minApi21Implementation "org.eclipse.jdt:ecj:3.13.0"
-    minApi26Implementation "org.eclipse.jdt:ecj:3.36.0"
+    minApi26Implementation "org.eclipse.jdt:ecj:3.38.0"
 
     minApi26Implementation "com.github.Cosmic-IDE:kotlinc-android:f49c67a8c0"
 
@@ -164,7 +164,7 @@ dependencies {
     if (analyticsEnabled) {
         new File("$projectDir/google-services.json").text = secrets
     }
-    implementation platform("com.google.firebase:firebase-bom:31.2.1")
+    implementation platform("com.google.firebase:firebase-bom:31.3.0")
     implementation "com.google.firebase:firebase-crashlytics"
     implementation "com.google.firebase:firebase-analytics"
 

@@ -2,11 +2,13 @@ package mod.hilal.saif.activities.tools;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -14,7 +16,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,8 +25,11 @@ import androidx.activity.EdgeToEdge;
 
 import com.besome.sketch.lib.base.CollapsibleViewHolder;
 import com.besome.sketch.lib.ui.CollapsibleButton;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.gson.Gson;
 import com.sketchware.remod.R;
+import com.sketchware.remod.databinding.ManageCustomComponentBinding;
+import com.sketchware.remod.databinding.ManageLocallibrariesBinding;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -51,47 +55,24 @@ public class ManageCustomComponentActivity extends AppCompatActivity {
     private static final String COMPONENT_EXPORT_DIR = wq.getExtraDataExport() + "/components/";
     private static final String COMPONENT_DIR = wq.getCustomComponent();
 
-    private TextView tv_guide;
-    private RecyclerView componentView;
+    private ManageCustomComponentBinding binding;
 
     @Override
-    protected void onCreate(Bundle _savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         EdgeToEdge.enable(this);
-        super.onCreate(_savedInstanceState);
-        setContentView(R.layout.manage_custom_component);
+        super.onCreate(savedInstanceState);
+        binding = ManageCustomComponentBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         init();
-        setToolbar();
-    }
-
-    private void setToolbar() {
-        ((TextView) findViewById(R.id.tx_toolbar_title)).setText(R.string.component_manager);
-        ImageView back_icon = findViewById(R.id.ig_toolbar_back);
-        back_icon.setOnClickListener(Helper.getBackPressedClickListener(this));
-        Helper.applyRippleToToolbarView(back_icon);
-        final ImageView more_icon = findViewById(R.id.ig_toolbar_load_file);
-        more_icon.setVisibility(View.VISIBLE);
-        more_icon.setImageResource(R.drawable.ic_more_vert_white_24dp);
-        more_icon.setOnClickListener(v -> {
-            PopupMenu popupMenu = new PopupMenu(this, more_icon);
-            final Menu menu = popupMenu.getMenu();
-            menu.add(Menu.NONE, 0, Menu.NONE, R.string.common_word_import);
-            popupMenu.setOnMenuItemClickListener(item -> {
-                if (item.getItemId() == 0) {
-                    showFilePickerDialog();
-                    return true;
-                }
-                return super.onOptionsItemSelected(item);
-            });
-            popupMenu.show();
-        });
-        Helper.applyRippleToToolbarView(more_icon);
     }
 
     private void init() {
-        tv_guide = findViewById(R.id.tv_guide);
-        componentView = findViewById(R.id.list);
+        setSupportActionBar(binding.topAppBar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        binding.topAppBar.setNavigationOnClickListener(view ->onBackPressed());
 
-        findViewById(R.id.fab).setOnClickListener(_view ->
+        binding.fab.setOnClickListener(_view ->
                 startActivity(new Intent(getApplicationContext(), AddCustomComponentActivity.class)));
     }
 
@@ -99,6 +80,21 @@ public class ManageCustomComponentActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         readSettings();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(0, 0, 0, R.string.common_word_import);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == 0) {
+            showFilePickerDialog();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -111,8 +107,8 @@ public class ManageCustomComponentActivity extends AppCompatActivity {
         if (FileUtil.isExistFile(COMPONENT_DIR)) {
             readComponents(COMPONENT_DIR);
         } else {
-            tv_guide.setVisibility(View.VISIBLE);
-            componentView.setVisibility(View.GONE);
+            binding.noContentLayout.setVisibility(View.VISIBLE);
+            binding.list.setVisibility(View.GONE);
         }
     }
 
@@ -120,16 +116,16 @@ public class ManageCustomComponentActivity extends AppCompatActivity {
         componentsList = new Gson().fromJson(FileUtil.readFile(_path), Helper.TYPE_MAP_LIST);
         if (componentsList != null && componentsList.size() > 0) {
             ComponentsAdapter adapter = new ComponentsAdapter(componentsList);
-            Parcelable state = componentView.getLayoutManager().onSaveInstanceState();
-            componentView.setAdapter(adapter);
-            componentView.getLayoutManager().onRestoreInstanceState(state);
+            Parcelable state = binding.list.getLayoutManager().onSaveInstanceState();
+            binding.list.setAdapter(adapter);
+            binding.list.getLayoutManager().onRestoreInstanceState(state);
             adapter.notifyDataSetChanged();
-            componentView.setVisibility(View.VISIBLE);
-            tv_guide.setVisibility(View.GONE);
+            binding.list.setVisibility(View.VISIBLE);
+            binding.noContentLayout.setVisibility(View.GONE);
             return;
         }
-        tv_guide.setVisibility(View.VISIBLE);
-        componentView.setVisibility(View.GONE);
+        binding.noContentLayout.setVisibility(View.VISIBLE);
+        binding.list.setVisibility(View.GONE);
     }
 
     private void showFilePickerDialog() {

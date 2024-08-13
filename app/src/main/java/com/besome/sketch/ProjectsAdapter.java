@@ -471,7 +471,6 @@ public class ProjectsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         var binding = BottomSheetProjectOptionsBinding.inflate(LayoutInflater.from(activity));
         var view = binding.getRoot();
         projectOptionsBSD.setContentView(view);
-        projectOptionsBSD.getWindow().findViewById(R.id.design_bottom_sheet).setBackgroundResource(android.R.color.transparent);
 
         binding.projectSettings.setOnClickListener(v -> {
             toProjectSettingOrRequestPermission(projectMap, position);

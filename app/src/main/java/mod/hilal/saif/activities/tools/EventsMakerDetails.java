@@ -17,6 +17,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import com.google.android.material.card.MaterialCardView;
 import com.google.gson.Gson;
 import com.sketchware.remod.R;
 import com.sketchware.remod.databinding.AddCustomAttributeBinding;
@@ -27,14 +31,12 @@ import java.util.HashMap;
 import mod.SketchwareUtil;
 import mod.agus.jcoderz.lib.FileUtil;
 import mod.hey.studios.util.Helper;
-import mod.jbk.util.OldResourceIdMapper;
 
-public class EventsMakerDetails extends Activity {
+public class EventsMakerDetails extends AppCompatActivity {
 
     private final ArrayList<HashMap<String, Object>> listMap = new ArrayList<>();
     private AlertDialog.Builder dia;
     private String lisName;
-
     private AddCustomAttributeBinding binding;
 
     @Override
@@ -56,7 +58,7 @@ public class EventsMakerDetails extends Activity {
     }
 
     private void setupViews() {
-        binding.activityEvents.setVisibility(View.GONE);
+        binding.activityEventCard.setVisibility(View.GONE);
         binding.listeners.setVisibility(View.GONE);
         binding.addAttrFab.setOnClickListener(v -> {
             Intent intent = new Intent();
@@ -65,18 +67,6 @@ public class EventsMakerDetails extends Activity {
             startActivity(intent);
         });
         refreshList();
-    }
-
-    private void a(View view, int i, int i2, boolean z) {
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setShape(GradientDrawable.RECTANGLE);
-        gradientDrawable.setCornerRadii(new float[]{i, i, i / 2f, i / 2f, i, i, i / 2f, i / 2f});
-        gradientDrawable.setColor(Color.parseColor("#ffffff"));
-        RippleDrawable rippleDrawable = new RippleDrawable(new ColorStateList(new int[][]{new int[0]}, new int[]{Color.parseColor("#20008DCD")}), gradientDrawable, null);
-        view.setElevation((float) i2);
-        view.setBackground(rippleDrawable);
-        view.setClickable(true);
-        view.setFocusable(true);
     }
 
     public void refreshList() {
@@ -111,13 +101,18 @@ public class EventsMakerDetails extends Activity {
     }
 
     private void setToolbar() {
+        Toolbar toolbar = (Toolbar) getLayoutInflater().inflate(R.layout.toolbar_improved, binding.background, false);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(view -> onBackPressed());
+        binding.background.addView(toolbar, 0);
         if (lisName.equals("")) {
-            binding.txToolbarTitle.setText(R.string.activity_events);
+           getSupportActionBar().setTitle(R.string.activity_events);
         } else {
-            binding.txToolbarTitle.setText(lisName);
+           getSupportActionBar().setTitle(lisName);
         }
-        binding.igToolbarBack.setOnClickListener(Helper.getBackPressedClickListener(this));
-        Helper.applyRippleToToolbarView(binding.igToolbarBack);
+
     }
 
     private class ListAdapter extends BaseAdapter {
@@ -148,21 +143,19 @@ public class EventsMakerDetails extends Activity {
             if (convertView == null) {
                 convertView = getLayoutInflater().inflate(R.layout.custom_view_pro, parent, false);
             }
-            LinearLayout root = convertView.findViewById(R.id.custom_view_pro_background);
-            a(root, (int) SketchwareUtil.getDip(4), (int) SketchwareUtil.getDip(2), true);
+            MaterialCardView root = convertView.findViewById(R.id.custom_view_pro_background);
             ImageView icon = convertView.findViewById(R.id.custom_view_pro_img);
             TextView title = convertView.findViewById(R.id.custom_view_pro_title);
             TextView subtitle = convertView.findViewById(R.id.custom_view_pro_subtitle);
             if (lisName.equals("")) {
                 icon.setImageResource(R.drawable.widget_source);
             } else {
-                int imgRes = Integer.parseInt((String) _data.get(position).get("icon"));
-                icon.setImageResource(OldResourceIdMapper.getDrawableFromOldResourceId(imgRes));
+                icon.setImageResource(Integer.parseInt(_data.get(position).get("icon").toString()));
             }
             ((LinearLayout) icon.getParent()).setGravity(17);
             title.setText((String) _data.get(position).get("name"));
             if ("".equals(_data.get(position).get("var"))) {
-                subtitle.setText("Activity event");
+                subtitle.setText(R.string.activity_event);
             } else {
                 subtitle.setText((String) _data.get(position).get("var"));
             }
@@ -185,7 +178,7 @@ public class EventsMakerDetails extends Activity {
             root.setOnLongClickListener(v -> {
                 dia = new AlertDialog.Builder(EventsMakerDetails.this)
                         .setTitle((String) _data.get(position).get("name"))
-                        .setMessage("Delete this event?")
+                        .setMessage(R.string.delete_this_event)
                         .setPositiveButton(R.string.common_word_delete, (dialog, which) -> deleteItem(position))
                         .setNeutralButton(R.string.common_word_edit, (dialog, which) -> {
                             Intent intent = new Intent();

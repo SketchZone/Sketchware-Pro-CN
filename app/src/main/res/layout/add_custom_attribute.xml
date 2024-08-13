@@ -1,71 +1,33 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
+        android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/activity_event_card"
+            style="?attr/materialCardViewFilledStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingStart="10dp"
-            android:paddingTop="8dp"
-            android:paddingEnd="4dp"
-            android:paddingBottom="8dp">
-
-            <ImageView
-                android:id="@+id/ig_toolbar_back"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:padding="8dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/abc_ic_ab_back_material" />
-
-            <TextView
-                android:id="@+id/tx_toolbar_title"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="8dp"
-                android:layout_weight="1"
-                android:gravity="center|start"
-                android:paddingStart="10dp"
-                android:paddingTop="4dp"
-                android:paddingEnd="8dp"
-                android:paddingBottom="6dp"
-                android:text="Title"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/ig_toolbar_load_file"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:padding="9dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/add_file_48"
-                android:visibility="gone" />
-        </LinearLayout>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_marginHorizontal="14dp"
+            android:layout_marginVertical="8dp"
             android:orientation="vertical"
-            app:cardCornerRadius="3dp"
-            app:cardElevation="3dp">
+            app:cardBackgroundColor="?attr/colorSurfaceContainerHigh">
 
             <LinearLayout
-                android:id="@+id/activity_events"
+                android:id="@+id/activity_event"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:baselineAligned="false"
                 android:gravity="center|start"
                 android:orientation="horizontal"
-                android:baselineAligned="false">
+                android:padding="6dp">
 
                 <LinearLayout
                     android:layout_width="48dp"
@@ -74,7 +36,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/recycle_icon"
+                        android:id="@+id/event_icon"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:scaleType="fitXY"
@@ -95,18 +57,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/activity_events"
-                        android:textColor="#ff757575"
+                        android:textAppearance="?attr/textAppearanceBodyLarge"
+                        android:textColor="?attr/colorOnSurface"
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/events_sub"
+                        android:id="@+id/event_sub"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="#ffbdbdbd"
-                        android:textSize="12sp" />
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        android:textSize="12sp"
+                        tools:text="@string/events" />
                 </LinearLayout>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:id="@+id/listeners"
@@ -117,8 +82,9 @@
             android:paddingEnd="8dp"
             android:paddingBottom="8dp"
             android:text="@string/listeners"
-            android:textColor="#ff9e9e9e"
-            android:textSize="16sp" />
+            android:textAppearance="?attr/textAppearanceBodyLarge"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="18sp" />
 
         <ListView
             android:id="@+id/add_attr_listview"
@@ -133,12 +99,11 @@
         android:id="@+id/add_attr_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center|end"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_gravity="bottom|center|right"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="32dp"
         android:src="@drawable/ic_add_24"
         app:elevation="6dp"
-        app:fabSize="normal"
-        app:tint="@null"/>
+        app:fabSize="normal" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

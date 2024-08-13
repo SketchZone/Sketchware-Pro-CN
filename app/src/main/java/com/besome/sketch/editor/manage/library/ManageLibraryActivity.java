@@ -68,7 +68,7 @@ public class ManageLibraryActivity extends BaseAppCompatActivity implements View
 
         if (libraryItemView instanceof ExcludeBuiltInLibrariesLibraryItemView) {
             TextView title = findViewById(R.id.title);
-            title.setText(R.string.manage_library_advanced);
+            title.setText(R.string.advanced);
             ((ViewGroup) title.getParent()).removeView(title);
             libraryItemLayout.addView(title);
         }
@@ -197,6 +197,7 @@ public class ManageLibraryActivity extends BaseAppCompatActivity implements View
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         k();
         try {
             new Handler().postDelayed(() -> new SaveLibraryTask(this).execute(), 500L);

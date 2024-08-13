@@ -8,56 +8,16 @@
         android:id="@+id/back"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffeeeeee"
         android:orientation="vertical">
+        
+       <com.google.android.material.appbar.MaterialToolbar
+           android:id="@+id/toolbar"
+           android:layout_width="match_parent"
+           android:layout_height="?attr/actionBarSize">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#ff008dcd"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingStart="10dp"
-            android:paddingTop="8dp"
-            android:paddingEnd="4dp"
-            android:paddingBottom="8dp">
+       </com.google.android.material.appbar.MaterialToolbar>
 
-            <ImageView
-                android:id="@+id/ig_toolbar_back"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:padding="8dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/arrow_back_white_48dp" />
-
-            <TextView
-                android:id="@+id/tx_toolbar_title"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="8dp"
-                android:layout_weight="1"
-                android:gravity="center|start"
-                android:paddingStart="10dp"
-                android:paddingTop="4dp"
-                android:paddingEnd="8dp"
-                android:paddingBottom="6dp"
-                android:text="@string/block_selector_menu_manager"
-                android:textColor="@color/tool_bar_text_color"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/ig_toolbar_load_file"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:padding="9dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/add_file_48"
-                android:visibility="gone" />
-        </LinearLayout>
-
-
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -69,37 +29,41 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#ffffffff"
                 android:orientation="vertical"
-                android:paddingStart="6dp"
+                android:paddingLeft="6dp"
                 android:paddingTop="8dp"
-                android:paddingEnd="6dp"
-                android:paddingBottom="8dp">
+                android:paddingRight="6dp"
+                android:paddingBottom="8dp"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
                     android:gravity="center|start"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp">
 
                     <Spinner
                         android:id="@+id/spinner"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
                         android:layout_weight="1"
-                        android:background="#fffafafa"
-                        android:spinnerMode="dropdown" />
+                        android:spinnerMode="dropdown"
+                        android:layout_marginEnd="8dp" />
 
                     <LinearLayout
                         android:id="@+id/dele"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:layout_marginEnd="12dp">
 
                         <ImageView
                             android:layout_width="21dp"
@@ -112,9 +76,10 @@
                         android:id="@+id/edi"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:layout_marginEnd="12dp">
 
                         <ImageView
                             android:layout_width="21dp"
@@ -142,12 +107,13 @@
                     android:id="@+id/label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingStart="8dp"
+                    android:paddingLeft="8dp"
                     android:paddingTop="8dp"
-                    android:paddingEnd="8dp"
+                    android:paddingRight="8dp"
                     android:text="@string/new_menu"
-                    android:textColor="#ff616161"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:paddingEnd="8dp"
+                    android:paddingStart="8dp" />
 
                 <LinearLayout
                     android:id="@+id/contai"
@@ -170,8 +136,6 @@
                             android:gravity="center|start"
                             android:hint="Name"
                             android:padding="8dp"
-                            android:textColor="#ff000000"
-                            android:textColorHint="#ff607d8b"
                             android:textSize="14sp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -189,8 +153,6 @@
                             android:gravity="center|start"
                             android:hint="Title"
                             android:padding="8dp"
-                            android:textColor="#ff000000"
-                            android:textColorHint="#ff607d8b"
                             android:textSize="14sp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -204,29 +166,26 @@
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/cancel"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="40dp"
                             android:gravity="center"
-                            android:padding="8dp"
                             android:text="@string/common_word_cancel"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
                             android:textColor="#ffffffff"
-                            android:textSize="14sp" />
+                            android:textSize="12sp" />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/save"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="8dp"
                             android:gravity="center"
-                            android:padding="8dp"
                             android:text="@string/common_word_save"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
                             android:textColor="#ffffffff"
-                            android:textSize="14sp" />
+                            android:textSize="12sp"
+                            android:layout_marginStart="8dp" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -252,17 +211,18 @@
                 android:id="@+id/cardv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
                 android:orientation="vertical"
                 app:cardCornerRadius="5dp"
-                app:cardElevation="3dp">
+                app:cardElevation="3dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#ffffffff"
                     android:gravity="center|start"
                     android:orientation="horizontal"
                     android:padding="8dp">
@@ -272,13 +232,10 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:background="#fffafafa"
                         android:gravity="center|start"
                         android:hint="Value"
                         android:padding="8dp"
                         android:singleLine="true"
-                        android:textColor="#ff000000"
-                        android:textColorHint="#ff607d8b"
                         android:textSize="12sp" />
 
                     <LinearLayout
@@ -289,10 +246,10 @@
                         android:padding="4dp">
 
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
                             android:scaleType="fitXY"
-                            android:src="@drawable/plus_96" />
+                            android:src="@drawable/ic_add_24" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

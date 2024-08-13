@@ -2209,8 +2209,6 @@ Please try again later"</string>
     <string name="sort_by_id">Sort by ID</string>
     <string name="ascending_a_z">Ascending(A-Z)</string>
     <string name="descending_z_a">Descending(Z-A)</string>
-    <string name="version_code">Version code</string>
-    <string name="version_name">Version name</string>
     <string name="enter_activity_name">Enter activity name</string>
     <string name="manage_screen_warning">Warning: this is a useful information for the user</string>
     <string name="common_word_type">Type</string>
@@ -2595,6 +2593,50 @@ Please try again later"</string>
     <string name="keystore_not_found">Keystore not found</string>
     <string name="block_name_already_in_use">Block name already in use</string>
     <string name="are_you_sure_you_want_to_delete_this_file_permanently">Are you sure you want to delete this file permanently? This cannot be undone.</string>
+    <string name="finished_exporting_aab">Finished exporting AAB</string>
+    <string name="include_used_local_libraries">Include used Local libraries</string>
+    <string name="include_used_custom_blocks">Include used Custom Blocks</string>
+    <string name="select_backups_to_restore">Select backups to restore (</string>
+    <string name="creating_backup">Creating backup...</string>
+    <string name="restoring">Restoring...</string>
+    <string name="restored_successfully">Restored successfully</string>
+    <string name="restored_successfully_refresh_to_see_the_project">Restored successfully. Refresh to see the project</string>
+
+<!--DesignActivity-->
+    <string name="design_show_compile_log">Show compile log</string>
+    <string name="design_package_installed">Package installed successfully!</string>
+    <string name="design_error">Couldn\'t launch project, either not installed or not with launcher activity.</string>
+    <string name="design_massage">Failed to install package, result code:</string>
+    <string name="design_error2">No root access granted. Continuing using default package install prompt.</string>
+    <string name="design_build_settings">Build Settings</string>
+    <string name="design_clean_temporary_files">Clean temporary files</string>
+    <string name="design_show_last_compile_error">Show last compile error</string>
+    <string name="design_show_source_code">Show source code</string>
+    <string name="design_install_last_built_apk">Install last built APK</string>
+    <string name="design_error3">Done cleaning temporary files!</string>
+    <string name="design_toast">APK doesn\'t exist anymore</string>
+    <string name="design_failed_to_generate_source">Failed to generate source.</string>
+    <string name="design_generating_source">Generating source...</string>
+    <string name="design_apk_build_failed">APK build failed</string>
+    <string name="design_deleting_temporary_files">Deleting temporary files...</string>
+    <string name="design_extracting_built_in_libraries">Extracting built-in libraries...</string>
+    <string name="design_java_is_compiling">Java is compiling...</string>
+    <string name="design_aapt2_is_running">AAPT2 is running...</string>
+    <string name="design_merging_dex_files">Merging DEX files...</string>
+    <string name="design_building_apk">Building APK...</string>
+    <string name="design_signing_apk">Signing APK...</string>
+    <string name="design_canceling_build">Canceling build...</string>
+    <string name="design_building_apk_file">Building APK file...</string>
+    <string name="design_missing">Missing directory detected</string>
+    <string name="design_directory">A directory important for building is missing.</string>
+    <string name="design_creating">Sketchware Pro can try creating</string>
+    <string name="design_if_you_d_like_to">if you\'d like to.</string>
+    <string name="design_failed">Failed to create directory / directories!</string>
+    <string name="design_detected">Missing file detected</string>
+    <string name="design_file">A file needed for building is missing.</string>
+    <string name="design_put">Put the correct file back to</string>
+    <string name="design_try_building_again">and try building again.</string>
+    <string name="design_failed_to_build_project">Failed to build project</string>
 
 
 </resources>

@@ -66,7 +66,7 @@
     <string name="common_word_project_information_project">项目名</string>
     <string name="common_word_project_information_app_name">App名</string>
     <string name="common_word_project_information_version_code">版本代码</string>
-    <string name="common_word_project_information_version_name">版本名字</string>
+    <string name="common_word_project_information_version_name">版本名称</string>
 
 
     <string name="common_word_activity">活动</string>
@@ -158,7 +158,7 @@
     <string name="myprojects_settings_confirm_reset_icon">你确定要重置图标吗？</string>
     <string name="myprojects_settings_version_control_title">版本控制</string>
     <string name="myprojects_settings_version_control_title_code">代码</string>
-    <string name="myprojects_settings_version_control_title_name">名字</string>
+    <string name="myprojects_settings_version_control_title_name">名称</string>
 
     <string name="myprojects_sign_apk_incorrect_password">密码错误</string>
     <string name="myprojects_sign_apk_hint_enter_new_password">输入新密码</string>
@@ -1893,7 +1893,7 @@
 
     <string name="block_firebasestorage_upload_file_head"></string>
     <string name="block_firebasestorage_upload_file_body_1">上传文件路径</string>
-    <string name="block_firebasestorage_upload_file_body_2">名字为</string>
+    <string name="block_firebasestorage_upload_file_body_2">名称为</string>
     <string name="block_firebasestorage_upload_file_tail"></string>
 
     <string name="block_firebasestorage_download_file_head"></string>
@@ -2388,7 +2388,7 @@
 
     <string name="share_view_select_favorite_view_message_favorite_view">请选择您要分享的视图</string>
 
-    <string name="share_view_information_title_view_name">视图名字</string>
+    <string name="share_view_information_title_view_name">视图名称</string>
 
     <string name="share_block_select_favorite_block_step_name">选择块</string>
     <string name="share_block_information_step_name">方块信息</string>
@@ -2406,7 +2406,7 @@
 
     <string name="share_block_select_favorite_block_message_favorite_block">请选择您要分享的区块</string>
 
-    <string name="share_block_information_title_block_name">块名字</string>
+    <string name="share_block_information_title_block_name">块名称</string>
 
     <string name="shared_views_detail_title_view_detail">查看详情</string>
     <string name="shared_views_detail_see_more_views">查看更多关于%s的观点</string>
@@ -2515,7 +2515,7 @@
 
     <string name="share_block_message_uploading_more_block_data">上传组合块数据</string>
 
-    <string name="share_more_block_information_title_more_block_name">组合块名字</string>
+    <string name="share_more_block_information_title_more_block_name">组合块名称</string>
 
     <string name="shared_more_block_message_downloading_more_block_data">正在下载组合块数据</string>
     <string name="shared_more_block_preview_title">组合块预览</string>
@@ -2991,8 +2991,6 @@
     <string name="sort_by_id">按序号排序</string>
     <string name="ascending_a_z">升序(A-Z)</string>
     <string name="descending_z_a">降序(Z-A)</string>
-    <string name="version_code">版本代码</string>
-    <string name="version_name">版本名称</string>
     <string name="enter_activity_name">输入活动名称</string>
     <string name="manage_screen_warning">警告:这对用户来说是一个有用的信息</string>
     <string name="common_word_type">类型</string>
@@ -3414,6 +3412,50 @@
     <string name="keystore_not_found">未找到密钥库</string>
     <string name="block_name_already_in_use">块名称已在使用中</string>
     <string name="are_you_sure_you_want_to_delete_this_file_permanently">您确定要永久删除此文件吗?此操作无法撤消.</string>
+    <string name="finished_exporting_aab">已完成AAB的导出</string>
+    <string name="include_used_local_libraries">包括使用过的本地库</string>
+    <string name="include_used_custom_blocks">包括使用的自定义块</string>
+    <string name="select_backups_to_restore">选择要还原的备份 (</string>
+    <string name="creating_backup">创建备份中...</string>
+    <string name="restoring">恢复中...</string>
+    <string name="restored_successfully">已成功恢复</string>
+    <string name="restored_successfully_refresh_to_see_the_project">已成功恢复.刷新以查看项目</string>
+
+    <!--DesignActivity-->
+    <string name="design_show_compile_log">显示编译日志</string>
+    <string name="design_package_installed">包安装成功!</string>
+    <string name="design_error">无法启动项目,未安装或未启动器活动.</string>
+    <string name="design_massage">安装包失败,结果代码: </string>
+    <string name="design_error2">未授予根访问权限.继续使用默认软件包安装提示.</string>
+    <string name="design_build_settings">构建设置</string>
+    <string name="design_clean_temporary_files">清理临时文件</string>
+    <string name="design_show_last_compile_error">显示上次编译错误</string>
+    <string name="design_show_source_code">显示源代码</string>
+    <string name="design_install_last_built_apk">安装上次构建的APK</string>
+    <string name="design_error3">清理临时文件!</string>
+    <string name="design_toast">APK不存在</string>
+    <string name="design_failed_to_generate_source">无法生成源.</string>
+    <string name="design_generating_source">正在生成源...</string>
+    <string name="design_apk_build_failed">APK构建失败</string>
+    <string name="design_deleting_temporary_files">正在删除临时文件...</string>
+    <string name="design_extracting_built_in_libraries">正在提取内置库...</string>
+    <string name="design_java_is_compiling">Java正在编译...</string>
+    <string name="design_aapt2_is_running">AAPT2正在运行...</string>
+    <string name="design_merging_dex_files">正在合并DEX文件...</string>
+    <string name="design_building_apk">正在构建APK...</string>
+    <string name="design_signing_apk">正在签名APK...</string>
+    <string name="design_canceling_build">正在取消构建...</string>
+    <string name="design_building_apk_file">正在构建APK文件...</string>
+    <string name="design_missing">检测到缺少目录</string>
+    <string name="design_directory">缺少对构建很重要的目录.</string>
+    <string name="design_creating">Sketchware Pro可以尝试创建</string>
+    <string name="design_if_you_d_like_to">如果您愿意.</string>
+    <string name="design_failed">无法创建目录!</string>
+    <string name="design_detected">检测到丢失的文件</string>
+    <string name="design_file">缺少构建所需的文件.</string>
+    <string name="design_put">将正确的文件放回</string>
+    <string name="design_try_building_again">并再次尝试构建.</string>
+    <string name="design_failed_to_build_project">无法生成项目</string>
 
 </resources>
     <!--by：MOEYUUKO  https://www.moeyuuko.top github: https://github.com/MOEYUUKO/Sketchware_zh-cn  个人翻译 不与任何组织相关 请遵循Apache License -->

@@ -11,9 +11,11 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.besome.sketch.ProjectsFragment;
-import com.developer.filepicker.model.DialogConfigs;
-import com.developer.filepicker.model.DialogProperties;
-import com.developer.filepicker.view.FilePickerDialog;
+
+import com.github.angads25.filepicker.model.DialogConfigs;
+import com.github.angads25.filepicker.model.DialogProperties;
+import com.github.angads25.filepicker.view.FilePickerDialog;
+
 import com.sketchware.remod.R;
 
 import java.io.File;
@@ -25,6 +27,8 @@ import a.a.a.lC;
 import mod.SketchwareUtil;
 import mod.agus.jcoderz.lib.FileUtil;
 import mod.hey.studios.util.Helper;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class BackupRestoreManager {
 
@@ -61,7 +65,7 @@ public class BackupRestoreManager {
 
         aB dialog = new aB(act);
         dialog.a(R.drawable.ic_backup);
-        dialog.b(act.getString(R.string.backup_options));
+        dialog.b("Backup Options");
 
         LinearLayout checkboxContainer = new LinearLayout(act);
         checkboxContainer.setOrientation(LinearLayout.VERTICAL);
@@ -93,7 +97,7 @@ public class BackupRestoreManager {
 
         CheckBox includeLocalLibraries = new CheckBox(act);
         includeLocalLibraries.setTag(localLibrariesTag);
-        includeLocalLibraries.setText(R.string.include_used_local_libraries);
+        includeLocalLibraries.setText("Include used Local libraries");
         includeLocalLibraries.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -102,7 +106,7 @@ public class BackupRestoreManager {
 
         CheckBox includeUsedCustomBlocks = new CheckBox(act);
         includeUsedCustomBlocks.setTag(customBlocksTag);
-        includeUsedCustomBlocks.setText(R.string.include_used_custom_blocks);
+        includeUsedCustomBlocks.setText("Include used Custom Blocks");
         includeUsedCustomBlocks.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -110,7 +114,7 @@ public class BackupRestoreManager {
         checkboxContainer.addView(includeUsedCustomBlocks);
 
         dialog.a(checkboxContainer);
-        dialog.b(act.getString(R.string.common_word_back_up), v -> {
+        dialog.b("Back up", v -> {
             dialog.dismiss();
             doBackup(sc_id, project_name);
         });
@@ -143,16 +147,15 @@ public class BackupRestoreManager {
                 if (BackupFactory.zipContainsFile(backupFilePath, "local_libs")) {
                     boolean restoringMultipleBackups = files.length > 1;
 
-                    new AlertDialog.Builder(act)
-                            .setTitle(R.string.common_word_warning)
-                            .setMessage(getRestoreIntegratedLocalLibrariesMessage(restoringMultipleBackups, i, files.length,
-                                    FileUtil.getFileNameNoExtension(backupFilePath)))
-                            .setPositiveButton(R.string.common_word_copy, (dialog, which) ->
-                                    doRestore(backupFilePath, true))
-                            .setNegativeButton(R.string.common_word_don_t_copy, (dialog, which) ->
-                                    doRestore(backupFilePath, false))
-                            .setNeutralButton(R.string.common_word_cancel, null)
-                            .show();
+                    new MaterialAlertDialogBuilder(act)
+                         .setTitle("Warning")
+                         .setMessage(getRestoreIntegratedLocalLibrariesMessage(restoringMultipleBackups, i, files.length,
+                               FileUtil.getFileNameNoExtension(backupFilePath)))
+                         .setPositiveButton("Copy", (dialog, which) -> doRestore(backupFilePath, true))
+                         .setNegativeButton("Don't copy", (dialog, which) -> doRestore(backupFilePath, false))
+                         .setNeutralButton(R.string.common_word_cancel, null)
+                         .show();
+
                 } else {
                     doRestore(backupFilePath, false);
                 }
@@ -185,7 +188,7 @@ public class BackupRestoreManager {
         @Override
         protected void onPreExecute() {
             dlg = new ProgressDialog(activityWeakReference.get());
-            dlg.setMessage(Helper.getResString(R.string.creating_backup));
+            dlg.setMessage("Creating backup...");
             dlg.setCancelable(false);
             dlg.show();
         }
@@ -233,7 +236,7 @@ public class BackupRestoreManager {
         @Override
         protected void onPreExecute() {
             dlg = new ProgressDialog(activityWeakReference.get());
-            dlg.setMessage(Helper.getResString(R.string.restoring));
+            dlg.setMessage("Restoring...");
             dlg.setCancelable(false);
             dlg.show();
         }
@@ -261,9 +264,9 @@ public class BackupRestoreManager {
                 SketchwareUtil.toastError("Couldn't restore: " + bm.error, Toast.LENGTH_LONG);
             } else if (projectsFragment != null) {
                 projectsFragment.refreshProjectsList();
-                SketchwareUtil.toast(Helper.getResString(R.string.restored_successfully));
+                SketchwareUtil.toast("Restored successfully");
             } else {
-                SketchwareUtil.toast(Helper.getResString(R.string.restored_successfully_refresh_to_see_the_project), Toast.LENGTH_LONG);
+                SketchwareUtil.toast("Restored successfully. Refresh to see the project", Toast.LENGTH_LONG);
             }
         }
     }

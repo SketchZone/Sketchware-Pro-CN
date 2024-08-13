@@ -7,10 +7,16 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
 import android.widget.TextView;
 
-import com.google.android.material.materialswitch.MaterialSwitch;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.sketchware.remod.R;
+
+import com.google.android.material.materialswitch.MaterialSwitch;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,7 +24,7 @@ import java.util.HashMap;
 import mod.agus.jcoderz.editor.manage.library.locallibrary.ManageLocalLibrary;
 import mod.hey.studios.util.Helper;
 
-public class ManageProguardActivity extends Activity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
+public class ManageProguardActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
     private ProguardHandler pg;
     private MaterialSwitch sw_pg_enabled;
@@ -56,8 +62,8 @@ public class ManageProguardActivity extends Activity implements View.OnClickList
             }
         }
 
-        AlertDialog.Builder bld = new AlertDialog.Builder(this);
-        bld.setTitle(R.string.select_local_libraries);
+        MaterialAlertDialogBuilder bld = new MaterialAlertDialogBuilder(this);
+        bld.setTitle("Select Local libraries");
         bld.setMultiChoiceItems(libraries, enabledLibraries, (dialog, which, isChecked) -> enabledLibraries[which] = isChecked);
         bld.setPositiveButton(R.string.common_word_save, (dialog, which) -> {
 
@@ -68,10 +74,8 @@ public class ManageProguardActivity extends Activity implements View.OnClickList
                     finalList.add(libraries[i]);
                 }
             }
-
+            
             pg.setProguardFMLibs(finalList);
-
-            dialog.dismiss();
         });
         bld.setNegativeButton(R.string.common_word_cancel, null);
         bld.create().show();
@@ -124,10 +128,11 @@ public class ManageProguardActivity extends Activity implements View.OnClickList
     }
 
     private void _initToolbar() {
-        ((TextView) findViewById(R.id.tx_toolbar_title)).setText(R.string.code_shrinking_manager);
-
-        ImageView back = findViewById(R.id.ig_toolbar_back);
-        back.setOnClickListener(this);
-        Helper.applyRippleToToolbarView(back);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Code Shrinking Manager");
+        toolbar.setNavigationOnClickListener(view -> onBackPressed());
     }
 }

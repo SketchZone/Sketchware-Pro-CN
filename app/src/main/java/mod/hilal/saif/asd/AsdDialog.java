@@ -49,7 +49,7 @@ public class AsdDialog extends Dialog implements DialogInterface.OnDismissListen
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.code_editor_hs);
+        setContentView(R.layout.code_editor_hs_asd);
 
         codeEditor = findViewById(R.id.editor);
         codeEditor.setTypefaceText(Typeface.MONOSPACE);
@@ -67,10 +67,9 @@ public class AsdDialog extends Dialog implements DialogInterface.OnDismissListen
             PopupMenu popupMenu = new PopupMenu(act, v);
             populateMenu(popupMenu.getMenu());
             popupMenu.setOnMenuItemClickListener(item -> {
-                switch (item.getItemId()) {
-                    case 5:
-                        item.setChecked(!item.isChecked());
-                        pref.edit().putBoolean("dlg_pp", item.isChecked()).apply();
+                String charSequence = item.getTitle().toString();
+                switch (charSequence) {
+                    case "Pretty print":
                         StringBuilder sb = new StringBuilder();
                         String[] split = codeEditor.getText().toString().split("\n");
                         for (String s : split) {
@@ -84,23 +83,23 @@ public class AsdDialog extends Dialog implements DialogInterface.OnDismissListen
                             code = Lx.j(code, true);
                         } catch (Exception e) {
                             failed = true;
-                            SketchwareUtil.toastError(act.getString(R.string.asd_dialog_error));
+                            SketchwareUtil.toastError("Your code contains incorrectly nested parentheses");
                         }
                         if (!failed) {
                             codeEditor.setText(code);
                         }
                         break;
 
-                    case 6:
-                        SketchwareUtil.toast(act.getString(R.string.asd_dialog_toast));
+                    case "Switch language":
+                        SketchwareUtil.toast("Currently not supported, sorry!");
                         break;
 
-                    case 10:
+                    case "Find & Replace":
                         codeEditor.getSearcher().stopSearch();
                         codeEditor.beginSearchMode();
                         break;
 
-                    case 7:
+                    case "Switch theme":
                         SrcCodeEditor.showSwitchThemeDialog(act, codeEditor, (dialog, which) -> {
                             SrcCodeEditor.selectTheme(codeEditor, which);
                             AsdDialog.pref.edit().putInt("dlg_theme", which).apply();
@@ -121,25 +120,25 @@ public class AsdDialog extends Dialog implements DialogInterface.OnDismissListen
                         });
                         break;
 
-                    case 4:
+                    case "Word wrap":
                         item.setChecked(!item.isChecked());
                         codeEditor.setWordwrap(item.isChecked());
                         pref.edit().putBoolean("dlg_ww", item.isChecked()).apply();
                         break;
 
-                    case 9:
+                    case "Auto complete symbol pair":
                         item.setChecked(!item.isChecked());
                         codeEditor.getProps().symbolPairAutoCompletion = item.isChecked();
                         pref.edit().putBoolean("dlg_acsp", item.isChecked()).apply();
                         break;
 
-                    case 8:
+                    case "Auto complete":
                         item.setChecked(!item.isChecked());
                         codeEditor.getComponent(EditorAutoCompletion.class).setEnabled(item.isChecked());
                         pref.edit().putBoolean("dlg_ac", item.isChecked()).apply();
                         break;
 
-                    case 0:
+                    case "Paste":
                         codeEditor.pasteText();
                         break;
 
@@ -175,22 +174,13 @@ public class AsdDialog extends Dialog implements DialogInterface.OnDismissListen
     }
 
     private void populateMenu(Menu menu) {
-        menu.add(0, 0, 0, R.string.paste);
-        menu.add(0, 4, 0, R.string.word_wrap)
-                .setCheckable(true)
-                .setChecked(pref.getBoolean("dlg_ww", false));
-        menu.add(0, 5, 0, R.string.pretty_print)
-                .setCheckable(true)
-                .setChecked(pref.getBoolean("dlg_pp", false));
-        menu.add(0, 6, 0, R.string.switch_language);
-        menu.add(0, 7, 0, R.string.switch_theme);
-        menu.add(0, 8, 0, R.string.auto_complete)
-                .setCheckable(true)
-                .setChecked(pref.getBoolean("dlg_ac", true));
-        menu.add(0, 9, 0, R.string.auto_complete_symbol_pair)
-                .setCheckable(true)
-                .setChecked(pref.getBoolean("dlg_acsp", true));
-        menu.add(Menu.NONE,10, Menu.NONE, R.string.find_replace);
+        menu.add(0, 0, 0, "Paste");
+        menu.add(0, 4, 0, "Word wrap").setCheckable(true).setChecked(pref.getBoolean("dlg_ww", false));
+        menu.add(0, 5, 0, "Pretty print");
+        menu.add(0, 6, 0, "Switch language");
+        menu.add(0, 7, 0, "Switch theme");
+        menu.add(0, 8, 0, "Auto complete").setCheckable(true).setChecked(pref.getBoolean("dlg_ac", true));
+        menu.add(0, 9, 0, "Auto complete symbol pair").setCheckable(true).setChecked(pref.getBoolean("dlg_acsp", true));
     }
 
     private boolean isThemeDark(int theme) {

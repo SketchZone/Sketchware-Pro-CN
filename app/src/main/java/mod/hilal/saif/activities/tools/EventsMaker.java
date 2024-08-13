@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
@@ -22,8 +23,11 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.developer.filepicker.model.DialogProperties;
-import com.developer.filepicker.view.FilePickerDialog;
+import androidx.cardview.widget.CardView;
+
+import com.github.angads25.filepicker.model.DialogProperties;
+import com.github.angads25.filepicker.view.FilePickerDialog;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.sketchware.remod.R;
 import com.sketchware.remod.databinding.AddCustomAttributeBinding;
@@ -74,14 +78,42 @@ public class EventsMaker extends Activity {
     }
 
     private void setupViews() {
-        binding.eventsSub.setText(getNumOfEvents(""));
-        binding.activityEvents.setOnClickListener(v -> {
+        FloatingActionButton fab = findViewById(R.id.add_attr_fab);
+        ViewGroup base = (ViewGroup) binding.addAttrListview.getParent();
+        LinearLayout newLayout = newLayout(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                0);
+        newLayout.setBackgroundColor(Color.parseColor("#00000000"));
+        newLayout.setPadding(
+                (int) SketchwareUtil.getDip(8),
+                (int) SketchwareUtil.getDip(8),
+                (int) SketchwareUtil.getDip(8),
+                (int) SketchwareUtil.getDip(8)
+        );
+        newLayout.setFocusable(false);
+        newLayout.setGravity(16);
+        newLayout.addView(newText("Listeners:", 16.0f, false, 0xff888888,
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0));
+        base.addView(newLayout, 1);
+        CardView newCard = newCard(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                0);
+        LinearLayout newLayout2 = newLayout(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                0);
+        newCard.addView(newLayout2);
+        makeup(newLayout2, R.drawable.widget_source, "Activity events", getNumOfEvents(""));
+        base.addView(newCard, 1);
+        newLayout2.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getApplicationContext(), EventsMakerDetails.class);
             intent.putExtra("lis_name", "");
             startActivity(intent);
         });
-       binding.addAttrFab.setOnClickListener(v -> showAddDial());
+        fab.setOnClickListener(v -> showAddDial());
         refreshList();
     }
 
@@ -191,7 +223,7 @@ public class EventsMaker extends Activity {
                 create.dismiss();
                 return;
             }
-            SketchwareUtil.toastError(getString(R.string.invalid_name));
+            SketchwareUtil.toastError("Invalid name!");
         });
         listenerBinding.cancel.setOnClickListener(Helper.getDialogDismissListener(create));
         create.show();
@@ -241,19 +273,19 @@ public class EventsMaker extends Activity {
         dialogProperties.offset = file;
         dialogProperties.extensions = null;
         FilePickerDialog filePickerDialog = new FilePickerDialog(this, dialogProperties);
-        filePickerDialog.setTitle(getString(R.string.select_a_txt_file));
+        filePickerDialog.setTitle("Select a .txt file");
         filePickerDialog.setDialogSelectionListener(selections -> {
             if (FileUtil.readFile(selections[0]).equals("")) {
-                SketchwareUtil.toastError(getString(R.string.the_selected_file_is_empty));
+                SketchwareUtil.toastError("The selected file is empty!");
             } else if (FileUtil.readFile(selections[0]).equals("[]")) {
-                SketchwareUtil.toastError(getString(R.string.the_selected_file_is_empty));
+                SketchwareUtil.toastError("The selected file is empty!");
             } else {
                 try {
                     String[] split = FileUtil.readFile(selections[0]).split("\n");
                     importEvents(new Gson().fromJson(split[0], Helper.TYPE_MAP_LIST),
                             new Gson().fromJson(split[1], Helper.TYPE_MAP_LIST));
                 } catch (Exception e) {
-                    SketchwareUtil.toastError(getString(R.string.invalid_file));
+                    SketchwareUtil.toastError("Invalid file");
                 }
             }
         });
@@ -271,7 +303,7 @@ public class EventsMaker extends Activity {
         listMap.addAll(data);
         FileUtil.writeFile(LISTENERS_FILE.getAbsolutePath(), new Gson().toJson(listMap));
         refreshList();
-        SketchwareUtil.toast(getString(R.string.successfully_imported_events));
+        SketchwareUtil.toast("Successfully imported events");
     }
 
     private void exportAll() {
@@ -318,11 +350,78 @@ public class EventsMaker extends Activity {
         } else {
             eventAmount = 0;
         }
-        return getString(R.string.events) + eventAmount;
+        return "Events: " + eventAmount;
+    }
+
+    private void makeup(View view, int resIcon, String title, String description) {
+        View inflate = getLayoutInflater().inflate(R.layout.manage_library_base_item, null);
+        ImageView icon = inflate.findViewById(R.id.lib_icon);
+        inflate.findViewById(R.id.tv_enable).setVisibility(View.GONE);
+        icon.setImageResource(resIcon);
+        ((LinearLayout) icon.getParent()).setGravity(Gravity.CENTER);
+        ((TextView) inflate.findViewById(R.id.lib_title)).setText(title);
+        ((TextView) inflate.findViewById(R.id.lib_desc)).setText(description);
+        ((ViewGroup) view).addView(inflate);
+    }
+
+    private CardView newCard(int width, int height, float weight) {
+        CardView cardView = new CardView(this);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(width, height, weight);
+        layoutParams.setMargins(
+                (int) SketchwareUtil.getDip(4),
+                (int) SketchwareUtil.getDip(6),
+                (int) SketchwareUtil.getDip(4),
+                (int) SketchwareUtil.getDip(2)
+        );
+        cardView.setLayoutParams(layoutParams);
+        cardView.setPadding(
+                (int) SketchwareUtil.getDip(2),
+                (int) SketchwareUtil.getDip(2),
+                (int) SketchwareUtil.getDip(2),
+                (int) SketchwareUtil.getDip(2)
+        );
+        cardView.setCardBackgroundColor(Color.WHITE);
+        cardView.setRadius(SketchwareUtil.getDip(4));
+        return cardView;
+    }
+
+    private LinearLayout newLayout(int width, int height, float weight) {
+        LinearLayout linearLayout = new LinearLayout(this);
+        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(width, height, weight));
+        linearLayout.setPadding(
+                (int) SketchwareUtil.getDip(4),
+                (int) SketchwareUtil.getDip(4),
+                (int) SketchwareUtil.getDip(4),
+                (int) SketchwareUtil.getDip(4)
+        );
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        gradientDrawable.setColor(Color.WHITE);
+        linearLayout.setBackground(new RippleDrawable(new ColorStateList(new int[][]{new int[0]}, new int[]{Color.parseColor("#64B5F6")}), gradientDrawable, null));
+        linearLayout.setClickable(true);
+        linearLayout.setFocusable(true);
+        return linearLayout;
+    }
+
+    private TextView newText(String str, float size, boolean is, int color, int width, int length, float weight) {
+        TextView textView = new TextView(this);
+        textView.setLayoutParams(new LinearLayout.LayoutParams(width, length, weight));
+        textView.setPadding(
+                (int) SketchwareUtil.getDip(4),
+                (int) SketchwareUtil.getDip(4),
+                (int) SketchwareUtil.getDip(4),
+                (int) SketchwareUtil.getDip(4)
+        );
+        textView.setTextColor(color);
+        textView.setText(str);
+        textView.setTextSize(size);
+        if (is) {
+            textView.setTypeface(Typeface.DEFAULT_BOLD);
+        }
+        return textView;
     }
 
     private void setToolbar() {
-        binding.txToolbarTitle.setText(R.string.event_manager);
+        binding.txToolbarTitle.setText("Event manager");
         binding.igToolbarBack.setOnClickListener(Helper.getBackPressedClickListener(this));
         Helper.applyRippleToToolbarView(binding.igToolbarBack);
         binding.igToolbarLoadFile.setVisibility(View.VISIBLE);
@@ -330,15 +429,15 @@ public class EventsMaker extends Activity {
         binding.igToolbarLoadFile.setOnClickListener(v -> {
             PopupMenu popupMenu = new PopupMenu(this, binding.igToolbarLoadFile);
             final Menu menu = popupMenu.getMenu();
-            menu.add(Menu.NONE, 3, Menu.NONE, R.string.import_events);
-            menu.add(Menu.NONE, 4, Menu.NONE, R.string.export_events);
+            menu.add("Import events");
+            menu.add("Export events");
             popupMenu.setOnMenuItemClickListener(item -> {
-                switch (item.getItemId()) {
-                    case 3:
+                switch (item.getTitle().toString()) {
+                    case "Import events":
                         openFileExplorerImport();
                         break;
 
-                    case 4:
+                    case "Export events":
                         exportAll();
                         SketchwareUtil.toast("Successfully exported events to:\n" +
                                 "/Internal storage/.sketchware/data/system/export/events", Toast.LENGTH_LONG);
@@ -399,7 +498,7 @@ public class EventsMaker extends Activity {
             linearLayout.setOnLongClickListener(v -> {
                 new AlertDialog.Builder(EventsMaker.this)
                         .setTitle(_data.get(position).get("name").toString())
-                        .setItems(new String[]{getString(R.string.common_word_edit), getString(R.string.common_word_export), getString(R.string.common_word_delete)}, (dialog, which) -> {
+                        .setItems(new String[]{"Edit", "Export", "Delete"}, (dialog, which) -> {
                             switch (which) {
                                 case 0:
                                     editItemDialog(position);

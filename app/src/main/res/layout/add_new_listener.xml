@@ -61,7 +61,7 @@
                     android:padding="4.0dip">
 
                     <EditText
-                        android:id="@id/name"
+                        android:id="@+id/name"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:hint="name"
@@ -80,7 +80,7 @@
                     android:padding="4.0dip">
 
                     <EditText
-                        android:id="@id/customimport"
+                        android:id="@+id/customimport"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:hint="custom import"
@@ -99,7 +99,7 @@
                     android:padding="4.0dip">
 
                     <EditText
-                        android:id="@id/code"
+                        android:id="@+id/code"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:hint="Code (### => variable name)"
@@ -110,7 +110,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <CheckBox
-                    android:id="@id/separate"
+                    android:id="@+id/separate"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:gravity="center"
@@ -134,7 +134,7 @@
                         android:layout_marginEnd="8dp">
 
                         <TextView
-                            android:id="@id/cancel"
+                            android:id="@+id/cancel"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/textview_style"
@@ -156,7 +156,7 @@
                         android:layout_marginEnd="8dp">
 
                         <TextView
-                            android:id="@id/save"
+                            android:id="@+id/save"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/textview_style"

@@ -9,18 +9,27 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/toolbar_improved" />
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"   
+                app:layout_collapseMode="parallax"
+                app:title="@string/developer_tools_component_manager"/>
+        </com.google.android.material.appbar.AppBarLayout>
 
         <TextView
             android:id="@+id/tv_guide"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="#F6F6F6"
             android:gravity="center"
             android:padding="8dp"
             android:text="@string/developer_tools_component_description_guide_add_component"
-            android:textColor="#9E9E9E"
             android:textSize="14sp"
             android:visibility="gone" />
 
@@ -29,7 +38,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="#F5F5F5"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/manage_custom_component_list_item" />
     </LinearLayout>
@@ -38,10 +46,7 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
+        android:layout_gravity="right|bottom"
         android:layout_margin="16dp"
-        app:backgroundTint="#FE5955"
-        app:srcCompat="@drawable/ic_add_white_24dp"
-        app:tint="@null"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/ic_add_white_24dp" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

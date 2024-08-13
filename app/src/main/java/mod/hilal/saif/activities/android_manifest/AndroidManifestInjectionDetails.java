@@ -9,7 +9,6 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
@@ -32,6 +31,7 @@ import java.util.HashMap;
 import mod.agus.jcoderz.lib.FileUtil;
 import mod.hey.studios.util.Helper;
 import mod.hilal.saif.android_manifest.ActComponentsDialog;
+import mod.remaker.view.CustomAttributeView;
 
 public class AndroidManifestInjectionDetails extends Activity {
 
@@ -83,8 +83,6 @@ public class AndroidManifestInjectionDetails extends Activity {
         FloatingActionButton fab = findViewById(R.id.add_attr_fab);
         fab.setOnClickListener(v -> showAddDial());
         listView = findViewById(R.id.add_attr_listview);
-        findViewById(R.id.activity_events).setVisibility(View.GONE);
-        findViewById(R.id.listeners).setVisibility(View.GONE);
         refreshList();
     }
 
@@ -110,12 +108,10 @@ public class AndroidManifestInjectionDetails extends Activity {
         gradientDrawable.setCornerRadii(new float[]{(float) i2, (float) i2, (float) i2 / 2, (float) i2 / 2, (float) i2, (float) i2, (float) i2 / 2, (float) i2 / 2});
         gradientDrawable.setColor(Color.parseColor("#ffffff"));
         RippleDrawable rippleDrawable = new RippleDrawable(new ColorStateList(new int[][]{new int[0]}, new int[]{Color.parseColor("#20008DCD")}), gradientDrawable, null);
-        if (Build.VERSION.SDK_INT >= 21) {
-            view.setElevation((float) i3);
-            view.setBackground(rippleDrawable);
-            view.setClickable(true);
-            view.setFocusable(true);
-        }
+        view.setElevation((float) i3);
+        view.setBackground(rippleDrawable);
+        view.setClickable(true);
+        view.setFocusable(true);
     }
 
     private void showDial(int pos) {
@@ -134,7 +130,7 @@ public class AndroidManifestInjectionDetails extends Activity {
         editText2.setVisibility(View.GONE);
         final EditText editText = inflate.findViewById(R.id.dialog_input_value);
         final TextView textView = (TextView) ((ViewGroup) editText2.getParent()).getChildAt(0);
-        textView.setText(R.string.edit_value);
+        textView.setText("Edit Value");
         editText.setText((String) listMap.get(pos).get("value"));
         editText.setHint("android:attr=\"value\"");
         textsave.setOnClickListener(view -> {
@@ -170,13 +166,13 @@ public class AndroidManifestInjectionDetails extends Activity {
         }
         final EditText editText = inflate.findViewById(R.id.dialog_input_value);
         if (type.equals("permission")) {
-            editText3.setHint(R.string.permission);
+            editText3.setHint("permission");
         }
         final TextView textView = (TextView) ((ViewGroup) editText2.getParent()).getChildAt(0);
         if (type.equals("permission")) {
-            textView.setText(R.string.add_new_permission);
+            textView.setText("Add new Permission");
         } else {
-            textView.setText(R.string.add_new_attribute);
+            textView.setText("Add new Attribute");
         }
 
         textsave.setOnClickListener(_view -> {
@@ -222,29 +218,17 @@ public class AndroidManifestInjectionDetails extends Activity {
     }
 
     private void setToolbar() {
-        String str = "";
-        switch (type) {
-            case "all":
-                str = getString(R.string.attributes_for_all_activities);
-                break;
-
-            case "application":
-                str = getString(R.string.application_attributes);
-                break;
-
-            case "permission":
-                str = getString(R.string.application_permissions);
-                break;
-
-            default:
-                str = activityName;
-                break;
-        }
+        String str = switch (type) {
+            case "all" -> "Attributes for all activities";
+            case "application" -> "Application Attributes";
+            case "permission" -> "Application Permissions";
+            default -> activityName;
+        };
         ((TextView) findViewById(R.id.tx_toolbar_title)).setText(str);
         ViewGroup par = (ViewGroup) findViewById(R.id.tx_toolbar_title).getParent();
         ImageView _img = findViewById(R.id.ig_toolbar_back);
         _img.setOnClickListener(Helper.getBackPressedClickListener(this));
-        if (!str.equals(getString(R.string.attributes_for_all_activities)) && !str.equals(getString(R.string.application_attributes)) && !str.equals(getString(R.string.application_permissions))) {
+        if (!str.equals("Attributes for all activities") && !str.equals("Application Attributes") && !str.equals("Application Permissions")) {
             // Feature description: allows to inject anything into the {@code activity} tag of the Activity
             // (yes, Command Blocks can do that too, but removing features is bad.)
             TextView actComponent = newText("Components ASD", 15, Color.parseColor("#ffffff"), -2, -2, 0);
@@ -282,34 +266,24 @@ public class AndroidManifestInjectionDetails extends Activity {
 
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = getLayoutInflater().inflate(R.layout.custom_view_attribute, parent, false);
-            }
-
-            LinearLayout root = convertView.findViewById(R.id.cus_attr_layout);
-            TextView attribute = convertView.findViewById(R.id.cus_attr_text);
-            ImageView options = convertView.findViewById(R.id.cus_attr_btn);
-            options.setVisibility(View.GONE);
-            a(root, (int) getDip(4), (int) getDip(2));
+            CustomAttributeView attributeView = new CustomAttributeView(parent.getContext());
 
             try {
                 SpannableString spannableString = new SpannableString((String) _data.get(position).get("value"));
                 spannableString.setSpan(new ForegroundColorSpan(0xff7a2e8c), 0, ((String) _data.get(position).get("value")).indexOf(":"), 33);
                 spannableString.setSpan(new ForegroundColorSpan(0xff212121), ((String) _data.get(position).get("value")).indexOf(":"), ((String) _data.get(position).get("value")).indexOf("=") + 1, 33);
                 spannableString.setSpan(new ForegroundColorSpan(0xff45a245), ((String) _data.get(position).get("value")).indexOf("\""), ((String) _data.get(position).get("value")).length(), 33);
-                attribute.setText(spannableString);
+                attributeView.text.setText(spannableString);
             } catch (Exception e) {
-                attribute.setText((String) _data.get(position).get("value"));
+                attributeView.text.setText((String) _data.get(position).get("value"));
             }
-            attribute.setPadding((int) getDip(12), (int) getDip(12), (int) getDip(12), (int) getDip(12));
-            attribute.setTextSize(16);
-            root.setVisibility(View.VISIBLE);
 
-            root.setOnClickListener(v -> showDial(position));
-            root.setOnLongClickListener(v -> {
+            attributeView.icon.setVisibility(View.GONE);
+            attributeView.setOnClickListener(v -> showDial(position));
+            attributeView.setOnLongClickListener(v -> {
                 new AlertDialog.Builder(AndroidManifestInjectionDetails.this)
-                        .setTitle(R.string.delete_this_attribute)
-                        .setMessage(R.string.this_action_cannot_be_undone)
+                        .setTitle("Delete this attribute?")
+                        .setMessage("This action cannot be undone.")
                         .setPositiveButton(R.string.common_word_delete, (dialog, which) -> {
                             listMap.remove(position);
                             applyChange();
@@ -320,7 +294,7 @@ public class AndroidManifestInjectionDetails extends Activity {
                 return true;
             });
 
-            return convertView;
+            return attributeView;
         }
     }
 }

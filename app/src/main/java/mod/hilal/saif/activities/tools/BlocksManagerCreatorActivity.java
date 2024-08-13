@@ -1,6 +1,5 @@
 package mod.hilal.saif.activities.tools;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -26,6 +25,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
@@ -84,10 +84,15 @@ public class BlocksManagerCreatorActivity extends AppCompatActivity {
         initializeLogic();
     }
 
-    @SuppressLint("ClickableViewAccessibility")
     private void initialize() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(view -> onBackPressed());
+
+
         ScrollView scrollView = findViewById(R.id.scroll_view);
-        pageTitle = findViewById(R.id.tx_toolbar_title);
         TextInputLayout nameLayout = findViewById(R.id.name_lay);
         name = findViewById(R.id.name);
         LinearLayout selectType = findViewById(R.id.select_type);
@@ -105,10 +110,6 @@ public class BlocksManagerCreatorActivity extends AppCompatActivity {
         MaterialButton save = findViewById(R.id.save);
         LinearLayout reset = findViewById(R.id.reset);
 
-        ImageView back = findViewById(R.id.ig_toolbar_back);
-        back.setOnClickListener(Helper.getBackPressedClickListener(this));
-        Helper.applyRippleToToolbarView(back);
-
         name.addTextChangedListener(new BaseTextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -118,7 +119,7 @@ public class BlocksManagerCreatorActivity extends AppCompatActivity {
                     save.setEnabled(true);
                 } else if (!mode.equals("edit")) {
                     nameLayout.setErrorEnabled(true);
-                    nameLayout.setError(getString(R.string.block_name_already_in_use));
+                    nameLayout.setError("Block name already in use");
                     save.setEnabled(false);
                 } else {
                     HashMap<String, Object> savedBlocksListBlock = blocksList.get(blockPosition);
@@ -126,7 +127,7 @@ public class BlocksManagerCreatorActivity extends AppCompatActivity {
 
                     if (!string.equals(blockNameObject)) {
                         nameLayout.setErrorEnabled(true);
-                        nameLayout.setError(getString(R.string.block_name_already_in_use));
+                        nameLayout.setError("Block name already in use");
                         save.setEnabled(false);
                     }
                 }
@@ -163,7 +164,7 @@ public class BlocksManagerCreatorActivity extends AppCompatActivity {
                     "Header (h)"
             );
             AtomicInteger choice = new AtomicInteger();
-            new AlertDialog.Builder(this).setTitle(R.string.blocks_manager_block_type)
+            new AlertDialog.Builder(this).setTitle("Block type")
                     .setSingleChoiceItems(choices.toArray(new String[0]),
                             types.indexOf(type.getText().toString()), (dialog, which) -> choice.set(which))
                     .setPositiveButton(R.string.common_word_save, (dialog, which) -> type.setText(types.get(choice.get())))
@@ -190,7 +191,6 @@ public class BlocksManagerCreatorActivity extends AppCompatActivity {
         });
 
         spec.addTextChangedListener(new BaseTextWatcher() {
-            @SuppressLint("Range")
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 Matcher matcher = Pattern.compile("%[smdb]\\.?[a-zA-Z]*").matcher(s.toString());
@@ -236,7 +236,7 @@ public class BlocksManagerCreatorActivity extends AppCompatActivity {
 
         cancel.setOnClickListener(Helper.getBackPressedClickListener(this));
         save.setOnClickListener(v -> {
-            if (type.getText().toString().equals("")) {
+            if (type.getText().toString().isEmpty()) {
                 type.setText(" ");
             }
             if (mode.equals("add")) {
@@ -351,14 +351,14 @@ public class BlocksManagerCreatorActivity extends AppCompatActivity {
         if (mode.equals("add")) {
             blockPosition = Integer.parseInt(getIntent().getStringExtra("pallet"));
             colour.setText(palletColour);
-            pageTitle.setText(R.string.blocks_manager_add_a_new_block);
+            getSupportActionBar().setTitle("Add a new block");
             return;
         }
         blockPosition = Integer.parseInt(getIntent().getStringExtra("pos"));
         colour.setText(palletColour);
-        pageTitle.setText(R.string.blocks_manager_insert_block);
+        getSupportActionBar().setTitle("Insert block");
         if (mode.equals("edit")) {
-            pageTitle.setText(R.string.blocks_manager_edit_block);
+            getSupportActionBar().setTitle("Edit block");
             fillUpInputs(blockPosition);
         }
     }
@@ -559,7 +559,7 @@ public class BlocksManagerCreatorActivity extends AppCompatActivity {
         }
         tempMap.put("code", code.getText().toString());
         FileUtil.writeFile(path, new Gson().toJson(blocksList));
-        SketchwareUtil.toast(getString(R.string.common_word_save));
+        SketchwareUtil.toast("Saved");
         finish();
     }
 }

@@ -26,12 +26,13 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
@@ -49,13 +50,13 @@ import mod.SketchwareUtil;
 import mod.hey.studios.util.Helper;
 
 public class AboutModActivity extends AppCompatActivity {
-    private static final String ABOUT_TEAM_URL = "https://sketchware-pro.github.io/Sketchware-Pro/aboutus.json";
-
     private ViewPager viewPager;
     private ExtendedFloatingActionButton fab;
     private ArrayList<HashMap<String, Object>> teamList = new ArrayList<>();
     private ArrayList<HashMap<String, Object>> changelogList = new ArrayList<>();
     private TabLayout tablayout;
+    private AppBarLayout appbar;
+    private Toolbar toolbar;
     private LinearLayout root;
     private LinearLayout trash;
     private LinearLayout teamRecyclerContainer;
@@ -81,7 +82,8 @@ public class AboutModActivity extends AppCompatActivity {
         fab = findViewById(R.id.fab);
         LinearLayout loading = findViewById(R.id.loading_view);
         tablayout = findViewById(R.id.tab_layout);
-        ImageView back = findViewById(R.id.img_back);
+        appbar = findViewById(R.id.app_bar);
+        toolbar = findViewById(R.id.toolbar);
         root = findViewById(R.id.root);
         trash = findViewById(R.id.trash);
         teamRecyclerContainer = findViewById(R.id.team_container);
@@ -93,8 +95,11 @@ public class AboutModActivity extends AppCompatActivity {
         requestData = new RequestNetwork(this);
         sharedPref = getSharedPreferences("AboutMod", Activity.MODE_PRIVATE);
 
-        rippleRound(back, "#ffffff", "#1F000000", 90);
-        back.setOnClickListener(Helper.getBackPressedClickListener(this));
+        setSupportActionBar(toolbar);
+        findViewById(R.id.layout_main_logo).setVisibility(View.GONE);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(Helper.getBackPressedClickListener(this));
 
         class OnScrollListener extends RecyclerView.OnScrollListener {
             @Override
@@ -159,7 +164,8 @@ public class AboutModActivity extends AppCompatActivity {
                             "Discord server if this error keeps showing up:\n" + e.getMessage() +
                             "\n\nStack trace: " + Log.getStackTraceString(e));
                 }
-                fab.setVisibility(View.VISIBLE);
+                appbar.setVisibility(View.VISIBLE);
+                fab.show();
             }
 
             @SuppressLint("SetTextI18n")
@@ -176,7 +182,8 @@ public class AboutModActivity extends AppCompatActivity {
                     changelogRecycler.setAdapter(new AboutAdapters.ChangelogRecyclerAdapter(changelogList));
                     loading.setVisibility(View.GONE);
                     if (SketchwareUtil.isConnected()) {
-                        fab.setVisibility(View.VISIBLE);
+                        fab.show();
+                        appbar.setVisibility(View.VISIBLE);
                     }
                 }
             }
@@ -184,15 +191,10 @@ public class AboutModActivity extends AppCompatActivity {
     }
 
     private void initializeLogic() {
-        teamRecycler.setLayoutManager(new LinearLayoutManager(this));
-        changelogRecycler.setLayoutManager(new LinearLayoutManager(this));
-        fab.setVisibility(View.GONE);
-        getWindow().setStatusBarColor(Color.WHITE);
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         initViewPager();
+        fab.hide();
 
-        requestData.startRequestNetwork(RequestNetworkController.GET, ABOUT_TEAM_URL, "", requestDataListener);
-        rippleRound(fab, "#5865F2", "#FFFFFF", 90);
+        requestData.startRequestNetwork(RequestNetworkController.GET, getString(R.string.link_about_team), "", requestDataListener);
 
         String toSelect = getIntent().getStringExtra("select");
         if ("changelog".equals(toSelect)) {
@@ -205,7 +207,7 @@ public class AboutModActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (viewPager.getCurrentItem() == 0) {
-            finish();
+            super.onBackPressed();
         } else {
             viewPager.setCurrentItem(0);
         }
@@ -221,7 +223,6 @@ public class AboutModActivity extends AppCompatActivity {
         viewPager.setCurrentItem(0);
         root.addView(viewPager);
 
-        tablayout.setSelectedTabIndicatorColor(0xff008dcd);
         tablayout.setupWithViewPager(viewPager);
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -312,12 +313,10 @@ public class AboutModActivity extends AppCompatActivity {
                     int eightDp = SketchwareUtil.dpToPx(8);
                     majorChanges.setPadding(eightDp, eightDp, eightDp, eightDp);
 
-                    majorChanges.setTextColor(ContextCompat.getColor(AboutModActivity.this,
-                            androidx.appcompat.R.color.primary_text_default_material_light));
                     majorChanges.setTextSize(14);
                 }
 
-                majorChanges.setText(R.string.about_mod_major_changes);
+                majorChanges.setText("Major changes to Sketchware Pro will appear here.");
                 viewContainer.addView(majorChanges);
             }
             container.addView(v, 0);

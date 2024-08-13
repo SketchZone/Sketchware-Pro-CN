@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -6,13 +5,11 @@
     android:layout_marginTop="16dp"
     android:layout_marginBottom="16dp"
     android:animateLayoutChanges="true"
-    android:background="#ffffffff"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffffff"
         android:orientation="vertical">
 
         <LinearLayout
@@ -20,7 +17,7 @@
             android:layout_height="48dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingStart="8dp">
+            android:paddingLeft="8dp">
 
             <ImageView
                 android:id="@+id/img_back"
@@ -36,17 +33,17 @@
                 android:id="@+id/tv_component_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:textColor="@color/color_primary"
+                android:layout_marginLeft="8dp"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                tools:text="@string/component_name" />
+                tools:text="Component name" />
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/color_secondary" />
+            android:background="?attr/colorSecondary" />
     </LinearLayout>
 
     <RelativeLayout
@@ -102,12 +99,12 @@
                     android:id="@+id/tv_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_marginTop="28dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
                     android:textColor="@color/grey"
                     android:textSize="12sp"
-                    tools:text="@string/this_is_a_simple_description" />
+                    tools:text="This is a simple description" />
             </LinearLayout>
 
             <LinearLayout
@@ -121,19 +118,18 @@
                     android:id="@+id/tv_warning"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginEnd="24dp"
-                    android:gravity="start"
-                    android:textColor="#ffff0000"
+                    android:layout_marginLeft="28dp"
+                    android:layout_marginRight="24dp"
+                    android:gravity="left"
                     android:textSize="12sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ti_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginRight="24dp"
                     android:importantForAutofill="noExcludeDescendants">
 
                     <EditText
@@ -150,9 +146,9 @@
                     android:id="@+id/ti_input_filename"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginRight="24dp"
                     android:importantForAutofill="noExcludeDescendants"
                     android:visibility="gone"
                     tools:visibility="visible">
@@ -171,9 +167,9 @@
                     android:id="@+id/ti_input_firebase_path"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginRight="24dp"
                     android:importantForAutofill="noExcludeDescendants"
                     android:visibility="gone"
                     tools:visibility="visible">
@@ -192,8 +188,8 @@
                     android:id="@+id/tv_desc_firebase_path"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="24dp"
                     android:textSize="12sp"
                     android:textStyle="italic"
                     android:visibility="gone"
@@ -203,9 +199,9 @@
                     android:id="@+id/layout_input_file_picker"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginRight="24dp"
                     android:orientation="horizontal"
                     android:visibility="gone"
                     tools:visibility="visible">
@@ -240,8 +236,8 @@
                     android:id="@+id/tv_desc_file_picker"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="24dp"
                     android:textSize="12sp"
                     android:textStyle="italic"
                     android:visibility="gone"
@@ -252,21 +248,21 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:padding="16dp">
 
             <Button
                 android:id="@+id/docs_button"
+                style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#ffffffff" />
+                android:layout_marginEnd="8dp" />
 
             <Button
                 android:id="@+id/add_button"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffffff" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </RelativeLayout>
 

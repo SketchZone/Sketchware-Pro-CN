@@ -55,7 +55,7 @@ public class AddAppIdStepView extends LinearLayout implements Uu, View.OnClickLi
     @Override
     public void setData(ProjectLibraryBean projectLibraryBean) {
         setAppId(projectLibraryBean.appId);
-        
+
     }
 
     private void initialize(Context context) {

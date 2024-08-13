@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,62 +5,20 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/recycle_bin_card"
+            style="?attr/materialCardViewFilledStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ff008dcd"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingStart="10dp"
-            android:paddingTop="8dp"
-            android:paddingEnd="4dp"
-            android:paddingBottom="8dp">
-
-            <ImageView
-                android:id="@+id/ig_toolbar_back"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:padding="8dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/arrow_back_white_48dp" />
-
-            <TextView
-                android:id="@+id/tx_toolbar_title"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="8dp"
-                android:layout_weight="1"
-                android:gravity="center|start"
-                android:paddingStart="10dp"
-                android:paddingTop="4dp"
-                android:paddingEnd="8dp"
-                android:paddingBottom="6dp"
-                android:text="Title"
-                android:textColor="@color/tool_bar_text_color"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/ig_toolbar_load_file"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:padding="9dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/add_file_48"
-                android:visibility="gone" />
-        </LinearLayout>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_marginHorizontal="14dp"
+            android:layout_marginVertical="8dp"
             android:orientation="vertical"
-            app:cardCornerRadius="3dp"
-            app:cardElevation="3dp">
+            app:cardBackgroundColor="?attr/colorSurfaceContainer">
 
             <LinearLayout
                 android:id="@+id/recycle_bin"
@@ -69,7 +26,8 @@
                 android:layout_height="wrap_content"
                 android:baselineAligned="false"
                 android:gravity="center|start"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="6dp">
 
                 <LinearLayout
                     android:layout_width="48dp"
@@ -98,20 +56,22 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/common_word_recycle_bin"
-                        android:textColor="#ff757575"
+                        android:text="Recycle bin"
+                        android:textAppearance="?attr/textAppearanceBodyLarge"
+                        android:textColor="?attr/colorOnSurface"
                         android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/recycle_sub"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="#ffbdbdbd"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?attr/colorOnSurfaceVariant"
                         android:textSize="12sp"
                         tools:text="Blocks: 23" />
                 </LinearLayout>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:layout_width="wrap_content"
@@ -120,9 +80,10 @@
             android:paddingTop="8dp"
             android:paddingEnd="8dp"
             android:paddingBottom="8dp"
-            android:text="@string/common_word_palettes"
-            android:textColor="#ff9e9e9e"
-            android:textSize="16sp" />
+            android:text="Palettes"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="18sp" />
 
         <ListView
             android:id="@+id/list_pallete"
@@ -139,8 +100,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center|end"
         android:layout_margin="16dp"
-        android:contentDescription="TODO"
-        app:backgroundTint="@color/color_btn_blue_normal"
-        app:srcCompat="@drawable/ic_add_white_24dp"
-        app:tint="@null" />
+        app:srcCompat="@drawable/ic_add_white_24dp" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

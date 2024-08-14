@@ -2638,5 +2638,36 @@ Please try again later"</string>
     <string name="design_try_building_again">and try building again.</string>
     <string name="design_failed_to_build_project">Failed to build project</string>
 
+    <string name="build_setting_lable">Enable debug logcat logs viewable in Logcat Reader. Not enabled in exported AABs/APKs.</string>
+    <string name="build_setting_toast">Note that this option may cause issues if RequestNetwork component is used</string>
+    <string name="build_setting_lable2">Hide warnings in error log</string>
+    <string name="build_setting_view1">Custom android.jar</string>
+    <string name="build_setting_view2">Classpath (separated by :)</string>
+    <string name="java_version">Java version</string>
+    <string name="build_setting_view3">Don\'t include http-legacy-28.dex</string>
+    <string name="invalid_name">Invalid name</string>
+    <string name="select_a_file_type">Select a file type</string>
+    <string name="file_was_created_successfully">File was created successfully</string>
+    <string name="folder_was_created_successfully">Folder was created successfully</string>
+    <string name="invalid_folder_name">Invalid folder name</string>
+    <string name="folder_already_exists">Folder already exists</string>
+    <string name="created_folder_successfully">Created folder successfully</string>
+    <string name="select_a_native_library_so">Select a native library (.so)</string>
+    <string name="couldn_t_import_library">Couldn\'t import library! [</string>
+    <string name="renaming_failed">Renaming failed</string>
+    <string name="nothing_changed">Nothing changed</string>
+    <string name="malformed_hexadecimal_color">Malformed hexadecimal color</string>
+    <string name="invalid_color_of_palette">Invalid color of palette #</string>
+    <string name="invalid_name_of_palette">Invalid name of palette #</string>
+    <string name="invalid_palette_entry_in_block">Invalid palette entry in block #</string>
+    <string name="invalid_name_of_custom_block_palette">Invalid name of Custom Block palette #</string>
+    <string name="invalid_name_entry_of_custom_block">Invalid name entry of Custom Block #</string>
+    <string name="in_blocks_to_import">in Blocks to import</string>
+    <string name="imported_successfully">Imported successfully</string>
+    <string name="invalid_color_in_custom_block_palette">Invalid color in Custom Block palette #</string>
+    <string name="invalid_color_entry_in_block">Invalid color entry in block #</string>
+    <string name="invalid_block_name_entry">(Invalid block name entry)</string>
+    <string name="invalid_block_spec_entry">(Invalid block spec entry)</string>
+
 
 </resources>

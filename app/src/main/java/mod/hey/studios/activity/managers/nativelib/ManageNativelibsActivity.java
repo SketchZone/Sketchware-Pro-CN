@@ -196,7 +196,7 @@ public class ManageNativelibsActivity extends AppCompatActivity implements View.
                 String name = inputText.getText().toString();
 
                 if (name.isEmpty()) {
-                    textInputLayout.setError("Invalid folder name");
+                    textInputLayout.setError(getString(R.string.invalid_folder_name));
                     return;
                 }
                 textInputLayout.setError(null);
@@ -204,14 +204,14 @@ public class ManageNativelibsActivity extends AppCompatActivity implements View.
                 String path = fpu.getPathNativelibs(numProj) + "/" + name;
 
                 if (FileUtil.isExistFile(path)) {
-                    textInputLayout.setError("Folder already exists");
+                    textInputLayout.setError(getString(R.string.folder_already_exists));
                     return;
                 }
                 textInputLayout.setError(null);
 
                 FileUtil.makeDir(path);
                 handleAdapter(nativeLibrariesPath);
-                SketchwareUtil.toast("Created folder successfully");
+                SketchwareUtil.toast(getString(R.string.created_folder_successfully));
 
                 dialog.dismiss();
             });
@@ -239,13 +239,13 @@ public class ManageNativelibsActivity extends AppCompatActivity implements View.
         properties.extensions = new String[]{"so"};
 
         filePicker = new FilePickerDialog(this, properties);
-        filePicker.setTitle("Select a native library (.so)");
+        filePicker.setTitle(getString(R.string.select_a_native_library_so));
         filePicker.setDialogSelectionListener(selections -> {
             for (String path : selections) {
                 try {
                     FileUtil.copyDirectory(new File(path), new File(nativeLibrariesPath + File.separator + Uri.parse(path).getLastPathSegment()));
                 } catch (IOException e) {
-                    SketchwareUtil.toastError("Couldn't import library! [" + e.getMessage() + "]");
+                    SketchwareUtil.toastError(getString(R.string.couldn_t_import_library) + e.getMessage() + "]");
                 }
             }
 
@@ -266,14 +266,14 @@ public class ManageNativelibsActivity extends AppCompatActivity implements View.
                     String newName = inputText.getText().toString();
                     if (!newName.isEmpty()) {
                         if (FileUtil.renameFile(path, path.substring(0, path.lastIndexOf(File.separator)) + File.separator + newName)) {
-                            SketchwareUtil.toast("Renamed successfully");
+                            SketchwareUtil.toast(getString(R.string.renamed_successfully));
                         } else {
-                            SketchwareUtil.toastError("Renaming failed");
+                            SketchwareUtil.toastError(getString(R.string.renaming_failed));
                         }
                         handleAdapter(nativeLibrariesPath);
                         handleFab();
                     } else {
-                        SketchwareUtil.toast("Nothing changed");
+                        SketchwareUtil.toast(getString(R.string.nothing_changed));
                     }
                     dialogInterface.dismiss();
                 })

@@ -468,7 +468,7 @@ public class BlocksManager extends AppCompatActivity {
                 }
                 dialog.dismiss();
             } catch (IllegalArgumentException | StringIndexOutOfBoundsException e) {
-                color.setError("Malformed hexadecimal color");
+                color.setError(getString(R.string.malformed_hexadecimal_color));
                 color.requestFocus();
             }
         });

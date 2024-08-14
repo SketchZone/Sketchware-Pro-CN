@@ -35,19 +35,19 @@ public class BuildSettingsDialog {
         LinearLayout contentView = inflate.findViewById(R.id.project_config_pref_layout);
 
         View[] viewArr = {
-                addInputPref(BuildSettings.SETTING_ANDROID_JAR_PATH, "", "Custom android.jar", EditorInfo.TYPE_CLASS_TEXT, contentView),
-                addInputPref(BuildSettings.SETTING_CLASSPATH, "", "Classpath 'separated by :'", EditorInfo.TYPE_CLASS_TEXT, contentView),
+                addInputPref(BuildSettings.SETTING_ANDROID_JAR_PATH, "", activity.getString(R.string.build_setting_view1), EditorInfo.TYPE_CLASS_TEXT, contentView),
+                addInputPref(BuildSettings.SETTING_CLASSPATH, "", activity.getString(R.string.build_setting_view2), EditorInfo.TYPE_CLASS_TEXT, contentView),
                 addSingleChoicePref(BuildSettings.SETTING_DEXER, new String[]{"Dx", "D8"}, "Dx", "Dexer", contentView),
-                addSingleChoicePref(BuildSettings.SETTING_JAVA_VERSION, BuildSettingsDialogBridge.getAvailableJavaVersions(), "1.7", "Java version", contentView),
-                addTogglePref(BuildSettings.SETTING_NO_WARNINGS, true, "Hide warnings in error log", contentView),
-                addTogglePref(BuildSettings.SETTING_NO_HTTP_LEGACY, false, "Don't include http-legacy-28.dex", contentView),
-                addTogglePref(BuildSettings.SETTING_ENABLE_LOGCAT, true, "Enable debug logcat logs viewable in Logcat Reader. Not enabled in exported AABs/APKs.", contentView)
+                addSingleChoicePref(BuildSettings.SETTING_JAVA_VERSION, BuildSettingsDialogBridge.getAvailableJavaVersions(), "1.7", activity.getString(R.string.java_version), contentView),
+                addTogglePref(BuildSettings.SETTING_NO_WARNINGS, true, activity.getString(R.string.build_setting_lable2), contentView),
+                addTogglePref(BuildSettings.SETTING_NO_HTTP_LEGACY, false, activity.getString(R.string.build_setting_view3), contentView),
+                addTogglePref(BuildSettings.SETTING_ENABLE_LOGCAT, true, activity.getString(R.string.build_setting_lable), contentView)
         };
         var builder = new MaterialAlertDialogBuilder(activity)
-                .setTitle("Build Settings")
+                .setTitle(R.string.build_settings)
                 .setIcon(R.drawable.ic_tune_24)
-                .setPositiveButton("Save", (dialogInterface, i) -> settings.setValues(viewArr))
-                .setNegativeButton("Cancel", null);
+                .setPositiveButton(R.string.common_word_save, (dialogInterface, i) -> settings.setValues(viewArr))
+                .setNegativeButton(R.string.common_word_cancel, null);
         builder.setView(inflate);
         builder.show();
     }

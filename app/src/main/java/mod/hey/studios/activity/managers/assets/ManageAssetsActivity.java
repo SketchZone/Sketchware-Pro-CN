@@ -133,7 +133,7 @@ public class ManageAssetsActivity extends AppCompatActivity {
                 String editable = inputText.getText().toString().trim();
 
                 if (editable.isEmpty()) {
-                    SketchwareUtil.toastError("Invalid name");
+                    SketchwareUtil.toastError(getString(R.string.invalid_name));
                     return;
                 }
 
@@ -143,12 +143,12 @@ public class ManageAssetsActivity extends AppCompatActivity {
                 } else if (checkedChipId == R.id.chip_folder) {
                     FileUtil.makeDir(new File(current_path, editable).getAbsolutePath());
                 } else {
-                    SketchwareUtil.toast("Select a file type");
+                    SketchwareUtil.toast(getString(R.string.select_a_file_type));
                     return;
                 }
 
                 refresh();
-                SketchwareUtil.toast("File was created successfully");
+                SketchwareUtil.toast(getString(R.string.file_was_created_successfully));
                 dialogInterface.dismiss();
             });
         });
